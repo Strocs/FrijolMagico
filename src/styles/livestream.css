@@ -1,0 +1,148 @@
+@import '@styles/main.css';
+
+#stream_container{
+    margin: 1vw 3.5vw;
+}
+
+
+#stream_text{
+    font-family: 'Cabin Sketch', cursive;
+    text-shadow: .2vw .2vw var(--hardpink);
+    font-size: 4rem;
+    text-align: center;
+}
+
+
+#stream_content{
+    background: violet;
+    display: grid;
+    grid-template-columns: 15.6vw 1fr 15.6vw;
+}
+
+
+#schedule_rrss{
+    background: white;
+}
+
+
+#youtube_box{
+    background: white;
+    justify-self: center;
+    height: 600px;
+    box-shadow: 7px 7px var(--hardpink);
+}
+
+#yt_box{
+    border: 1px solid white;
+    width: 1066.67px;
+    height: 600px;
+}
+
+#youtube_box:hover{
+    box-shadow: 15px 15px var(--hardpink);
+    transform: translate(-5px,-5px);
+}
+
+#chat_box{
+    color: var(--darkblue);
+    background-color: white;
+    box-shadow: 7px 7px var(--hardpink);
+
+}
+
+#chat_box:hover{
+    box-shadow: 15px 15px var(--hardpink);
+    transform: translate(-5px,-5px);
+}
+
+#chat-embed{
+    /* width: 275px; */
+    height: 600px;
+
+}
+
+#chat-embed-wrapper{
+}
+
+
+
+
+
+/* #ig_box{
+    background: white;
+    color: var(--softblue);
+    box-shadow: 7px 7px var(--hardpink);
+    transition: 0.3s;
+    width: 275px;
+}
+
+#ig_box{
+    background: white; 
+}
+
+#ig_box:hover{
+    box-shadow: 15px 15px var(--hardpink);
+    transition: 0.3s;
+    transform: translate(-5px,-5px);
+} */
+
+
+/* --- INSTAGRAM FEED --- */
+
+/* .instagram-gallery-medium {
+    width: 333px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+}
+
+.instagram-gallery-medium > a {
+    width: 332px;
+    height: 332px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.instagram-gallery-medium > a > video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#ig_img{
+    position: absolute;
+    visibility: hidden;
+    background-image: url(./assets/instagram.svg); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 6vw 6vw;
+    backdrop-filter: blur(3px) grayscale(50%);
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+    z-index: 1;
+}
+#ig_feed:hover #ig_img{
+    visibility: visible;
+    opacity: 1;
+} */
+
+
+
+
+    /* MEDIA QUERIES */
+
+@media screen and (max-width: 991px) {
+        /* start of large tablet styles */
+}
+    
+@media screen and (max-width: 767px) {
+            /* start of medium tablet styles */
+}
+        
+@media screen and (max-width: 479px) {
+        /* start of phone styles */
+}
+
+

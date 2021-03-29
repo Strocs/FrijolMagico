@@ -1,0 +1,13 @@
+@import "@styles/main.css";
+
+.main__ilus-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.soon__text {
+    font-size: 8rem;
+    text-align: center;
+    text-shadow: 0.4rem 0.4rem var(--pink-normal);
+}

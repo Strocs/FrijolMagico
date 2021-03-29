@@ -1,0 +1,19 @@
+{
+  "name": "web-frijol-magico",
+  "short_name": "web-frijol-magico",
+  "description": "Desarrollo de la Web de Frijol Mágico con JS Vanilla y NPM",
+  "dir": "auto",
+  "lang": "en-US",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "/?homescreen=1",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    }
+  ]
+}
