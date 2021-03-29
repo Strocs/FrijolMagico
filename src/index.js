@@ -10,8 +10,10 @@ import '@styles/home.css'
   })();
 
   
+const API = process.env.API;
+
 jQuery.fn.FCInstagram.accessData = {
-    accessToken: process.env.API, // Token
+    accessToken: API, // Token
 };
 $('#instafeed').FCInstagram({
     max: 1, // A number between 1 and 25 of photos to show. Default: 9
