@@ -1,0 +1,8 @@
+/*!
+ * FC Instagram - Development FCV Team
+ * Website: https://eplus.dev
+ * Since: 2019-11
+ * Version: v2.0.0
+ * Github: https://gitlab.com/fc-share/template-instagram
+ * Document Instagram Basic Display API: https://developers.facebook.com/docs/instagram-basic-display-api
+ */
