@@ -10,7 +10,8 @@ h3 {
 
 .simply-section,
 .instagram-gallery-medium,
-.fb__box {
+.fb__box,
+.blog__iframe {
     box-shadow: 0.8rem 0.8rem var(--pink-normal);
     transition: 300ms;
     transition-property: box-shadow, transform;
@@ -22,6 +23,7 @@ h3 {
 .main__title,
 #countdown,
 .side__box,
+.blog__iframe,
 .instagram-gallery-medium,
 .fb__box {
     animation: showUp 600ms backwards;
@@ -86,9 +88,8 @@ h3 {
 }
 
 .side__box {
-    border: 2px dashed white;
     width: 28rem;
-    height: 28rem;
+    height: 45rem;
     margin: 1rem;
 
     /* BORRAR */
@@ -110,7 +111,13 @@ h3 {
     margin: 1rem 1rem 3rem;
 }
 
+.blog__iframe {
+    border: none;
+    overflow: hidden;
+}
+
 .ilus__box {
+    border: 2px dashed white;
     order: 3;
     margin: 3rem 1rem 1rem;
 }
@@ -232,7 +239,10 @@ h3 {
 
 @media screen and (min-width: 1360px) {
     .main__container {
-        margin: 5% auto 5%;
+        margin: 5% auto 10vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     /*  ------- GENERAL ------- */
@@ -270,7 +280,8 @@ h3 {
 
     .simply-section:hover,
     .instagram-gallery-medium:hover,
-    .fb__box:hover {
+    .fb__box:hover,
+    .blog__iframe:hover {
         box-shadow: 1.4rem 1.4rem var(--pink-normal);
         transform: translate(-0.4rem, -0.4rem);
         transition: 100ms;

@@ -240,6 +240,7 @@ a {
 /*  ------- NAVIGATION ------- */
 
 .nav__container {
+    /* pointer-events: none; */
     background: var(--blue-normal-opa);
     position: absolute;
     width: 100vw;

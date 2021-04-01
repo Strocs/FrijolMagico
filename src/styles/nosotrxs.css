@@ -37,17 +37,18 @@
 
 .us__text {
     display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto 5vh;
-    justify-content: space-around;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    align-items: center;
+    /* justify-content: space-around; */
 }
 
 .us__p {
     margin: 1vh 2vw;
     font-size: 1.6rem;
-    text-align: justify;
-    word-spacing: -0.1rem;
-    max-width: 500px;
+    text-align: center;
+    /* word-spacing: -0.1rem; */
+    max-width: 480px;
     min-width: 300px;
 }
 
@@ -69,6 +70,7 @@
 
 .member__title {
     font-size: 5rem;
+    margin: 6rem 0 0;
 }
 
 .member__box {
