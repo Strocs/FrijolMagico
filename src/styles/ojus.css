@@ -1,0 +1,6 @@
+@import "@styles/main.css";
+@import "@styles/iluspage.css";
+
+.ilus-page__bio {
+    max-width: 65rem;
+}

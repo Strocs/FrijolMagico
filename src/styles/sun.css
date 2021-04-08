@@ -1,0 +1,27 @@
+@import "@styles/main.css";
+@import "@styles/iluspage.css";
+
+
+.ilus-page__bio {
+    max-width: 105rem;
+}
+.ilus-page__title {
+    margin: 2rem 0;
+}
+@media screen and (max-width: 600px) {
+    .ilus-page__images {
+        width: 30rem;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1360px) {
+
+    .ilus__main {
+        margin: 12vh auto 6vh;
+    }
+}
+
+
+
+

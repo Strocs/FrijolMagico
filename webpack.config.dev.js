@@ -12,7 +12,16 @@ module.exports = {
         ilus: './src/ilustradorxs.js',
         taller: './src/talleres.js',
         about: './src/nosotrxs.js',
-        stream: './src/livestream.js'
+        stream: './src/livestream.js',
+        bluestray: './src/bluestray.js',
+        camellia: './src/camellia.js',
+        cris: './src/cris.js',
+        vincent: './src/vincent.js',
+        eline: './src/eline.js',
+        ojus: './src/ojus.js',
+        sofi: './src/sofi.js',
+        sun: './src/sun.js',
+        tigre: './src/tigre.js'
     } ,
     
     output: {
@@ -116,6 +125,60 @@ module.exports = {
             template: './public/livestream.html',
             filename: './livestream.html',
             chunks: ['stream'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/blue-straycatt-art.html',
+            filename: './ilustradorxs/blue-straycatt-art.html',
+            chunks: ['bluestray'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/camellia-liz.html',
+            filename: './ilustradorxs/camellia-liz.html',
+            chunks: ['camellia'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/cris-crowfin.html',
+            filename: './ilustradorxs/cris-crowfin.html',
+            chunks: ['cris'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/evincentv.html',
+            filename: './ilustradorxs/evincentv.html',
+            chunks: ['vincent'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/eline1three.html',
+            filename: './ilustradorxs/eline1three.html',
+            chunks: ['vincent'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/ojus.html',
+            filename: './ilustradorxs/ojus.html',
+            chunks: ['ojus'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/sofiniscus.html',
+            filename: './ilustradorxs/sofiniscus.html',
+            chunks: ['sofi'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/sunmorales.html',
+            filename: './ilustradorxs/sunmorales.html',
+            chunks: ['sun'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/tigre-maltes.html',
+            filename: './ilustradorxs/tigre-maltes.html',
+            chunks: ['tigre'],
         }),
 
         new MiniCssExtractPlugin({

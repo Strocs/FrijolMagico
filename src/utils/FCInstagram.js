@@ -160,11 +160,14 @@ if (typeof Object.create !== "function") {
 
           $element = $("<a>", {
             href: results.data[i].permalink,
-            target: "_blank",
-            title: 'Mira esta publicación en Instagram!',
+            //target: "_blank",
+            //title: 'Mira esta publicación en Instagram!',
             rel: "nofollow",
           }).append($video);
 
+          let igImagen = document.getElementsByClassName('ig_img')[0]
+          igImagen.setAttribute('href', results.data[i].permalink)
+          
           // Add item
           imageGroup.push($element);
 

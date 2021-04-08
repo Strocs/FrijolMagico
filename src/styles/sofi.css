@@ -1,0 +1,17 @@
+@import "@styles/main.css";
+@import "@styles/iluspage.css";
+
+
+.ilus-page__bio {
+    max-width: 99rem;
+}
+
+@media screen and (max-width: 600px) {
+    .ilus-page__images {
+        width: 30rem;
+        height: auto;
+    }
+}
+
+
+

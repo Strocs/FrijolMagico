@@ -130,6 +130,8 @@ body {
     min-height: 100vh;
 }
 
+
+
 h1,
 h2,
 h3 {
@@ -297,8 +299,18 @@ a {
     ------------- 
 */
 
-@media screen and (max-width: 991px) {
-    /* start of large tablet styles */
+@media screen and (min-width: 966px) {
+ 
+    body::before {
+        content: '';
+        background: no-repeat url(../assets/images/left.png);
+        background-size: contain;
+        background-position: center;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -3;
+    }
 }
 
 @media screen and (min-width: 767px) {
@@ -306,5 +318,28 @@ a {
         right: 0;
         margin-right: 10vw;
         width: auto;
+    }
+}
+
+@media screen and (min-width: 1360px) {
+ 
+    body::before {
+        background: no-repeat url(../assets/images/left.png);
+        background-position: left;
+        height: 100%;
+        width: 100%;
+        z-index: -3;
+    }
+
+    body::after {
+        content: '';
+        background: no-repeat url(../assets/images/right.png);
+        background-size: contain;
+        background-position: right;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        /*margin: -10vw -1000px 0 0;*/
+        z-index: -3;
     }
 }
