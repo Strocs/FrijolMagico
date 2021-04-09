@@ -159,9 +159,9 @@
     margin: 1rem;
 }
 
-/*.images__container {*/
-    /*display: none;*/
-/*}*/
+.images__container {
+    display: none;
+}
 
 /*  
     ------------- 
@@ -174,7 +174,6 @@
     /*  ------------- IMAGE DETAIL ------------- */
     
     .images__container {
-        display: none;
         background-color: var(--blue-normal-opa);
         position: fixed;
         width: 100%;
@@ -198,16 +197,11 @@
             justify-self: center;
        -ms-grid-row-align: center;
             align-self: center;
-    }
-
-}
-
-@media screen and (min-width: 767px){
-    
-    .images__img {
         -ms-grid-row: 1;
         -ms-grid-column: 1;
+
     }
+
 }
 
 
