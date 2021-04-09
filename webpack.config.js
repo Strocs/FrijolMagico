@@ -14,7 +14,7 @@ module.exports = {
         ilus: './src/ilustradorxs.js',
         taller: './src/talleres.js',
         about: './src/nosotrxs.js',
-        stream: './src/livestream.js'
+        stream: './src/livestream.js',
         bluestray: './src/bluestray.js',
         camellia: './src/camellia.js',
         cris: './src/cris.js',
