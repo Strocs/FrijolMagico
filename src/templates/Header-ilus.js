@@ -22,7 +22,7 @@ const Header = async () => {
               <li class="nav__li"><a class="nav__a" target="_self" href="../index.html">Inicio</a></li>
               <li class="nav__li"><a class="nav__a" target="_self" href="../ilustradorxs.html">Ilustradorxs</a></li>
               <li class="nav__li"><a class="nav__a" target="_self" href="../talleres.html">Talleres</a></li>
-              <li class="nav__li"><a class="nav__a" target="_self" href="../https://blog.frijolmagico.cl">Blog</a></li>
+              <li class="nav__li"><a class="nav__a" target="_self" href="https://blog.frijolmagico.cl">Blog</a></li>
               <li class="nav__li"><a class="nav__a" target="_self" href="../nosotrxs.html">Nosotrxs</a></li>
         </ul>
     </nav>
