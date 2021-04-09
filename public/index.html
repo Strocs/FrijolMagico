@@ -31,22 +31,109 @@
                         </div>
                     </div>
                     <div class="fb__box-container">
-                        <iframe class="fb__box" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffestivalfrijolmagico%2F&tabs=timeline&width=280&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2469260113381635" width="280" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        <iframe class="fb__box"
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffestivalfrijolmagico%2F&tabs=timeline&width=280&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2469260113381635" width="280" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </artice>
             </section>
 
             <section class="side__box ilus__box">
-                <div class="ilus__list">
-                    <h3>Próximamente</h3> 
-                </div>
-            </section>
+                <section class="ilus__box-container">
+                    <div class="ilus__list">
+                        <div class="ilus__slide" id="1">
+                            <img class="ilus__slide-img" src="../src/assets/images/a1.png" alt="Blue Stray Catt Art">
+                            <a class="ilus__slider-link" href="./ilustradorxs/blue-straycatt-art.html">
+                                <h1 class="ilus__slide-title">Blue Stray Catt Art</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="2">
+                            <img class="ilus__slide-img" src="../src/assets/images/b1.png" alt="Camellia Liz">
+                            <a class="ilus__slider-link" href="./ilustradorxs/camellia-liz.html" >
+                                <h1 class="ilus__slide-title">Camellia Liz</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="3">
+                            <img class="ilus__slide-img" src="../src/assets/images/c1.png" alt="Cris Crowfin">
+                            <a class="ilus__slider-link" href="./ilustradorxs/cris-crowfin.html">
+                                <h1 class="ilus__slide-title">CRIS CROWFIN</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="4">
+                            <img class="ilus__slide-img" src="../src/assets/images/d1.png" alt="E.Vincent.V">
+                            <a class="ilus__slider-link" href="./ilustradorxs/evincentv.html">
+                                <h1 class="ilus__slide-title">E.Vincent.V</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="5" >
+                            <img class="ilus__slide-img" src="../src/assets/images/e1.png" alt="Eline1three">
+                            <a class="ilus__slider-link" href="./ilustradorxs/eline1three.html">
+                                <h1 class="ilus__slide-title">Eline1three</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="6" >
+                            <img class="ilus__slide-img" src="../src/assets/images/f1.png" alt="Ojus">
+                            <a class="ilus__slider-link" href="./ilustradorxs/ojus.html">
+                                <h1 class="ilus__slide-title">Ojus</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="7" >
+                            <img class="ilus__slide-img" src="../src/assets/images/g1.png" alt="Sofiniscus">
+                            <a class="ilus__slider-link" href="./ilustradorxs/sofiniscus.html">
+                                <h1 class="ilus__slide-title">Sofiniscus</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="8" >
+                            <img class="ilus__slide-img" src="../src/assets/images/h1.png" alt="Sunmorales">
+                            <a class="ilus__slider-link" href="./ilustradorxs/sunmorales.html">
+                                <h1 class="ilus__slide-title">Sunmorales</h1>
+                            </a>
+                        </div>
+                        <div class="ilus__slide" id="9" >
+                            <img class="ilus__slide-img" src="../src/assets/images/i1.png" alt="Tigre Maltés">
+                            <a class="ilus__slider-link" href="./ilustradorxs/tigre-maltes.html" >
+                                <h1 class="ilus__slide-title">Tigre Maltés</h1>
+                            </a>
+                        </div>
+                    </div>
 
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next"onclick="plusSlides(1)">&#10095;</a>
+
+                </section>
+            </section>
         </section>
     </main>
-     
+
     <footer class="footer__container"></footer>
-    
+
+    <script>
+        var slideIndex =  Math.ceil(Math.random() * 9);
+        ilusSlider(slideIndex);
+
+        function plusSlides(n) {
+            ilusSlider(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            ilusSlider(slideIndex = n);
+        }
+        
+        function ilusSlider(n) {
+            var i;
+            var slides = document.getElementsByClassName("ilus__slide");
+        
+            if (n > slides.length) {slideIndex = 1}    
+        
+            if (n < 1) {slideIndex = slides.length}
+        
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+        
+            slides[slideIndex-1].style.display = "grid";  
+        }
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./utils/simplyCountdown.min.js"></script>
     <script src="./utils/countdown.js"></script>

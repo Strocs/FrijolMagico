@@ -78,6 +78,17 @@
     ------------- 
 */
 
+@-webkit-keyframes showUp {
+    0% {
+        opacity: 0;
+        z-index: -1;
+    }
+    100% {
+        opacity: 1;
+        z-index: -1;
+    }
+}
+
 @keyframes showUp {
     0% {
         opacity: 0;
@@ -111,7 +122,8 @@
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html {
@@ -122,6 +134,7 @@ html {
 }
 
 body {
+    display: -ms-grid;
     display: grid;
     background: var(--blue-normal);
     margin: 0;
@@ -155,6 +168,8 @@ a {
 /*  ------- LOGOTYPE ------- */
 
 .header__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: fixed;
     top: 0;
@@ -168,8 +183,12 @@ a {
 }
 
 .logo__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 16rem;
     margin: 1rem 10vw;
 }
@@ -180,17 +199,22 @@ a {
 }
 
 .logo__text {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     font-size: 2.5rem;
     margin: 0 0 0 0.8rem;
 }
 
 .logo__link:hover {
     text-shadow: 0.4rem 0.4rem var(--pink-normal);
+    -webkit-transition: 100ms;
+    -o-transition: 100ms;
     transition: 100ms;
 }
 
-/*  ------- TOGGLE BUTTON ------- */
+/* ------- TOGGLE BUTTON ------- */
 
 .nav__toggle {
     display: none;
@@ -198,12 +222,16 @@ a {
 
 .nav__toggle:checked ~ .nav__container {
     display: block;
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
 }
 
 .nav__toggle-label {
     position: absolute;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     right: 0;
     margin: 0 10vw;
     padding: 14px 0;
@@ -235,7 +263,10 @@ a {
 .nav__toggle-label:hover > span,
 .nav__toggle-label:hover > span::after,
 .nav__toggle-label:hover > span::before {
-    box-shadow: 0.4rem 0.4rem var(--pink-normal);
+    -webkit-box-shadow: 0.4rem 0.4rem var(--pink-normal);
+            box-shadow: 0.4rem 0.4rem var(--pink-normal);
+    -webkit-transition: 100ms;
+    -o-transition: 100ms;
     transition: 100ms;
 }
 
@@ -247,18 +278,33 @@ a {
     position: absolute;
     width: 100vw;
     z-index: 8;
-    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition: -webkit-transform 700ms ease-in-out;
+    transition: -webkit-transform 700ms ease-in-out;
+    -o-transition: transform 700ms ease-in-out;
     transition: transform 700ms ease-in-out;
+    transition: transform 700ms ease-in-out, -webkit-transform 700ms ease-in-out;
 }
 
 .nav__general {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
     margin: 0;
     padding: 10rem 0 0;
     height: 100vh;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .nav__li {
@@ -273,6 +319,8 @@ a {
 
 .nav__a:hover {
     text-shadow: 0.4rem 0.4rem var(--pink-normal);
+    -webkit-transition: text-shadow 100ms;
+    -o-transition: text-shadow 100ms;
     transition: text-shadow 100ms;
 }
 
@@ -342,4 +390,4 @@ a {
         /*margin: -10vw -1000px 0 0;*/
         z-index: -3;
     }
-}
+} 

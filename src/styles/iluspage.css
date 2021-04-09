@@ -4,9 +4,16 @@
 
 .ilus-page__images,
 .data__box {
-    box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
+            box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
     transition: 300ms;
+    -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+    transition-property: -webkit-box-shadow, -webkit-transform;
+    -o-transition-property: box-shadow, transform;
     transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
 }
 
 /*  ------- ANIMATIONS ------- */
@@ -16,23 +23,29 @@
 .ilus-page__bio,
 .ilus-page__data,
 .ilus-page__gallery {
-    animation: showUp 600ms backwards;
+    -webkit-animation: showUp 600ms backwards;
+            animation: showUp 600ms backwards;
 }
 
 .ilus-page__title {
-    animation-delay: 200ms;
+    -webkit-animation-delay: 200ms;
+            animation-delay: 200ms;
 }
 .ilus-page__location {
-    animation-delay: 200ms;
+    -webkit-animation-delay: 200ms;
+            animation-delay: 200ms;
 }
 .ilus-page__bio {
-    animation-delay: 800ms;
+    -webkit-animation-delay: 800ms;
+            animation-delay: 800ms;
 }
 .ilus-page__data {
-    animation-delay: 1.4s;
+    -webkit-animation-delay: 1.4s;
+            animation-delay: 1.4s;
 }
 .ilus-page__gallery {
-    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
 }
 
 /*  
@@ -43,9 +56,16 @@
 
 .ilus__main {
     margin: 12vh 6vw 6vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 /*  
@@ -55,6 +75,8 @@
 */
 
 .ilus-page__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -81,9 +103,14 @@
 /*  ------- CONTACT ------- */ 
 
 .ilus-page__data {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-bottom: 6rem;
 }
 
@@ -92,9 +119,15 @@
     width: 10rem;
     height: 10rem;
     margin: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .data__logo {
@@ -109,9 +142,14 @@
 */
 
 .ilus-page__gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-bottom: 1rem;
 }
 
@@ -121,9 +159,9 @@
     margin: 1rem;
 }
 
-.images__container {
-    display: none;
-}
+/*.images__container {*/
+    /*display: none;*/
+/*}*/
 
 /*  
     ------------- 
@@ -145,19 +183,31 @@
     }
     
     .images__detail {
+        display: -ms-grid;
         display: grid;
-        grid-template-areas: 'image';
+            grid-template-areas: 'image';
         height: 100vh;
     }
     
     .images__img {
+        visibility: hidden;
         grid-area: image;
         height: 70vh;
         width: auto;
-        justify-self: center;
-        align-self: center;
+        -ms-grid-column-align: center;
+            justify-self: center;
+       -ms-grid-row-align: center;
+            align-self: center;
     }
 
+}
+
+@media screen and (min-width: 767px){
+    
+    .images__img {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+    }
 }
 
 
@@ -171,19 +221,43 @@
 
     /*  ------- GENERAL HOVER ------- */
 
-    .data__box:hover,
-    .ilus-page__images:hover {
-        box-shadow: 1.4rem 1.4rem var(--pink-normal);
-        transform: translate(-0.4rem, -0.4rem);
+    .data__box:hover {
+        -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
+                box-shadow: 1.4rem 1.4rem var(--pink-normal);
+        -webkit-transform: translate(-0.4rem, -0.4rem);
+            -ms-transform: translate(-0.4rem, -0.4rem);
+                transform: translate(-0.4rem, -0.4rem);
+        -webkit-transition: 100ms;
+        -o-transition: 100ms;
         transition: 100ms;
+        -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+        transition-property: -webkit-box-shadow, -webkit-transform;
+        -o-transition-property: box-shadow, transform;
         transition-property: box-shadow, transform;
+        transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
     }
-    .ilus-page__images{
-        overflow: hidden;
-    }
+
     .ilus-page__images:hover {
-        transform: translateY(-3rem);
+        -webkit-box-shadow: 0.8rem 1.8rem var(--pink-normal);
+                box-shadow: 0.8rem 1.8rem var(--pink-normal);
+        -webkit-transition: 100ms;
+        -o-transition: 100ms;
+        transition: 100ms;
+        -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+        transition-property: -webkit-box-shadow, -webkit-transform;
+        -o-transition-property: box-shadow, transform;
+        transition-property: box-shadow, transform;
+        transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+    }
+
+    .ilus-page__images:hover {
+        -webkit-transform: translateY(-3rem);
+            -ms-transform: translateY(-3rem);
+                transform: translateY(-3rem);
+        -webkit-transition: 300ms;
+        -o-transition: 300ms;
         transition: 300ms;
     }
 }
+
 

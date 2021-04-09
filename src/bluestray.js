@@ -1,5 +1,6 @@
 import Header from '@templates/Header-ilus.js'
 import Footer from '@templates/Footer.js'
+import DetailImg from '@templates/DetailImg.js'
 import '@styles/bluestray.css'
 
 (async function App() {
@@ -8,3 +9,5 @@ import '@styles/bluestray.css'
     header.innerHTML = await Header();
     footer.innerHTML = await Footer();
   })();
+
+DetailImg()

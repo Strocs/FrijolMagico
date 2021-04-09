@@ -17,3 +17,8 @@ $('#instafeed').FCInstagram({
     max: 1, // A number between 1 and 25 of photos to show. Default: 9
     autoplay: true, // Set autoplay video: true/false. Default: false
 });
+
+
+
+
+
