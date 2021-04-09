@@ -55,7 +55,7 @@
 */
 
 .ilus__main {
-    margin: 12vh 6vw 6vh;
+    margin: 12vh 4vw 6vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -156,7 +156,7 @@
 .ilus-page__images {
     height: 30rem;
     cursor: pointer;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .images__container {
@@ -187,7 +187,11 @@
             grid-template-areas: 'image';
         height: 100vh;
     }
-    
+ 
+    .ilus-page__images {
+        margin: 1rem;
+    }
+   
     .images__img {
         visibility: hidden;
         grid-area: image;

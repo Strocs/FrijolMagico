@@ -20,10 +20,10 @@ const Header = async () => {
     <nav class="nav__container">
         <ul class="nav__general">
               <li class="nav__li"><a class="nav__a" target="_self" href="https://frijolmagico.cl">Inicio</a></li>
-              <li class="nav__li"><a class="nav__a" target="_self" href="./ilustradorxs">Ilustradorxs</a></li>
-              <li class="nav__li"><a class="nav__a" target="_self" href="./talleres">Talleres</a></li>
+              <li class="nav__li"><a class="nav__a" target="_self" href="../ilustradorxs">Ilustradorxs</a></li>
+              <li class="nav__li"><a class="nav__a" target="_self" href="../talleres">Talleres</a></li>
               <li class="nav__li"><a class="nav__a" target="_self" href="https://blog.frijolmagico.cl">Blog</a></li>
-              <li class="nav__li"><a class="nav__a" target="_self" href="./nosotrxs">Nosotrxs</a></li>
+              <li class="nav__li"><a class="nav__a" target="_self" href="../nosotrxs">Nosotrxs</a></li>
         </ul>
     </nav>
     `;
