@@ -347,13 +347,12 @@ a {
     ------------- 
 */
 
-@media screen and (min-width: 856px) {
+@media screen and (min-width: 1020px) {
  
     body::before {
         content: '';
         background: no-repeat url(../assets/images/left.png);
-        background-size: contain;
-        background-position: center;
+        background-position: bottom;
         position: absolute;
         height: 100%;
         width: 100%;
@@ -372,8 +371,10 @@ a {
 @media screen and (min-width: 1360px) {
  
     body::before {
-        background: no-repeat url(../assets/images/left.png);
-        background-position: left;
+        content: '';
+        background: no-repeat url(../assets/images/ramaLeft.png);
+        background-position: right 90%;
+        position: absolute;
         height: 100%;
         width: 100%;
         z-index: -3;
@@ -381,13 +382,11 @@ a {
 
     body::after {
         content: '';
-        background: no-repeat url(../assets/images/right.png);
-        background-size: contain;
-        background-position: right;
+        background: no-repeat url(../assets/images/ramaRight.png);
+        background-position: left 50%;
         position: absolute;
         height: 100%;
         width: 100%;
-        /*margin: -10vw -1000px 0 0;*/
         z-index: -3;
     }
 } 

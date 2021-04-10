@@ -1,7 +1,7 @@
 const Header = async () => {
 
     const view = `
-        <section class="logo__container">
+    <section class="logo__container">
         <a class="logo__link" href="https://frijolmagico.cl">
             <svg class="logo__svg" viewBox="280 120 300 300">
                 <path class="st0" d="M506.7 202.6c25.8 2 72 17 72 29.5 -20.9 8-53-13.5-66.2-23.9C508.7 205.3 506.7 202.6 506.7 202.6"/>
@@ -12,12 +12,12 @@ const Header = async () => {
             </svg>
             <h1 class="logo__text">Frijol <br> Mágico</h1>
         </a>
-        </section>
-        
-        <input class="nav__toggle" id="nav__toggle" type="checkbox">
-        <label for="nav__toggle" class="nav__toggle-label"><span></span></label>
-        
-        <nav class="nav__container">
+    </section>
+
+    <input class="nav__toggle" id="nav__toggle" type="checkbox">
+    <label for="nav__toggle" class="nav__toggle-label"><span></span></label>
+
+    <nav class="nav__container">
         <ul class="nav__general">
               <li class="nav__li"><a class="nav__a" target="_self" href="https://frijolmagico.cl">Inicio</a></li>
               <li class="nav__li"><a class="nav__a" target="_self" href="ilustradorxs">Ilustradorxs</a></li>
@@ -25,15 +25,12 @@ const Header = async () => {
               <li class="nav__li"><a class="nav__a" target="_self" href="https://blog.frijolmagico.cl">Blog</a></li>
               <li class="nav__li"><a class="nav__a" target="_self" href="nosotrxs">Nosotrxs</a></li>
         </ul>
-        </nav>
+    </nav>
     `;
     return view;
   };
   
 export default Header;
-
-
-
 
 
 //    <section class="logo__container">
@@ -61,3 +58,4 @@ export default Header;
               //<li class="nav__li"><a class="nav__a" target="_self" href="nosotrxs.html">Nosotrxs</a></li>
         //</ul>
     //</nav>
+

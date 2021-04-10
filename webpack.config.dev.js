@@ -21,7 +21,16 @@ module.exports = {
         ojus: './src/ojus.js',
         sofi: './src/sofi.js',
         sun: './src/sun.js',
-        tigre: './src/tigre.js'
+        tigre: './src/tigre.js',
+        camipepe: './src/camipepe.js',
+        catana: './src/catana.js',
+        collar: './src/collar.js',
+        drommer: './src/drommer.js',
+        elmenese: './src/elmenese.js',
+        neehre: './src/neehre.js',
+        nino: './src/nino.js',
+        prr: './src/prr.js',
+        astro: './src/astro.js'
     } ,
     
     output: {
@@ -128,8 +137,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/ilustradorxs/blue-straycatt-art.html',
-            filename: './ilustradorxs/blue-straycatt-art.html',
+            template: './public/ilustradorxs/blue-straycatt.html',
+            filename: './ilustradorxs/blue-straycatt.html',
             chunks: ['bluestray'],
         }),
         new HtmlWebpackPlugin({
@@ -158,8 +167,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/ilustradorxs/ojus.html',
-            filename: './ilustradorxs/ojus.html',
+            template: './public/ilustradorxs/ojus-pocus.html',
+            filename: './ilustradorxs/ojus-pocus.html',
             chunks: ['ojus'],
         }),
         new HtmlWebpackPlugin({
@@ -179,6 +188,60 @@ module.exports = {
             template: './public/ilustradorxs/tigre-maltes.html',
             filename: './ilustradorxs/tigre-maltes.html',
             chunks: ['tigre'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/astro-glitter.html',
+            filename: './ilustradorxs/astro-glitter.html',
+            chunks: ['astro'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/camipepe.html',
+            filename: './ilustradorxs/camipepe.html',
+            chunks: ['camipepe'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/catana.html',
+            filename: './ilustradorxs/catana.html',
+            chunks: ['catana'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/collarcitos.html',
+            filename: './ilustradorxs/collarcitos.html',
+            chunks: ['collar'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/drommer.html',
+            filename: './ilustradorxs/drommer.html',
+            chunks: ['drommer'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/elmenese.html',
+            filename: './ilustradorxs/elmenese.html',
+            chunks: ['elmenese'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/neehre.html',
+            filename: './ilustradorxs/neehre.html',
+            chunks: ['neehre'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/niño-pan.html',
+            filename: './ilustradorxs/niño-pan.html',
+            chunks: ['nino'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/ilustradorxs/prrr-miaow.html',
+            filename: './ilustradorxs/prrr-miaow.html',
+            chunks: ['prr'],
         }),
 
         new MiniCssExtractPlugin({

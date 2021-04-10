@@ -2,12 +2,12 @@
 @import "@styles/iluspage.css";
 
 
-.ilus-page__bio {
-    max-width: 105rem;
-}
-.ilus-page__title {
-    margin: 2rem 0;
-}
+/*.ilus-page__bio {*/
+    /*max-width: 105rem;*/
+/*}*/
+/*.ilus-page__title {*/
+    /*margin: 2rem 0;*/
+/*}*/
 @media screen and (max-width: 600px) {
     .ilus-page__images {
         width: 30rem;

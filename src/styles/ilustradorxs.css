@@ -59,7 +59,7 @@
     font-size: 6rem;
     text-align: center;
     text-shadow: 0.4rem 0.4rem var(--pink-normal);
-    margin: 2rem 1.5rem;
+    margin: 2rem 1.5rem 6rem;
 }
 
 /*  
@@ -75,6 +75,7 @@
     display: -ms-flexbox;
     display: flex;
     min-width: 28rem;
+    max-width: 136rem;
 }
 
 .ilus__card-container {
@@ -101,7 +102,7 @@
     display: grid;
         grid-template-areas: 'card';
     width: 28rem;
-    height: 28rem;
+    height: 14rem;
 }
 
 .ilus__img-container {
@@ -117,7 +118,7 @@
     grid-area: card;
     overflow: hidden;
     width: 28rem;
-    height: 28rem;
+    height: 14rem;
 }
 
 .ilus__img {
@@ -156,19 +157,19 @@
 
 @media screen and (min-width: 1360px) {
 
-    .ilus__link {
-        width: 14vw;
-        height: 14vw;
-    }
+    /*.ilus__link {*/
+        /*width: 14vw;*/
+        /*height: 7vw;*/
+    /*}*/
 
-    .ilus__img-container {
-        width: 14vw;
-        height: 14vw;
-    }
+    /*.ilus__img-container {*/
+        /*width: 14vw;*/
+        /*height: 7vw;*/
+    /*}*/
 
-    .ilus__name {
-        font-size: 2vw;
-    }
+    /*.ilus__name {*/
+        /*font-size: 2vw;*/
+    /*}*/
 
     /*  ------- GENERAL HOVER ------- */
 
