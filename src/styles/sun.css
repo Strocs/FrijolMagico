@@ -2,6 +2,11 @@
 @import "@styles/iluspage.css";
 
 
+@media screen and (min-width: 600px) {
+    .ilus-page__bio {
+        margin: 4rem auto;
+    }
+}
 @media screen and (max-width: 600px) {
     .ilus-page__images {
         width: 30rem;
@@ -9,13 +14,6 @@
     }
     .ilus-page__title {
         font-size: 5.8rem;
-    }
-}
-
-@media screen and (min-width: 1360px) {
-
-    .ilus__main {
-        margin: 12vh auto 6vh;
     }
 }
 
