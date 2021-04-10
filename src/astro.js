@@ -1,7 +1,7 @@
 import Header from '@templates/Header-ilus.js'
 import Footer from '@templates/Footer.js'
 import DetailImg from '@templates/DetailImg.js'
-import '@styles/bluestray.css'
+import '@styles/astro.css'
 
 (async function App() {
     const header = null || document.getElementsByClassName('header__container')[0];
