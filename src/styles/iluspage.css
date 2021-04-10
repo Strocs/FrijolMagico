@@ -19,6 +19,7 @@
 /*  ------- ANIMATIONS ------- */
 
 .ilus-page__title,
+.ilus-page__name,
 .ilus-page__location,
 .ilus-page__bio,
 .ilus-page__data,
@@ -27,7 +28,7 @@
             animation: showUp 600ms backwards;
 }
 
-.ilus-page__title {
+.ilus-page__title, .ilus-page__name {
     -webkit-animation-delay: 200ms;
             animation-delay: 200ms;
 }
@@ -74,10 +75,12 @@
     ------------- 
 */
 
-.ilus-page__header {
+.ilus-page-header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .ilus-page__title {
