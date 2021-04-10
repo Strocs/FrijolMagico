@@ -136,14 +136,10 @@ module.exports = {
             filename: './livestream.html',
             chunks: ['stream'],
         }),
-
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        }),
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/ilustradorxs/blue-straycatt-art.html',
-            filename: './ilustradorxs/blue-straycatt-art.html',
+            template: './public/ilustradorxs/blue-straycatt.html',
+            filename: './ilustradorxs/blue-straycatt.html',
             chunks: ['bluestray'],
         }),
         new HtmlWebpackPlugin({
@@ -172,8 +168,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/ilustradorxs/ojus.html',
-            filename: './ilustradorxs/ojus.html',
+            template: './public/ilustradorxs/ojus-pocus.html',
+            filename: './ilustradorxs/ojus-pocus.html',
             chunks: ['ojus'],
         }),
         new HtmlWebpackPlugin({
@@ -247,6 +243,10 @@ module.exports = {
             template: './public/ilustradorxs/prrr-miaow.html',
             filename: './ilustradorxs/prrr-miaow.html',
             chunks: ['prr'],
+        }),
+
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
         }),
 
         new CopyPlugin({
