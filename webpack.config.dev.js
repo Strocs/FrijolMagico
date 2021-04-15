@@ -8,11 +8,11 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
     entry: {
-        home: './src/index.js',
+        home: './src/home.js',
         ilus: './src/ilustradorxs.js',
         taller: './src/talleres.js',
         about: './src/nosotrxs.js',
-        stream: './src/livestream.js',
+        stream: './src/index.js',
         bluestray: './src/bluestray.js',
         camellia: './src/camellia.js',
         cris: './src/cris.js',
@@ -107,8 +107,8 @@ module.exports = {
         
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/index.html',
-            filename: './index.html', 
+            template: './public/home.html',
+            filename: './home.html', 
             chunks: ['home'],
         }),
         new HtmlWebpackPlugin({
@@ -131,8 +131,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/livestream.html',
-            filename: './livestream.html',
+            template: './public/index.html',
+            filename: './index.html',
             chunks: ['stream'],
         }),
         new HtmlWebpackPlugin({

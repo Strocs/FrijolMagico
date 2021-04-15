@@ -1,148 +1,486 @@
 @import '@styles/main.css';
 
-#stream_container{
-    margin: 1vw 3.5vw;
+/*  ------- COUNTDOWN ------- */
+
+#countdown {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    user-select: none;
 }
 
+.simply-section {
+    color: white;
+    background-color: var(--pink-normal);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 8rem;
+    width: 8rem;
+    margin: 1rem 0;
 
-#stream_text{
-    font-family: 'Cabin Sketch', cursive;
-    text-shadow: .2vw .2vw var(--hardpink);
-    font-size: 4rem;
+}
+
+.simply-amount {
+    display: block;
+    font-family: var(--ff-text-bold);
     text-align: center;
+    font-size: 3rem;
+    margin-bottom: -0.5rem;
+}
+
+.simply-word {
+    font-size: 1.5rem;
 }
 
 
-#stream_content{
-    background: violet;
-    display: grid;
-    grid-template-columns: 15.6vw 1fr 15.6vw;
-}
+/*  ------- SHADOWS ------- */
 
-
-#schedule_rrss{
+.stream__chat,
+.stream__youtube {
+    -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
+            box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+    -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+    transition-property: -webkit-box-shadow, -webkit-transform;
+    -o-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
     background: white;
 }
 
-
-#youtube_box{
-    background: white;
-    justify-self: center;
-    height: 600px;
-    box-shadow: 7px 7px var(--hardpink);
+.artist,
+.schedule__nav {
+    box-shadow: 0.8rem 0.8rem white;
+    background: var(--pink-normal);
 }
 
-#yt_box{
-    border: 1px solid white;
-    width: 1066.67px;
-    height: 600px;
+/*  ------- ANIMATIONS ------- */
+
+#countdown,
+.header__text,
+.stream__youtube,
+.stream__chat,
+.stream__schedule {
+    -webkit-animation: showUp 600ms backwards;
+            animation: showUp 600ms backwards;
+}
+.header__text {
+    -webkit-animation-delay: 400ms;
+            animation-delay: 400ms;
 }
 
-#youtube_box:hover{
-    box-shadow: 15px 15px var(--hardpink);
-    transform: translate(-5px,-5px);
+.stream__youtube,
+#countdown {
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
 }
 
-#chat_box{
-    color: var(--darkblue);
-    background-color: white;
-    box-shadow: 7px 7px var(--hardpink);
-
-}
-
-#chat_box:hover{
-    box-shadow: 15px 15px var(--hardpink);
-    transform: translate(-5px,-5px);
-}
-
-#chat-embed{
-    /* width: 275px; */
-    height: 600px;
-
-}
-
-#chat-embed-wrapper{
+.stream__chat,
+.stream__schedule {
+    -webkit-animation-delay: 1.6s;
+            animation-delay: 1.6s;
 }
 
 
+/*  
+    ------------- 
+       GENERAL
+    ------------- 
+*/
 
-
-
-/* #ig_box{
-    background: white;
-    color: var(--softblue);
-    box-shadow: 7px 7px var(--hardpink);
-    transition: 0.3s;
-    width: 275px;
+.main__container {
+    margin: 12rem auto 6rem;
 }
 
-#ig_box{
-    background: white; 
+/*  
+    ------------- 
+       HEADER
+    ------------- 
+*/
+
+.main__header {
+    margin: 0 auto;
 }
 
-#ig_box:hover{
-    box-shadow: 15px 15px var(--hardpink);
-    transition: 0.3s;
-    transform: translate(-5px,-5px);
-} */
+.header__text {
+    font-size: 6rem;
+    text-align: center;
+    text-shadow: 0.4rem 0.4rem var(--pink-normal);
+    margin: 0 auto;
+    padding: 0 2vh;
+    max-width: 75rem;
+    opacity: 1;
+    transition: opacity 500ms ease;
+}
 
 
-/* --- INSTAGRAM FEED --- */
+/*  
+    ------------- 
+       STREAM
+    ------------- 
+*/
 
-/* .instagram-gallery-medium {
-    width: 333px;
+.main__stream {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin: 4rem 0;
 }
 
-.instagram-gallery-medium > a {
-    width: 332px;
-    height: 332px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid white;
+/*  ------- CHAT ------- */
+
+.stream__chat {
+    order: 2;
 }
 
-.instagram-gallery-medium > a > video{
+.chat__wrapper {
+    height: 45rem;
+}
+
+.chat__wrapper iframe {
+    height: 45rem;
+}
+
+/*  ------- YOUTUBE ------- */
+
+.stream__youtube {
+    order: 1;
+    height: 168.75px;
+}
+
+.youtube__embed {
+    min-height: 168.75px;
+    max-height: 45rem;
     width: 100%;
+    max-width: 80rem;
+    
+}
+
+/*  ------- SCHEDULE ------- */
+
+.stream__schedule {
+    order: 3;
+    width: 32rem;
+    height: 45rem;
+    overflow: hidden;
+}
+
+.schedule__wrap {
+    display: flex;
+    width: 96rem;
+    height: 45rem;
+    transition: margin-left 400ms ease;
+}
+
+.schedule__nav {
+    height: 4rem;
+    width: 30rem;
+    margin: 0 1rem 2rem;
+    display: grid;
+    grid-template-columns: 5rem 20rem 5rem;
+    align-items: center;
+    transition: background 200ms ease;
+    user-select: none;
+}
+.schedule__nav:hover {
+    background: var(--blue-normal-opa);
+    transition: 200ms ease;
+}
+.schedule__nav-title {
+   font-size: 2.5rem; 
+   font-family: var(--ff-text-bold);
+   margin: 0;
+   text-align: center;
+}
+
+.prev, .next {
+    font-size: 2rem;
+    padding: 0 2rem;
+    transition: font-size 200ms ease;
+    cursor: pointer;
+    margin-bottom: .2rem;
+}
+
+.prev:hover,
+.next:hover {
+    font-size: 3rem;
+    transition: 200ms ease;
+}
+
+/*  ------- HOVERS ------- */
+
+.schedule__artist:last-child {
+    padding-bottom: 20rem;
+}
+
+.schedule__artist:hover .artist,
+.schedule__artist:hover {
+    height: 14rem;
+    transition: 300ms ease;
+
+}
+
+.schedule__artist:hover .artist {
+    background: var(--blue-normal-opa);
+    transition: 300ms ease;
+}
+
+#schedule__artist-selected {
+    height: 14rem;
+}
+
+#artist-selected {
+    background-color: var(--blue-normal-opa);
+    height: 14rem;
+}
+
+/*  ------- DAYS ------- */
+
+.schedule {
     height: 100%;
-    object-fit: cover;
+    width: 100%;
+    overflow: scroll; 
+    display: flex;
+    flex-direction: column;
+    /*gap: 1rem;*/
 }
 
-
-#ig_img{
-    position: absolute;
-    visibility: hidden;
-    background-image: url(./assets/instagram.svg); 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 6vw 6vw;
-    backdrop-filter: blur(3px) grayscale(50%);
-    opacity: 0;
-    transition: opacity .2s, visibility .2s;
-    z-index: 1;
+ /* Hide scrollbar for Chrome, Safari and Opera */
+.schedule::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
 }
-#ig_feed:hover #ig_img{
-    visibility: visible;
-    opacity: 1;
-} */
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.schedule {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scroll-behavior: smooth;
+} 
 
+/*  ------- ARTIST ------- */
+
+.schedule__artist {
+    height: 12rem;
+    padding: 1rem 0;
+    transition: 300ms ease;
+}
+
+.artist {
+    user-select: none;
+    width: 30rem;
+    height: 8rem;
+    margin: 0 1rem;
+    transition:  300ms ease;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 8rem 4rem;
+    grid-template-columns: 1fr 2rem;
+    grid-template-areas: 'name time'
+                         'supp supp'; 
+}
+
+.artist__main {
+    grid-area: name;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 2rem;
+    font-size: 2rem;
+}
+.artist__name {
+    font-family: var(--ff-text-bold);
+    margin: 0 1rem 0 0;
+}
+.artist__section {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.artist__time {
+    grid-area: time;
+    font-family: var(--ff-text-bold);
+    justify-self: end;
+    align-self: end;
+    font-size: 2.5rem;
+    margin: 1.5rem 2rem 1.8rem;
+}
+
+.artist__support {
+    grid-area: supp;
+    font-size: 1.5rem;
+    font-family: var(--ff-text-normal);
+    margin: 0 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5rem solid white;
+}
 
 
     /* MEDIA QUERIES */
 
-@media screen and (max-width: 991px) {
-        /* start of large tablet styles */
+@media screen and (min-width: 650px) {
+
+    .main__stream {
+        width: 650px;
+        display: grid;
+        grid-template: 'video video' 1fr
+                       'chat  sched' 1fr / 1fr 1fr;
+        margin: 1.8rem auto 6rem;
+        gap: 4rem;
+    }
+    .stream__schedule {
+        grid-area: sched;
+    }
+
+    .stream__chat {
+        grid-area: chat;
+        margin-left: 1rem;
+    }
+    .stream__youtube {
+        grid-area: video;
+        height: 365.63px;
+        width: 65rem;
+        justify-self: center;
+    }
+
+    .youtube__embed {
+        height: 365.63px;
+        width: 65rem;
+    }
+
+    .simply-section {
+        border-radius: 1rem 1rem 0 0;
+        height: 6rem;
+        margin: 0rem 1rem -6rem;
+    }
+
 }
+
+
+
+@media screen and (min-width: 850px) {
+
+    .main__stream {
+        margin: 6rem auto;
+        width: 800px;
+        gap: 5rem;
+    }
+
+    .stream__chat {
+        width: 44rem;
+    }
+    .chat__wrapper iframe {
+        width: 44rem;
+    }
+    .stream__youtube {
+        height: 45rem;
+        width: 80rem;
+    }
+
+    .youtube__embed {
+        height: 45rem;
+        width: 80rem;
+    }
+
+
+}
+@media screen and (min-width: 1350px) {
+
+    .prev, .next {
+        transition: visibility 400ms ease;
+        visibility: hidden;
+    }
     
-@media screen and (max-width: 767px) {
-            /* start of medium tablet styles */
-}
-        
-@media screen and (max-width: 479px) {
-        /* start of phone styles */
+    .schedule__nav:hover .prev,
+    .schedule__nav:hover .next {
+        visibility: visible;
+        transition: 200ms ease;
+    }
+    /*  ------- GENERAL HOVER ------- */
+
+    .stream__chat:hover,
+    .stream__youtube:hover {
+        -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
+                box-shadow: 1.4rem 1.4rem var(--pink-normal);
+        -webkit-transform: translate(-0.4rem, -0.4rem);
+            -ms-transform: translate(-0.4rem, -0.4rem);
+                transform: translate(-0.4rem, -0.4rem);
+        -webkit-transition: 100ms;
+        -o-transition: 100ms;
+        transition: 100ms;
+        -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+        transition-property: -webkit-box-shadow, -webkit-transform;
+        -o-transition-property: box-shadow, transform;
+        transition-property: box-shadow, transform;
+        transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+    }
 }
 
+@media screen and (min-width: 1400px) {
 
+    .blog__box::after {
+        margin-left: -7.2rem;
+    }
+
+    .ilus__box::after {
+        margin-right: -10rem;
+        -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+        -ms-grid-column-align: end;
+            justify-self: end;
+    }
+    .ig__box::after {
+        margin-left: -12.8rem;
+    }
+
+    .fb__box-container::after {
+        margin-right: -12.8rem;
+        -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+        -ms-grid-column-align: end;
+            justify-self: end;
+    } 
+}
+
+@media screen and (min-width: 1560px) {
+
+    .main__stream {
+        flex-wrap: nowrap;
+        width: auto;
+        display: flex;
+    }
+
+    .stream__chat {
+        order: 1;
+        width: 30rem;
+    }
+
+    .chat__wrapper iframe {
+        width: 30rem;
+    }
+    .stream__youtube {
+        order: 2;
+    }
+
+    .stream__schedule {
+        order: 3;
+    }
+}
