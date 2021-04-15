@@ -19,8 +19,8 @@ const titleWrap = document.getElementsByClassName('schedule__nav-title')[0];
 const move = document.getElementsByClassName('schedule__wrap')[0];
 
 const first = new Date("April 15, 2021 00:00:00")
-const second = new Date("April 16, 2021 21:30:00")
-const third = new Date("April 17, 2021 21:30:00")
+const second = new Date("April 15, 2021 17:30:00")
+const third = new Date("April 15, 2021 22:30:00")
 const dayOne = first - currentTime;
 const dayTwo = second - currentTime;
 const dayThree = third - currentTime;
@@ -145,8 +145,8 @@ const currentArtist = () => {
     const schedule = document.getElementsByClassName('schedule')
 
     const firstDay = new Date('April 16, 2021 18:00:00')
-    const secondDay = new Date('April 17, 2021 17:30:00')
-    const thirdDay = new Date('April 18, 2021 17:30:00')
+    const secondDay = new Date('April 15, 2021 19:30:00')
+    const thirdDay = new Date('April 15, 2021 22:30:00')
 
     const getFirstDay = firstDay - currentTime
     const getSecondDay = secondDay - currentTime
