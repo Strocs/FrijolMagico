@@ -144,7 +144,7 @@ const currentArtist = () => {
         
     const schedule = document.getElementsByClassName('schedule')
 
-    const firstDay = new Date('April 16, 2021 18:00:00')
+    const firstDay = new Date('April 15, 2021 19:30:00')
     const secondDay = new Date('April 15, 2021 19:30:00')
     const thirdDay = new Date('April 15, 2021 22:30:00')
 
