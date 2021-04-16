@@ -1,4 +1,11 @@
 const count = document.getElementById('countdown')
+const change = document.getElementsByClassName('change')[0]
+
+const changeCount = () => {
+    $('.header__text').text('¡Bienvenidxs al Festival Frijol Mágico 2021!')
+    count.style.display = 'none'
+    change.style.display = 'flex'
+}
 
 simplyCountdown('#countdown', {
     year: 2021, // required
@@ -20,11 +27,8 @@ simplyCountdown('#countdown', {
     // in case of inline set to false
     enableUtc: false, //Use UTC or not - default : false
     onEnd: function() {
-        $('.header__text').text('¡Bienvenidxs al Festival Frijol Mágico 2021!').fadeIn(500);
-        count.style.display = 'none';
-
+        changeCount()
     }, //Callback on countdown end, put your own function here
-
     refresh: 1000, // default refresh every 1s
     sectionClass: 'simply-section', //section css class
     amountClass: 'simply-amount', // amount css class

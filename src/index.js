@@ -94,48 +94,49 @@ const changeDay = () => {
     } 
 }
 
+
+
+
+// CHANGE DAYS WITH TOGGLE BUTTONS  
 let setDay = changeDay()
 let days = setDay
 
-// CHANGE DAYS WITH TOGGLE BUTTONS  
-const toggleBtn = () => {
+prev.onclick = () => {prevBtn()}
+next.onclick = () => {nextBtn()}
 
-    prev.addEventListener('click', function(){
-        if (days === 'Viernes 16') {
-            return  move.style.marginLeft = '-640px', 
-                    days = 'Domingo 18',
-                    changeName(days);
-        } else if (days === 'Sábado 17' ) {
-            return  move.style.marginLeft = '0px', 
-                    days = 'Viernes 16',
-                    changeName(days);
-        } else if (days === 'Domingo 18') {
-            return  move.style.marginLeft = '-320px', 
-                    days = 'Sábado 17',
-                    changeName(days);
-        }
-    })
-
-    next.addEventListener('click', function(){
-        if (days === 'Viernes 16') {
-            return  move.style.marginLeft = '-320px', 
-                    days = 'Sábado 17',
-                    changeName(days);
-
-        } else if (days === 'Sábado 17' ) {
-            return  move.style.marginLeft = '-640px', 
-                    days = 'Domingo 18',
-                    changeName(days);
-
-        } else if (days === 'Domingo 18') {
-            return  move.style.marginLeft = '0px', 
-                    days = 'Viernes 16',
-                    changeName(days);
-        }
-    })
+const prevBtn = () => {
+    if (days === 'Viernes 16') {
+        return  move.style.marginLeft = '-640px', 
+                days = 'Domingo 18',
+                changeName(days);
+    } else if (days === 'Sábado 17' ) {
+        return  move.style.marginLeft = '0px', 
+                days = 'Viernes 16',
+                changeName(days);
+    } else if (days === 'Domingo 18') {
+        return  move.style.marginLeft = '-320px', 
+                days = 'Sábado 17',
+                changeName(days);
+    }
 }
 
-toggleBtn()
+const nextBtn = () => {
+    if (days === 'Viernes 16') {
+        return  move.style.marginLeft = '-320px', 
+                days = 'Sábado 17',
+                changeName(days);
+
+    } else if (days === 'Sábado 17' ) {
+        return  move.style.marginLeft = '-640px', 
+                days = 'Domingo 18',
+                changeName(days);
+
+    } else if (days === 'Domingo 18') {
+        return  move.style.marginLeft = '0px', 
+                days = 'Viernes 16',
+                changeName(days);
+    }
+}
 
 
 
@@ -154,6 +155,7 @@ const currentArtist = () => {
 
     let artistWrap  = document.getElementsByClassName('schedule__artist')
     let artist      = document.getElementsByClassName('artist')      
+
     const two = 120000
     const five = 300000 
     const ten = 600000

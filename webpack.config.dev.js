@@ -13,7 +13,6 @@ module.exports = {
         taller: './src/talleres.js',
         about: './src/nosotrxs.js',
         stream: './src/index.js',
-        test: './src/test.js',
         bluestray: './src/bluestray.js',
         camellia: './src/camellia.js',
         cris: './src/cris.js',
@@ -135,12 +134,6 @@ module.exports = {
             template: './public/index.html',
             filename: './index.html',
             chunks: ['stream'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/test.html',
-            filename: './test.html',
-            chunks: ['test'],
         }),
         new HtmlWebpackPlugin({
             inject: true,

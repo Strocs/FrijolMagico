@@ -44,6 +44,24 @@
     font-size: 1.5rem;
 }
 
+.change {
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    display: none;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    user-select: none;
+}
+
+.simply-rrss {
+    height: 3rem;
+    width: 3rem;
+}
+
+
 
 /*  ------- SHADOWS ------- */
 
@@ -70,6 +88,7 @@
 
 /*  ------- ANIMATIONS ------- */
 
+.change, 
 #countdown,
 .header__text,
 .stream__youtube,
@@ -83,6 +102,7 @@
             animation-delay: 400ms;
 }
 
+.change,
 .stream__youtube,
 #countdown {
     -webkit-animation-delay: 1s;
@@ -179,6 +199,17 @@
     width: 32rem;
     height: 45rem;
     overflow: hidden;
+}
+
+.stream__schedule:before {
+    content: '❬';
+    color: white;
+    transform: rotate(-90deg);
+    font-size: 6rem;
+    position: absolute;
+    z-index: -1;
+    margin-top: 43rem;
+    margin-left: 15rem;
 }
 
 .schedule__wrap {
