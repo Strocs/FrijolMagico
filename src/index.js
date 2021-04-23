@@ -156,219 +156,230 @@ const currentArtist = () => {
     let artistWrap  = document.getElementsByClassName('schedule__artist')
     let artist      = document.getElementsByClassName('artist')      
 
-    const two = 120000
-    const five = 300000 
-    const ten = 600000
-    const hour = ten*6
-    const twoHour = hour*2
 
+    const scheduleTimer = (last, current, day, timer, scroll) => {
+        setTimeout(function() {
+            artistWrap[last].removeAttribute('id')
+            artist[last].removeAttribute('id')
+            artistWrap[current].setAttribute('id', 'schedule__artist-selected')
+            artist[current].setAttribute('id', 'artist-selected')
+            schedule[day].scrollTop = scroll
+        }, timer)
+    }
+
+    scheduleTimer(7, 0, 0, 20000, 0)
+    scheduleTimer(0, 1, 0, 60000, 100)
+    scheduleTimer(1, 2, 0, 100000, 200)
+    scheduleTimer(2, 3, 0, 120000, 300)
+
+     
     // first day = 0-7
-    setTimeout(function() {
-        artistWrap[0].setAttribute('id', 'schedule__artist-selected')
-        artist[0].setAttribute('id', 'artist-selected')
-        schedule[0].scrollTop = 0
-    }, getFirstDay)
+    // setTimeout(function() {
+    //     artistWrap[0].setAttribute('id', 'schedule__artist-selected')
+    //     artist[0].setAttribute('id', 'artist-selected')
+    //     schedule[0].scrollTop = 0
+    // }, getFirstDay)
 
-    setTimeout(function() {
-        artistWrap[0].removeAttribute('id')
-        artist[0].removeAttribute('id')
-        artistWrap[1].setAttribute('id', 'schedule__artist-selected')
-        artist[1].setAttribute('id', 'artist-selected')
-        schedule[0].scrollTop = 100
-    }, getFirstDay+(ten*3))
+    // setTimeout(function() {
+    //     artistWrap[0].removeAttribute('id')
+    //     artist[0].removeAttribute('id')
+    //     artistWrap[1].setAttribute('id', 'schedule__artist-selected')
+    //     artist[1].setAttribute('id', 'artist-selected')
+    //     schedule[0].scrollTop = 100
+    // }, getFirstDay+(ten*3))
 
-    setTimeout(function() {
-        artistWrap[1].removeAttribute('id')
-        artist[1].removeAttribute('id')
-        artistWrap[2].setAttribute('id', 'schedule__artist-selected')
-        artist[2].setAttribute('id', 'artist-selected')
-        schedule[0].scrollTop = 200
-    }, getFirstDay+five+(ten*4))
+    // setTimeout(function() {
+    //     artistWrap[1].removeAttribute('id')
+    //     artist[1].removeAttribute('id')
+    //     artistWrap[2].setAttribute('id', 'schedule__artist-selected')
+    //     artist[2].setAttribute('id', 'artist-selected')
+    //     schedule[0].scrollTop = 200
+    // }, getFirstDay+five+(ten*4))
 
-    setTimeout(function() {
-        artistWrap[2].removeAttribute('id')
-        artist[2].removeAttribute('id')
-        artistWrap[3].setAttribute('id', 'schedule__artist-selected')
-        artist[3].setAttribute('id', 'artist-selected')
-        schedule[0].scrollTop = 300
-    }, getFirstDay+hour)
+    // setTimeout(function() {
+    //     artistWrap[2].removeAttribute('id')
+    //     artist[2].removeAttribute('id')
+    //     artistWrap[3].setAttribute('id', 'schedule__artist-selected')
+    //     artist[3].setAttribute('id', 'artist-selected')
+    //     schedule[0].scrollTop = 300
+    // }, getFirstDay+hour)
 
-    setTimeout(function() {
-        artistWrap[3].removeAttribute('id')
-        artist[3].removeAttribute('id')
-        artistWrap[4].setAttribute('id', 'schedule__artist-selected')
-        artist[4].setAttribute('id', 'artist-selected')
-        schedule[0].scrollTop = 400
-    }, getFirstDay+hour+(ten*4))
+    // setTimeout(function() {
+    //     artistWrap[3].removeAttribute('id')
+    //     artist[3].removeAttribute('id')
+    //     artistWrap[4].setAttribute('id', 'schedule__artist-selected')
+    //     artist[4].setAttribute('id', 'artist-selected')
+    //     schedule[0].scrollTop = 400
+    // }, getFirstDay+hour+(ten*4))
 
-    setTimeout(function() {
-        artistWrap[4].removeAttribute('id')
-        artist[4].removeAttribute('id')
-        artistWrap[5].setAttribute('id', 'schedule__artist-selected')
-        artist[5].setAttribute('id', 'artist-selected')
-        schedule[0].scrollTop = 500
-    }, getFirstDay+twoHour)
+    // setTimeout(function() {
+    //     artistWrap[4].removeAttribute('id')
+    //     artist[4].removeAttribute('id')
+    //     artistWrap[5].setAttribute('id', 'schedule__artist-selected')
+    //     artist[5].setAttribute('id', 'artist-selected')
+    //     schedule[0].scrollTop = 500
+    // }, getFirstDay+twoHour)
 
-    setTimeout(function() {
-        artistWrap[5].removeAttribute('id')
-        artist[5].removeAttribute('id')
-        artistWrap[6].setAttribute('id', 'schedule__artist-selected')
-        artist[6].setAttribute('id', 'artist-selected')
-        schedule[0].scrollTop = 600
-    }, getFirstDay+twoHour+(ten*2))
+    // setTimeout(function() {
+    //     artistWrap[5].removeAttribute('id')
+    //     artist[5].removeAttribute('id')
+    //     artistWrap[6].setAttribute('id', 'schedule__artist-selected')
+    //     artist[6].setAttribute('id', 'artist-selected')
+    //     schedule[0].scrollTop = 600
+    // }, getFirstDay+twoHour+(ten*2))
 
-    setTimeout(function() {
-        artistWrap[6].removeAttribute('id')
-        artist[6].removeAttribute('id')
-        artistWrap[7].setAttribute('id', 'schedule__artist-selected')
-        artist[7].setAttribute('id', 'artist-selected')
-    }, getFirstDay+twoHour+(ten*4))
+    // setTimeout(function() {
+    //     artistWrap[6].removeAttribute('id')
+    //     artist[6].removeAttribute('id')
+    //     artistWrap[7].setAttribute('id', 'schedule__artist-selected')
+    //     artist[7].setAttribute('id', 'artist-selected')
+    // }, getFirstDay+twoHour+(ten*4))
 
-    setTimeout(function() {
-        artistWrap[7].removeAttribute('id')
-        artist[7].removeAttribute('id')
-        schedule[0].scrollTop = 0
-    }, getFirstDay+(hour*3)+five)
-
-
-
-    // second day = 8 - 15
-    setTimeout(function() {
-        artistWrap[8].setAttribute('id', 'schedule__artist-selected')
-        artist[8].setAttribute('id', 'artist-selected')
-        schedule[1].scrollTop = 0
-    }, getSecondDay)
-
-    setTimeout(function() {
-        artistWrap[8].removeAttribute('id')
-        artist[8].removeAttribute('id')
-        artistWrap[9].setAttribute('id', 'schedule__artist-selected')
-        artist[9].setAttribute('id', 'artist-selected')
-        schedule[1].scrollTop = 100
-    }, getSecondDay+(ten*3))
-
-    setTimeout(function() {
-        artistWrap[9].removeAttribute('id')
-        artist[9].removeAttribute('id')
-        artistWrap[10].setAttribute('id', 'schedule__artist-selected')
-        artist[10].setAttribute('id', 'artist-selected')
-        schedule[1].scrollTop = 200
-    }, getSecondDay+(ten*4))
-
-    setTimeout(function() {
-        artistWrap[10].removeAttribute('id')
-        artist[10].removeAttribute('id')
-        artistWrap[11].setAttribute('id', 'schedule__artist-selected')
-        artist[11].setAttribute('id', 'artist-selected')
-        schedule[1].scrollTop = 300
-    }, getSecondDay+hour+ten)
-
-    setTimeout(function() {
-        artistWrap[11].removeAttribute('id')
-        artist[11].removeAttribute('id')
-        artistWrap[12].setAttribute('id', 'schedule__artist-selected')
-        artist[12].setAttribute('id', 'artist-selected')
-        schedule[1].scrollTop = 400
-    }, getSecondDay+hour+(ten*2))
-
-    setTimeout(function() {
-        artistWrap[12].removeAttribute('id')
-        artist[12].removeAttribute('id')
-        artistWrap[13].setAttribute('id', 'schedule__artist-selected')
-        artist[13].setAttribute('id', 'artist-selected')
-        schedule[1].scrollTop = 500
-    }, getSecondDay+twoHour-five)
-
-    setTimeout(function() {
-        artistWrap[13].removeAttribute('id')
-        artist[13].removeAttribute('id')
-        artistWrap[14].setAttribute('id', 'schedule__artist-selected')
-        artist[14].setAttribute('id', 'artist-selected')
-        schedule[1].scrollTop = 600
-    }, getSecondDay+twoHour+(ten*2))
-
-    setTimeout(function() {
-        artistWrap[14].removeAttribute('id')
-        artist[14].removeAttribute('id')
-        artistWrap[15].setAttribute('id', 'schedule__artist-selected')
-        artist[15].setAttribute('id', 'artist-selected')
-    }, getSecondDay+twoHour+(ten*3))
-
-    setTimeout(function() {
-        artistWrap[15].removeAttribute('id')
-        artist[15].removeAttribute('id')
-        schedule[1].scrollTop = 0
-    }, getSecondDay+twoHour+(hour-five))
+    // setTimeout(function() {
+    //     artistWrap[7].removeAttribute('id')
+    //     artist[7].removeAttribute('id')
+    //     schedule[0].scrollTop = 0
+    // }, getFirstDay+(hour*3)+five)
 
 
 
-    // third day = 16 - 23
-     setTimeout(function() {
-        artistWrap[16].setAttribute('id', 'schedule__artist-selected')
-        artist[16].setAttribute('id', 'artist-selected')
-        schedule[2].scrollTop = 0
-    }, getThirdDay)
+    // // second day = 8 - 15
+    // setTimeout(function() {
+    //     artistWrap[8].setAttribute('id', 'schedule__artist-selected')
+    //     artist[8].setAttribute('id', 'artist-selected')
+    //     schedule[1].scrollTop = 0
+    // }, getSecondDay)
 
-    setTimeout(function() {
-        artistWrap[16].removeAttribute('id')
-        artist[16].removeAttribute('id')
-        artistWrap[17].setAttribute('id', 'schedule__artist-selected')
-        artist[17].setAttribute('id', 'artist-selected')
-        schedule[2].scrollTop = 100
-    }, getThirdDay+(ten*3))
+    // setTimeout(function() {
+    //     artistWrap[8].removeAttribute('id')
+    //     artist[8].removeAttribute('id')
+    //     artistWrap[9].setAttribute('id', 'schedule__artist-selected')
+    //     artist[9].setAttribute('id', 'artist-selected')
+    //     schedule[1].scrollTop = 100
+    // }, getSecondDay+(ten*3))
 
-    setTimeout(function() {
-        artistWrap[17].removeAttribute('id')
-        artist[17].removeAttribute('id')
-        artistWrap[18].setAttribute('id', 'schedule__artist-selected')
-        artist[18].setAttribute('id', 'artist-selected')
-        schedule[2].scrollTop = 200
-    }, getThirdDay+(ten*4))
+    // setTimeout(function() {
+    //     artistWrap[9].removeAttribute('id')
+    //     artist[9].removeAttribute('id')
+    //     artistWrap[10].setAttribute('id', 'schedule__artist-selected')
+    //     artist[10].setAttribute('id', 'artist-selected')
+    //     schedule[1].scrollTop = 200
+    // }, getSecondDay+(ten*4))
 
-    setTimeout(function() {
-        artistWrap[18].removeAttribute('id')
-        artist[18].removeAttribute('id')
-        artistWrap[19].setAttribute('id', 'schedule__artist-selected')
-        artist[19].setAttribute('id', 'artist-selected')
-        schedule[2].scrollTop = 300
-    }, getThirdDay+(ten*5))
+    // setTimeout(function() {
+    //     artistWrap[10].removeAttribute('id')
+    //     artist[10].removeAttribute('id')
+    //     artistWrap[11].setAttribute('id', 'schedule__artist-selected')
+    //     artist[11].setAttribute('id', 'artist-selected')
+    //     schedule[1].scrollTop = 300
+    // }, getSecondDay+hour+ten)
 
-    setTimeout(function() {
-        artistWrap[19].removeAttribute('id')
-        artist[19].removeAttribute('id')
-        artistWrap[20].setAttribute('id', 'schedule__artist-selected')
-        artist[20].setAttribute('id', 'artist-selected')
-        schedule[2].scrollTop = 400
-    }, getThirdDay+twoHour-(ten*2))
+    // setTimeout(function() {
+    //     artistWrap[11].removeAttribute('id')
+    //     artist[11].removeAttribute('id')
+    //     artistWrap[12].setAttribute('id', 'schedule__artist-selected')
+    //     artist[12].setAttribute('id', 'artist-selected')
+    //     schedule[1].scrollTop = 400
+    // }, getSecondDay+hour+(ten*2))
 
-    setTimeout(function() {
-        artistWrap[20].removeAttribute('id')
-        artist[20].removeAttribute('id')
-        artistWrap[21].setAttribute('id', 'schedule__artist-selected')
-        artist[21].setAttribute('id', 'artist-selected')
-        schedule[2].scrollTop = 500
-    }, getThirdDay+twoHour+ten)
+    // setTimeout(function() {
+    //     artistWrap[12].removeAttribute('id')
+    //     artist[12].removeAttribute('id')
+    //     artistWrap[13].setAttribute('id', 'schedule__artist-selected')
+    //     artist[13].setAttribute('id', 'artist-selected')
+    //     schedule[1].scrollTop = 500
+    // }, getSecondDay+twoHour-five)
 
-    setTimeout(function() {
-        artistWrap[21].removeAttribute('id')
-        artist[21].removeAttribute('id')
-        artistWrap[22].setAttribute('id', 'schedule__artist-selected')
-        artist[22].setAttribute('id', 'artist-selected')
-        schedule[2].scrollTop = 600
-    }, getThirdDay+twoHour+hour)
+    // setTimeout(function() {
+    //     artistWrap[13].removeAttribute('id')
+    //     artist[13].removeAttribute('id')
+    //     artistWrap[14].setAttribute('id', 'schedule__artist-selected')
+    //     artist[14].setAttribute('id', 'artist-selected')
+    //     schedule[1].scrollTop = 600
+    // }, getSecondDay+twoHour+(ten*2))
 
-    setTimeout(function() {
-        artistWrap[22].removeAttribute('id')
-        artist[22].removeAttribute('id')
-        artistWrap[23].setAttribute('id', 'schedule__artist-selected')
-        artist[23].setAttribute('id', 'artist-selected')
-    }, getThirdDay+twoHour+hour+ten)
+    // setTimeout(function() {
+    //     artistWrap[14].removeAttribute('id')
+    //     artist[14].removeAttribute('id')
+    //     artistWrap[15].setAttribute('id', 'schedule__artist-selected')
+    //     artist[15].setAttribute('id', 'artist-selected')
+    // }, getSecondDay+twoHour+(ten*3))
 
-    setTimeout(function() {
-        artistWrap[23].removeAttribute('id')
-        artist[23].removeAttribute('id')
-        schedule[2].scrollTop = 0
-    }, getThirdDay+twoHour+hour+(ten*3))   
+    // setTimeout(function() {
+    //     artistWrap[15].removeAttribute('id')
+    //     artist[15].removeAttribute('id')
+    //     schedule[1].scrollTop = 0
+    // }, getSecondDay+twoHour+(hour-five))
+
+
+
+    // // third day = 16 - 23
+    //  setTimeout(function() {
+    //     artistWrap[16].setAttribute('id', 'schedule__artist-selected')
+    //     artist[16].setAttribute('id', 'artist-selected')
+    //     schedule[2].scrollTop = 0
+    // }, getThirdDay)
+
+    // setTimeout(function() {
+    //     artistWrap[16].removeAttribute('id')
+    //     artist[16].removeAttribute('id')
+    //     artistWrap[17].setAttribute('id', 'schedule__artist-selected')
+    //     artist[17].setAttribute('id', 'artist-selected')
+    //     schedule[2].scrollTop = 100
+    // }, getThirdDay+(ten*3))
+
+    // setTimeout(function() {
+    //     artistWrap[17].removeAttribute('id')
+    //     artist[17].removeAttribute('id')
+    //     artistWrap[18].setAttribute('id', 'schedule__artist-selected')
+    //     artist[18].setAttribute('id', 'artist-selected')
+    //     schedule[2].scrollTop = 200
+    // }, getThirdDay+(ten*4))
+
+    // setTimeout(function() {
+    //     artistWrap[18].removeAttribute('id')
+    //     artist[18].removeAttribute('id')
+    //     artistWrap[19].setAttribute('id', 'schedule__artist-selected')
+    //     artist[19].setAttribute('id', 'artist-selected')
+    //     schedule[2].scrollTop = 300
+    // }, getThirdDay+(ten*5))
+
+    // setTimeout(function() {
+    //     artistWrap[19].removeAttribute('id')
+    //     artist[19].removeAttribute('id')
+    //     artistWrap[20].setAttribute('id', 'schedule__artist-selected')
+    //     artist[20].setAttribute('id', 'artist-selected')
+    //     schedule[2].scrollTop = 400
+    // }, getThirdDay+twoHour-(ten*2))
+
+    // setTimeout(function() {
+    //     artistWrap[20].removeAttribute('id')
+    //     artist[20].removeAttribute('id')
+    //     artistWrap[21].setAttribute('id', 'schedule__artist-selected')
+    //     artist[21].setAttribute('id', 'artist-selected')
+    //     schedule[2].scrollTop = 500
+    // }, getThirdDay+twoHour+ten)
+
+    // setTimeout(function() {
+    //     artistWrap[21].removeAttribute('id')
+    //     artist[21].removeAttribute('id')
+    //     artistWrap[22].setAttribute('id', 'schedule__artist-selected')
+    //     artist[22].setAttribute('id', 'artist-selected')
+    //     schedule[2].scrollTop = 600
+    // }, getThirdDay+twoHour+hour)
+
+    // setTimeout(function() {
+    //     artistWrap[22].removeAttribute('id')
+    //     artist[22].removeAttribute('id')
+    //     artistWrap[23].setAttribute('id', 'schedule__artist-selected')
+    //     artist[23].setAttribute('id', 'artist-selected')
+    // }, getThirdDay+twoHour+hour+ten)
+
+    // setTimeout(function() {
+    //     artistWrap[23].removeAttribute('id')
+    //     artist[23].removeAttribute('id')
+    //     schedule[2].scrollTop = 0
+    // }, getThirdDay+twoHour+hour+(ten*3))   
 }
 
 currentArtist()
