@@ -5,7 +5,7 @@
 .ilus-page__images,
 .data__box {
     -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
-            box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    box-shadow: 0.8rem 0.8rem var(--pink-normal);
     -webkit-transition: 300ms;
     -o-transition: 300ms;
     transition: 300ms;
@@ -13,7 +13,8 @@
     transition-property: -webkit-box-shadow, -webkit-transform;
     -o-transition-property: box-shadow, transform;
     transition-property: box-shadow, transform;
-    transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+    transition-property: box-shadow, transform, -webkit-box-shadow,
+        -webkit-transform;
 }
 
 /*  ------- ANIMATIONS ------- */
@@ -25,28 +26,29 @@
 .ilus-page__data,
 .ilus-page__gallery {
     -webkit-animation: showUp 600ms backwards;
-            animation: showUp 600ms backwards;
+    animation: showUp 600ms backwards;
 }
 
-.ilus-page__title, .ilus-page__name {
+.ilus-page__title,
+.ilus-page__name {
     -webkit-animation-delay: 200ms;
-            animation-delay: 200ms;
+    animation-delay: 200ms;
 }
 .ilus-page__location {
     -webkit-animation-delay: 200ms;
-            animation-delay: 200ms;
+    animation-delay: 200ms;
 }
 .ilus-page__bio {
     -webkit-animation-delay: 800ms;
-            animation-delay: 800ms;
+    animation-delay: 800ms;
 }
 .ilus-page__data {
     -webkit-animation-delay: 1.4s;
-            animation-delay: 1.4s;
+    animation-delay: 1.4s;
 }
 .ilus-page__gallery {
     -webkit-animation-delay: 2s;
-            animation-delay: 2s;
+    animation-delay: 2s;
 }
 
 /*  
@@ -62,11 +64,11 @@
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 /*  
@@ -90,7 +92,8 @@
     margin: 2rem 1.5rem 1rem;
 }
 
-.ilus-page__location, .ilus-page__name {
+.ilus-page__location,
+.ilus-page__name {
     font-size: 1.4rem;
     text-align: center;
     margin: 0;
@@ -104,18 +107,18 @@
     margin: 4rem 2rem;
 }
 
-/*  ------- CONTACT ------- */ 
+/*  ------- CONTACT ------- */
 
 .ilus-page__data {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-bottom: 6rem;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 4rem;
 }
 
 .data__box {
@@ -127,11 +130,11 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .data__logo {
@@ -150,11 +153,11 @@
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-bottom: 1rem;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 15rem;
 }
 
 .ilus-page__images {
@@ -174,9 +177,8 @@
 */
 
 @media screen and (min-width: 767px) {
-
     /*  ------------- IMAGE DETAIL ------------- */
-    
+
     .images__container {
         background-color: var(--blue-normal-opa);
         position: fixed;
@@ -184,38 +186,34 @@
         padding-bottom: 100vh;
         z-index: 11;
     }
-    
+
     .images__detail {
         display: -ms-grid;
         display: grid;
-            grid-template-areas: 'image';
+        grid-template-areas: "image";
         height: 100vh;
     }
- 
+
     .ilus-page__images {
         margin: 1rem;
     }
-   
+
     .images__img {
         visibility: hidden;
         grid-area: image;
         height: 70vh;
         width: auto;
         -ms-grid-column-align: center;
-            justify-self: center;
-       -ms-grid-row-align: center;
-            align-self: center;
+        justify-self: center;
+        -ms-grid-row-align: center;
+        align-self: center;
         -ms-grid-row: 1;
         -ms-grid-column: 1;
-
     }
-
 }
 
-
 @media screen and (min-width: 1360px) {
-
-     /*  ------------- IMAGE DETAIL ------------- */
+    /*  ------------- IMAGE DETAIL ------------- */
 
     .images__img {
         height: 90vh;
@@ -225,10 +223,10 @@
 
     .data__box:hover {
         -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
-                box-shadow: 1.4rem 1.4rem var(--pink-normal);
+        box-shadow: 1.4rem 1.4rem var(--pink-normal);
         -webkit-transform: translate(-0.4rem, -0.4rem);
-            -ms-transform: translate(-0.4rem, -0.4rem);
-                transform: translate(-0.4rem, -0.4rem);
+        -ms-transform: translate(-0.4rem, -0.4rem);
+        transform: translate(-0.4rem, -0.4rem);
         -webkit-transition: 100ms;
         -o-transition: 100ms;
         transition: 100ms;
@@ -236,12 +234,13 @@
         transition-property: -webkit-box-shadow, -webkit-transform;
         -o-transition-property: box-shadow, transform;
         transition-property: box-shadow, transform;
-        transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+        transition-property: box-shadow, transform, -webkit-box-shadow,
+            -webkit-transform;
     }
 
     .ilus-page__images:hover {
         -webkit-box-shadow: 0.8rem 1.8rem var(--pink-normal);
-                box-shadow: 0.8rem 1.8rem var(--pink-normal);
+        box-shadow: 0.8rem 1.8rem var(--pink-normal);
         -webkit-transition: 100ms;
         -o-transition: 100ms;
         transition: 100ms;
@@ -249,17 +248,16 @@
         transition-property: -webkit-box-shadow, -webkit-transform;
         -o-transition-property: box-shadow, transform;
         transition-property: box-shadow, transform;
-        transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+        transition-property: box-shadow, transform, -webkit-box-shadow,
+            -webkit-transform;
     }
 
     .ilus-page__images:hover {
         -webkit-transform: translateY(-3rem);
-            -ms-transform: translateY(-3rem);
-                transform: translateY(-3rem);
+        -ms-transform: translateY(-3rem);
+        transform: translateY(-3rem);
         -webkit-transition: 300ms;
         -o-transition: 300ms;
         transition: 300ms;
     }
 }
-
-

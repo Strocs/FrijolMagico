@@ -1,10 +1,15 @@
-import Header from '@templates/Header.js'
-import Footer from '@templates/Footer.js'
+import showHeaderFooter from '@components/showHeaderFooter.js'
+import illustratorList from '@components/illustratorList.js'
+import Gallery from '@templates/gallery.js'
+import orderList from '@components/orderList.js'
 import '@styles/ilustradorxs.css'
 
-(async function App() {
-    const header = null || document.getElementsByClassName('header__container')[0];
-    const footer = null || document.getElementsByClassName('footer__container')[0];
-    header.innerHTML = await Header();
-    footer.innerHTML = await Footer();
-  })();
+showHeaderFooter('')
+
+const wrap = document.getElementsByClassName('ilus__card-container')[0]
+wrap.innerHTML = illustratorList(Gallery, orderList.ordered)
+
+
+
+
+

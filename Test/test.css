@@ -1,0 +1,15 @@
+.wrap {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.main {
+  width: 600px;
+  display: flex;
+}
+
+/* .prev,
+.next {
+  color: black;
+} */

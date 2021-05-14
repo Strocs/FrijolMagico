@@ -3,34 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
     entry: {
-        home: './src/home.js',
+        home: './src/index.js',
         ilus: './src/ilustradorxs.js',
         taller: './src/talleres.js',
         about: './src/nosotrxs.js',
-        stream: './src/index.js',
-        bluestray: './src/bluestray.js',
-        camellia: './src/camellia.js',
-        cris: './src/cris.js',
-        vincent: './src/vincent.js',
-        eline: './src/eline.js',
-        ojus: './src/ojus.js',
-        sofi: './src/sofi.js',
-        sun: './src/sun.js',
-        tigre: './src/tigre.js',
-        camipepe: './src/camipepe.js',
-        catana: './src/catana.js',
-        collar: './src/collar.js',
-        drommer: './src/drommer.js',
-        elmenese: './src/elmenese.js',
-        neehre: './src/neehre.js',
-        nino: './src/nino.js',
-        prr: './src/prr.js',
-        astro: './src/astro.js'
+        iluspage: './src/iluspage.js',
     } ,
     
     output: {
@@ -45,9 +26,10 @@ module.exports = {
         extensions: ['.js'],
         alias: {
             '@utils': path.resolve(__dirname, 'src/utils/'),
-            '@templates': path.resolve(__dirname, 'src/templates/'),
             '@styles': path.resolve(__dirname, 'src/styles/'),
             '@images': path.resolve(__dirname, 'src/assets/images/'),
+            '@components': path.resolve(__dirname, 'src/components/'),
+            '@templates': path.resolve(__dirname, 'src/components/templates/'),
         }
     },
 
@@ -107,8 +89,8 @@ module.exports = {
         
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/home.html',
-            filename: './home.html', 
+            template: './public/index.html',
+            filename: './index.html', 
             chunks: ['home'],
         }),
         new HtmlWebpackPlugin({
@@ -129,120 +111,114 @@ module.exports = {
             filename: './nosotrxs.html',
             chunks: ['about'],
         }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/index.html',
-            filename: './index.html',
-            chunks: ['stream'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/blue-straycatt.html',
-            filename: './ilustradorxs/blue-straycatt.html',
-            chunks: ['bluestray'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/camellia-liz.html',
-            filename: './ilustradorxs/camellia-liz.html',
-            chunks: ['camellia'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/cris-crowfin.html',
-            filename: './ilustradorxs/cris-crowfin.html',
-            chunks: ['cris'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/evincentv.html',
-            filename: './ilustradorxs/evincentv.html',
-            chunks: ['vincent'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/eline1three.html',
-            filename: './ilustradorxs/eline1three.html',
-            chunks: ['vincent'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/ojus-pocus.html',
-            filename: './ilustradorxs/ojus-pocus.html',
-            chunks: ['ojus'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/sofiniscus.html',
-            filename: './ilustradorxs/sofiniscus.html',
-            chunks: ['sofi'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/sunmorales.html',
-            filename: './ilustradorxs/sunmorales.html',
-            chunks: ['sun'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/tigre-maltes.html',
-            filename: './ilustradorxs/tigre-maltes.html',
-            chunks: ['tigre'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/astro-glitter.html',
-            filename: './ilustradorxs/astro-glitter.html',
-            chunks: ['astro'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/camipepe.html',
-            filename: './ilustradorxs/camipepe.html',
-            chunks: ['camipepe'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/catana.html',
-            filename: './ilustradorxs/catana.html',
-            chunks: ['catana'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/collarcitos.html',
-            filename: './ilustradorxs/collarcitos.html',
-            chunks: ['collar'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/drommer.html',
-            filename: './ilustradorxs/drommer.html',
-            chunks: ['drommer'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/elmenese.html',
-            filename: './ilustradorxs/elmenese.html',
-            chunks: ['elmenese'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/neehre.html',
-            filename: './ilustradorxs/neehre.html',
-            chunks: ['neehre'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/niño-pan.html',
-            filename: './ilustradorxs/niño-pan.html',
-            chunks: ['nino'],
-        }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './public/ilustradorxs/prrr-miaow.html',
-            filename: './ilustradorxs/prrr-miaow.html',
-            chunks: ['prr'],
-        }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/blue-straycatt.html',
+        //     filename: './ilustradorxs/blue-straycatt.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/camellia-liz.html',
+        //     filename: './ilustradorxs/camellia-liz.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/cris-crowfin.html',
+        //     filename: './ilustradorxs/cris-crowfin.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/evincentv.html',
+        //     filename: './ilustradorxs/evincentv.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/eline1three.html',
+        //     filename: './ilustradorxs/eline1three.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/ojus-pocus.html',
+        //     filename: './ilustradorxs/ojus-pocus.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/sofiniscus.html',
+        //     filename: './ilustradorxs/sofiniscus.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/sunmorales.html',
+        //     filename: './ilustradorxs/sunmorales.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/tigre-maltes.html',
+        //     filename: './ilustradorxs/tigre-maltes.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/astro-glitter.html',
+        //     filename: './ilustradorxs/astro-glitter.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/camipepe.html',
+        //     filename: './ilustradorxs/camipepe.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/catana.html',
+        //     filename: './ilustradorxs/catana.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/collarcitos.html',
+        //     filename: './ilustradorxs/collarcitos.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/drommer.html',
+        //     filename: './ilustradorxs/drommer.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/elmenese.html',
+        //     filename: './ilustradorxs/elmenese.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/neehre.html',
+        //     filename: './ilustradorxs/neehre.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/niño-pan.html',
+        //     filename: './ilustradorxs/niño-pan.html',
+        //     chunks: ['iluspage'],
+        // }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template: './public/ilustradorxs/prrr-miaow.html',
+        //     filename: './ilustradorxs/prrr-miaow.html',
+        //     chunks: ['iluspage'],
+        // }),
 
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
@@ -257,8 +233,16 @@ module.exports = {
             ]
         }),
 
+        new CopyPlugin({
+            patterns: [
+            {
+                from: path.resolve(__dirname, "src", "assets", "images", "gallery"),
+                to: "assets/gallery"
+            }
+            ]
+        }),
+
         new Dotenv(),
-        new BundleAnalyzerPlugin(),
         new FaviconsWebpackPlugin({
             logo: 'src/assets/images/LogoFrijol.png',
             mode: 'light',
