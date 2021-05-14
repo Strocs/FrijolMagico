@@ -1,4 +1,5 @@
 const main = document.getElementsByClassName('main')[0]
+main.style.marginLeft = `-200px`;
 
 // 12 DATOS
 const data = [
@@ -35,20 +36,39 @@ const dataArray = (current, dataInfo) => {
   return [data[x], data[y], data[z]];
 };
 
-(function printSquare() {
-  let dataArr = dataArray(0, data);
+//TODO: CAMBIAR PRINT SQUARE PARA QUE MANTENGA EL CURRENT Y ELMINE EL ANTERIOR Y AGREGUE EL SIGUIENTE
+const printSquare = (current) => {
+  let dataArr = dataArray(current, data);
 
   for (let i=0; i < dataArr.length; i++) {
     main.appendChild(createSquare(dataArr[i]))
   }
-})();
+}
 
+let initialSquare = 0;
+printSquare(initialSquare)
 
 // EVENTOS
 
+//TODO: SIMPLIFICAR FUNCIONES, UNIR EN UNA SOLA FUNCION LOS EVENTOS PREV Y NEXT
+// FINALIZAR MOVESQUARE Y HACER QUE MUEVA EL MARGIN Y LUEGO CAMBIE VALORES
+
+document.getElementsByClassName('prev')[0].addEventListener('click', function(){
+  // let margin = 0
+  let current = 0
+  printSquare(current++)
+  // main.style.marginLeft = `-${margin}px`;
+})
+
+document.getElementsByClassName('next')[0].addEventListener('click', function(){
+  // let margin = 400
+  let current = 0
+  printSquare(current--)
+  // main.style.marginLeft = `-${margin}px`;
+})
 
 
-
-
-
-
+const moveSquare = () => {
+  let margin = 0
+  main.style.marginLeft = `-${margin}px`;
+}

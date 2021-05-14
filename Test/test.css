@@ -7,9 +7,5 @@
 .main {
   width: 600px;
   display: flex;
+  transition: margin-left 200ms ease;
 }
-
-/* .prev,
-.next {
-  color: black;
-} */
