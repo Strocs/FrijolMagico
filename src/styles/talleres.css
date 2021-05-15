@@ -1,13 +1,14 @@
 @import "@styles/main.css";
 
 .main__workshop-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
 .soon__text {
-    font-size: 8rem;
-    text-align: center;
-    text-shadow: 0.4rem 0.4rem var(--pink-normal);
+  font-size: 8vh;
+  text-align: center;
+  text-shadow: 0.4rem 0.4rem var(--pink-normal);
 }

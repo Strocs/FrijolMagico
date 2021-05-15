@@ -26,6 +26,8 @@ const IllusPage = (ilus, ig, fb, twitter, yt, tiktok, behance, web, mail, img1 =
         <img class="ilus-page__images" src="../assets/gallery/${ilus.images[img2]}.png" alt="${ilus.name}" />
         <img class="ilus-page__images" src="../assets/gallery/${ilus.images[img3]}.png" alt="${ilus.name}" />
       </secion>
+
+      <a href="../ilustradorxs" class="gallery">Volver a la Galería</a>
     </main>
   `
   return view

@@ -14,3 +14,4 @@ const IllusImg = (ilus, img1 = 0, img2 = 1, img3 = 2) => {
 }
 
 export default IllusImg
+

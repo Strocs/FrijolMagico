@@ -21,6 +21,23 @@
   z-index: 1;
 }
 
+.gallery {
+  display: flex;
+  justify-self: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--ff-title-sketch);
+  margin: 13rem 0 2rem;
+  padding: 2rem;
+  transition: margin 300ms ease;
+  z-index: 1;
+}
+
+.gallery:hover {
+  margin: 11rem 0 4rem;
+  text-shadow: 0 0.4rem var(--pink-normal);
+  transition: margin 300ms ease;
+}
 /*  ------- SHADOWS ------- */
 
 .ilus-page__images,
@@ -177,7 +194,6 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-bottom: 15rem;
 }
 
 .ilus-page__images {
