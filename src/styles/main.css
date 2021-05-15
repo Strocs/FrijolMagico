@@ -1,3 +1,5 @@
+@import "../../node_modules/animate.css/animate.compat.css";
+
 /*  
     ------------- 
         FONTS
@@ -146,6 +148,34 @@ a {
 
 /*  
     ------------- 
+     BACKGROUND
+    ------------- 
+*/
+
+.bg__root {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
+.bg__left,
+.bg__right {
+  position: absolute;
+  margin-top: -48rem;
+  transform: scale(0.8);
+}
+.bg__right {
+  right: 0;
+  margin-right: -45rem;
+}
+
+.bg__left {
+  display: none;
+}
+
+/*  
+    ------------- 
        HEADER
     ------------- 
 */
@@ -154,7 +184,11 @@ a {
   top: 0;
   width: 100vw;
   z-index: 3;
-  /* height: 100vh; */
+  transition: background 300ms ease;
+}
+
+.header__container-bg {
+  background: var(--blue-normal-opa);
 }
 
 .header__main {
@@ -222,14 +256,17 @@ a {
   border-radius: 2px;
   position: relative;
 }
+
 .nav__toggle span::after,
 .nav__toggle span::before {
   content: "";
   position: absolute;
 }
+
 .nav__toggle span::after {
   top: 7px;
 }
+
 .nav__toggle span::before {
   bottom: 7px;
 }
@@ -237,11 +274,34 @@ a {
 .nav__toggle:hover > span,
 .nav__toggle:hover > span::after,
 .nav__toggle:hover > span::before {
-  -webkit-box-shadow: 0.4rem 0.4rem var(--pink-normal);
   box-shadow: 0.4rem 0.4rem var(--pink-normal);
-  -webkit-transition: 200ms;
-  -o-transition: 200ms;
   transition: 200ms;
+}
+
+.nav__input {
+  display: none;
+}
+
+.nav__input:checked ~ .nav__toggle span {
+  transform: rotate(-45deg);
+  box-shadow: none;
+  height: 3px;
+  width: 3rem;
+  border-radius: 2px;
+}
+
+.nav__input:checked ~ .nav__toggle span::before {
+  bottom: 0;
+  transform: rotate(90deg);
+  box-shadow: none;
+  height: 3px;
+  width: 3rem;
+  border-radius: 2px;
+}
+
+.nav__input:checked ~ .nav__toggle span::after {
+  top: 0;
+  opacity: 0;
 }
 
 /*  
@@ -264,6 +324,7 @@ a {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  justify-content: center;
   padding: 8vw 0;
   margin: 0;
   height: 100%;
@@ -310,44 +371,35 @@ a {
     ------------- 
 */
 
-@media screen and (min-width: 1020px) {
-  body::before {
-    content: "";
-    background: no-repeat url(../assets/images/left.png);
-    background-position: bottom;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -3;
-  }
-}
-
 @media screen and (min-width: 767px) {
   .footer__container {
     right: 0;
     margin-right: 10vw;
     width: auto;
   }
+
+  .bg__left,
+  .bg__right {
+    display: inherit;
+    margin-top: -30rem;
+  }
+  .bg__left {
+    left: 0;
+    margin-left: -45rem;
+  }
 }
 
 @media screen and (min-width: 1360px) {
-  body::before {
-    content: "";
-    background: no-repeat url(../assets/images/ramaLeft.png);
-    background-position: right 90%;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -3;
+  .bg__left,
+  .bg__right {
+    margin-top: -20rem;
+    transform: scale(1.2);
+  }
+  .bg__left {
+    margin-left: -35rem;
   }
 
-  body::after {
-    content: "";
-    background: no-repeat url(../assets/images/ramaRight.png);
-    background-position: left 50%;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -3;
+  .bg__right {
+    margin-right: -35rem;
   }
 }

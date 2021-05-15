@@ -15,7 +15,8 @@ const Header = (path) => {
             </a>
         </section>
 
-        <label class="nav__toggle"><span></span></label>
+        <input class="nav__input" id="nav__input" type="checkbox">
+        <label class="nav__toggle" for="nav__input"><span></span></label>
     </div>
 
     <nav class="nav__container" style="margin-top: -100vh;">

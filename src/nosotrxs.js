@@ -1,7 +1,7 @@
-import showHeaderFooter from '@components/showHeaderFooter.js'
+import showGenerals from '@components/showGenerals.js'
 import usDetail from '@components/usDetail.js'
 import '@styles/nosotrxs.css'
 
-showHeaderFooter('')
+showGenerals('')
 usDetail()
 

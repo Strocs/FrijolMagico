@@ -1,20 +1,40 @@
 @import "@styles/main.css";
 
+.glitter,
+.bluestray,
+.camellia,
+.camipepe,
+.catana,
+.collarcitos,
+.cris,
+.drommer,
+.eline,
+.elmenese,
+.vincent,
+.neehre,
+.pan,
+.ojus,
+.prr,
+.sofi,
+.sun,
+.tigre {
+  z-index: 1;
+}
+
 /*  ------- SHADOWS ------- */
 
 .ilus-page__images,
 .data__box {
-    -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
-    box-shadow: 0.8rem 0.8rem var(--pink-normal);
-    -webkit-transition: 300ms;
-    -o-transition: 300ms;
-    transition: 300ms;
-    -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
-    transition-property: -webkit-box-shadow, -webkit-transform;
-    -o-transition-property: box-shadow, transform;
-    transition-property: box-shadow, transform;
-    transition-property: box-shadow, transform, -webkit-box-shadow,
-        -webkit-transform;
+  -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
+  box-shadow: 0.8rem 0.8rem var(--pink-normal);
+  -webkit-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+  transition-property: -webkit-box-shadow, -webkit-transform;
+  -o-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
 }
 
 /*  ------- ANIMATIONS ------- */
@@ -25,30 +45,30 @@
 .ilus-page__bio,
 .ilus-page__data,
 .ilus-page__gallery {
-    -webkit-animation: showUp 600ms backwards;
-    animation: showUp 600ms backwards;
+  -webkit-animation: showUp 600ms backwards;
+  animation: showUp 600ms backwards;
 }
 
 .ilus-page__title,
 .ilus-page__name {
-    -webkit-animation-delay: 200ms;
-    animation-delay: 200ms;
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
 }
 .ilus-page__location {
-    -webkit-animation-delay: 200ms;
-    animation-delay: 200ms;
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
 }
 .ilus-page__bio {
-    -webkit-animation-delay: 800ms;
-    animation-delay: 800ms;
+  -webkit-animation-delay: 800ms;
+  animation-delay: 800ms;
 }
 .ilus-page__data {
-    -webkit-animation-delay: 1.4s;
-    animation-delay: 1.4s;
+  -webkit-animation-delay: 1.4s;
+  animation-delay: 1.4s;
 }
 .ilus-page__gallery {
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
 }
 
 /*  
@@ -58,17 +78,17 @@
 */
 
 .ilus__main {
-    margin: 12vh 4vw 6vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+  margin: 12vh 4vw 6vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 /*  
@@ -78,68 +98,68 @@
 */
 
 .ilus-page-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ilus-page__title {
-    font-size: 6rem;
-    text-align: center;
-    text-shadow: 0.4rem 0.4rem var(--pink-normal);
-    margin: 2rem 1.5rem 1rem;
+  font-size: 6rem;
+  text-align: center;
+  text-shadow: 0.4rem 0.4rem var(--pink-normal);
+  margin: 2rem 1.5rem 1rem;
 }
 
 .ilus-page__location,
 .ilus-page__name {
-    font-size: 1.4rem;
-    text-align: center;
-    margin: 0;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0;
 }
 
 .ilus-page__bio {
-    font-size: 1.6rem;
-    text-align: justify;
-    max-width: 52rem;
-    min-width: 300px;
-    margin: 4rem 2rem;
+  font-size: 1.6rem;
+  text-align: justify;
+  max-width: 52rem;
+  min-width: 300px;
+  margin: 4rem 2rem;
 }
 
 /*  ------- CONTACT ------- */
 
 .ilus-page__data {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin-bottom: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 4rem;
 }
 
 .data__box {
-    background-color: white;
-    width: 10rem;
-    height: 10rem;
-    margin: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+  background-color: white;
+  width: 10rem;
+  height: 10rem;
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .data__logo {
-    width: 5rem;
-    height: 5rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 /*  
@@ -149,25 +169,25 @@
 */
 
 .ilus-page__gallery {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin-bottom: 15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 15rem;
 }
 
 .ilus-page__images {
-    height: 30rem;
-    cursor: pointer;
-    margin: 2rem 0;
+  height: 30rem;
+  cursor: pointer;
+  margin: 2rem 0;
 }
 
 .images__container {
-    display: none;
+  display: none;
 }
 
 /*  
@@ -177,87 +197,86 @@
 */
 
 @media screen and (min-width: 767px) {
-    /*  ------------- IMAGE DETAIL ------------- */
+  /*  ------------- IMAGE DETAIL ------------- */
 
-    .images__container {
-        background-color: var(--blue-normal-opa);
-        position: fixed;
-        width: 100%;
-        padding-bottom: 100vh;
-        z-index: 11;
-    }
+  .images__container {
+    background-color: var(--blue-normal-opa);
+    position: fixed;
+    width: 100%;
+    padding-bottom: 100vh;
+    top: 0;
+    z-index: 3;
+  }
 
-    .images__detail {
-        display: -ms-grid;
-        display: grid;
-        grid-template-areas: "image";
-        height: 100vh;
-    }
+  .images__detail {
+    display: -ms-grid;
+    display: grid;
+    grid-template-areas: "image";
+    height: 100vh;
+  }
 
-    .ilus-page__images {
-        margin: 1rem;
-    }
+  .ilus-page__images {
+    margin: 1rem;
+  }
 
-    .images__img {
-        visibility: hidden;
-        grid-area: image;
-        height: 70vh;
-        width: auto;
-        -ms-grid-column-align: center;
-        justify-self: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-        -ms-grid-row: 1;
-        -ms-grid-column: 1;
-    }
+  .images__img {
+    visibility: hidden;
+    grid-area: image;
+    height: 70vh;
+    width: auto;
+    -ms-grid-column-align: center;
+    justify-self: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
 }
 
 @media screen and (min-width: 1360px) {
-    /*  ------------- IMAGE DETAIL ------------- */
+  /*  ------------- IMAGE DETAIL ------------- */
 
-    .images__img {
-        height: 90vh;
-    }
+  .images__img {
+    height: 90vh;
+  }
 
-    /*  ------- GENERAL HOVER ------- */
+  /*  ------- GENERAL HOVER ------- */
 
-    .data__box:hover {
-        -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
-        box-shadow: 1.4rem 1.4rem var(--pink-normal);
-        -webkit-transform: translate(-0.4rem, -0.4rem);
-        -ms-transform: translate(-0.4rem, -0.4rem);
-        transform: translate(-0.4rem, -0.4rem);
-        -webkit-transition: 100ms;
-        -o-transition: 100ms;
-        transition: 100ms;
-        -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
-        transition-property: -webkit-box-shadow, -webkit-transform;
-        -o-transition-property: box-shadow, transform;
-        transition-property: box-shadow, transform;
-        transition-property: box-shadow, transform, -webkit-box-shadow,
-            -webkit-transform;
-    }
+  .data__box:hover {
+    -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
+    box-shadow: 1.4rem 1.4rem var(--pink-normal);
+    -webkit-transform: translate(-0.4rem, -0.4rem);
+    -ms-transform: translate(-0.4rem, -0.4rem);
+    transform: translate(-0.4rem, -0.4rem);
+    -webkit-transition: 100ms;
+    -o-transition: 100ms;
+    transition: 100ms;
+    -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+    transition-property: -webkit-box-shadow, -webkit-transform;
+    -o-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+  }
 
-    .ilus-page__images:hover {
-        -webkit-box-shadow: 0.8rem 1.8rem var(--pink-normal);
-        box-shadow: 0.8rem 1.8rem var(--pink-normal);
-        -webkit-transition: 100ms;
-        -o-transition: 100ms;
-        transition: 100ms;
-        -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
-        transition-property: -webkit-box-shadow, -webkit-transform;
-        -o-transition-property: box-shadow, transform;
-        transition-property: box-shadow, transform;
-        transition-property: box-shadow, transform, -webkit-box-shadow,
-            -webkit-transform;
-    }
+  .ilus-page__images:hover {
+    -webkit-box-shadow: 0.8rem 1.8rem var(--pink-normal);
+    box-shadow: 0.8rem 1.8rem var(--pink-normal);
+    -webkit-transition: 100ms;
+    -o-transition: 100ms;
+    transition: 100ms;
+    -webkit-transition-property: -webkit-box-shadow, -webkit-transform;
+    transition-property: -webkit-box-shadow, -webkit-transform;
+    -o-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+  }
 
-    .ilus-page__images:hover {
-        -webkit-transform: translateY(-3rem);
-        -ms-transform: translateY(-3rem);
-        transform: translateY(-3rem);
-        -webkit-transition: 300ms;
-        -o-transition: 300ms;
-        transition: 300ms;
-    }
+  .ilus-page__images:hover {
+    -webkit-transform: translateY(-3rem);
+    -ms-transform: translateY(-3rem);
+    transform: translateY(-3rem);
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+  }
 }

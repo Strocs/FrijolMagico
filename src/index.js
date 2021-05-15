@@ -1,14 +1,9 @@
-import showHeaderFooter from '@components/showHeaderFooter.js'
-import IllusSlider from '@templates/illusSlider.js'
-import illustratorList from '@components/illustratorList.js'
-import orderList from '@components/orderList.js'
+import showGenerals from '@components/showGenerals.js'
+import gallerySlider from '@components/gallerySlider.js'
 import '@styles/home.css'
 
-showHeaderFooter('')
-
-const wrap = document.getElementsByClassName('ilus__list')[0]
-wrap.innerHTML = illustratorList(IllusSlider, orderList.shuffled)
-
+showGenerals('')
+gallerySlider()
 
 // INSTAGRAM FEED (JQUERY)
 jQuery.fn.FCInstagram.accessData = {

@@ -1,4 +1,4 @@
-import showHeaderFooter from '@components/showHeaderFooter.js'
+import showGenerals from '@components/showGenerals.js'
 import '@styles/talleres.css'
 
-showHeaderFooter('')
+showGenerals('')

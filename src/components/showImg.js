@@ -1,4 +1,4 @@
-const showImg = async () => {
+const showImg = () => {
 
     let image1 = document.getElementsByClassName('ilus-page__images')[0]
     let image2 = document.getElementsByClassName('ilus-page__images')[1]
@@ -9,7 +9,7 @@ const showImg = async () => {
     let detail3 = document.getElementsByClassName('images__img')[2]
     
     let imageBox = document.getElementsByClassName('images__container')[0] 
-    // let imageDetail = document.getElementsByClassName('images__detail')[0]
+    let imageDetail = document.getElementsByClassName('images__detail')[0]
     
     const width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
