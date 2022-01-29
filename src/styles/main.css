@@ -184,12 +184,13 @@ a {
   top: 0;
   width: 100vw;
   z-index: 3;
-  transition: background 300ms ease;
+  height: 10rem;
+  border-bottom: solid 1px transparent;
+  transition: background 300ms ease, 
+              border 300ms ease,
+              height 300ms ease;
 }
 
-.header__container-bg {
-  background: var(--blue-normal-opa);
-}
 
 .header__main {
   position: relative;
@@ -200,6 +201,8 @@ a {
   align-items: center;
   padding: 0 16.5vw;
   z-index: 10;
+  height: 10rem;
+  transition: height 300ms ease;
 }
 
 /*  LOGOTYPE  */
@@ -218,8 +221,8 @@ a {
 }
 
 .logo__svg {
-  width: 8rem;
-  height: 8rem;
+  /* width: 8rem; */
+  height: 6rem;
 }
 
 .logo__text {
@@ -230,6 +233,7 @@ a {
   font-size: 2.6rem;
   font-weight: 700;
   margin-left: 0.8rem;
+  transition: font-size 300ms ease;
 }
 
 .logo__link:hover {
@@ -237,6 +241,27 @@ a {
   -webkit-transition: 200ms;
   -o-transition: 200ms;
   transition: 200ms;
+}
+
+/*  Change on scroll  */
+
+.header__container-bg {
+  background: var(--blue-normal-opa);
+  border-bottom: solid 1px white ;
+  height: 8rem;
+  transition: background 300ms ease, 
+              border 300ms ease,
+              height 300ms ease;
+}
+
+.header__main-bg {
+  transition: height 300ms ease;
+  height: 8rem;
+}
+
+.logo__text-bg {
+  font-size: 2.3rem;
+  transition: font-size 300ms ease;
 }
 
 /* TOGGLE BUTTON  */
