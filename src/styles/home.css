@@ -67,7 +67,7 @@
 
 /*  ------- TITLE BOX ------- */
 
-.blog__box::after {
+/* .blog__box::after {
   content: "BLOG";
 }
 .ilus__box::after {
@@ -78,7 +78,7 @@
 }
 .fb__box-container::after {
   content: "FACEBOOK";
-}
+} */
 
 .blog__box::after,
 .ilus__box::after,
@@ -116,10 +116,15 @@
 }
 
 .main__title {
-  font-size: 6rem;
+  font-size: 9rem;
   text-align: center;
   text-shadow: 0.4rem 0.4rem var(--pink-normal);
+  margin: -2rem 0 0 0;
+}
+
+.main__title > p {
   margin: 0;
+  font-size: 6rem;
 }
 
 /*  
@@ -156,11 +161,26 @@
   margin: 6rem 1rem;
 }
 
+/*  ------- blog ------- */
+
 .blog__iframe {
   background-color: white;
-  border: none;
+  border: solid 1px white;
   overflow: hidden;
 }
+
+.blog_icon {
+  position: absolute;
+  margin: -4rem -3rem 0rem 0rem;
+  right: 0;
+}
+
+.blog_icon__img {
+  width: 7rem;
+  height: 7rem;
+}
+
+/*  ------- Illus slider ------- */
 
 .ilus__box {
   order: 2;
@@ -172,23 +192,26 @@
   width: 28rem;
   overflow: hidden;
 }
+.ilus__track {
+  height: 45rem;
+}
 
 .ilus__list {
   display: flex;
-  height: 45rem;
-  width: 504rem;
-  transition: margin-left 600ms ease;
+  padding: 0;
+  margin: 0;
 }
 
 .prev,
 .next {
+  background: none;
+  border: none;
+  color: var(--pink-normal);
   position: absolute;
   cursor: pointer;
   font-size: 3rem;
   transition: 0.4s ease;
-  user-select: none;
   align-self: center;
-  text-shadow: 0 0 4rem black;
   padding: 1rem;
   top: 42%;
 }
@@ -210,8 +233,8 @@
 
 .ilus__slide {
   position: relative;
+  border: solid 1px white;
   height: 45rem;
-  width: 28rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,6 +260,16 @@
 
 .ilus__slide-img {
   height: 65rem;
+}
+
+.gallery_icon {
+  position: absolute;
+  margin: -4rem 0rem 0rem -3rem;
+}
+
+.gallery_icon__img {
+  width: 7rem;
+  height: 7rem;
 }
 
 /*  ------- CENTER BOX ------- */
@@ -266,6 +299,18 @@
   position: relative;
 }
 
+.fb_icon {
+  position: absolute;
+  margin: -3rem;
+  top: 0;
+  right: 0;
+}
+
+.fb_icon__img {
+  width: 7rem;
+  height: 7rem;
+}
+
 /*  ------- INSTAGRAM FEED ------- */
 
 .instagram-gallery-medium {
@@ -274,6 +319,7 @@
 }
 
 .instagram-gallery-medium > a {
+  border: solid 1px white;
   width: 28rem;
   height: 28rem;
   overflow: hidden;
@@ -287,7 +333,7 @@
 }
 
 .ig_img {
-  background-image: url(../assets/images/instagram.svg);
+  /* background-image: url(../assets/images/instagram.svg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: 12rem 12rem;
@@ -295,6 +341,17 @@
   -o-transition: opacity 0.2s, visibility 0.2s;
   transition: opacity 0.2s, visibility 0.2s;
   margin-left: -28rem;
+}
+
+.ig_icon {
+  position: absolute;
+  margin: -2.5rem;
+  top: 0;
+}
+
+.ig_icon__img {
+  width: 7rem;
+  height: 7rem;
 }
 
 /*  
@@ -361,6 +418,16 @@
   .ig__box,
   .fb__box-container {
     margin: 0 1rem;
+  }
+
+  .blog_icon {
+    margin: -4rem 0rem 0rem -3rem;
+    left: 0;
+  }
+
+  .gallery_icon {
+    margin: -4rem -3rem 0rem 0rem;
+    right: 0;
   }
   /*  ------- GENERAL HOVER ------- */
 

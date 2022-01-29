@@ -14,10 +14,13 @@
         <section class="box__container">
             <section class="side__box blog__box animate__animated animate__fadeInDownBig">
                 <iframe target="_blank" scrolling="no" frameborder="0" allowfullscreen="true" height="450" width="280" class="blog__iframe" src="https://blog.frijolmagico.cl/2191-2/" title="Blog"></iframe>
+                <div class="blog_icon">
+                    <a href="https://blog.frijolmagico.cl/"><img class="blog_icon__img" src="../src/assets/images/blog_icon.svg" alt=""></a>
+                </div>
             </section>
 
             <section class="center__box">
-                <h1 class="main__title">Bienvenidxs a Frijol Mágico</h1>
+                <h1 class="main__title"><p>Bienvenidxs a</p> Frijol Mágico</h1>
 
                 <article class="rrss__box">
                     <div class="ig__box">
@@ -25,23 +28,36 @@
                             <div id="instafeed" class="instagram-gallery-medium">
                                 <a class="ig_img" target="_blank" title="Mira esta publicación en Instagram!"></a>
                             </div>
+                            <div class="ig_icon">
+                                <a href="https://www.instagram.com/festivalfrijolmagico/"><img class="ig_icon__img" src="../src/assets/images/ig_icon.svg" alt=""></a>
+                            </div>
                         </div>
                     </div>
                     <div class="fb__box-container">
                         <iframe class="fb__box"
-                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffestivalfrijolmagico%2F&tabs=timeline&width=280&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2469260113381635" width="280" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffestivalfrijolmagico%2F&tabs=timeline&width=280&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2469260113381635" width="280" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true">
+                        </iframe>
+                        <div class="fb_icon">   
+                            <a href="https://www.facebook.com/festivalfrijolmagico"><img class="fb_icon__img" src="../src/assets/images/fb_icon.svg" alt=""></a>
+                        </div>
                     </div>
                 </artice>
             </section>
 
             <section class="side__box ilus__box">
-                <section class="ilus__box-container">
-                    <div class="ilus__list" style="margin-left: 0rem;"></div>
+                <div class="ilus__box-container glide">
+                    <div class="ilus__track glide__track" data-glide-el="track">
+                        <ul class="ilus__list glide__slides" style="margin-left: 0rem;"></ul>
+                    </div>
 
-                    <a class="prev">&#10094;</a>
-                    <a class="next">&#10095;</a>
-
-                </section>
+                    <div data-glide-el="controls">
+                        <button class="prev" data-glide-dir="<">&#10094;</button>
+                        <button class="next" data-glide-dir=">">&#10095;</button>
+                    </div>
+                </div>
+                <div class="gallery_icon">
+                    <a href="https://frijolmagico.cl/ilustradorxs"><img class="gallery_icon__img" src="../src/assets/images/gallery_icon.svg" alt=""></a>
+                </div>
             </section>
         </section>
     </main>
