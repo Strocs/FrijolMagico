@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",
+    "@astrojs/sitemap": "^2.0.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "astro": "^2.9.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "swiper": "^10.0.4",
-    "web-vitals": "^3.4.0"
+    "swiper": "^10.0.4"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "5.48.0",
