@@ -1,0 +1,40 @@
+---
+import PodcastCard from '../components/PodcastCard.astro'
+import Section from '../components/Section.astro'
+import Slider from '../components/Slider.astro'
+import Title from '../components/Title.astro'
+import Layout from '../layouts/Layout.astro'
+
+const srcPodcast = '5wdaKjGEDZRZMUDhbkeDUh?utm_source=generator&t=0'
+---
+
+<Layout title='Frijol Mágico | Apoyando la Ilustración de la Región de Coquimbo!'>
+	<main>
+		<Title />
+		<Slider />
+		<div>
+			<Section sectionName='Podcasts' title='Último Podcast' link='podcast'>
+				<PodcastCard podcastId={srcPodcast} />
+			</Section>
+			<!-- <Section sectionName='Festivales' title='Útimos Festivales' link='festivales' /> -->
+			<!-- <Section sectionName='Blog' title='Útimas Entradas' link='blog' /> -->
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		width: 100%;
+		height: 100%;
+		padding-bottom: 4rem;
+	}
+	div {
+		padding: 0 1.6rem;
+	}
+
+	@media (min-width: 640px) {
+		main {
+			padding-bottom: 10rem;
+		}
+	}
+</style>

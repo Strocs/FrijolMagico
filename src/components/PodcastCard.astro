@@ -1,0 +1,24 @@
+---
+const { podcastId } = Astro.props
+---
+
+<iframe
+	src={`https://open.spotify.com/embed/episode/${podcastId}`}
+	allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+	loading='lazy'></iframe>
+
+<style>
+	iframe {
+		border-radius: 1.2rem;
+		box-shadow: -1.2rem 1.2rem 0 0 var(--pink);
+		width: 100%;
+		height: 8rem;
+		border: none;
+	}
+
+	@media (min-width: 640px) {
+		iframe {
+			height: 23.2rem;
+		}
+	}
+</style>
