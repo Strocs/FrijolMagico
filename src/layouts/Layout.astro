@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
+import TrackVitals from '../components/TrackVitals.astro'
 
 interface Props {
 	title: string
@@ -29,6 +30,7 @@ const { title } = Astro.props
 		<link href='https://fonts.googleapis.com/css2?family=Galindo&display=swap' rel='stylesheet' />
 	</head>
 	<body>
+		<TrackVitals />
 		<Header />
 		<slot />
 		<Footer />
