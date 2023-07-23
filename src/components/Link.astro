@@ -3,7 +3,7 @@ import LinkArrow from './icons/LinkArrow.astro'
 const { text, href, absolute } = Astro.props
 ---
 
-<a class={absolute ? 'absolute' : ''} href={href} }>
+<a class={absolute ? 'absolute' : ''} href={href}>
 	<p>{text}</p>
 	<LinkArrow />
 </a>

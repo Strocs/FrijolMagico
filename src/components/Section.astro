@@ -1,13 +1,13 @@
 ---
 import Link from './Link.astro'
 
-const { sectionName, title, link } = Astro.props
+const { sectionName, title, href } = Astro.props
 ---
 
 <section>
 	<div>
 		<h2>{title}</h2>
-		<Link text={`Ir a ${sectionName}`} href={'/' + link} />
+		<Link text={`Ir a ${sectionName}`} href={href} />
 	</div>
 	<div>
 		<slot />

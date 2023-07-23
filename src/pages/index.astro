@@ -4,8 +4,10 @@ import Section from '../components/Section.astro'
 import Slider from '../components/Slider.astro'
 import Title from '../components/Title.astro'
 import Layout from '../layouts/Layout.astro'
+import { podcastData } from '../data/podcasts.data'
 
-const srcPodcast = '5wdaKjGEDZRZMUDhbkeDUh?utm_source=generator&t=0'
+const lastPodcast = podcastData[podcastData.length - 1]
+const podcastSpotifyShow = 'https://open.spotify.com/show/6X92bkkwHr43dTP1Y3LPyg?si=ea4b489a93d84c4e'
 ---
 
 <Layout title='Frijol Mágico | Apoyando la Ilustración de la Región de Coquimbo!'>
@@ -13,8 +15,8 @@ const srcPodcast = '5wdaKjGEDZRZMUDhbkeDUh?utm_source=generator&t=0'
 		<Title />
 		<Slider />
 		<div>
-			<Section sectionName='Podcasts' title='Último Podcast' link='podcast'>
-				<PodcastCard podcastId={srcPodcast} />
+			<Section sectionName='Podcasts' title='Último Podcast' href={podcastSpotifyShow}>
+				<PodcastCard podcastId={lastPodcast.id} />
 			</Section>
 			<!-- <Section sectionName='Festivales' title='Útimos Festivales' link='festivales' /> -->
 			<!-- <Section sectionName='Blog' title='Útimas Entradas' link='blog' /> -->
