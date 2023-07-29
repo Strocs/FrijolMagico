@@ -81,7 +81,7 @@ export const artistsData = [
 			ig: 'c_a_t_a_n_a',
 			mail: 'a.gutierrezuribe@gmail.com'
 		},
-			images: [
+		images: [
 			{ url: 'e1.png', size: { width: 1080, height: 1080, aspectRatio: '1 / 1' } },
 			{ url: 'e2.png', size: { width: 1080, height: 1080, aspectRatio: '1 / 1' } },
 			{ url: 'e3.png', size: { width: 1080, height: 1080, aspectRatio: '1 / 1' } }

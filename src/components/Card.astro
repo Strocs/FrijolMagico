@@ -2,10 +2,18 @@
 import Link from './Link.astro'
 
 const { className, artist, id, img } = Astro.props
+const { url, size } = img
 ---
 
 <div class={className}>
-	<img src={`/images/${img}.png`} alt={`Ilustración hecha por ${artist}`} loading='lazy' />
+	<img
+		src={`/images/${artist}/${url}`}
+		alt={`Ilustración hecha por ${artist}`}
+		loading='lazy'
+		width={size.width}
+		height={size.height}
+		style={{ aspectRatio: size.aspectRatio }}
+	/>
 	<Link text={artist} href={'/galeria/' + id} absolute />
 </div>
 
@@ -20,7 +28,6 @@ const { className, artist, id, img } = Astro.props
 		overflow: hidden;
 	}
 	img {
-		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;

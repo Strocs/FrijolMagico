@@ -5,30 +5,6 @@ import { artistsData } from '../data/artists.data.js'
 const shuffleData = artistsData.sort(() => Math.random() - 0.5)
 ---
 
-<script>
-	import Swiper from 'swiper/bundle'
-	import 'swiper/css'
-	const swiper = new Swiper('.swiper', {
-		slidesPerView: 'auto',
-		spaceBetween: 50,
-		grabCursor: true,
-		centeredSlides: true,
-		loop: true,
-		autoplay: {
-			delay: 4000,
-			disableOnInteraction: false
-		},
-		breakpoints: {
-			1024: {
-				spaceBetween: 185
-			},
-			640: {
-				spaceBetween: 90
-			}
-		}
-	})
-</script>
-
 <section class='swiper'>
 	<div class='swiper-wrapper'>
 		{
@@ -55,12 +31,6 @@ const shuffleData = artistsData.sort(() => Math.random() - 0.5)
 		opacity: 1;
 	}
 
-	@media (min-width: 1024px) {
-		.swiper-slide {
-			width: 40rem;
-			height: 50rem;
-		}
-	}
 	@media (min-width: 640px) {
 		.swiper-slide {
 			width: 40rem;
@@ -68,3 +38,27 @@ const shuffleData = artistsData.sort(() => Math.random() - 0.5)
 		}
 	}
 </style>
+
+<script>
+	import Swiper from 'swiper/bundle'
+	import 'swiper/css'
+	const swiper = new Swiper('.swiper', {
+		slidesPerView: 'auto',
+		spaceBetween: 50,
+		grabCursor: true,
+		centeredSlides: true,
+		loop: true,
+		autoplay: {
+			delay: 4000,
+			disableOnInteraction: false
+		},
+		breakpoints: {
+			640: {
+				spaceBetween: 90
+			},
+			1024: {
+				spaceBetween: 185
+			}
+		}
+	})
+</script>
