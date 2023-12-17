@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
-import Layout from "../../layouts/Layout.astro";
-import { ILLUSTRATORS } from "../../data/ILLUSTRATORS";
+import Layout from "@layouts/Layout.astro";
+import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
 
 export const getStaticPaths = (() => {
   return ILLUSTRATORS.map((illustrator) => {

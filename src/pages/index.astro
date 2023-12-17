@@ -12,7 +12,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
       >
         <!-- IFRAME -->
         <div class="blog_icon">
-          <a target="_blank" href="https://blog.frijolmagico.cl/"
+          <a href="#"
             ><img
               class="blog_icon__img"
               src="src/assets/images/blog_icon.svg"
@@ -195,30 +195,31 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
 
   /*  ------- TITLE BOX ------- */
 
-  /* .blog__box::after {
-  content: "BLOG";
-}
-.ilus__box::after {
-  content: "GALERÍA";
-}
-.ig__box::after {
-  content: "INSTAGRAM";
-}
-.fb__box-container::after {
-  content: "FACEBOOK";
-} */
+  .blog__box::after {
+    content: "BLOG (no disponible)";
+  }
+  .ilus__box::after {
+    content: "GALERÍA";
+  }
+  .ig__box::after {
+    content: "INSTAGRAM (no disponible)";
+  }
+  .fb__box-container::after {
+    content: "FACEBOOK";
+  }
 
   .blog__box::after,
   .ilus__box::after,
   .ig__box::after,
   .fb__box-container::after {
     position: absolute;
+    white-space: nowrap;
     bottom: -5rem;
     left: 50%;
     transform: translate(-50%, 0);
     color: white;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-family: var(--ff-title-sketch);
   }
 
@@ -293,7 +294,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
   /*  ------- blog ------- */
 
   .blog__box {
-    background-color: white;
+    background-color: var(--blue-dark);
     border: solid 1px white;
   }
 
@@ -442,12 +443,12 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
   /*  ------- INSTAGRAM FEED ------- */
 
   .instagram-gallery-medium {
-    background-color: white;
+    background-color: var(--blue-dark);
     display: flex;
+    border: solid 1px white;
   }
 
   .instagram-gallery-medium > a {
-    border: solid 1px white;
     width: 28rem;
     height: 28rem;
     overflow: hidden;

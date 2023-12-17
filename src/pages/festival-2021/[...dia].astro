@@ -1,6 +1,6 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { LIVE_INFO } from "../../data/LIVE_INFO";
+import Layout from "@layouts/Layout.astro";
+import { LIVE_INFO } from "@data/LIVE_INFO";
 
 export const getStaticPaths = () => {
   return LIVE_INFO.map((live) => {
@@ -83,7 +83,12 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
         id="stream__youtube"
         data-videoId={video}
       >
-        <div id="youtube__embed" class="youtube__embed"></div>
+        <div
+          id="youtube__embed"
+          class="youtube__embed"
+          style="pointer-events: none;"
+        >
+        </div>
       </section>
 
       <section class="stream__schedule">
@@ -426,7 +431,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
         modestbranding: 1,
         showinfo: 0,
         rel: 0,
-        origin: "http://localhost:4321/",
+        origin: "https://elfrijolmagico.cl",
         enablejsapi: 1,
       },
     });
@@ -447,7 +452,8 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
   function onPlayerReady(event) {
     setTimeout(() => {
       event.target.playVideo();
-    }, 18000);
+      document.getElementById("youtube__embed").removeAttribute("style");
+    }, 10000);
   }
 
   const schedule = document.getElementsByClassName("schedule");
@@ -457,7 +463,6 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
   // SELECT CURRENT ARTIST
   const currentArtist = (currentTime) => {
     const scheduleTimer = ({ current, timer, scroll }) => {
-      console.log(current, timer, scroll);
       if (timer < 0) timer = 0;
 
       return setTimeout(function () {
@@ -517,7 +522,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     day: day,
     hours: hours,
     minutes: minutes,
-    seconds: seconds + 20,
+    seconds: seconds + 12,
     words: {
       days: { singular: "Día", plural: "Días" },
       hours: { singular: "Hora", plural: "Horas" },
