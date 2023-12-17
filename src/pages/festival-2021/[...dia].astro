@@ -14,8 +14,8 @@ export const getStaticPaths = () => {
 const { dia } = Astro.params;
 const { day, video } = Astro.props;
 
-const goPrev = dia === "1" ? "3" : dia === "2" ? "1" : "2";
-const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
+const goPrev = dia === "dia-1" ? "dia-3" : dia === "dia-2" ? "dia-1" : "dia-2";
+const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 ---
 
 <Layout title="En Vivo!">
@@ -73,32 +73,32 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
           <iframe
             referrerpolicy="origin"
             class="chat__embed"
-            src=`https://www.youtube.com/live_chat_replay?continuation=op2w0wRzGl5DaWtxSndvWVZVTjZORmt4WVUwMWIzZHNWM1pyZGtWMGJuZHBjVEpCRWd0WFMxSlRkVTA0TlZsRlVSb1Q2cWpkdVFFTkNndFhTMUpUZFUwNE5WbEZVU0FCTUFBJTNEQAFaBRCQ4cQDcgYIBBgCIAB4AQ%253D%253D&playerOffsetMs=7398145`
+            src=`https://www.youtube.com/live_chat?v=${video}&embed_domain=https://elfrijolmagico.cl`
             frameborder="0"></iframe>
         </div>
       </section>
 
-      <section class="stream__youtube">
-        <iframe
-          class="youtube__embed"
-          src={`https://www.youtube.com/embed/${video}`}
-          frameborder="0"
-          allowfullscreen></iframe>
+      <section
+        class="stream__youtube"
+        id="stream__youtube"
+        data-videoId={video}
+      >
+        <div id="youtube__embed" class="youtube__embed"></div>
       </section>
 
       <section class="stream__schedule">
         <div class="schedule__nav">
-          <a class="prev" href=`../envivo/${goPrev}`>&#10094;</a>
+          <a class="prev" href=`../festival-2021/${goPrev}`>&#10094;</a>
           <h1 class="schedule__nav-title">{day}</h1>
-          <a class="next" href=`../envivo/${goNext}`>&#10095;</a>
+          <a class="next" href=`../festival-2021/${goNext}`>&#10095;</a>
         </div>
 
         <div class="schedule__wrap" style="margin-left: 0px;">
           {
-            dia === "1" ? (
-              <div class="day-one schedule">
+            dia === "dia-1" ? (
+              <div class="day-one schedule" data-day="1">
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="0">
                     <div class="artist__main">
                       <p class="artist__section">Semilla Sonora</p>
                       <h1 class="artist__name">D-43</h1>
@@ -108,7 +108,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="30">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Eline1three</h1>
@@ -120,7 +120,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="45">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Ojus Pocus</h1>
@@ -132,7 +132,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="60">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">Drömmer</h1>
@@ -142,7 +142,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="100">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">elMeNeSe</h1>
@@ -154,7 +154,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="120">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Neehre</h1>
@@ -166,7 +166,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="140">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Collarcitos</h1>
@@ -178,7 +178,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="160">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">
@@ -194,10 +194,10 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
               </div>
-            ) : dia === "2" ? (
-              <div class="day-two schedule">
+            ) : dia === "dia-2" ? (
+              <div class="day-two schedule " data-day="2">
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="0">
                     <div class="artist__main">
                       <p class="artist__section">Semilla Sonora</p>
                       <h1 class="artist__name">
@@ -211,7 +211,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="30">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Cris Crowfin</h1>
@@ -223,7 +223,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="40">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">Astro Glitter</h1>
@@ -235,7 +235,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="70">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Sofiniscus</h1>
@@ -247,7 +247,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="80">
                     <div class="artist__main">
                       <p class="artist__section">Semilla Sonora</p>
                       <h1 class="artist__name">Prehistóricos</h1>
@@ -259,7 +259,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="115">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">Camellia Liz</h1>
@@ -271,7 +271,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="140">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Tigre Maltés</h1>
@@ -283,7 +283,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="150">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">Blue StrayCatt</h1>
@@ -296,9 +296,9 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                 </div>
               </div>
             ) : (
-              <div class="day-three schedule">
+              <div class="day-three schedule" data-day="3">
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="0">
                     <div class="artist__main">
                       <p class="artist__section">Semilla Sonora</p>
                       <h1 class="artist__name">Zoodaka Libre</h1>
@@ -310,7 +310,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="30">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Prrr Miaow</h1>
@@ -322,7 +322,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="40">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">E.vincent.V</h1>
@@ -334,7 +334,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="50">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">Camipepe</h1>
@@ -344,7 +344,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="100">
                     <div class="artist__main">
                       <p class="artist__section">Semilla Sonora</p>
                       <h1 class="artist__name">
@@ -358,7 +358,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="130">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">CatAna</h1>
@@ -370,7 +370,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="180">
                     <div class="artist__main">
                       <p class="artist__section">Brotes de Tinta</p>
                       <h1 class="artist__name">Sunmorales</h1>
@@ -382,7 +382,7 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
                   </div>
                 </div>
                 <div class="schedule__artist">
-                  <div class="artist">
+                  <div class="artist" data-startIn="190">
                     <div class="artist__main">
                       <p class="artist__section">Cosecha Casera</p>
                       <h1 class="artist__name">Niño Pan</h1>
@@ -402,20 +402,106 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
   </main>
 </Layout>
 
+<script is:inline>
+  var tag = document.createElement("script");
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  const videoId = document
+    .getElementById("stream__youtube")
+    .getAttribute("data-videoId");
+
+  let player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player("youtube__embed", {
+      videoId,
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: getDuration,
+      },
+      playerVars: {
+        start: 0,
+        modestbranding: 1,
+        showinfo: 0,
+        rel: 0,
+        origin: "http://localhost:4321/",
+        enablejsapi: 1,
+      },
+    });
+  }
+
+  let timeoutIDList = [];
+
+  function getDuration(event) {
+    timeoutIDList.forEach((timeout) => {
+      if (typeof timeout === "number") {
+        window.clearTimeout(timeout);
+      }
+    });
+    timeoutIDList = [];
+    currentArtist(event.target.getCurrentTime());
+  }
+
+  function onPlayerReady(event) {
+    setTimeout(() => {
+      event.target.playVideo();
+    }, 18000);
+  }
+
+  const schedule = document.getElementsByClassName("schedule");
+  let artistWrap = document.getElementsByClassName("schedule__artist");
+  let artist = document.getElementsByClassName("artist");
+
+  // SELECT CURRENT ARTIST
+  const currentArtist = (currentTime) => {
+    const scheduleTimer = ({ current, timer, scroll }) => {
+      console.log(current, timer, scroll);
+      if (timer < 0) timer = 0;
+
+      return setTimeout(function () {
+        Array.from(artistWrap).forEach((artist, i) => {
+          artist.removeAttribute("id");
+          artist.firstElementChild.removeAttribute("id");
+        });
+        artistWrap[current].setAttribute("id", "schedule__artist-selected");
+        artist[current].setAttribute("id", "artist-selected");
+        schedule[0].scrollTop = scroll;
+      }, timer);
+    };
+
+    Array.from(artistWrap).map((artistSchedule, i) => {
+      let scroll = 0;
+      scroll = scroll === 700 ? 0 : 100 * i;
+      let timer =
+        (+artistSchedule.firstElementChild.getAttribute("data-startIn") * 60 -
+          currentTime) *
+        1000;
+
+      let timeoutID = scheduleTimer({
+        current: i,
+        timer,
+        scroll,
+      });
+
+      if (!timeoutID) return;
+      timeoutIDList.push(timeoutID);
+    });
+  };
+</script>
+
 <script>
   import "node_modules/simplycountdown.js/dist/simplyCountdown.min.js";
 
-  const count = document.getElementById("countdown");
+  const count = document.getElementById("countdown") as HTMLElement;
   const change = document.getElementsByClassName("change")[0] as HTMLElement;
-  const video = document.getElementsByClassName(
-    "youtube__embed"
-  )[0] as HTMLElement;
+  const headerText = document.querySelector(".header__text") as HTMLElement;
+
   const changeCount = () => {
-    document.querySelector(".header__text").innerHTML =
-      "¡Bienvenidxs al Festival Frijol Mágico 2021!";
+    headerText.innerHTML = "¡Bienvenidxs al Festival Frijol Mágico 2021!";
     count.style.display = "none";
     change.style.display = "flex";
-    video.play();
   };
 
   const year = new Date().getFullYear();
@@ -426,114 +512,35 @@ const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
   const seconds = new Date().getSeconds();
 
   simplyCountdown("#countdown", {
-    year: year, // required
-    month: month + 1, // required
-    day: day, // required
-    hours: hours, // Default is 0 [0-23] integer
-    minutes: minutes, // Default is 0 [0-59] integer
-    seconds: seconds + 20, // Default is 0 [0-59] integer
+    year: year, //
+    month: month + 1,
+    day: day,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds + 20,
     words: {
-      //words displayed into the countdown
       days: { singular: "Día", plural: "Días" },
       hours: { singular: "Hora", plural: "Horas" },
       minutes: { singular: "Minuto", plural: "Minutos" },
       seconds: { singular: "Segundo", plural: "Segundos" },
     },
 
-    plural: true, //use plurals
-    inline: false, //set to true to get an inline basic countdown like : 24 days, 4 hours, 2 minutes, 5 seconds
-    inlineClass: "simply-countdown-inline", //inline css span class in case of inline = true
-    // in case of inline set to false
-    enableUtc: false, //Use UTC or not - default : false
+    plural: true,
+    inline: false,
+    inlineClass: "simply-countdown-inline",
+
+    enableUtc: false,
     onEnd: function () {
       changeCount();
-    }, //Callback on countdown end, put your own function here
-    refresh: 1000, // default refresh every 1s
-    sectionClass: "simply-section", //section css class
-    amountClass: "simply-amount", // amount css class
-    wordClass: "simply-word", // word css class
+    },
+
+    refresh: 1000,
+    sectionClass: "simply-section",
+    amountClass: "simply-amount",
+    wordClass: "simply-word",
     zeroPad: false,
     countUp: false,
   });
-
-  // GLOBAL VARIABLES
-  const currentTime = new Date();
-
-  const titleWrap = document.getElementsByClassName(
-    "schedule__nav-title"
-  )[0] as HTMLElement;
-
-  const move = document.getElementsByClassName(
-    "schedule__wrap"
-  )[0] as HTMLElement;
-
-  const dayOne = +currentTime - 2000;
-  const dayTwo = +currentTime - 2000;
-  const dayThree = +currentTime - 2000;
-
-  const prev = document.getElementsByClassName("prev")[0] as HTMLElement;
-  const next = document.getElementsByClassName("next")[0] as HTMLElement;
-
-  // SELECT CURRENT ARTIST
-  // const currentArtist = () => {
-
-  //     const schedule = document.getElementsByClassName('schedule')
-
-  //     const firstDay = new Date('April 16, 2021 18:00:00')
-  //     const secondDay = new Date('April 17, 2021 17:30:00')
-  //     const thirdDay = new Date('April 18, 2021 17:30:00')
-
-  //     const getFirstDay = firstDay - currentTime
-  //     const getSecondDay = secondDay - currentTime
-  //     const getThirdDay = thirdDay - currentTime
-
-  //     let artistWrap  = document.getElementsByClassName('schedule__artist')
-  //     let artist      = document.getElementsByClassName('artist')
-
-  //     const scheduleTimer = (last, current, day, timer, scroll) => {
-  //         setTimeout(function() {
-  //             console.log(last)
-  //             artistWrap[last].removeAttribute('id')
-  //             artist[last].removeAttribute('id')
-  //             artistWrap[current].setAttribute('id', 'schedule__artist-selected')
-  //             artist[current].setAttribute('id', 'artist-selected')
-  //             schedule[day].scrollTop = scroll
-  //         }, timer)
-  //     }
-
-  //     scheduleTimer(7, 0, 0, getFirstDay, 0)
-  //     scheduleTimer(0, 1, 0, getFirstDay+5000, 100)
-  //     scheduleTimer(1, 2, 0, getFirstDay+10000, 200)
-  //     scheduleTimer(2, 3, 0, getFirstDay+20000, 300)
-  //     scheduleTimer(3, 4, 0, getFirstDay+25000, 400)
-  //     scheduleTimer(4, 5, 0, getFirstDay+30000, 500)
-  //     scheduleTimer(5, 6, 0, getFirstDay+35000, 600)
-  //     scheduleTimer(6, 7, 0, getFirstDay+40000, 700)
-  //     scheduleTimer(7, null, 0, getFirstDay+45000, 0)
-
-  //     scheduleTimer(7, 8, 1, getSecondDay, 0)
-  //     scheduleTimer(8, 9, 1, getSecondDay+5000, 100)
-  //     scheduleTimer(9, 10, 1, getSecondDay+10000, 200)
-  //     scheduleTimer(10, 11, 1, getSecondDay+20000, 300)
-  //     scheduleTimer(11, 12, 1, getSecondDay+25000, 400)
-  //     scheduleTimer(12, 13, 1, getSecondDay+30000, 500)
-  //     scheduleTimer(13, 14, 1, getSecondDay+35000, 600)
-  //     scheduleTimer(14, 15, 1, getSecondDay+40000, 700)
-  //     scheduleTimer(15, null, 1, getSecondDay+45000, 0)
-
-  //     scheduleTimer(15, 16, 2, getThirdDay, 0)
-  //     scheduleTimer(16, 17, 2, getThirdDay+5000, 100)
-  //     scheduleTimer(17, 18, 2, getThirdDay+10000, 200)
-  //     scheduleTimer(18, 19, 2, getThirdDay+20000, 300)
-  //     scheduleTimer(19, 20, 2, getThirdDay+25000, 400)
-  //     scheduleTimer(20, 21, 2, getThirdDay+30000, 500)
-  //     scheduleTimer(21, 22, 2, getThirdDay+35000, 600)
-  //     scheduleTimer(22, 23, 2, getThirdDay+40000, 700)
-  //     scheduleTimer(23, null, 2, getThirdDay+45000, 0)
-
-  // }
-
-  // currentArtist()
 </script>
 
 <style is:global>
