@@ -78,9 +78,9 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
       <section class="stream__schedule">
         <div class="schedule__nav">
-          <a class="prev" href=`../festival/${goPrev}`>&#10094;</a>
+          <a class="prev" href=`/festival/${goPrev}`>&#10094;</a>
           <h1 class="schedule__nav-title">{day}</h1>
-          <a class="next" href=`../festival/${goNext}`>&#10095;</a>
+          <a class="next" href=`/festival/${goNext}`>&#10095;</a>
         </div>
 
         <div class="schedule__wrap" style="margin-left: 0px;">
@@ -701,6 +701,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
   .stream__chat {
     order: 2;
+    display: none;
   }
 
   .chat__wrapper {
@@ -715,20 +716,21 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
   .stream__youtube {
     order: 1;
-    height: 168.75px;
+    width: 320px;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
   }
 
   .youtube__embed {
-    min-height: 168.75px;
-    max-height: 45rem;
-    width: 100%;
-    max-width: 80rem;
+    width: 320px;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
   }
 
   /*  ------- SCHEDULE ------- */
 
   .stream__schedule {
-    order: 3;
+    order: 2;
     width: 32rem;
     height: 45rem;
     overflow: hidden;
@@ -898,7 +900,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
   /* MEDIA QUERIES */
 
-  @media screen and (min-width: 650px) {
+  @media screen and (min-width: 720px) {
     .main__stream {
       width: 650px;
       display: grid;
@@ -915,6 +917,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     .stream__chat {
       grid-area: chat;
       margin-left: 1rem;
+      display: block;
     }
     .stream__youtube {
       grid-area: video;
