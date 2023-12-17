@@ -68,9 +68,7 @@ const rrss = {
       <header class="ilus-page-header">
         <h1 class="ilus-page__title">{name}</h1>
         <p class="ilus-page__location">{location}</p>
-        <p class="ilus-page__bio">
-          {bio}
-        </p>
+        <p class="ilus-page__bio" set:html={bio} />
         <section class="ilus-page__data">
           {
             Object.entries(contact).map((rs) => {
