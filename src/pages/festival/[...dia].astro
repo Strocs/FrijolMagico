@@ -1,4 +1,5 @@
 ---
+import type { GetStaticPaths } from "astro";
 import Layout from "@layouts/Layout.astro";
 import { LIVE_INFO } from "@data/LIVE_INFO";
 
@@ -8,7 +9,7 @@ export const getStaticPaths = () => {
       params: { dia: live.id },
       props: { day: live.day, video: live.video },
     };
-  });
+  }) satisfies GetStaticPaths;
 };
 
 const { dia } = Astro.params;
@@ -28,41 +29,25 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
           target="_blank"
           class="simply-section"
           href="https://www.instagram.com/festivalfrijolmagico"
-          ><img
-            class="simply-rrss"
-            src="../src/assets/images/instagram2.svg"
-            alt=""
-          /></a
+          ><img class="simply-rrss" src="/images/instagram2.svg" alt="" /></a
         >
         <a
           target="_blank"
           class="simply-section"
           href="https://www.facebook.com/festivalfrijolmagico/"
-          ><img
-            class="simply-rrss"
-            src="../src/assets/images/facebook2.svg"
-            alt=""
-          /></a
+          ><img class="simply-rrss" src="/images/facebook2.svg" alt="" /></a
         >
         <a
           target="_blank"
           class="simply-section"
           href="https://www.youtube.com/c/festivalFrijolMágico"
-          ><img
-            class="simply-rrss"
-            src="../src/assets/images/youtube2.svg"
-            alt=""
-          /></a
+          ><img class="simply-rrss" src="/images/youtube2.svg" alt="" /></a
         >
         <a
           target="_blank"
           class="simply-section"
           href="mailto:feriafrijolmagico@gmail.com"
-          ><img
-            class="simply-rrss"
-            src="../src/assets/images/gmail2.svg"
-            alt=""
-          /></a
+          ><img class="simply-rrss" src="/images/gmail2.svg" alt="" /></a
         >
       </div>
     </header>
@@ -93,9 +78,9 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
       <section class="stream__schedule">
         <div class="schedule__nav">
-          <a class="prev" href=`../festival-2021/${goPrev}`>&#10094;</a>
+          <a class="prev" href=`../festival/${goPrev}`>&#10094;</a>
           <h1 class="schedule__nav-title">{day}</h1>
-          <a class="next" href=`../festival-2021/${goNext}`>&#10095;</a>
+          <a class="next" href=`../festival/${goNext}`>&#10095;</a>
         </div>
 
         <div class="schedule__wrap" style="margin-left: 0px;">

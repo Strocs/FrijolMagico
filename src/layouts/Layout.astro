@@ -32,28 +32,12 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"
-    />
   </head>
 
   <body>
     <div class="bg__root">
-      <img
-        class="bg__left"
-        src="/src/assets/images/gallery/ramaLeft.png"
-        alt=""
-      />
-      <img
-        class="bg__right"
-        src="/src/assets/images/gallery/ramaRight.png"
-        alt=""
-      />
+      <img class="bg__left" src="/images/ramaLeft.png" alt="" />
+      <img class="bg__right" src="/images/ramaRight.png" alt="" />
     </div>
     <Header />
     <slot />
@@ -73,8 +57,8 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     font-weight: 200;
     src:
       local(""),
-      url("../assets/fonts/Helvetica-light.woff2") format("woff2"),
-      url("../assets/fonts/Helvetica-light.woff") format("woff");
+      url("/fonts/Helvetica-light.woff2") format("woff2"),
+      url("/fonts/Helvetica-light.woff") format("woff");
   }
 
   @font-face {
@@ -83,8 +67,8 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     font-weight: 400;
     src:
       local(""),
-      url("../assets/fonts/Helvetica.woff2") format("woff2"),
-      url("../assets/fonts/Helvetica.woff") format("woff");
+      url("/fonts/Helvetica.woff2") format("woff2"),
+      url("/fonts/Helvetica.woff") format("woff");
   }
 
   @font-face {
@@ -93,8 +77,8 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     font-style: 700;
     src:
       local(""),
-      url("../assets/fonts/Helvetica-Bold.woff2") format("woff2"),
-      url("../assets/fonts/Helvetica-Bold.woff") format("woff");
+      url("/fonts/Helvetica-Bold.woff2") format("woff2"),
+      url("/fonts/Helvetica-Bold.woff") format("woff");
   }
 
   /* cabin-sketch-regular - latin */
@@ -104,11 +88,9 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     font-weight: 400;
     src:
       local(""),
-      url("../assets/fonts/cabin-sketch-v14-latin-regular.woff2")
-        format("woff2"),
+      url("/fonts/cabin-sketch-v14-latin-regular.woff2") format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("../assets/fonts/cabin-sketch-v14-latin-regular.woff")
-        format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url("/fonts/cabin-sketch-v14-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   /* cabin-sketch-700 - latin */
@@ -118,9 +100,9 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     font-weight: 700;
     src:
       local(""),
-      url("../assets/fonts/cabin-sketch-v14-latin-700.woff2") format("woff2"),
+      url("/fonts/cabin-sketch-v14-latin-700.woff2") format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("../assets/fonts/cabin-sketch-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url("/fonts/cabin-sketch-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   /*  

@@ -15,7 +15,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
           <a href="#"
             ><img
               class="blog_icon__img"
-              src="src/assets/images/blog_icon.svg"
+              src="/images/blog_icon.svg"
               alt=""
             /></a
           >
@@ -40,7 +40,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
                   href="https://www.instagram.com/festivalfrijolmagico/"
                   ><img
                     class="ig_icon__img"
-                    src="src/assets/images/ig_icon.svg"
+                    src="/images/ig_icon.svg"
                     alt=""
                   /></a
                 >
@@ -63,7 +63,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
                 href="https://www.facebook.com/festivalfrijolmagico"
                 ><img
                   class="fb_icon__img"
-                  src="src/assets/images/fb_icon.svg"
+                  src="/images/fb_icon.svg"
                   alt=""
                 /></a
               >
@@ -87,7 +87,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
                     </a>
                     <img
                       class="ilus__slide-img"
-                      src={`src/assets/images/gallery/${illustrator.images[0]}.png`}
+                      src={`/gallery/${illustrator.images[0]}.png`}
                       alt={illustrator.name}
                     />
                   </li>
@@ -105,7 +105,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
           <a href="https://frijolmagico.cl/ilustradorxs"
             ><img
               class="gallery_icon__img"
-              src="src/assets/images/gallery_icon.svg"
+              src="/images/gallery_icon.svg"
               alt=""
             /></a
           >
@@ -116,7 +116,7 @@ import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
 </Layout>
 
 <script>
-  import Glide from "node_modules/@glidejs/glide";
+  import Glide from "@glidejs/glide";
   new Glide(".glide", { autoplay: 3000 }).mount();
 </script>
 <style>

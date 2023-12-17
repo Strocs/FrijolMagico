@@ -82,7 +82,7 @@ const rrss = {
                 >
                   <img
                     class="data__logo"
-                    src={`../src/assets/images/gallery/${rrss_image}`}
+                    src={`/gallery/${rrss_image}`}
                     alt=""
                   />
                 </a>
@@ -98,7 +98,7 @@ const rrss = {
               return (
                 <img
                   class="ilus-page__images"
-                  src={`../src/assets/images/gallery/${image}.png`}
+                  src={`/gallery/${image}.png`}
                   alt={name}
                 />
               );
@@ -115,11 +115,7 @@ const rrss = {
     <div class="images__detail">
       {
         images.map((image) => (
-          <img
-            class="images__img"
-            src={`../src/assets/images/gallery/${image}.png`}
-            alt={name}
-          />
+          <img class="images__img" src={`/gallery/${image}.png`} alt={name} />
         ))
       }
     </div>
