@@ -1,0 +1,1055 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { LIVE_INFO } from "../../data/LIVE_INFO";
+
+export const getStaticPaths = () => {
+  return LIVE_INFO.map((live) => {
+    return {
+      params: { dia: live.id },
+      props: { day: live.day, video: live.video },
+    };
+  });
+};
+
+const { dia } = Astro.params;
+const { day, video } = Astro.props;
+
+const goPrev = dia === "1" ? "3" : dia === "2" ? "1" : "2";
+const goNext = dia === "1" ? "2" : dia === "2" ? "3" : "1";
+---
+
+<Layout title="En Vivo!">
+  <main class="main__container" style="z-index: 1;">
+    <header class="main__header">
+      <h1 class="header__text">Festival Frijol Mágico 2021 comienza en</h1>
+      <article id="countdown"></article>
+      <div class="change">
+        <a
+          target="_blank"
+          class="simply-section"
+          href="https://www.instagram.com/festivalfrijolmagico"
+          ><img
+            class="simply-rrss"
+            src="../src/assets/images/instagram2.svg"
+            alt=""
+          /></a
+        >
+        <a
+          target="_blank"
+          class="simply-section"
+          href="https://www.facebook.com/festivalfrijolmagico/"
+          ><img
+            class="simply-rrss"
+            src="../src/assets/images/facebook2.svg"
+            alt=""
+          /></a
+        >
+        <a
+          target="_blank"
+          class="simply-section"
+          href="https://www.youtube.com/c/festivalFrijolMágico"
+          ><img
+            class="simply-rrss"
+            src="../src/assets/images/youtube2.svg"
+            alt=""
+          /></a
+        >
+        <a
+          target="_blank"
+          class="simply-section"
+          href="mailto:feriafrijolmagico@gmail.com"
+          ><img
+            class="simply-rrss"
+            src="../src/assets/images/gmail2.svg"
+            alt=""
+          /></a
+        >
+      </div>
+    </header>
+
+    <section class="main__stream">
+      <section class="stream__chat">
+        <div class="chat__wrapper">
+          <iframe
+            referrerpolicy="origin"
+            class="chat__embed"
+            src=`https://www.youtube.com/live_chat_replay?continuation=op2w0wRzGl5DaWtxSndvWVZVTjZORmt4WVUwMWIzZHNWM1pyZGtWMGJuZHBjVEpCRWd0WFMxSlRkVTA0TlZsRlVSb1Q2cWpkdVFFTkNndFhTMUpUZFUwNE5WbEZVU0FCTUFBJTNEQAFaBRCQ4cQDcgYIBBgCIAB4AQ%253D%253D&playerOffsetMs=7398145`
+            frameborder="0"></iframe>
+        </div>
+      </section>
+
+      <section class="stream__youtube">
+        <iframe
+          class="youtube__embed"
+          src={`https://www.youtube.com/embed/${video}`}
+          frameborder="0"
+          allowfullscreen></iframe>
+      </section>
+
+      <section class="stream__schedule">
+        <div class="schedule__nav">
+          <a class="prev" href=`../envivo/${goPrev}`>&#10094;</a>
+          <h1 class="schedule__nav-title">{day}</h1>
+          <a class="next" href=`../envivo/${goNext}`>&#10095;</a>
+        </div>
+
+        <div class="schedule__wrap" style="margin-left: 0px;">
+          {
+            dia === "1" ? (
+              <div class="day-one schedule">
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Semilla Sonora</p>
+                      <h1 class="artist__name">D-43</h1>
+                    </div>
+                    <h1 class="artist__time">18:00</h1>
+                    <p class="artist__support">Con el apoyo de: Estudio 19</p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Eline1three</h1>
+                    </div>
+                    <h1 class="artist__time">18:30</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Biblioteca Regional Gabriela Mistral
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Ojus Pocus</h1>
+                    </div>
+                    <h1 class="artist__time">18:45</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Museo Gabriela Mistral
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">Drömmer</h1>
+                    </div>
+                    <h1 class="artist__time">19:00</h1>
+                    <p class="artist__support">Con el apoyo de: Rayaísmo</p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">elMeNeSe</h1>
+                    </div>
+                    <h1 class="artist__time">19:40</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Teatro Municipal de Ovalle
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Neehre</h1>
+                    </div>
+                    <h1 class="artist__time">20:00</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Rincón de Mata
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Collarcitos</h1>
+                    </div>
+                    <h1 class="artist__time">20:20</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Centro Cultural Palace
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">
+                        Camila
+                        <br />
+                        Guaman
+                      </h1>
+                    </div>
+                    <h1 class="artist__time">20:40</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Centro Cultural Santa Inés
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : dia === "2" ? (
+              <div class="day-two schedule">
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Semilla Sonora</p>
+                      <h1 class="artist__name">
+                        Animales
+                        <br />
+                        de Lumière
+                      </h1>
+                    </div>
+                    <h1 class="artist__time">17:30</h1>
+                    <p class="artist__support">Con el apoyo de: Estudio 19</p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Cris Crowfin</h1>
+                    </div>
+                    <h1 class="artist__time">18:00</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Activo Festival
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">Astro Glitter</h1>
+                    </div>
+                    <h1 class="artist__time">18:10</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Centro Cultural Santa Inés
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Sofiniscus</h1>
+                    </div>
+                    <h1 class="artist__time">18:40</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Centro Cultural Palace
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Semilla Sonora</p>
+                      <h1 class="artist__name">Prehistóricos</h1>
+                    </div>
+                    <h1 class="artist__time">18:50</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Disco Intrépido
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">Camellia Liz</h1>
+                    </div>
+                    <h1 class="artist__time">19:25</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Teatro Municipal de Ovalle
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Tigre Maltés</h1>
+                    </div>
+                    <h1 class="artist__time">19:50</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Biblioteca Regional Gabriela Mistral
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">Blue StrayCatt</h1>
+                    </div>
+                    <h1 class="artist__time">20:00</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Rincon de Matta
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div class="day-three schedule">
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Semilla Sonora</p>
+                      <h1 class="artist__name">Zoodaka Libre</h1>
+                    </div>
+                    <h1 class="artist__time">17:30</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Disco Intrépido
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Prrr Miaow</h1>
+                    </div>
+                    <h1 class="artist__time">18:00</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Centro Cultural Santa Inés
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">E.vincent.V</h1>
+                    </div>
+                    <h1 class="artist__time">18:10</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Teatro Municipal de Ovalle
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">Camipepe</h1>
+                    </div>
+                    <h1 class="artist__time">18:20</h1>
+                    <p class="artist__support">Con el apoyo de: Rayaísmo</p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Semilla Sonora</p>
+                      <h1 class="artist__name">
+                        Simón
+                        <br />
+                        Campusano
+                      </h1>
+                    </div>
+                    <h1 class="artist__time">19:10</h1>
+                    <p class="artist__support">Con el apoyo de: Estudio 19</p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">CatAna</h1>
+                    </div>
+                    <h1 class="artist__time">19:40</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Biblioteca Regional Gabriela Mistral
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Brotes de Tinta</p>
+                      <h1 class="artist__name">Sunmorales</h1>
+                    </div>
+                    <h1 class="artist__time">20:30</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Museo Gabriela Mistral
+                    </p>
+                  </div>
+                </div>
+                <div class="schedule__artist">
+                  <div class="artist">
+                    <div class="artist__main">
+                      <p class="artist__section">Cosecha Casera</p>
+                      <h1 class="artist__name">Niño Pan</h1>
+                    </div>
+                    <h1 class="artist__time">20:40</h1>
+                    <p class="artist__support">
+                      Con el apoyo de: Rincon de Matta
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </section>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  import "node_modules/simplycountdown.js/dist/simplyCountdown.min.js";
+
+  const count = document.getElementById("countdown");
+  const change = document.getElementsByClassName("change")[0] as HTMLElement;
+  const video = document.getElementsByClassName(
+    "youtube__embed"
+  )[0] as HTMLElement;
+  const changeCount = () => {
+    document.querySelector(".header__text").innerHTML =
+      "¡Bienvenidxs al Festival Frijol Mágico 2021!";
+    count.style.display = "none";
+    change.style.display = "flex";
+    video.play();
+  };
+
+  const year = new Date().getFullYear();
+  const month = new Date().getMonth();
+  const day = new Date().getDate();
+  const hours = new Date().getHours();
+  const minutes = new Date().getMinutes();
+  const seconds = new Date().getSeconds();
+
+  simplyCountdown("#countdown", {
+    year: year, // required
+    month: month + 1, // required
+    day: day, // required
+    hours: hours, // Default is 0 [0-23] integer
+    minutes: minutes, // Default is 0 [0-59] integer
+    seconds: seconds + 20, // Default is 0 [0-59] integer
+    words: {
+      //words displayed into the countdown
+      days: { singular: "Día", plural: "Días" },
+      hours: { singular: "Hora", plural: "Horas" },
+      minutes: { singular: "Minuto", plural: "Minutos" },
+      seconds: { singular: "Segundo", plural: "Segundos" },
+    },
+
+    plural: true, //use plurals
+    inline: false, //set to true to get an inline basic countdown like : 24 days, 4 hours, 2 minutes, 5 seconds
+    inlineClass: "simply-countdown-inline", //inline css span class in case of inline = true
+    // in case of inline set to false
+    enableUtc: false, //Use UTC or not - default : false
+    onEnd: function () {
+      changeCount();
+    }, //Callback on countdown end, put your own function here
+    refresh: 1000, // default refresh every 1s
+    sectionClass: "simply-section", //section css class
+    amountClass: "simply-amount", // amount css class
+    wordClass: "simply-word", // word css class
+    zeroPad: false,
+    countUp: false,
+  });
+
+  // GLOBAL VARIABLES
+  const currentTime = new Date();
+
+  const titleWrap = document.getElementsByClassName(
+    "schedule__nav-title"
+  )[0] as HTMLElement;
+
+  const move = document.getElementsByClassName(
+    "schedule__wrap"
+  )[0] as HTMLElement;
+
+  const dayOne = +currentTime - 2000;
+  const dayTwo = +currentTime - 2000;
+  const dayThree = +currentTime - 2000;
+
+  const prev = document.getElementsByClassName("prev")[0] as HTMLElement;
+  const next = document.getElementsByClassName("next")[0] as HTMLElement;
+
+  // SELECT CURRENT ARTIST
+  // const currentArtist = () => {
+
+  //     const schedule = document.getElementsByClassName('schedule')
+
+  //     const firstDay = new Date('April 16, 2021 18:00:00')
+  //     const secondDay = new Date('April 17, 2021 17:30:00')
+  //     const thirdDay = new Date('April 18, 2021 17:30:00')
+
+  //     const getFirstDay = firstDay - currentTime
+  //     const getSecondDay = secondDay - currentTime
+  //     const getThirdDay = thirdDay - currentTime
+
+  //     let artistWrap  = document.getElementsByClassName('schedule__artist')
+  //     let artist      = document.getElementsByClassName('artist')
+
+  //     const scheduleTimer = (last, current, day, timer, scroll) => {
+  //         setTimeout(function() {
+  //             console.log(last)
+  //             artistWrap[last].removeAttribute('id')
+  //             artist[last].removeAttribute('id')
+  //             artistWrap[current].setAttribute('id', 'schedule__artist-selected')
+  //             artist[current].setAttribute('id', 'artist-selected')
+  //             schedule[day].scrollTop = scroll
+  //         }, timer)
+  //     }
+
+  //     scheduleTimer(7, 0, 0, getFirstDay, 0)
+  //     scheduleTimer(0, 1, 0, getFirstDay+5000, 100)
+  //     scheduleTimer(1, 2, 0, getFirstDay+10000, 200)
+  //     scheduleTimer(2, 3, 0, getFirstDay+20000, 300)
+  //     scheduleTimer(3, 4, 0, getFirstDay+25000, 400)
+  //     scheduleTimer(4, 5, 0, getFirstDay+30000, 500)
+  //     scheduleTimer(5, 6, 0, getFirstDay+35000, 600)
+  //     scheduleTimer(6, 7, 0, getFirstDay+40000, 700)
+  //     scheduleTimer(7, null, 0, getFirstDay+45000, 0)
+
+  //     scheduleTimer(7, 8, 1, getSecondDay, 0)
+  //     scheduleTimer(8, 9, 1, getSecondDay+5000, 100)
+  //     scheduleTimer(9, 10, 1, getSecondDay+10000, 200)
+  //     scheduleTimer(10, 11, 1, getSecondDay+20000, 300)
+  //     scheduleTimer(11, 12, 1, getSecondDay+25000, 400)
+  //     scheduleTimer(12, 13, 1, getSecondDay+30000, 500)
+  //     scheduleTimer(13, 14, 1, getSecondDay+35000, 600)
+  //     scheduleTimer(14, 15, 1, getSecondDay+40000, 700)
+  //     scheduleTimer(15, null, 1, getSecondDay+45000, 0)
+
+  //     scheduleTimer(15, 16, 2, getThirdDay, 0)
+  //     scheduleTimer(16, 17, 2, getThirdDay+5000, 100)
+  //     scheduleTimer(17, 18, 2, getThirdDay+10000, 200)
+  //     scheduleTimer(18, 19, 2, getThirdDay+20000, 300)
+  //     scheduleTimer(19, 20, 2, getThirdDay+25000, 400)
+  //     scheduleTimer(20, 21, 2, getThirdDay+30000, 500)
+  //     scheduleTimer(21, 22, 2, getThirdDay+35000, 600)
+  //     scheduleTimer(22, 23, 2, getThirdDay+40000, 700)
+  //     scheduleTimer(23, null, 2, getThirdDay+45000, 0)
+
+  // }
+
+  // currentArtist()
+</script>
+
+<style is:global>
+  #countdown {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .simply-section {
+    color: white;
+    background-color: var(--pink-normal);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 8rem;
+    width: 8rem;
+    margin: 1rem 0;
+  }
+
+  .simply-amount {
+    display: block;
+    font-family: var(--ff-text-bold);
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: -0.5rem;
+  }
+
+  .simply-word {
+    font-size: 1.5rem;
+  }
+
+  .change {
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    display: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .simply-rrss {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  /*  ------- SHADOWS ------- */
+
+  .stream__chat,
+  .stream__youtube {
+    -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+    -webkit-transition-property:
+      -webkit-box-shadow,
+      -webkit-transform;
+    transition-property:
+      -webkit-box-shadow,
+      -webkit-transform;
+    -o-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    transition-property:
+      box-shadow,
+      transform,
+      -webkit-box-shadow,
+      -webkit-transform;
+    background: white;
+  }
+
+  .artist,
+  .schedule__nav {
+    box-shadow: 0.8rem 0.8rem white;
+    background: var(--pink-normal);
+  }
+
+  /*  ------- ANIMATIONS ------- */
+
+  .change,
+  #countdown,
+  .header__text,
+  .stream__youtube,
+  .stream__chat,
+  .stream__schedule {
+    -webkit-animation: showUp 600ms backwards;
+    animation: showUp 600ms backwards;
+  }
+  .header__text {
+    -webkit-animation-delay: 400ms;
+    animation-delay: 400ms;
+  }
+
+  .change,
+  .stream__youtube,
+  #countdown {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+
+  .stream__chat,
+  .stream__schedule {
+    -webkit-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+  }
+
+  /*  
+    ------------- 
+       GENERAL
+    ------------- 
+*/
+
+  .main__container {
+    margin: 12rem auto 6rem;
+  }
+
+  /*  
+    ------------- 
+       HEADER
+    ------------- 
+*/
+
+  .main__header {
+    margin: 0 auto;
+  }
+
+  .header__text {
+    font-size: 6rem;
+    text-align: center;
+    text-shadow: 0.4rem 0.4rem var(--pink-normal);
+    margin: 0 auto;
+    padding: 0 2vh;
+    max-width: 75rem;
+    opacity: 1;
+    transition: opacity 500ms ease;
+  }
+
+  /*  
+    ------------- 
+       STREAM
+    ------------- 
+*/
+
+  .main__stream {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin: 4rem 0;
+  }
+
+  /*  ------- CHAT ------- */
+
+  .stream__chat {
+    order: 2;
+  }
+
+  .chat__wrapper {
+    height: 45rem;
+  }
+
+  .chat__wrapper iframe {
+    height: 45rem;
+  }
+
+  /*  ------- YOUTUBE ------- */
+
+  .stream__youtube {
+    order: 1;
+    height: 168.75px;
+  }
+
+  .youtube__embed {
+    min-height: 168.75px;
+    max-height: 45rem;
+    width: 100%;
+    max-width: 80rem;
+  }
+
+  /*  ------- SCHEDULE ------- */
+
+  .stream__schedule {
+    order: 3;
+    width: 32rem;
+    height: 45rem;
+    overflow: hidden;
+  }
+
+  .stream__schedule:before {
+    content: "❬";
+    color: white;
+    transform: rotate(-90deg);
+    font-size: 6rem;
+    position: absolute;
+    z-index: -1;
+    margin-top: 43rem;
+    margin-left: 15rem;
+  }
+
+  .schedule__wrap {
+    display: flex;
+    width: 96rem;
+    height: 45rem;
+    transition: margin-left 400ms ease;
+  }
+
+  .schedule__nav {
+    height: 4rem;
+    width: 30rem;
+    margin: 0 1rem 2rem;
+    display: grid;
+    grid-template-columns: 5rem 20rem 5rem;
+    align-items: center;
+    transition: background 200ms ease;
+    user-select: none;
+  }
+  .schedule__nav:hover {
+    background: var(--blue-normal-opa);
+    transition: 200ms ease;
+  }
+  .schedule__nav-title {
+    font-size: 2.5rem;
+    font-family: var(--ff-text-bold);
+    margin: 0;
+    text-align: center;
+  }
+
+  .prev,
+  .next {
+    font-size: 2rem;
+    padding: 0 2rem;
+    transition: font-size 200ms ease;
+    cursor: pointer;
+    margin-bottom: 0.2rem;
+  }
+
+  .prev:hover,
+  .next:hover {
+    font-size: 3rem;
+    transition: 200ms ease;
+  }
+
+  /*  ------- HOVERS ------- */
+
+  .schedule__artist:last-child {
+    padding-bottom: 20rem;
+  }
+
+  .schedule__artist:hover .artist,
+  .schedule__artist:hover {
+    height: 14rem;
+    transition: 300ms ease;
+  }
+
+  .schedule__artist:hover .artist {
+    background: var(--blue-normal-opa);
+    transition: 300ms ease;
+  }
+
+  #schedule__artist-selected {
+    height: 14rem;
+  }
+
+  #artist-selected {
+    background-color: var(--blue-normal-opa);
+    height: 14rem;
+  }
+
+  /*  ------- DAYS ------- */
+
+  .schedule {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    /*gap: 1rem;*/
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .schedule::-webkit-scrollbar {
+    display: none;
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .schedule {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    scroll-behavior: smooth;
+  }
+
+  /*  ------- ARTIST ------- */
+
+  .schedule__artist {
+    height: 12rem;
+    padding: 1rem 0;
+    transition: 300ms ease;
+  }
+
+  .artist {
+    user-select: none;
+    width: 30rem;
+    height: 8rem;
+    margin: 0 1rem;
+    transition: 300ms ease;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 8rem 4rem;
+    grid-template-columns: 1fr 2rem;
+    grid-template-areas:
+      "name time"
+      "supp supp";
+  }
+
+  .artist__main {
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 2rem;
+    font-size: 2rem;
+  }
+  .artist__name {
+    font-family: var(--ff-text-bold);
+    margin: 0 1rem 0 0;
+  }
+  .artist__section {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .artist__time {
+    grid-area: time;
+    font-family: var(--ff-text-bold);
+    justify-self: end;
+    align-self: end;
+    font-size: 2.5rem;
+    margin: 1.5rem 2rem 1.8rem;
+  }
+
+  .artist__support {
+    grid-area: supp;
+    font-size: 1.5rem;
+    font-family: var(--ff-text-normal);
+    margin: 0 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5rem solid white;
+  }
+
+  /* MEDIA QUERIES */
+
+  @media screen and (min-width: 650px) {
+    .main__stream {
+      width: 650px;
+      display: grid;
+      grid-template:
+        "video video" 1fr
+        "chat  sched" 1fr / 1fr 1fr;
+      margin: 1.8rem auto 6rem;
+      gap: 4rem;
+    }
+    .stream__schedule {
+      grid-area: sched;
+    }
+
+    .stream__chat {
+      grid-area: chat;
+      margin-left: 1rem;
+    }
+    .stream__youtube {
+      grid-area: video;
+      height: 365.63px;
+      width: 65rem;
+      justify-self: center;
+    }
+
+    .youtube__embed {
+      height: 365.63px;
+      width: 65rem;
+    }
+
+    .simply-section {
+      border-radius: 1rem 1rem 0 0;
+      height: 6rem;
+      margin: 0rem 1rem -6rem;
+    }
+  }
+
+  @media screen and (min-width: 850px) {
+    .main__stream {
+      margin: 6rem auto;
+      width: 800px;
+      gap: 5rem;
+    }
+
+    .stream__chat {
+      width: 44rem;
+    }
+    .chat__wrapper iframe {
+      width: 44rem;
+    }
+    .stream__youtube {
+      height: 45rem;
+      width: 80rem;
+    }
+
+    .youtube__embed {
+      height: 45rem;
+      width: 80rem;
+    }
+  }
+  @media screen and (min-width: 1350px) {
+    .prev,
+    .next {
+      transition: visibility 400ms ease;
+      visibility: hidden;
+    }
+
+    .schedule__nav:hover .prev,
+    .schedule__nav:hover .next {
+      visibility: visible;
+      transition: 200ms ease;
+    }
+    /*  ------- GENERAL HOVER ------- */
+
+    .stream__chat:hover,
+    .stream__youtube:hover {
+      -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
+      box-shadow: 1.4rem 1.4rem var(--pink-normal);
+      -webkit-transform: translate(-0.4rem, -0.4rem);
+      -ms-transform: translate(-0.4rem, -0.4rem);
+      transform: translate(-0.4rem, -0.4rem);
+      -webkit-transition: 100ms;
+      -o-transition: 100ms;
+      transition: 100ms;
+      -webkit-transition-property:
+        -webkit-box-shadow,
+        -webkit-transform;
+      transition-property:
+        -webkit-box-shadow,
+        -webkit-transform;
+      -o-transition-property: box-shadow, transform;
+      transition-property: box-shadow, transform;
+      transition-property:
+        box-shadow,
+        transform,
+        -webkit-box-shadow,
+        -webkit-transform;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .blog__box::after {
+      margin-left: -7.2rem;
+    }
+
+    .ilus__box::after {
+      margin-right: -10rem;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      -ms-grid-column-align: end;
+      justify-self: end;
+    }
+    .ig__box::after {
+      margin-left: -12.8rem;
+    }
+
+    .fb__box-container::after {
+      margin-right: -12.8rem;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      -ms-grid-column-align: end;
+      justify-self: end;
+    }
+  }
+
+  @media screen and (min-width: 1560px) {
+    .main__stream {
+      flex-wrap: nowrap;
+      width: auto;
+      display: flex;
+    }
+
+    .stream__chat {
+      order: 1;
+      width: 30rem;
+    }
+
+    .chat__wrapper iframe {
+      width: 30rem;
+    }
+    .stream__youtube {
+      order: 2;
+    }
+
+    .stream__schedule {
+      order: 3;
+    }
+  }
+</style>

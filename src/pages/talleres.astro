@@ -1,0 +1,24 @@
+---
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout title="Talleres">
+  <main class="main__workshop-container">
+    <h1 class="soon__text">Próximamente</h1>
+  </main>
+</Layout>
+
+<style>
+  .main__workshop-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .soon__text {
+    font-size: 8vh;
+    text-align: center;
+    text-shadow: 0.4rem 0.4rem var(--pink-normal);
+  }
+</style>

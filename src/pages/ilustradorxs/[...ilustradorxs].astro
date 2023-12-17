@@ -1,0 +1,494 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { ILLUSTRATORS } from "../../data/ILLUSTRATORS";
+
+export const getStaticPaths = (() => {
+  return ILLUSTRATORS.map((illustrator) => {
+    return {
+      params: { ilustradorxs: illustrator.url },
+      props: { illustrator },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { illustrator } = Astro.props;
+
+const { name, location, bio, images, contact } = illustrator;
+const rrss = {
+  ig: {
+    rrss_class: "",
+    rrss_path: `https://www.instagram.com/${contact.ig}`,
+    rrss_image: "instagram.svg",
+  },
+  fb: {
+    rrss_class: "data__fb",
+    rrss_path: `https://www.facebook.com/${contact.fb}`,
+    rrss_image: "facebook.svg",
+  },
+
+  twitter: {
+    rrss_class: "data__tw",
+    rrss_path: `https://twitter.com/${contact.twitter}`,
+    rrss_image: "twitter.svg",
+  },
+  youtube: {
+    rrss_class: "",
+    rrss_path: `https://www.youtube.com/${contact.youtube}`,
+    rrss_image: "youtube.svg",
+  },
+  tiktok: {
+    rrss_class: "",
+    rrss_path: `https://vm.tiktok.com/${contact.tiktok}`,
+    rrss_image: "tiktok.svg",
+  },
+
+  behance: {
+    rrss_class: "",
+    rrss_path: `https://www.behance.net/${contact.behance}`,
+    rrss_image: "behance.svg",
+  },
+
+  web: {
+    rrss_class: "",
+    rrss_path: contact.web,
+    rrss_image: "web.svg",
+  },
+  mail: {
+    rrss_class: "",
+    rrss_path: `mailto:${contact.mail}`,
+    rrss_image: "gmail.svg",
+  },
+};
+---
+
+<Layout title={name}>
+  <div style="z-index: 1;">
+    <main class="ilus__main">
+      <header class="ilus-page-header">
+        <h1 class="ilus-page__title">{name}</h1>
+        <p class="ilus-page__location">{location}</p>
+        <p class="ilus-page__bio">
+          {bio}
+        </p>
+        <section class="ilus-page__data">
+          {
+            Object.entries(contact).map((rs) => {
+              if (rs[1] === "") return;
+              const { rrss_class, rrss_path, rrss_image } = rrss[rs[0]];
+              return (
+                <a
+                  target="_blank"
+                  class={`data__box ${rrss_class}`}
+                  href={rrss_path}
+                >
+                  <img
+                    class="data__logo"
+                    src={`../src/assets/images/gallery/${rrss_image}`}
+                    alt=""
+                  />
+                </a>
+              );
+            })
+          }
+        </section>
+      </header>
+      <secion class="ilus-page__gallery">
+        {
+          images.map((image, i) => {
+            if (i < 3) {
+              return (
+                <img
+                  class="ilus-page__images"
+                  src={`../src/assets/images/gallery/${image}.png`}
+                  alt={name}
+                />
+              );
+            }
+          })
+        }
+      </secion>
+
+      <a href="../ilustradorxs" class="gallery">Volver a la Galería</a>
+    </main>
+  </div>
+
+  <div class="images__container">
+    <div class="images__detail">
+      {
+        images.map((image) => (
+          <img
+            class="images__img"
+            src={`../src/assets/images/gallery/${image}.png`}
+            alt={name}
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <script>
+    let image1 = document.getElementsByClassName(
+      "ilus-page__images"
+    )[0] as HTMLElement;
+    let image2 = document.getElementsByClassName(
+      "ilus-page__images"
+    )[1] as HTMLElement;
+    let image3 = document.getElementsByClassName(
+      "ilus-page__images"
+    )[2] as HTMLElement;
+
+    let detail1 = document.getElementsByClassName(
+      "images__img"
+    )[0] as HTMLElement;
+    let detail2 = document.getElementsByClassName(
+      "images__img"
+    )[1] as HTMLElement;
+    let detail3 = document.getElementsByClassName(
+      "images__img"
+    )[2] as HTMLElement;
+
+    let imageBox = document.getElementsByClassName(
+      "images__container"
+    )[0] as HTMLElement;
+    let imageDetail = document.getElementsByClassName(
+      "images__detail"
+    )[0] as HTMLElement;
+
+    const width =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+
+    if (width >= 768) {
+      //GENERAL
+
+      imageBox.addEventListener("click", function () {
+        imageBox.style.display = "none";
+        detail1.style.visibility = "hidden";
+        detail2.style.visibility = "hidden";
+        detail3.style.visibility = "hidden";
+      }),
+        //IMAGES
+
+        image1.addEventListener("click", function () {
+          imageBox.style.display = "inherit";
+          detail1.style.visibility = "visible";
+        }),
+        image2.addEventListener("click", function () {
+          imageBox.style.display = "inherit";
+          detail2.style.visibility = "visible";
+        }),
+        image3.addEventListener("click", function () {
+          imageBox.style.display = "inherit";
+          detail3.style.visibility = "visible";
+        });
+    } else {
+      (imageBox.style.display = "none"),
+        (detail1.style.visibility = "hidden"),
+        (detail2.style.visibility = "hidden"),
+        (detail3.style.visibility = "hidden");
+    }
+  </script>
+  <style>
+    .gallery {
+      display: flex;
+      justify-self: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: var(--ff-title-sketch);
+      margin: 13rem 0 2rem;
+      padding: 2rem;
+      transition: margin 300ms ease;
+      z-index: 1;
+    }
+
+    .gallery:hover {
+      margin: 11rem 0 4rem;
+      text-shadow: 0 0.4rem var(--pink-normal);
+      transition: margin 300ms ease;
+    }
+    /*  ------- SHADOWS ------- */
+
+    .ilus-page__images,
+    .data__box {
+      -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
+      box-shadow: 0.8rem 0.8rem var(--pink-normal);
+      -webkit-transition: 300ms;
+      -o-transition: 300ms;
+      transition: 300ms;
+      -webkit-transition-property:
+        -webkit-box-shadow,
+        -webkit-transform;
+      transition-property:
+        -webkit-box-shadow,
+        -webkit-transform;
+      -o-transition-property: box-shadow, transform;
+      transition-property: box-shadow, transform;
+      transition-property:
+        box-shadow,
+        transform,
+        -webkit-box-shadow,
+        -webkit-transform;
+    }
+
+    /*  ------- ANIMATIONS ------- */
+
+    .ilus-page__title,
+    .ilus-page__name,
+    .ilus-page__location,
+    .ilus-page__bio,
+    .ilus-page__data,
+    .ilus-page__gallery {
+      -webkit-animation: showUp 600ms backwards;
+      animation: showUp 600ms backwards;
+    }
+
+    .ilus-page__title,
+    .ilus-page__name {
+      -webkit-animation-delay: 200ms;
+      animation-delay: 200ms;
+    }
+    .ilus-page__location {
+      -webkit-animation-delay: 200ms;
+      animation-delay: 200ms;
+    }
+    .ilus-page__bio {
+      -webkit-animation-delay: 800ms;
+      animation-delay: 800ms;
+    }
+    .ilus-page__data {
+      -webkit-animation-delay: 1.4s;
+      animation-delay: 1.4s;
+    }
+    .ilus-page__gallery {
+      -webkit-animation-delay: 2s;
+      animation-delay: 2s;
+    }
+
+    /*  
+    ------------- 
+       GENERAL
+    ------------- 
+*/
+
+    .ilus__main {
+      margin: 12vh 4vw 6vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    /*  
+    ------------- 
+        INFO 
+    ------------- 
+*/
+
+    .ilus-page-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .ilus-page__title {
+      font-size: 6rem;
+      text-align: center;
+      text-shadow: 0.4rem 0.4rem var(--pink-normal);
+      margin: 2rem 1.5rem 1rem;
+    }
+
+    .ilus-page__location,
+    .ilus-page__name {
+      font-size: 1.4rem;
+      text-align: center;
+      margin: 0;
+    }
+
+    .ilus-page__bio {
+      font-size: 1.6rem;
+      text-align: justify;
+      max-width: 52rem;
+      min-width: 300px;
+      margin: 4rem 2rem;
+    }
+
+    /*  ------- CONTACT ------- */
+
+    .ilus-page__data {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+
+    .data__box {
+      background-color: white;
+      width: 10rem;
+      height: 10rem;
+      margin: 1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .data__logo {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    /*  
+    ------------- 
+       GALLERY
+    ------------- 
+*/
+
+    .ilus-page__gallery {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .ilus-page__images {
+      height: 30rem;
+      cursor: pointer;
+      margin: 2rem 0;
+    }
+
+    .images__container {
+      display: none;
+    }
+
+    /*  
+    ------------- 
+    MEDIA QUERIES
+    ------------- 
+*/
+
+    @media screen and (min-width: 767px) {
+      /*  ------------- IMAGE DETAIL ------------- */
+
+      .images__container {
+        background-color: var(--blue-normal-opa);
+        position: fixed;
+        width: 100%;
+        padding-bottom: 100vh;
+        top: 0;
+        z-index: 3;
+      }
+
+      .images__detail {
+        display: -ms-grid;
+        display: grid;
+        grid-template-areas: "image";
+        height: 100vh;
+      }
+
+      .ilus-page__images {
+        margin: 1rem;
+      }
+
+      .images__img {
+        visibility: hidden;
+        grid-area: image;
+        height: 70vh;
+        width: auto;
+        -ms-grid-column-align: center;
+        justify-self: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+      }
+    }
+
+    @media screen and (min-width: 1360px) {
+      /*  ------------- IMAGE DETAIL ------------- */
+
+      .images__img {
+        height: 90vh;
+      }
+
+      /*  ------- GENERAL HOVER ------- */
+
+      .data__box:hover {
+        -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
+        box-shadow: 1.4rem 1.4rem var(--pink-normal);
+        -webkit-transform: translate(-0.4rem, -0.4rem);
+        -ms-transform: translate(-0.4rem, -0.4rem);
+        transform: translate(-0.4rem, -0.4rem);
+        -webkit-transition: 100ms;
+        -o-transition: 100ms;
+        transition: 100ms;
+        -webkit-transition-property:
+          -webkit-box-shadow,
+          -webkit-transform;
+        transition-property:
+          -webkit-box-shadow,
+          -webkit-transform;
+        -o-transition-property: box-shadow, transform;
+        transition-property: box-shadow, transform;
+        transition-property:
+          box-shadow,
+          transform,
+          -webkit-box-shadow,
+          -webkit-transform;
+      }
+
+      .ilus-page__images:hover {
+        -webkit-box-shadow: 0.8rem 1.8rem var(--pink-normal);
+        box-shadow: 0.8rem 1.8rem var(--pink-normal);
+        -webkit-transition: 100ms;
+        -o-transition: 100ms;
+        transition: 100ms;
+        -webkit-transition-property:
+          -webkit-box-shadow,
+          -webkit-transform;
+        transition-property:
+          -webkit-box-shadow,
+          -webkit-transform;
+        -o-transition-property: box-shadow, transform;
+        transition-property: box-shadow, transform;
+        transition-property:
+          box-shadow,
+          transform,
+          -webkit-box-shadow,
+          -webkit-transform;
+      }
+
+      .ilus-page__images:hover {
+        -webkit-transform: translateY(-3rem);
+        -ms-transform: translateY(-3rem);
+        transform: translateY(-3rem);
+        -webkit-transition: 300ms;
+        -o-transition: 300ms;
+        transition: 300ms;
+      }
+    }
+  </style>
+</Layout>

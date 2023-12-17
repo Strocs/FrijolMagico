@@ -1,0 +1,213 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { ILLUSTRATORS } from "../../data/ILLUSTRATORS";
+---
+
+<Layout title="Ilustradxrs">
+  <main class="ilus__main-container">
+    <header class="ilus__main-header">
+      <h1 class="ilus__main-title">Galería de ilustradorxs</h1>
+    </header>
+
+    <section class="ilus__container">
+      <div class="ilus__card-container">
+        {
+          ILLUSTRATORS.map((illustrator) => (
+            <article class="ilus__card">
+              <a class="ilus__link" href={`ilustradorxs/${illustrator.url}`}>
+                <div class="ilus__img-container">
+                  <img
+                    class="ilus__img"
+                    src={`src/assets/images/gallery/${illustrator.images[0]}.png`}
+                    alt={illustrator.name}
+                  />
+                </div>
+                <h1 class="ilus__name">{illustrator.name}</h1>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /*  ------- SHADOWS ------- */
+
+  .ilus__card {
+    -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+    -webkit-transition-property:
+      -webkit-box-shadow,
+      -webkit-transform;
+    transition-property:
+      -webkit-box-shadow,
+      -webkit-transform;
+    -o-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    transition-property:
+      box-shadow,
+      transform,
+      -webkit-box-shadow,
+      -webkit-transform;
+  }
+
+  /*  ------- ANIMATIONS ------- */
+
+  .ilus__main-container,
+  .ilus__main-title,
+  .ilus__container {
+    -webkit-animation: showUp 600ms backwards;
+    animation: showUp 600ms backwards;
+  }
+
+  .ilus__main-title {
+    -webkit-animation-delay: 200ms;
+    animation-delay: 200ms;
+  }
+  .ilus__container {
+    -webkit-animation-delay: 800ms;
+    animation-delay: 800ms;
+  }
+
+  /*  
+    ------------- 
+       GENERAL
+    ------------- 
+*/
+
+  .ilus__main-container {
+    margin: 12rem auto;
+    z-index: 1;
+  }
+
+  /*  
+    ------------- 
+        TITLE 
+    ------------- 
+*/
+
+  .ilus__main-header {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+
+  .ilus__main-title {
+    font-size: 8vh;
+    text-align: center;
+    text-shadow: 0.4rem 0.4rem var(--pink-normal);
+    margin: 2rem 1.5rem 6rem;
+  }
+
+  /*  
+    ------------- 
+       BOXES
+    ------------- 
+*/
+
+  /*  ------- GENERAL ------- */
+
+  .ilus__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-width: 28rem;
+    max-width: 136rem;
+  }
+
+  .ilus__card-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    /*max-width: 1650px;*/
+  }
+
+  /*  ------- CARDS ------- */
+
+  .ilus__card {
+    background-color: white;
+    margin: 3rem;
+    width: 30rem;
+    height: 18rem;
+  }
+
+  .ilus__link {
+    display: -ms-grid;
+    display: grid;
+    grid-template-areas: "card";
+    height: 18rem;
+  }
+
+  .ilus__img-container {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    grid-area: card;
+    overflow: hidden;
+  }
+
+  .ilus__img {
+    height: 50rem;
+  }
+
+  .ilus__name {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: card;
+    font-family: var(--ff-text-bold);
+    font-size: 4rem;
+    text-align: center;
+    color: var(--pink-normal);
+    text-shadow: 0.4rem 0.4rem white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0rem;
+    background-color: #ffffff80;
+  }
+
+  /*  
+    ------------- 
+    MEDIA QUERIES
+    ------------- 
+*/
+
+  @media screen and (min-width: 767px) {
+    .ilus__card {
+      width: 50rem;
+    }
+  }
+
+  @media screen and (min-width: 1360px) {
+    /*  ------- GENERAL HOVER ------- */
+
+    .ilus__card:hover {
+      box-shadow: 1.4rem 1.4rem var(--pink-normal);
+      transform: translate(-0.4rem, -0.4rem);
+      transform-style: preserve-3d;
+      transition: 100ms;
+      transition-property: box-shadow, transform;
+    }
+  }
+</style>

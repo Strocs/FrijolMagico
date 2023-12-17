@@ -1,42 +1,596 @@
 ---
-import PodcastCard from '../components/PodcastCard.astro'
-import Section from '../components/Section.astro'
-import Slider from '../components/Slider.astro'
-import Title from '../components/Title.astro'
-import Layout from '../layouts/Layout.astro'
-import { podcastData } from '../data/podcasts.data'
+import Layout from "../layouts/Layout.astro";
 
-const lastPodcast = podcastData[podcastData.length - 1]
-const podcastSpotifyShow = 'https://open.spotify.com/show/6X92bkkwHr43dTP1Y3LPyg?si=ea4b489a93d84c4e'
+import { ILLUSTRATORS } from "@data/ILLUSTRATORS";
 ---
 
-<Layout title='Frijol Mágico | Apoyando la Ilustración de la Región de Coquimbo!'>
-	<main>
-		<Title />
-		<Slider />
-		<div>
-			<Section sectionName='Podcasts' title='Último Podcast' href={podcastSpotifyShow}>
-				<PodcastCard podcastId={lastPodcast.id} />
-			</Section>
-			<!-- <Section sectionName='Festivales' title='Útimos Festivales' link='festivales' /> -->
-			<!-- <Section sectionName='Blog' title='Útimas Entradas' link='blog' /> -->
-		</div>
-	</main>
+<Layout>
+  <main class="main__container">
+    <section class="box__container">
+      <section
+        class="side__box blog__box animate__animated animate__fadeInDownBig"
+      >
+        <!-- IFRAME -->
+        <div class="blog_icon">
+          <a target="_blank" href="https://blog.frijolmagico.cl/"
+            ><img
+              class="blog_icon__img"
+              src="src/assets/images/blog_icon.svg"
+              alt=""
+            /></a
+          >
+        </div>
+      </section>
+
+      <section class="center__box">
+        <h1 class="main__title"><p>Bienvenidxs a</p> Frijol Mágico</h1>
+
+        <article class="rrss__box">
+          <div class="ig__box">
+            <div id="ig_feed">
+              <div id="instafeed" class="instagram-gallery-medium">
+                <a
+                  class="ig_img"
+                  target="_blank"
+                  title="Mira esta publicación en Instagram!"></a>
+              </div>
+              <div class="ig_icon">
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/festivalfrijolmagico/"
+                  ><img
+                    class="ig_icon__img"
+                    src="src/assets/images/ig_icon.svg"
+                    alt=""
+                  /></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="fb__box-container">
+            <iframe
+              class="fb__box"
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffestivalfrijolmagico%2F&tabs=timeline&width=280&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2469260113381635"
+              width="280"
+              height="280"
+              style="border:none;overflow:hidden"
+              allowfullscreen="true"
+            >
+            </iframe>
+            <div class="fb_icon">
+              <a
+                target="_blank"
+                href="https://www.facebook.com/festivalfrijolmagico"
+                ><img
+                  class="fb_icon__img"
+                  src="src/assets/images/fb_icon.svg"
+                  alt=""
+                /></a
+              >
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="side__box ilus__box">
+        <div class="ilus__box-container glide">
+          <div class="ilus__track glide__track" data-glide-el="track">
+            <ul class="ilus__list glide__slides" style="margin-left: 0rem;">
+              {
+                ILLUSTRATORS.map((illustrator) => (
+                  <li class="ilus__slide glide__slide">
+                    <a
+                      class="ilus__slide-link"
+                      href={`ilustradorxs/${illustrator.url}`}
+                    >
+                      <h1 class="ilus__slide-name">{illustrator.name}</h1>
+                    </a>
+                    <img
+                      class="ilus__slide-img"
+                      src={`src/assets/images/gallery/${illustrator.images[0]}.png`}
+                      alt={illustrator.name}
+                    />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div data-glide-el="controls">
+            <button class="prev" data-glide-dir="<">&#10094;</button>
+            <button class="next" data-glide-dir=">">&#10095;</button>
+          </div>
+        </div>
+        <div class="gallery_icon">
+          <a href="https://frijolmagico.cl/ilustradorxs"
+            ><img
+              class="gallery_icon__img"
+              src="src/assets/images/gallery_icon.svg"
+              alt=""
+            /></a
+          >
+        </div>
+      </section>
+    </section>
+  </main>
 </Layout>
 
+<script>
+  import Glide from "node_modules/@glidejs/glide";
+  new Glide(".glide", { autoplay: 3000 }).mount();
+</script>
 <style>
-	main {
-		width: 100%;
-		height: 100%;
-		padding-bottom: 4rem;
-	}
-	div {
-		padding: 0 1.6rem;
-	}
+  /*  ------- SHADOWS ------- */
 
-	@media (min-width: 640px) {
-		main {
-			padding-bottom: 10rem;
-		}
-	}
+  .simply-section,
+  .instagram-gallery-medium,
+  .fb__box,
+  .blog__box,
+  .ilus__box-container {
+    -webkit-box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    box-shadow: 0.8rem 0.8rem var(--pink-normal);
+    -webkit-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+    -webkit-transition-property:
+      -webkit-box-shadow,
+      -webkit-transform;
+    transition-property:
+      -webkit-box-shadow,
+      -webkit-transform;
+    -o-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    transition-property:
+      box-shadow,
+      transform,
+      -webkit-box-shadow,
+      -webkit-transform;
+  }
+
+  /*  ------- ANIMATIONS ------- */
+
+  .main__container,
+  .main__title,
+  #countdown,
+  .side__box,
+  .blog__box,
+  .ig__box,
+  .fb__box-container,
+  .blog__box::after,
+  .ilus__box::after,
+  .ig__box::after,
+  .fb__box-container::after {
+    -webkit-animation: showUp 600ms backwards;
+    animation: showUp 600ms backwards;
+  }
+
+  .main__title {
+    -webkit-animation-delay: 400ms;
+    animation-delay: 400ms;
+  }
+  #countdown {
+    -webkit-animation-delay: 400ms;
+    animation-delay: 400ms;
+  }
+  .ig__box {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+  .fb__box-container {
+    -webkit-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+  }
+  .side__box {
+    -webkit-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+  }
+
+  .blog__box::after,
+  .ilus__box::after,
+  .ig__box::after,
+  .fb__box-container::after {
+    -webkit-animation-delay: 2.6s;
+    animation-delay: 2.6s;
+  }
+
+  /*  ------- TITLE BOX ------- */
+
+  /* .blog__box::after {
+  content: "BLOG";
+}
+.ilus__box::after {
+  content: "GALERÍA";
+}
+.ig__box::after {
+  content: "INSTAGRAM";
+}
+.fb__box-container::after {
+  content: "FACEBOOK";
+} */
+
+  .blog__box::after,
+  .ilus__box::after,
+  .ig__box::after,
+  .fb__box-container::after {
+    position: absolute;
+    bottom: -5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: white;
+    font-weight: 700;
+    font-size: 3rem;
+    font-family: var(--ff-title-sketch);
+  }
+
+  /*  
+    ------------- 
+       GENERAL
+    ------------- 
+*/
+
+  .main__container {
+    margin: 12rem auto;
+  }
+
+  /*  
+    ------------- 
+        TITLE 
+    ------------- 
+*/
+
+  .main__header {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+
+  .main__title {
+    font-size: 9rem;
+    text-align: center;
+    text-shadow: 0.4rem 0.4rem var(--pink-normal);
+    margin: -2rem 0 0 0;
+  }
+
+  .main__title > p {
+    margin: 0;
+    font-size: 6rem;
+  }
+
+  /*  
+    ------------- 
+       BOXES
+    ------------- 
+*/
+
+  /*  ------- GENERAL ------- */
+
+  .box__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+
+  .side__box {
+    width: 28rem;
+    height: 45rem;
+    background-color: white;
+    position: relative;
+  }
+
+  .center__box {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .blog__box {
+    order: 3;
+    margin: 6rem 1rem;
+  }
+
+  /*  ------- blog ------- */
+
+  .blog__box {
+    background-color: white;
+    border: solid 1px white;
+  }
+
+  .blog_icon {
+    position: absolute;
+    margin: -4rem -3rem 0rem 0rem;
+    right: 0;
+  }
+
+  .blog_icon__img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  /*  ------- Illus slider ------- */
+
+  .ilus__box {
+    order: 2;
+    margin: 6rem 1rem;
+  }
+
+  .ilus__box-container {
+    position: relative;
+    width: 28rem;
+    overflow: hidden;
+  }
+  .ilus__track {
+    height: 45rem;
+  }
+
+  .ilus__list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+
+  .prev,
+  .next {
+    background: none;
+    border: none;
+    color: var(--pink-normal);
+    position: absolute;
+    cursor: pointer;
+    font-size: 3rem;
+    transition: 0.4s ease;
+    align-self: center;
+    padding: 1rem;
+    top: 42%;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .prev:hover,
+  .next:hover {
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+
+  .ilus__slide {
+    position: relative;
+    border: solid 1px white;
+    height: 45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .ilus__slide-link {
+    align-self: start;
+    width: 28rem;
+    text-align: center;
+    margin-top: 8rem;
+    background-color: #ffffff;
+    position: absolute;
+  }
+
+  .ilus__slide-name {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: var(--ff-text-bold);
+    color: var(--pink-normal);
+    margin: 2rem;
+  }
+
+  .ilus__slide-img {
+    height: 65rem;
+  }
+
+  .gallery_icon {
+    position: absolute;
+    margin: -4rem 0rem 0rem -3rem;
+  }
+
+  .gallery_icon__img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  /*  ------- CENTER BOX ------- */
+
+  .rrss__box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .ig__box {
+    width: 28rem;
+    height: 28rem;
+    margin: 6rem 1rem;
+    position: relative;
+  }
+
+  .fb__box-container {
+    width: 28rem;
+    height: 28rem;
+    margin: 6rem 1rem;
+    position: relative;
+  }
+
+  .fb_icon {
+    position: absolute;
+    margin: -3rem;
+    top: 0;
+    right: 0;
+  }
+
+  .fb_icon__img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  /*  ------- INSTAGRAM FEED ------- */
+
+  .instagram-gallery-medium {
+    background-color: white;
+    display: flex;
+  }
+
+  .instagram-gallery-medium > a {
+    border: solid 1px white;
+    width: 28rem;
+    height: 28rem;
+    overflow: hidden;
+  }
+
+  .instagram-gallery-medium > a > video {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .ig_img {
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12rem 12rem;
+    -webkit-transition:
+      opacity 0.2s,
+      visibility 0.2s;
+    -o-transition:
+      opacity 0.2s,
+      visibility 0.2s;
+    transition:
+      opacity 0.2s,
+      visibility 0.2s;
+    margin-left: -28rem; */
+  }
+
+  .ig_icon {
+    position: absolute;
+    margin: -2.5rem;
+    top: 0;
+  }
+
+  .ig_icon__img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  /*  
+    ------------- 
+    MEDIA QUERIES
+    ------------- 
+*/
+
+  /*  ------- TABLETS ------- */
+
+  @media screen and (min-width: 600px) {
+    .main__title {
+      max-width: 60rem;
+    }
+
+    .ig_img {
+      visibility: hidden;
+      opacity: 0;
+    }
+    #ig_feed:hover .ig_img {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  /*  ------- DESKTOP ------- */
+
+  @media screen and (min-width: 1360px) {
+    .main__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /*  ------- GENERAL ------- */
+
+    .box__container {
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      max-width: 1300px;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .side__box {
+      width: 50rem;
+    }
+
+    .center__box {
+      order: 2;
+      height: 45rem;
+      justify-content: space-between;
+    }
+
+    .blog__box {
+      order: 3;
+    }
+
+    .ilus__box {
+      order: 1;
+    }
+
+    .side__box,
+    .ig__box,
+    .fb__box-container {
+      margin: 0 1rem;
+    }
+
+    .blog_icon {
+      margin: 0 0 -4rem -3rem;
+      left: 0;
+      bottom: 0;
+    }
+
+    .gallery_icon {
+      margin: -4rem -3rem 0rem 0rem;
+      right: 0;
+    }
+    /*  ------- GENERAL HOVER ------- */
+
+    .simply-section:hover,
+    .instagram-gallery-medium:hover,
+    .fb__box:hover,
+    .blog__box:hover,
+    .ilus__box-container:hover {
+      -webkit-box-shadow: 1.4rem 1.4rem var(--pink-normal);
+      box-shadow: 1.4rem 1.4rem var(--pink-normal);
+      -webkit-transform: translate(-0.4rem, -0.4rem);
+      -ms-transform: translate(-0.4rem, -0.4rem);
+      transform: translate(-0.4rem, -0.4rem);
+      -webkit-transition: 100ms;
+      -o-transition: 100ms;
+      transition: 100ms;
+      -webkit-transition-property:
+        -webkit-box-shadow,
+        -webkit-transform;
+      transition-property:
+        -webkit-box-shadow,
+        -webkit-transform;
+      -o-transition-property: box-shadow, transform;
+      transition-property: box-shadow, transform;
+      transition-property:
+        box-shadow,
+        transform,
+        -webkit-box-shadow,
+        -webkit-transform;
+    }
+  }
 </style>

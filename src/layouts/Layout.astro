@@ -1,89 +1,256 @@
 ---
-import Footer from '../components/Footer.astro'
-import Header from '../components/Header.astro'
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import { SITE_INFO } from "@data/SITE_INFO";
 
 interface Props {
-	title: string
+  title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props
+const { title = SITE_INFO.title, description = SITE_INFO.description } =
+  Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang='es'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta
-			name='description'
-			content='Frijol Mágico es un espacio que reúne a las y los Ilustradores de la Región de Coquimbo, generando distintas instancias que ayuden a potenciar su trabajo.'
-		/>
-		<meta name='lenguage' content='spanish' />
-		<meta name='author' content='Frijol Mágico' />
-		<meta name='audience' content='all' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/png' href='/logoFrijol.png' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
-		<link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link href='https://fonts.googleapis.com/css2?family=Galindo&display=swap' rel='stylesheet' />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-	</head>
-	<body>
-		<Header />
-		<slot />
-		<Footer />
-	</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href={SITE_INFO.logo} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="lenguage" content="spanish" />
+    <meta name="audience" content="all" />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="ilustración chilena, ilustración la serena, ilustración coquimbo, dibujo"
+    />
+    <title>{`Frijol Mágico | ${title}`}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="bg__root">
+      <img
+        class="bg__left"
+        src="src/assets/images/gallery/ramaLeft.png"
+        alt=""
+      />
+      <img
+        class="bg__right"
+        src="src/assets/images/gallery/ramaRight.png"
+        alt=""
+      />
+    </div>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--pink: #fa2678;
-		--blue: #0d2a66;
-	}
+  /*  
+    ------------- 
+        FONTS
+    ------------- 
+*/
+  @font-face {
+    font-family: "Helvetica-light";
+    font-style: normal;
+    font-weight: 200;
+    src:
+      local(""),
+      url("../assets/fonts/Helvetica-light.woff2") format("woff2"),
+      url("../assets/fonts/Helvetica-light.woff") format("woff");
+  }
 
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-	html {
-		font-family: 'Galindo', cursive, system-ui, sans-serif;
-		font-size: 62.5%;
-	}
+  @font-face {
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local(""),
+      url("../assets/fonts/Helvetica.woff2") format("woff2"),
+      url("../assets/fonts/Helvetica.woff") format("woff");
+  }
 
-	body {
-		/* background: linear-gradient(180deg, var(--blue) 27.08%, var(--pink) 100%); */
-		background: var(--blue);
-		padding: 0;
-		margin: 0;
-		position: relative;
-		height: fit-content;
-		width: 100%;
-		min-height: 100vh;
-		color: white;
-	}
+  @font-face {
+    font-family: "Helvetica-Bold";
+    font-weight: normal;
+    font-style: 700;
+    src:
+      local(""),
+      url("../assets/fonts/Helvetica-Bold.woff2") format("woff2"),
+      url("../assets/fonts/Helvetica-Bold.woff") format("woff");
+  }
 
-	body::before,
-	body::after {
-		content: '';
-	}
+  /* cabin-sketch-regular - latin */
+  @font-face {
+    font-family: "Cabin Sketch";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local(""),
+      url("../assets/fonts/cabin-sketch-v14-latin-regular.woff2")
+        format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("../assets/fonts/cabin-sketch-v14-latin-regular.woff")
+        format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
 
-	@media (min-width: 1060px) {
-		body::before,
-		body::after {
-			position: fixed;
-			top: -30rem;
-			z-index: -10;
-			transform: scale(0.8);
-		}
+  /* cabin-sketch-700 - latin */
+  @font-face {
+    font-family: "Cabin Sketch";
+    font-style: normal;
+    font-weight: 700;
+    src:
+      local(""),
+      url("../assets/fonts/cabin-sketch-v14-latin-700.woff2") format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("../assets/fonts/cabin-sketch-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
 
-		body::before {
-			content: url(../../public/ramaLeft.png);
-			left: -38rem;
-		}
-		body::after {
-			content: url(../../public/ramaRight.png);
-			right: -38rem;
-		}
-	}
+  /*  
+    ------------- 
+      VARIABLES
+    ------------- 
+*/
+
+  :root {
+    --blue-dark: #1b2433;
+    --blue-normal: #0d2a66;
+    --blue-normal-opa: #0d2b66f1;
+    --blue-light: #346fb4;
+    --pink-normal: #fa2678;
+    --yellow-normal: #ffd763;
+
+    --ff-title-sketch: "Cabin Sketch", Arial;
+    --ff-text-normal: "Helvetica", Arial;
+    --ff-text-light: "Helvetica-light", Arial;
+    --ff-text-bold: "Helvetica-Bold", Arial;
+  }
+
+  /*  
+    ------------- 
+      ANIMATIONS
+    ------------- 
+*/
+
+  @-webkit-keyframes showUp {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes showUp {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /*  
+    ------------- 
+       SVG LOGO
+    ------------- 
+*/
+
+  .st0 {
+    fill: var(--pink-normal);
+  }
+  .st1 {
+    fill: var(--blue-light);
+  }
+
+  /*  
+    ------------- 
+       GENERAL
+    ------------- 
+*/
+
+  *,
+  *::after,
+  *::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  html {
+    color: white;
+    font-family: var(--ff-text-light);
+    font-size: 62.5%;
+    letter-spacing: 0.05em;
+  }
+
+  body {
+    display: -ms-grid;
+    display: grid;
+    background: var(--blue-normal);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--ff-title-sketch);
+    font-weight: 700;
+  }
+
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /*  
+    ------------- 
+     BACKGROUND
+    ------------- 
+*/
+
+  .bg__root {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+  }
+
+  .bg__left,
+  .bg__right {
+    position: absolute;
+    margin-top: -48rem;
+    transform: scale(0.8);
+  }
+  .bg__right {
+    right: 0;
+    margin-right: -45rem;
+  }
+
+  .bg__left {
+    left: 0;
+    margin-left: -45rem;
+  }
 </style>

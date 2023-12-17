@@ -1,14 +1,64 @@
-<footer>
-	<p>Frijol Mágico 2023 | <b>Página en Construcción</b> | Hecho con ❤ por Strocs</p>
+<footer class="footer__container">
+  <p class="footer__text">
+    Frijol Mágico 2021 | Hecho con &hearts; por <a
+      href="https://www.instagram.com/_strocs/">_Strocs.</a
+    >
+  </p>
 </footer>
 
 <style>
-	footer {
-		font-family: 'Courier New', Courier, monospace;
-		font-size: 1.2rem;
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		text-align: center;
-	}
+  /*  
+    ------------- 
+       FOOTER
+    ------------- 
+  */
+
+  .footer__container {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+  }
+
+  .footer__text {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 767px) {
+    .footer__container {
+      right: 0;
+      margin-right: 10vw;
+      width: auto;
+    }
+
+    .bg__left,
+    .bg__right {
+      display: inherit;
+      margin-top: -30rem;
+    }
+    .bg__left {
+      left: 0;
+      margin-left: -45rem;
+    }
+
+    .nav__a {
+      font-size: 6rem;
+    }
+  }
+
+  @media screen and (min-width: 1360px) {
+    .bg__left,
+    .bg__right {
+      margin-top: -20rem;
+      transform: scale(1.2);
+    }
+    .bg__left {
+      margin-left: -35rem;
+    }
+
+    .bg__right {
+      margin-right: -35rem;
+    }
+  }
 </style>
