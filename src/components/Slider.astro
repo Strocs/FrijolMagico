@@ -6,13 +6,13 @@ const shuffleData = artistsData.sort(() => Math.random() - 0.5)
 ---
 
 <section class='swiper'>
-	<div class='swiper-wrapper'>
+	<ul class='swiper-wrapper'>
 		{
 			shuffleData.map(({ artist, id, images }) => (
 				<Card className='swiper-slide' artist={artist} id={id} img={images[0]} />
 			))
 		}
-	</div>
+	</ul>
 </section>
 
 <style>
@@ -27,21 +27,12 @@ const shuffleData = artistsData.sort(() => Math.random() - 0.5)
 		opacity: 0.2;
 		transition: opacity 500ms ease;
 	}
-	.swiper-slide-active {
-		opacity: 1;
-	}
-
-	@media (min-width: 640px) {
-		.swiper-slide {
-			width: 40rem;
-			height: 50rem;
-		}
-	}
 </style>
 
 <script>
 	import Swiper from 'swiper/bundle'
 	import 'swiper/css'
+
 	const swiper = new Swiper('.swiper', {
 		slidesPerView: 'auto',
 		spaceBetween: 50,

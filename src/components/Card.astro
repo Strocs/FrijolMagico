@@ -5,7 +5,7 @@ const { className, artist, id, img } = Astro.props
 const { url, size } = img
 ---
 
-<div class={className}>
+<li class={className}>
 	<img
 		src={`/images/${artist}/${url}`}
 		alt={`Ilustración hecha por ${artist}`}
@@ -15,19 +15,34 @@ const { url, size } = img
 		style={{ aspectRatio: size.aspectRatio }}
 	/>
 	<Link text={artist} href={'/galeria/' + id} absolute />
-</div>
+</li>
 
 <style>
-	div {
+	.swiper-slide-active {
+		opacity: 1;
+	}
+	li {
 		position: relative;
 		border: 0.2rem solid white;
 		border-radius: 1.6rem;
 		box-shadow: -1.2rem 1.2rem 0 0 var(--pink);
 		overflow: hidden;
+		width: 20rem;
+		height: 25rem;
+		margin: 2rem 0;
+		opacity: 0.2;
+		transition: opacity 500ms ease;
 	}
 	img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	@media (min-width: 640px) {
+		li {
+			width: 40rem;
+			height: 50rem;
+		}
 	}
 </style>

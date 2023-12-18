@@ -1,10 +1,9 @@
-import { defineConfig } from 'astro/config';
-import react from "@astrojs/react";
+import { defineConfig } from 'astro/config'
 
-import sitemap from "@astrojs/sitemap";
+import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://elfrijolmagico.cl',
-  integrations: [react(), sitemap()]
-});
+	site: 'https://elfrijolmagico.cl',
+	integrations: [sitemap()]
+})

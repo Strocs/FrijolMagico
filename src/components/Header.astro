@@ -1,66 +1,67 @@
 ---
-import Facebook from './icons/Facebook.astro'
-import Instagram from './icons/Instagram.astro'
+import Facebook from "./icons/Facebook.astro";
+import Instagram from "./icons/Instagram.astro";
 ---
 
 <header>
-	<div>
-		<a href='/'><img src='/logoFrijol.png' alt='Logo Frijol Mágico' /></a>
-		<div>
-			<a href='https://www.instagram.com/festivalfrijolmagico/'><Instagram /></a>
-			<a href='https://www.facebook.com/festivalfrijolmagico'><Facebook /></a>
-			<div class='header__button-hamburger'></div>
-		</div>
-	</div>
+  <div>
+    <a href="/"><img src="LogoFrijol.png" alt="Logo Frijol Mágico" /></a>
+    <div>
+      <a href="https://www.instagram.com/festivalfrijolmagico/"><Instagram /></a
+      >
+      <a href="https://www.facebook.com/festivalfrijolmagico"><Facebook /></a>
+      <div class="header__button-hamburger"></div>
+    </div>
+  </div>
 </header>
 
 <style>
-	header {
-		position: fixed;
-		top: 0;
-		width: 100%;
-		z-index: 10;
-		display: flex;
-		justify-content: center;
-	}
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+  }
 
-	header > div {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		background: rgba(13, 42, 102, 0.8);
-		backdrop-filter: blur(5rem);
-		width: 100%;
-		max-width: 106rem;
-		min-height: 6rem;
-		padding: 0 4rem;
-	}
-	a {
-		height: fit-content;
-		width: fit-content;
-	}
-	header > div > div {
-		display: flex;
-		align-items: center;
-		gap: 1.2rem;
-	}
+  header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13, 42, 102, 0.8);
+    backdrop-filter: blur(5rem);
+    width: 100%;
+    max-width: 106rem;
+    min-height: 6rem;
+    padding: 0 4rem;
+  }
+  a {
+    height: fit-content;
+    width: fit-content;
+  }
+  header > div > div {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
 
-	img {
-		aspect-ratio: 141 / 142;
-		width: 4.5rem;
-	}
+  img {
+    aspect-ratio: 141 / 142;
+    width: 4.5rem;
+  }
 
-	@media (min-width: 640px) {
-		header {
-			min-height: 8rem;
-			margin-top: 1rem;
-		}
-		header > div {
-			border-radius: 30rem;
-		}
+  @media (min-width: 640px) {
+    header {
+      min-height: 8rem;
+      margin-top: 1rem;
+    }
+    header > div {
+      border-radius: 30rem;
+    }
 
-		a:hover {
-			transform: scale(1.2);
-		}
-	}
+    a:hover {
+      transform: scale(1.2);
+    }
+  }
 </style>

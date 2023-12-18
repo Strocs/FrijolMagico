@@ -1,89 +1,92 @@
 ---
-import Footer from '../components/Footer.astro'
-import Header from '../components/Header.astro'
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
 
 interface Props {
-	title: string
+  title: string;
 }
 
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang='es'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta
-			name='description'
-			content='Frijol Mágico es un espacio que reúne a las y los Ilustradores de la Región de Coquimbo, generando distintas instancias que ayuden a potenciar su trabajo.'
-		/>
-		<meta name='lenguage' content='spanish' />
-		<meta name='author' content='Frijol Mágico' />
-		<meta name='audience' content='all' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/png' href='/logoFrijol.png' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
-		<link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link href='https://fonts.googleapis.com/css2?family=Galindo&display=swap' rel='stylesheet' />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-	</head>
-	<body>
-		<Header />
-		<slot />
-		<Footer />
-	</body>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Frijol Mágico es un espacio que reúne a las y los Ilustradores de la Región de Coquimbo, generando distintas instancias que ayuden a potenciar su trabajo."
+    />
+    <meta name="lenguage" content="spanish" />
+    <meta name="author" content="Frijol Mágico" />
+    <meta name="audience" content="all" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/LogoFrijol.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Galindo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--pink: #fa2678;
-		--blue: #0d2a66;
-	}
+  :root {
+    --pink: #fa2678;
+    --blue: #0d2a66;
+  }
 
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-	html {
-		font-family: 'Galindo', cursive, system-ui, sans-serif;
-		font-size: 62.5%;
-	}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    font-family: "Galindo", cursive, system-ui, sans-serif;
+    font-size: 62.5%;
+  }
 
-	body {
-		/* background: linear-gradient(180deg, var(--blue) 27.08%, var(--pink) 100%); */
-		background: var(--blue);
-		padding: 0;
-		margin: 0;
-		position: relative;
-		height: fit-content;
-		width: 100%;
-		min-height: 100vh;
-		color: white;
-	}
+  body {
+    /* background: linear-gradient(180deg, var(--blue) 27.08%, var(--pink) 100%); */
+    background: var(--blue);
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: fit-content;
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+  }
 
-	body::before,
-	body::after {
-		content: '';
-	}
+  body::before,
+  body::after {
+    content: "";
+  }
 
-	@media (min-width: 1060px) {
-		body::before,
-		body::after {
-			position: fixed;
-			top: -30rem;
-			z-index: -10;
-			transform: scale(0.8);
-		}
+  @media (min-width: 1060px) {
+    body::before,
+    body::after {
+      position: fixed;
+      top: -30rem;
+      z-index: -10;
+      transform: scale(0.8);
+    }
 
-		body::before {
-			content: url(../../public/ramaLeft.png);
-			left: -38rem;
-		}
-		body::after {
-			content: url(../../public/ramaRight.png);
-			right: -38rem;
-		}
-	}
+    body::before {
+      content: url(/ramaLeft.png);
+      left: -38rem;
+    }
+    body::after {
+      content: url(/ramaRight.png);
+      right: -38rem;
+    }
+  }
 </style>
