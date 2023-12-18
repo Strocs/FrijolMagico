@@ -1,29 +1,29 @@
 ---
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
+import { SITE_INFO } from "@data/SITE_INFO";
 
 interface Props {
-  title: string;
+  title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title = SITE_INFO.title, description = SITE_INFO.description } =
+  Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Frijol Mágico es un espacio que reúne a las y los Ilustradores de la Región de Coquimbo, generando distintas instancias que ayuden a potenciar su trabajo."
-    />
+    <meta name="description" content={description} />
     <meta name="lenguage" content="spanish" />
     <meta name="author" content="Frijol Mágico" />
     <meta name="audience" content="all" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/LogoFrijol.png" />
+    <link rel="icon" type="image/png" href={SITE_INFO.logo} />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{`Frijol Mágico | ${title}`}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
