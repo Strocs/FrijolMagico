@@ -1,29 +1,33 @@
-<h1>
-	Asociación Cultural
-	<span>Frijol Mágico</span>
+<h1
+  class="text-center pt-28 pb-14 text-xl sm:text-2xl lg:text-3xl font-extralight tracking-widest"
+>
+  Asociación Cultural
+  <span
+    class="block text-[3.5rem] sm:text-8xl font-thickedy lg:text-9xl pb-4 pt-3 sm:-mt-3 tracking-tight text-transparent bg-clip-text bg-[url(/paper.jpg)] bg-[100%] [background-size:110%] font-black [text-shadow:0_0_.4rem_#ffffff50] sm:[text-shadow:0_0_0.8rem_#ffffff50]"
+    >Frijol Mágico</span
+  >
 </h1>
 
 <style>
-	h1 {
-		display: grid;
-		text-align: center;
-		width: 100%;
-		font-size: 2rem;
-		padding-top: 15rem;
-		padding-bottom: 5rem;
-	}
-	span {
-		font-size: 4.8rem;
-		letter-spacing: 0.3rem;
-	}
-
-	@media (min-width: 640px) {
-		h1 {
-			font-size: 2.8rem;
-		}
-
-		span {
-			font-size: 9.6rem;
-		}
-	}
+  span {
+    animation: paper 2s steps(5) infinite;
+  }
+  @keyframes paper {
+    to {
+      background-position: -100%;
+    }
+  }
 </style>
+
+<script>
+  const span = document.querySelector("h1").lastElementChild;
+
+  const namesArray = ["Frijol Mágico", "El Frijol", "Frijolito!"];
+  let nextIndex = 1;
+  const time = 5000;
+
+  setInterval(() => {
+    span.innerHTML = namesArray[nextIndex];
+    nextIndex = nextIndex === namesArray.length - 1 ? 0 : nextIndex + 1;
+  }, time);
+</script>
