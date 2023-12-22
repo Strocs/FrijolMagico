@@ -1,9 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { artistsData } from "@data/artists.data";
+import { ARTISTS_INFO } from "@data/ARTISTS_INFO";
 
 export function getStaticPaths() {
-  return artistsData.map((artistInfo) => ({
+  return ARTISTS_INFO.map((artistInfo) => ({
     params: { artists: artistInfo.id },
     props: { ...artistInfo },
   }));

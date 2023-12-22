@@ -3,65 +3,29 @@ import Facebook from "./icons/Facebook.astro";
 import Instagram from "./icons/Instagram.astro";
 ---
 
-<header>
-  <div>
-    <a href="/"><img src="/logo.png" alt="Logo Frijol Mágico" /></a>
-    <div>
-      <a href="https://www.instagram.com/festivalfrijolmagico/"><Instagram /></a
+<header
+  class="fixed top-0 w-full z-10 flex justify-center px-4 py-2 sm:px-8 sm:py-4"
+>
+  <div
+    class="flex justify-between items-center bg-p-blue bg-opacity-90 backdrop-blur-lg w-full max-w-5xl h-fit py-4 px-8 rounded-full"
+  >
+    <a href="/" aria-label="Ir a la página principal"
+      ><img
+        src="/logo.png"
+        alt="Logo Frijol Mágico"
+        class="aspect-square w-10 sm:w-12"
+      /></a
+    >
+    <div class="flex items-center gap-3">
+      <a
+        aria-label="Ir al Instagram"
+        href="https://www.instagram.com/festivalfrijolmagico/"><Instagram /></a
       >
-      <a href="https://www.facebook.com/festivalfrijolmagico"><Facebook /></a>
-      <div class="header__button-hamburger"></div>
+      <a
+        aria-label="Ir al Facebook"
+        href="https://www.facebook.com/festivalfrijolmagico"><Facebook /></a
+      >
+      <!-- <div class="header__button-hamburger"></div> -->
     </div>
   </div>
 </header>
-
-<style>
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-  }
-
-  header > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(13, 42, 102, 0.8);
-    backdrop-filter: blur(5rem);
-    width: 100%;
-    max-width: 106rem;
-    min-height: 6rem;
-    padding: 0 4rem;
-  }
-  a {
-    height: fit-content;
-    width: fit-content;
-  }
-  header > div > div {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-  }
-
-  img {
-    aspect-ratio: 141 / 142;
-    width: 4.5rem;
-  }
-
-  @media (min-width: 640px) {
-    header {
-      min-height: 8rem;
-      margin-top: 1rem;
-    }
-    header > div {
-      border-radius: 30rem;
-    }
-
-    a:hover {
-      transform: scale(1.2);
-    }
-  }
-</style>

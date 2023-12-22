@@ -30,9 +30,19 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
       href="https://fonts.googleapis.com/css2?family=Galindo&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body>
+  <body
+    class:list={[
+      "font-montserrat bg-p-blue relative h-fit w-full min-h-[100dvh] text-white",
+      " after:content-[url(/ramaRight.png)] after:fixed after:top-[-34rem] sm:after:top-[-24rem] lg:after:top-[-38rem] after:-z-10 after:scale-[0.6] md:after:scale-[0.8] lg:after:scale-90 after:right-[-30rem] lg:after:right-[-26rem] xl:after:right-[-20rem]",
+      " before:content-[url(/ramaLeft.png)] before:fixed before:top-[-26rem] sm:before:top-[-24rem] lg:before:top-[-38rem] before:-z-10 before:scale-[0.6] md:before:scale-[0.8] lg:before:scale-90 before:left-[-30rem] lg:before:left-[-26rem] xl:before:left-[-20rem]",
+    ]}
+  >
     <Header />
     <slot />
     <Footer />
@@ -40,53 +50,13 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
 </html>
 <style is:global>
   :root {
-    --pink: #fa2678;
-    --blue: #0d2a66;
+    --p-blue: #0d2a66;
+    --s-pink: #fa2678;
+    --s-yellow: #ffcd69;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  html {
-    font-family: "Galindo", cursive, system-ui, sans-serif;
-    font-size: 62.5%;
-  }
-
-  body {
-    /* background: linear-gradient(180deg, var(--blue) 27.08%, var(--pink) 100%); */
-    background: var(--blue);
-    padding: 0;
-    margin: 0;
-    position: relative;
-    height: fit-content;
-    width: 100%;
-    min-height: 100vh;
-    color: white;
-  }
-
-  body::before,
-  body::after {
-    content: "";
-  }
-
-  @media (min-width: 1060px) {
-    body::before,
-    body::after {
-      position: fixed;
-      top: -30rem;
-      z-index: -10;
-      transform: scale(0.8);
-    }
-
-    body::before {
-      content: url(/ramaLeft.png);
-      left: -38rem;
-    }
-    body::after {
-      content: url(/ramaRight.png);
-      right: -38rem;
-    }
+  @font-face {
+    font-family: Thickedy;
+    src: url(/fonts/ThickedyQuick.woff2);
   }
 </style>

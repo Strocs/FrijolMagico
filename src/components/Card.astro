@@ -1,48 +1,37 @@
 ---
-import Link from './Link.astro'
+import Link from "./Link.astro";
+import { Image } from "astro:assets";
+interface Props {
+  class: string;
+  artist: string;
+  id: string;
+  img: ImageMetadata;
+}
 
-const { className, artist, id, img } = Astro.props
-const { url, size } = img
+const { class: customClass, artist, id, img } = Astro.props;
 ---
 
-<li class={className}>
-	<img
-		src={`/images/${artist}/${url}`}
-		alt={`Ilustración hecha por ${artist}`}
-		loading='lazy'
-		width={size.width}
-		height={size.height}
-		style={{ aspectRatio: size.aspectRatio }}
-	/>
-	<Link text={artist} href={'/galeria/' + id} absolute />
+<li
+  class:list={[
+    // "relative border-2 border-white rounded-2xl w-full max-w-[15rem] sm:max-w-md h-full max-h-80 sm:max-h-[80rem] mb-4 aspect-[9/12] opacity-20 [transition:opacity_500ms_ease] shadow overflow-hidden",
+    customClass,
+  ]}
+>
+  <Image
+    src={img}
+    alt={`Ilustración hecha por ${artist}`}
+    class="h-full w-full object-cover aspect-auto"
+    height={500}
+  />
+  <Link
+    text={artist}
+    href={"/galeria/" + id}
+    class="absolute bottom-5 left-5"
+  />
 </li>
 
-<style>
-	.swiper-slide-active {
-		opacity: 1;
-	}
-	li {
-		position: relative;
-		border: 0.2rem solid white;
-		border-radius: 1.6rem;
-		box-shadow: -1.2rem 1.2rem 0 0 var(--pink);
-		overflow: hidden;
-		width: 20rem;
-		height: 25rem;
-		margin: 2rem 0;
-		opacity: 0.2;
-		transition: opacity 500ms ease;
-	}
-	img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	@media (min-width: 640px) {
-		li {
-			width: 40rem;
-			height: 50rem;
-		}
-	}
+<style is:global>
+  .swiper-slide-active {
+    opacity: 1;
+  }
 </style>
