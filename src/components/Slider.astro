@@ -1,6 +1,5 @@
 ---
 import Card from "./Card.astro";
-import { getImagesOf } from "@utils/getImagesOf";
 import { ARTISTS_INFO } from "@data/ARTISTS_INFO";
 import Link from "./Link.astro";
 ---
@@ -17,14 +16,9 @@ import Link from "./Link.astro";
   </header> -->
   <ul class="swiper-wrapper relative w-full h-full flex transition-transform">
     {
-      ARTISTS_INFO.map(({ artist, id }) => (
-        <Card
-          class="swiper-slide shrink-0 w-full h-full max-w-[14rem] md:max-w-sm aspect-[9/12] relative block opacity-20 transition-opacity duration-500 cursor-grab shadow mb-4 rounded-2xl overflow-hidden border-2 border-white "
-          artist={artist}
-          id={id}
-          img={getImagesOf(artist)[0]}
-        />
-      ))
+      ARTISTS_INFO.map(({ artist, id }) => {
+        return <Card artist={artist} id={id} />;
+      })
     }
   </ul>
 </div>

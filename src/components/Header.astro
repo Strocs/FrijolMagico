@@ -4,16 +4,19 @@ import Instagram from "./icons/Instagram.astro";
 ---
 
 <header
+  aria-label="Frijol Mágico"
   class="fixed top-0 w-full z-10 flex justify-center px-4 py-2 sm:px-8 sm:py-4"
 >
   <div
     class="flex justify-between items-center bg-p-blue bg-opacity-90 backdrop-blur-lg w-full max-w-5xl h-fit py-4 px-8 rounded-full"
   >
-    <a href="/" aria-label="Ir a la página principal"
-      ><img
+    <a href="/">
+      <p class="sr-only">Ir a la página principal</p>
+      <img
         src="/logo.png"
         alt="Logo Frijol Mágico"
         class="aspect-square w-10 sm:w-12"
+        aria-label="Logo"
       /></a
     >
     <div class="flex items-center gap-3">

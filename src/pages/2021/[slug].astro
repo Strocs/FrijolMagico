@@ -642,8 +642,8 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     font-weight: 200;
     src:
       local(""),
-      url("/fonts/Helvetica-light.woff2") format("woff2"),
-      url("/fonts/Helvetica-light.woff") format("woff");
+      url("/2021/fonts/Helvetica-light.woff2") format("woff2"),
+      url("/2021/fonts/Helvetica-light.woff") format("woff");
   }
 
   @font-face {
@@ -652,8 +652,8 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     font-weight: 400;
     src:
       local(""),
-      url("/fonts/Helvetica.woff2") format("woff2"),
-      url("/fonts/Helvetica.woff") format("woff");
+      url("/2021/fonts/Helvetica.woff2") format("woff2"),
+      url("/2021/fonts/Helvetica.woff") format("woff");
   }
 
   @font-face {
@@ -662,8 +662,8 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     font-style: 700;
     src:
       local(""),
-      url("/fonts/Helvetica-Bold.woff2") format("woff2"),
-      url("/fonts/Helvetica-Bold.woff") format("woff");
+      url("/2021/fonts/Helvetica-Bold.woff2") format("woff2"),
+      url("/2021/fonts/Helvetica-Bold.woff") format("woff");
   }
 
   /* cabin-sketch-regular - latin */
@@ -673,9 +673,9 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     font-weight: 400;
     src:
       local(""),
-      url("/fonts/cabin-sketch-v14-latin-regular.woff2") format("woff2"),
+      url("/2021/fonts/cabin-sketch-v14-latin-regular.woff2") format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("/fonts/cabin-sketch-v14-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url("/2021/fonts/cabin-sketch-v14-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   /* cabin-sketch-700 - latin */
@@ -685,9 +685,9 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     font-weight: 700;
     src:
       local(""),
-      url("/fonts/cabin-sketch-v14-latin-700.woff2") format("woff2"),
+      url("/2021/fonts/cabin-sketch-v14-latin-700.woff2") format("woff2"),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("/fonts/cabin-sketch-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url("/2021/fonts/cabin-sketch-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   /*  
@@ -705,9 +705,9 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     --yellow-normal: #ffd763;
 
     --ff-title-sketch: "Cabin Sketch", Arial;
-    --ff-text-normal: "Helvetica", Arial;
-    --ff-text-light: "Helvetica-light", Arial;
-    --ff-text-bold: "Helvetica-Bold", Arial;
+    --ff-text-normal: "Helvetica", system-ui;
+    --ff-text-light: "Helvetica-light", system-ui;
+    --ff-text-bold: "Helvetica-Bold", system-ui;
   }
 
   /*  
@@ -1186,6 +1186,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     margin: 0 2rem;
     padding-bottom: 1rem;
     border-bottom: 0.5rem solid white;
+    line-height: 1.5rem;
   }
 
   /* MEDIA QUERIES */
