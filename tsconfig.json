@@ -14,7 +14,13 @@
       ],
       "@pages/*": [
         "src/pages/*"
-      ]
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
     }
   }
 }
