@@ -9,7 +9,5 @@ export default defineConfig({
   site: 'https://elfrijolmagico.cl',
   integrations: [sitemap(), tailwind()],
   output: 'static',
-  adapter: vercel({
-    imageService: true
-  })
+  adapter: vercel()
 })
