@@ -1,10 +1,30 @@
+---
+interface Props {
+  size?: "base" | "sm";
+}
+const { size = "base" } = Astro.props;
+
+const sizes = {
+  base: {
+    h1: "pb-20 text-xl sm:text-2xl lg:text-xl",
+    span: "text-[3.5rem] sm:text-8xl lg:text-[16rem]",
+  },
+  sm: {
+    h1: "pb-20 text-sm sm:text-lg",
+    span: "text-[3.5rem] sm:text-8xl lg:text-[12rem] ",
+  },
+};
+---
+
 <h1
-  class="mx-auto w-fit pb-20 text-xl sm:text-2xl lg:text-xl font-extralight tracking-widest"
+  class:list={["mx-auto w-fit font-extralight tracking-widest", sizes[size].h1]}
 >
   Asociación Cultural
   <span
-    class="block text-[3.5rem] sm:text-8xl font-thickedy lg:text-[16rem] pb-4 pt-3 sm:-mt-6 tracking-tight text-transparent bg-clip-text bg-[url(/m5.png)] bg-top font-black [text-shadow:0_0_.4rem_#ffcd6950] sm:[text-shadow:0_0_2rem_#ffcd6950]"
-    >Frijol Mágico</span
+    class:list={[
+      "sm:-mt-6 pb-4 pt-3 block font-thickedy tracking-tight text-transparent bg-clip-text bg-[url(/m5.png)] bg-top font-black [text-shadow:0_0_.4rem_#ffcd6950] sm:[text-shadow:0_0_2rem_#ffcd6950]",
+      sizes[size].span,
+    ]}>Frijol Mágico</span
   >
 </h1>
 
