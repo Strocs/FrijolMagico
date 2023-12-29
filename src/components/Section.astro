@@ -10,7 +10,7 @@ interface Props {
 
 const { name, title, class: customClass, href } = Astro.props;
 
-const lowerHref = href ? href.toLowerCase() : `/${name.toLowerCase()}`;
+const lowerHref = href ? href : `/${name.toLowerCase()}`;
 ---
 
 <section class="h-fit w-full grid gap-4 max-w-5xl mx-auto">
