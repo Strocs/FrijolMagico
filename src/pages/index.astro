@@ -14,31 +14,59 @@ const lastPodcast = podcastData[podcastData.length - 1];
   <main class="w-full h-full pt-4 pb-40">
     <Title />
     <article class="space-y-20 sm:space-y-32" aria-label="Secciones">
-      <Section name="Festival 2024" title="Próximo Festival">
+      <Section
+        name="Festival 2024"
+        href="/2024/sembrando-raices"
+        title="Próximo Festival"
+      >
         <Card
           Element="a"
-          href="/2024/convocatoria"
-          class="bg-white w-full h-60"
-        />
+          href="/2024/sembrando-raices/convocatoria"
+          class="after:content-[url(/banner_temp.png)] after:w-full after:absolute after:left-0 after:right-0 after:bottom-[280%] hover:after:grayscale after:transition-[filter] after:-z-10 after:h-full w-full h-72 grid place-content-center group"
+        >
+          <p
+            class="mx-auto bg-s-pink px-6 group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+          >
+            Participar en la Convocatoria
+          </p>
+        </Card>
       </Section>
       <Slider slot="slider" />
       <Section name="Festivales" title="Revive: Festival Frijol Mágico 2021">
         <div class="flex gap-8">
           <Card
             Element="a"
-            href="2021/dia-1"
-            class="w-1/3 h-60 bg-[url(dia1.webp)] bg-[77%_50%] [background-size:150%]"
-          />
+            href="2021/frijol-digital/dia-1"
+            class="after:content-[''] after:bg-[url(dia1.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 w-1/3 h-60 group flex items-center after:-z-10"
+          >
+            <p
+              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+            >
+              Dia 1
+            </p>
+          </Card>
           <Card
             Element="a"
-            href="2021/dia-2"
-            class="w-1/3 h-60 bg-[url(dia2.webp)] bg-[77%_50%] [background-size:150%]"
-          />
+            href="2021/frijol-digital/dia-2"
+            class="w-1/3 h-60 after:content-[''] after:bg-[url(dia2.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
+          >
+            <p
+              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+            >
+              Dia 2
+            </p>
+          </Card>
           <Card
             Element="a"
-            href="2021/dia-3"
-            class="w-1/3 h-60 bg-[url(dia3.webp)] bg-[74%_77%] [background-size:150%]"
-          />
+            href="2021/frijol-digital/dia-3"
+            class="w-1/3 h-60 after:content-[''] after:bg-[url(dia3.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
+          >
+            <p
+              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+            >
+              Dia 3
+            </p>
+          </Card>
         </div>
       </Section>
       <Section name="Podcasts" title="Último Podcast">

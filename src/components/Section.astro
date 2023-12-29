@@ -5,11 +5,12 @@ interface Props {
   name: string;
   title: string;
   class?: string;
+  href?: string;
 }
 
-const { name, title, class: customClass } = Astro.props;
+const { name, title, class: customClass, href } = Astro.props;
 
-const href = `/${name.toLowerCase()}`;
+const lowerHref = href ? href.toLowerCase() : `/${name.toLowerCase()}`;
 ---
 
 <section class="h-fit w-full grid gap-4 max-w-5xl mx-auto">
@@ -19,9 +20,9 @@ const href = `/${name.toLowerCase()}`;
     >
       {title}
     </h2>
-    <Link text={`Ir a ${name}`} href={href} />
+    <Link text={`Ir a ${name}`} href={lowerHref} />
   </div>
-  <div class:list={["pl-6 pr-4 sm:pl-10 sm:pr-8 w-full", customClass]}>
+  <div class:list={["pl-6 pr-4 sm:pl-10 sm:pr-8 w-full relative", customClass]}>
     <slot />
   </div>
   <slot name="slider" />
