@@ -44,8 +44,8 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
   <body>
     <div class="bg__root">
-      <img class="bg__left" src="/ramaLeft.png" alt="" />
-      <img class="bg__right" src="/ramaRight.png" alt="" />
+      <img class="bg__left" src="/rama.png" alt="" />
+      <img class="bg__right" src="/rama.png" alt="" />
     </div>
     <header class="header__container">
       <div class="header__main">
@@ -809,16 +809,17 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
   .bg__right {
     position: absolute;
     margin-top: -48rem;
-    transform: scale(0.8);
   }
   .bg__right {
     right: 0;
     margin-right: -45rem;
+    transform: scaleX(-0.8);
   }
 
   .bg__left {
     left: 0;
     margin-left: -45rem;
+    transform: scale(0.8);
   }
 </style>
 

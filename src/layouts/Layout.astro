@@ -39,8 +39,8 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
   <body
     class:list={[
       "font-montserrat bg-p-blue relative h-fit w-full min-h-[100dvh] text-white",
-      " after:content-[url(/ramaRight.png)] after:fixed after:top-[-34rem] sm:after:top-[-24rem] lg:after:top-[-38rem] after:-z-10 after:scale-[0.6] md:after:scale-[0.8] lg:after:scale-90 after:right-[-30rem] lg:after:right-[-26rem] xl:after:right-[-20rem]",
-      " before:content-[url(/ramaLeft.png)] before:fixed before:top-[-26rem] sm:before:top-[-24rem] lg:before:top-[-38rem] before:-z-10 before:scale-[0.6] md:before:scale-[0.8] lg:before:scale-90 before:left-[-30rem] lg:before:left-[-26rem] xl:before:left-[-20rem]",
+      " after:content-[url(/rama.png)] after:-scale-x-100 after:fixed after:h-full after:-right-1/4 after:bottom-80 after:-z-10",
+      " before:content-[url(/rama.png)] before:fixed before:h-full before:-left-1/4 before:bottom-80 before:-z-10",
     ]}
   >
     <Header />
@@ -58,5 +58,15 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
   @font-face {
     font-family: Thickedy;
     src: url(/fonts/ThickedyQuick.woff2);
+  }
+
+  body {
+    background-image: url(background.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+
+    background-blend-mode: color;
   }
 </style>

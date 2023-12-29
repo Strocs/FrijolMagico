@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import Link from "./Link.astro";
+import { getImagesByName } from "@utils/getImagesByName";
+
+interface Props {
+  artist: string;
+  id: string;
+  class?: string;
+}
+
+const { class: customClass, artist, id } = Astro.props;
+
+const firstImage = getImagesByName(artist)[0];
+---
+
+<li
+  class="swiper-slide shrink-0 w-fit h-full cursor-grab px-10 lg:px-32 opacity-20 transition-opacity duration-500"
+>
+  <div
+    class:list={[
+      "max-w-[14rem] md:max-w-sm aspect-[9/12] relative block shadow mb-4 rounded-2xl overflow-hidden border-2 border-white",
+      customClass,
+    ]}
+  >
+    <Image
+      src={firstImage}
+      alt={`Ilustración hecha por ${artist}`}
+      class="h-full w-full object-cover aspect-auto"
+      height={500}
+    />
+    <Link
+      text={artist}
+      href={"/galeria/" + id}
+      class="absolute bottom-5 left-5"
+    />
+  </div>
+</li>
+
+<style is:global>
+  .swiper-slide-active {
+    opacity: 1;
+  }
+</style>

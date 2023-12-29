@@ -10,7 +10,7 @@ export default {
       },
       boxShadow: {
         DEFAULT: '-0.6rem 0.6rem 0 0',
-        md: '-1.2rem 1.2rem 0 0'
+        hover: '-0.3rem 0.3rem 0 0'
       },
       boxShadowColor: {
         DEFAULT: 'var(--s-pink)'

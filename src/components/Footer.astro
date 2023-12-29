@@ -1,7 +1,109 @@
+---
+import NavLinks from "./NavLinks.astro";
+import Title from "./Title.astro";
+import Facebook from "./icons/Facebook.astro";
+import Instagram from "./icons/Instagram.astro";
+---
+
 <footer
-  class="font-sans text-sm absolute bottom-0 w-full text-center px-4 py-4"
+  class="font-sans text-sm w-full h-screen relative after:content-[''] after:w-full after:h-full after:absolute after:bottom-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
 >
-  <p>
-    Frijol Mágico 2023 | <b>Página en Construcción</b> | Hecho con ❤ por Strocs
-  </p>
+  <div class="pt-52 grid h-full justify-center">
+    <Title />
+    <div class="grid justify-center text-center gap-10 -mt-40">
+      <div class="flex w-full h-fit items-center gap-4 justify-end">
+        <NavLinks />
+         |
+        <div class="flex gap-4">
+          <a
+            class="hover:scale-110 transition-transform duration-150"
+            aria-label="Ir al Instagram"
+            href="https://www.instagram.com/festivalfrijolmagico/"
+            ><Instagram /></a
+          >
+          <a
+            class="hover:scale-110 transition-transform duration-150"
+            aria-label="Ir al Facebook"
+            href="https://www.facebook.com/festivalfrijolmagico"><Facebook /></a
+          >
+        </div>
+      </div>
+      <p class="max-w-md text-lg italic font-light">
+        Frijol Mágico es un espacio que reúne a las y los Ilustradores de la
+        Región de Coquimbo, generando distintas instancias que ayuden a
+        potenciar su trabajo.
+      </p>
+      <img
+        src="/logo.png"
+        alt=""
+        class="mx-auto hover:scale-110 hover:rotate-3 transition-transform duration-150"
+      />
+    </div>
+    <p class="self-end pb-4 text-center">
+      Frijol Mágico 2024 | Hecho con ❤ por <a
+        href="https://instagram.com/_strocs"
+        target="_blank">Strocs</a
+      >
+    </p>
+  </div>
 </footer>
+
+<style>
+  footer::after {
+    clip-path: polygon(
+      100% 100%,
+      0% 100%,
+      0% 13%,
+      2% 12.91%,
+      4% 12.63%,
+      6% 12.19%,
+      8% 11.61%,
+      10% 10.93%,
+      12% 10.19%,
+      14% 9.44%,
+      16% 8.72%,
+      18% 8.09%,
+      20% 7.57%,
+      22% 7.21%,
+      24% 7.02%,
+      26% 7.02%,
+      28% 7.21%,
+      30% 7.57%,
+      32% 8.09%,
+      34% 8.72%,
+      36% 9.44%,
+      38% 10.19%,
+      40% 10.93%,
+      42% 11.61%,
+      44% 12.19%,
+      46% 12.63%,
+      48% 12.91%,
+      50% 13%,
+      52% 12.91%,
+      54% 12.63%,
+      56% 12.19%,
+      58% 11.61%,
+      60% 10.93%,
+      62% 10.19%,
+      64% 9.44%,
+      66% 8.72%,
+      68% 8.09%,
+      70% 7.57%,
+      72% 7.21%,
+      74% 7.02%,
+      76% 7.02%,
+      78% 7.21%,
+      80% 7.57%,
+      82% 8.09%,
+      84% 8.72%,
+      86% 9.44%,
+      88% 10.19%,
+      90% 10.93%,
+      92% 11.61%,
+      94% 12.19%,
+      96% 12.63%,
+      98% 12.91%,
+      100% 13%
+    );
+  }
+</style>
