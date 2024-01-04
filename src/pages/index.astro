@@ -17,19 +17,32 @@ const lastPodcast = PODCAST_INFO[PODCAST_INFO.length - 1];
       <Section
         name="Festival 2024"
         href="/festivales/XIII"
-        title="Próximo Festival"
+        title="Frijol Mágico 2024"
       >
-        <Card
-          Element="a"
-          href="/festivales/XIII/convocatoria"
-          class="after:content-[url(/banner_temp.png)] after:w-full after:absolute after:inset-0 hover:after:grayscale after:transition-[filter] after:-z-10 after:h-full w-full aspect-video grid place-content-center group"
-        >
-          <p
-            class="mx-auto bg-s-pink px-6 group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+        <div class="flex flex-col sm:flex-row gap-8">
+          <Card
+            Element="a"
+            href="/festivales/XIII/bases-ilustracion"
+            class="after:bg-[url(/Ilustradoresbanner.png)] after:bg-cover after:w-full after:h-full after:absolute after:-z-10 after:hover:grayscale after:transition-[filter] w-full aspect-video grid place-content-center group"
           >
-            Participar en la Convocatoria
-          </p>
-        </Card>
+            <p
+              class="mx-auto bg-s-pink px-6 group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+            >
+              Revisa las Bases
+            </p>
+          </Card>
+          <Card
+            Element="a"
+            href="/festivales/XIII/bases-bandas"
+            class="after:bg-[url(/Musicosbanner.png)] after:bg-cover after:w-full after:h-full after:absolute after:-z-10 hover:after:grayscale after:transition-[filter] w-full aspect-video grid place-content-center group"
+          >
+            <p
+              class="mx-auto bg-s-pink px-6 group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+            >
+              Revisa las Bases
+            </p>
+          </Card>
+        </div>
       </Section>
       <Slider slot="slider" />
       <Section name="Festivales" title="Revive: Festival Frijol Mágico 2021">
@@ -80,4 +93,3 @@ const lastPodcast = PODCAST_INFO[PODCAST_INFO.length - 1];
     </article>
   </main>
 </Layout>
-@data/PODCAST_INFO
