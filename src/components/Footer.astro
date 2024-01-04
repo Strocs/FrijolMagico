@@ -6,14 +6,20 @@ import Instagram from "./icons/Instagram.astro";
 ---
 
 <footer
-  class="font-sans text-sm w-full h-screen relative after:content-[''] after:w-full after:h-full after:absolute after:bottom-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
+  class="font-sans text-sm w-full h-screen relative after:content-[''] overflow-hidden after:w-[300%] lg:after:w-full after:h-full after:absolute after:bottom-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
 >
-  <div class="pt-52 grid h-full justify-center">
+  <div
+    class="pt-[15vmax] sm:pt-52 grid grid-rows-[10vmax_auto_1fr] md:items-center h-full px-4"
+  >
     <Title size="sm" />
-    <div class="grid justify-center text-center gap-10 -mt-28">
-      <div class="flex w-full h-fit items-center gap-4 justify-end">
-        <NavLinks />
-         |
+    <div
+      class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-10"
+    >
+      <div
+        class="flex flex-col sm:flex-row w-fit h-fit items-center justify-center gap-4 sm:justify-end"
+      >
+        <NavLinks for="footer" />
+        •
         <div class="flex gap-4">
           <a
             class="hover:scale-110 transition-transform duration-150"
@@ -28,19 +34,19 @@ import Instagram from "./icons/Instagram.astro";
           >
         </div>
       </div>
-      <p class="max-w-md text-lg italic font-light">
+      <p class="max-w-md text-base 2xl:text-lg italic font-light">
         Frijol Mágico es un espacio que reúne a las y los Ilustradores de la
         Región de Coquimbo, generando distintas instancias que ayuden a
         potenciar su trabajo.
       </p>
       <img
         src="/logo.png"
-        alt=""
-        class="mx-auto hover:scale-110 hover:rotate-3 transition-transform duration-150"
+        alt="Logo de la Asosiación Cultural Frijol Mágico"
+        class="mx-auto hidden 2xl:block w-32 hover:scale-110 hover:rotate-3 transition-transform duration-150"
       />
     </div>
     <p class="self-end pb-4 text-center">
-      Frijol Mágico 2024 | Hecho con ❤ por <a
+      Frijol Mágico 2024 • Hecho con ❤ por <a
         href="https://instagram.com/_strocs"
         target="_blank">Strocs</a
       >

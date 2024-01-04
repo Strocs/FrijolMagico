@@ -1,39 +1,26 @@
 ---
 import NavLinks from "./NavLinks.astro";
-import Facebook from "./icons/Facebook.astro";
-import Instagram from "./icons/Instagram.astro";
 ---
 
 <header
   aria-label="Frijol Mágico"
-  class="top-0 w-full z-10 flex justify-center px-4 py-2 sm:px-8 sm:py-4"
+  class="w-full flex justify-center px-4 py-2 sm:px-8 sm:py-4"
 >
   <div
-    class="flex justify-between bg-opacity-80 items-center w-full max-w-[86rem] h-fit py-4 px-8 rounded-full transition-[background] duration-150"
+    class="flex justify-between bg-opacity-80 items-center w-full max-w-5xl 2xl:max-w-5xl h-fit py-4 px-8 rounded-full transition-[background] duration-150"
   >
     <a
       href="/"
-      class="hover:scale-110 hover:rotate-3 transition-transform duration-150"
+      class="hover:scale-110 hover:rotate-3 transition-transform duration-150 relative z-50"
     >
       <p class="sr-only">Ir a la página principal</p>
       <img
         src="/logo.png"
         alt="Logo Frijol Mágico"
-        class="aspect-square w-10 sm:w-12"
+        class="aspect-square w-12"
         aria-label="Logo"
       /></a
     >
     <NavLinks />
   </div>
 </header>
-<!-- 
-<script>
-  const header = document.querySelector("header").firstElementChild;
-
-  console.log(header);
-  window.addEventListener("scroll", () => {
-    if (window.scrollY !== 0)
-      return header.classList.add("bg-p-blue", "backdrop-blur-2xl");
-    header.classList.remove("bg-p-blue", "backdrop-blur-2xl");
-  });
-</script> -->

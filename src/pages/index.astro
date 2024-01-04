@@ -4,10 +4,10 @@ import Section from "@components/Section.astro";
 import Slider from "@components/Slider.astro";
 import Title from "@components/Title.astro";
 import Layout from "@layouts/Layout.astro";
-import { podcastData } from "@data/podcasts.data";
+import { PODCAST_INFO } from "@data/PODCAST_INFO";
 import Card from "@components/Card.astro";
 
-const lastPodcast = podcastData[podcastData.length - 1];
+const lastPodcast = PODCAST_INFO[PODCAST_INFO.length - 1];
 ---
 
 <Layout>
@@ -22,7 +22,7 @@ const lastPodcast = podcastData[podcastData.length - 1];
         <Card
           Element="a"
           href="/festivales/XIII/convocatoria"
-          class="after:content-[url(/banner_temp.png)] after:w-full after:absolute after:left-0 after:right-0 after:bottom-[280%] hover:after:grayscale after:transition-[filter] after:-z-10 after:h-full w-full h-72 grid place-content-center group"
+          class="after:content-[url(/banner_temp.png)] after:w-full after:absolute after:inset-0 hover:after:grayscale after:transition-[filter] after:-z-10 after:h-full w-full aspect-video grid place-content-center group"
         >
           <p
             class="mx-auto bg-s-pink px-6 group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
@@ -33,14 +33,14 @@ const lastPodcast = podcastData[podcastData.length - 1];
       </Section>
       <Slider slot="slider" />
       <Section name="Festivales" title="Revive: Festival Frijol Mágico 2021">
-        <div class="flex gap-8">
+        <div class="flex flex-col sm:flex-row gap-8">
           <Card
             Element="a"
             href="festivales/XI/dia-1"
-            class="after:content-[''] after:bg-[url(/dia1.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 w-1/3 h-60 group flex items-center after:-z-10"
+            class="w-full sm:w-1/3 aspect-video after:content-[''] after:bg-[url(/dia1.webp)] after:bg-cover hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:inset-0 group flex items-center after:-z-10"
           >
             <p
-              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 lg:opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
             >
               Dia 1
             </p>
@@ -48,10 +48,10 @@ const lastPodcast = podcastData[podcastData.length - 1];
           <Card
             Element="a"
             href="festivales/XI/dia-2"
-            class="w-1/3 h-60 after:content-[''] after:bg-[url(/dia2.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
+            class="w-full sm:w-1/3 aspect-video after:content-[''] after:bg-[url(/dia2.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
           >
             <p
-              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 lg:opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
             >
               Dia 2
             </p>
@@ -59,10 +59,10 @@ const lastPodcast = podcastData[podcastData.length - 1];
           <Card
             Element="a"
             href="festivales/XI/dia-3"
-            class="w-1/3 h-60 after:content-[''] after:bg-[url(/dia3.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
+            class="w-full sm:w-1/3 aspect-video after:content-[''] after:bg-[url(/dia3.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
           >
             <p
-              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
+              class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 lg:opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
             >
               Dia 3
             </p>
@@ -71,12 +71,13 @@ const lastPodcast = podcastData[podcastData.length - 1];
       </Section>
       <Section name="Podcasts" title="Último Podcast">
         <Card>
-          <PodcastCard podcastId={lastPodcast.id} />
+          <PodcastCard id={lastPodcast.id} />
         </Card>
       </Section>
-      <Section name="Talleres" title="Talleres">
+      <!-- <Section name="Talleres" title="Talleres">
         <Card class="bg-white w-full h-60" />
-      </Section>
+      </Section> -->
     </article>
   </main>
 </Layout>
+@data/PODCAST_INFO
