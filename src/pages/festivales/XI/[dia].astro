@@ -14,8 +14,8 @@ export const getStaticPaths = () => {
 const { dia } = Astro.params
 const { day, video } = Astro.props
 
-const goPrev = dia === 'dia-1' ? 'dia-3' : dia === 'dia-2' ? 'dia-1' : 'dia-2'
-const goNext = dia === 'dia-1' ? 'dia-2' : dia === 'dia-2' ? 'dia-3' : 'dia-1'
+const goPrev = dia === 'día-1' ? 'día-3' : dia === 'día-2' ? 'día-1' : 'día-2'
+const goNext = dia === 'día-1' ? 'día-2' : dia === 'día-2' ? 'día-3' : 'día-1'
 ---
 
 <!doctype html>
@@ -98,9 +98,6 @@ const goNext = dia === 'dia-1' ? 'dia-2' : dia === 'dia-2' ? 'dia-3' : 'dia-1'
           <li class="nav__li">
             <a class="nav__a" target="_self" href="/podcasts">Podcasts</a>
           </li>
-          <li class="nav__li">
-            <a class="nav__a" target="_self" href="/talleres">Talleres</a>
-          </li>
         </ul>
       </nav>
     </header>
@@ -143,13 +140,7 @@ const goNext = dia === 'dia-1' ? 'dia-2' : dia === 'dia-2' ? 'dia-3' : 'dia-1'
 
       <section class="main__stream">
         <section class="stream__chat">
-          <div class="chat__wrapper">
-            <!-- <iframe
-              referrerpolicy="origin"
-              class="chat__embed"
-              src=`https://www.youtube.com/live_chat?v=${video}&embed_domain=https://www.youtube.com`
-              frameborder="0"></iframe> -->
-          </div>
+          <div class="chat__wrapper"></div>
         </section>
 
         <section
@@ -167,14 +158,14 @@ const goNext = dia === 'dia-1' ? 'dia-2' : dia === 'dia-2' ? 'dia-3' : 'dia-1'
 
         <section class="stream__schedule">
           <div class="schedule__nav">
-            <a class="prev" href=`/2021/${goPrev}`>&#10094;</a>
+            <a class="prev" href=`/festivales/XI/${goPrev}`>&#10094;</a>
             <h1 class="schedule__nav-title">{day}</h1>
-            <a class="next" href=`/2021/${goNext}`>&#10095;</a>
+            <a class="next" href=`/festivales/XI/${goNext}`>&#10095;</a>
           </div>
 
           <div class="schedule__wrap" style="margin-left: 0px;">
             {
-              dia === 'dia-1' ? (
+              dia === 'día-1' ? (
                 <div class="day-one schedule" data-day="1">
                   <div class="schedule__artist">
                     <div class="artist" data-startIn="0">
@@ -273,7 +264,7 @@ const goNext = dia === 'dia-1' ? 'dia-2' : dia === 'dia-2' ? 'dia-3' : 'dia-1'
                     </div>
                   </div>
                 </div>
-              ) : dia === 'dia-2' ? (
+              ) : dia === 'día-2' ? (
                 <div class="day-two schedule " data-day="2">
                   <div class="schedule__artist">
                     <div class="artist" data-startIn="0">

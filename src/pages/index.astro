@@ -5,11 +5,14 @@ import FestivalSection from '@components/organisms/FestivalSection.astro'
 import IlustradorxsSection from '@components/organisms/IlustradorxsSection.astro'
 import Festival2021Section from '@components/organisms/Festival2021Section.astro'
 import PodcastsSection from '@components/organisms/PodcastsSection.astro'
+import Heading1 from '@components/atoms/Heading1.astro'
 ---
 
 <Layout>
   <main class="w-full h-full py-20">
-    <MainTitle />
+    <Heading1 class="before:content-['Asosiación_Cultural']">
+      Frijol Mágico
+    </Heading1>
     <article class="space-y-20 sm:space-y-32 pt-20" aria-label="Secciones">
       <FestivalSection />
       <Festival2021Section />

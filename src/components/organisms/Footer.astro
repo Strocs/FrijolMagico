@@ -4,13 +4,17 @@ import Facebook from '../icons/Facebook.astro'
 import Instagram from '../icons/Instagram.astro'
 import MainTitle from '../molecules/MainTitle.astro'
 import { SITE_INFO } from '@data/SITE_INFO'
+import Logo from '@components/icons/Logo.astro'
+import Heading1 from '@components/atoms/Heading1.astro'
 ---
 
 <footer
   class="font-sans text-sm w-full h-[94vh] relative after:content-[''] overflow-hidden after:w-[300%] lg:after:w-full after:h-full after:absolute after:bottom-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
 >
   <div class="grid content-center h-full px-4">
-    <MainTitle size="sm" />
+    <Heading1 class="before:content-['Asosiación_Cultural']" size="sm">
+      Frijol Mágico
+    </Heading1>
     <div
       class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-10"
     >
@@ -22,27 +26,27 @@ import { SITE_INFO } from '@data/SITE_INFO'
         <div class="flex gap-4">
           <a
             class="hover:scale-110 transition-transform duration-150"
-            aria-label="Ir al Instagram"
             href="https://www.instagram.com/festivalfrijolmagico/"
-            ><Instagram /></a
+          >
+            <p class="sr-only">Ir al Instagram</p>
+            <Instagram /></a
           >
           <a
             class="hover:scale-110 transition-transform duration-150"
-            aria-label="Ir al Facebook"
-            href="https://www.facebook.com/festivalfrijolmagico"><Facebook /></a
+            href="https://www.facebook.com/festivalfrijolmagico"
+            ><p class="sr-only">Ir al Facebook</p><Facebook /></a
           >
         </div>
       </div>
       <p class="max-w-md text-base 2xl:text-lg italic font-light">
         {SITE_INFO.description}
       </p>
-      <img
-        src={SITE_INFO.logo}
-        alt="Logo de la Asosiación Cultural Frijol Mágico"
-        class="mx-auto hidden 2xl:block w-32 hover:scale-110 hover:rotate-3 transition-transform duration-150"
+      <Logo
+        size={100}
+        class="mx-auto hidden 2xl:block hover:scale-110 hover:rotate-3 transition-transform duration-150"
       />
     </div>
-    <p class="absolute bottom-4 mx-auto w-full text-center">
+    <p class="absolute bottom-4 left-0 right-0 w-full text-center">
       {SITE_INFO.footer} • Hecho con ❤ por <a
         href="https://instagram.com/_strocs"
         target="_blank">Strocs</a

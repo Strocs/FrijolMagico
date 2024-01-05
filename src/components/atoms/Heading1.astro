@@ -1,23 +1,22 @@
 ---
 interface Props {
   class?: string
-  classList?: string[]
+  size?: 'sm' | 'base'
 }
 
-const { class: customClass, classList } = Astro.props
+const { class: customClass, size = 'base' } = Astro.props
 
-const defaultSize =
-  !classList && 'text-6xl md:text-9xl xl:text-[12rem] 2xl:text-[16rem]'
-
-console.log(!classList)
+const defaultSize = {
+  base: 'text-6xl md:text-9xl xl:text-[12rem] 2xl:text-[16rem] before:text-sm md:before:text-base xl:before:text-lg 2xl:before:text-xl',
+  sm: 'before:text-sm md:before:text-lg lg:before:text-xl before:-top-6 text-5xl md:text-8xl xl:text-[10rem] 2xl:text-[12rem]',
+}
 ---
 
 <h1
   class:list={[
     customClass,
-    classList,
-    defaultSize,
-    'pb-2 -mt-2 w-fit mx-auto font-thickedy tracking-tight text-transparent bg-clip-text bg-[url(/m5.webp)] bg-top font-black [text-shadow:0_0_.4rem_#ffcd6950] sm:[text-shadow:0_0_2rem_#ffcd6950]',
+    defaultSize[size],
+    'pb-2 -mt-2 w-fit mx-auto font-thickedy text-transparent bg-clip-text bg-[url(/m5.webp)] bg-top font-black [text-shadow:0_0_.4rem_#ffcd6950] sm:[text-shadow:0_0_2rem_#ffcd6950] relative before:text-white before:font-montserrat before:font-light before:tracking-wider before:w-full before:h-10 before:absolute before:-top-4',
   ]}
 >
   <slot />
