@@ -1,23 +1,21 @@
 ---
-import Link from "./Link.astro";
-
 interface Props {
-  Element?: "div" | "a" | "li";
-  class?: string;
-  href?: string;
+  Element?: 'div' | 'a' | 'li'
+  class?: string
+  href?: string
 }
 
-const { class: customClass, Element = "div", href } = Astro.props;
+const { class: customClass, Element = 'div', href } = Astro.props
 
 const linkHover =
-  Element === "a"
-    ? "hover:-translate-x-2 hover:translate-y-2 hover:shadow-none hover:shadow-s-pink transition-[transform_shadow] duration-150"
-    : "";
+  Element === 'a'
+    ? 'hover:-translate-x-2 hover:translate-y-2 hover:shadow-none hover:shadow-s-pink transition-[transform_shadow] duration-150'
+    : ''
 ---
 
 <Element
   class:list={[
-    "relative block shadow rounded-2xl overflow-hidden border-2 border-white",
+    'relative block shadow rounded-2xl overflow-hidden border-2 border-white',
     linkHover,
     customClass,
   ]}

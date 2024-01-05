@@ -1,7 +1,6 @@
 ---
-import SliderCard from "../molecules/SliderCard.astro";
-import SectionTitle from "../molecules/SectionTitle.astro";
-import { ARTISTS_INFO } from "@data/ARTISTS_INFO";
+import SliderCard from '../molecules/SliderCard.astro'
+import { ARTISTS_INFO } from '@data/ARTISTS_INFO'
 ---
 
 <section
@@ -16,22 +15,22 @@ import { ARTISTS_INFO } from "@data/ARTISTS_INFO";
   <ul class="swiper-wrapper relative w-full h-full flex transition-transform">
     {
       ARTISTS_INFO.map(({ artist, id }) => {
-        return <SliderCard artist={artist} id={id} />;
+        return <SliderCard artist={artist} id={id} />
       })
     }
   </ul>
 </section>
 
 <script>
-  import Swiper from "swiper/bundle";
+  import Swiper from 'swiper/bundle'
 
-  const swiper = new Swiper(".swiper", {
-    slidesPerView: "auto",
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 'auto',
     centeredSlides: true,
     loop: true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
     },
-  });
+  })
 </script>

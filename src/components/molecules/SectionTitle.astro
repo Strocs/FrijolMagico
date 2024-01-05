@@ -1,18 +1,18 @@
 ---
-import type { WithLink } from "@types/WithLink";
-import Link from "../atoms/Link.astro";
+import type { WithLink } from '@customTypes/WithLink'
+import Link from '../atoms/Link.astro'
 
 interface Props {
-  withLink?: WithLink;
-  class?: string;
+  withLink?: WithLink
+  class?: string
 }
 
-const { withLink, class: customClass } = Astro.props;
+const { withLink, class: customClass } = Astro.props
 ---
 
 <header
   class:list={[
-    "flex flex-col sm:flex-row justify-between sm:items-end gap-4 w-full",
+    'flex flex-col sm:flex-row justify-between sm:items-end gap-4 w-full',
     customClass,
   ]}
 >

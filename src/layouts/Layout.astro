@@ -1,15 +1,15 @@
 ---
-import Footer from "@components/organisms/Footer.astro";
-import Header from "@components/organisms/Header.astro";
-import { SITE_INFO } from "@data/SITE_INFO";
+import Footer from '@components/organisms/Footer.astro'
+import Header from '@components/organisms/Header.astro'
+import { SITE_INFO } from '@data/SITE_INFO'
 
 interface Props {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }
 
 const { title = SITE_INFO.title, description = SITE_INFO.description } =
-  Astro.props;
+  Astro.props
 ---
 
 <!doctype html>
@@ -38,11 +38,11 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
   </head>
   <body
     class:list={[
-      "font-montserrat bg-p-blue relative h-fit w-full min-h-[100dvh] text-white",
-      "",
+      'font-montserrat bg-p-blue relative h-fit w-full min-h-[100dvh] text-white',
+      '',
       "before:content-[''] sm:before:content-[url(/rama.png)] before:fixed before:h-full sm:before:-left-2/3 lg:before:-left-1/3 xl:before:-left-1/4 before:bottom-80 before:-z-20 lg:before:-z-10",
-      "",
-      "after:content-[url(/rama.png)] after:fixed after:h-full after:-right-[28rem] sm:after:-right-2/3 lg:after:-right-1/3 xl:after:-right-1/4 after:-top-80 after:-z-30 lg:after:-z-20 after:-scale-x-100",
+      '',
+      'after:content-[url(/rama.png)] after:fixed after:h-full after:-right-[28rem] sm:after:-right-2/3 lg:after:-right-1/3 xl:after:-right-1/4 after:-top-80 after:-z-30 lg:after:-z-20 after:-scale-x-100',
     ]}
   >
     <Header />
@@ -61,7 +61,7 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     font-family: Thickedy;
     font-style: normal;
     font-display: swap;
-    src: url(/fonts/ThickedyQuick.woff2) format("woff2");
+    src: url(/fonts/ThickedyQuick.woff2) format('woff2');
   }
 
   body {

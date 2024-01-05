@@ -1,21 +1,21 @@
 ---
 // @ts-ignore
-import { LIVE_INFO } from "@data/LIVE_INFO";
+import { LIVE_INFO } from '@data/LIVE_INFO'
 
 export const getStaticPaths = () => {
   return LIVE_INFO.map((live) => {
     return {
       params: { dia: live.id },
       props: { day: live.day, video: live.video },
-    };
-  });
-};
+    }
+  })
+}
 
-const { dia } = Astro.params;
-const { day, video } = Astro.props;
+const { dia } = Astro.params
+const { day, video } = Astro.props
 
-const goPrev = dia === "dia-1" ? "dia-3" : dia === "dia-2" ? "dia-1" : "dia-2";
-const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
+const goPrev = dia === 'dia-1' ? 'dia-3' : dia === 'dia-2' ? 'dia-1' : 'dia-2'
+const goNext = dia === 'dia-1' ? 'dia-2' : dia === 'dia-2' ? 'dia-3' : 'dia-1'
 ---
 
 <!doctype html>
@@ -174,7 +174,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
           <div class="schedule__wrap" style="margin-left: 0px;">
             {
-              dia === "dia-1" ? (
+              dia === 'dia-1' ? (
                 <div class="day-one schedule" data-day="1">
                   <div class="schedule__artist">
                     <div class="artist" data-startIn="0">
@@ -273,7 +273,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
                     </div>
                   </div>
                 </div>
-              ) : dia === "dia-2" ? (
+              ) : dia === 'dia-2' ? (
                 <div class="day-two schedule " data-day="2">
                   <div class="schedule__artist">
                     <div class="artist" data-startIn="0">
@@ -490,19 +490,19 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 </html>
 
 <script is:inline>
-  var tag = document.createElement("script");
+  var tag = document.createElement('script')
 
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  tag.src = 'https://www.youtube.com/iframe_api'
+  var firstScriptTag = document.getElementsByTagName('script')[0]
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
 
   const videoId = document
-    .getElementById("stream__youtube")
-    .getAttribute("data-videoId");
+    .getElementById('stream__youtube')
+    .getAttribute('data-videoId')
 
-  let player;
+  let player
   function onYouTubePlayerAPIReady() {
-    player = new YT.Player("youtube__embed", {
+    player = new YT.Player('youtube__embed', {
       videoId,
       events: {
         onReady: onPlayerReady,
@@ -515,89 +515,89 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
         rel: 0,
         enablejsapi: 1,
       },
-    });
+    })
   }
 
-  let timeoutIDList = [];
+  let timeoutIDList = []
 
   function getDuration(event) {
     timeoutIDList.forEach((timeout) => {
-      if (typeof timeout === "number") {
-        window.clearTimeout(timeout);
+      if (typeof timeout === 'number') {
+        window.clearTimeout(timeout)
       }
-    });
-    timeoutIDList = [];
-    currentArtist(event.target.getCurrentTime());
+    })
+    timeoutIDList = []
+    currentArtist(event.target.getCurrentTime())
   }
 
   function onPlayerReady(event) {
     setTimeout(() => {
-      event.target.playVideo();
-      document.getElementById("youtube__embed").removeAttribute("style");
-    }, 10000);
+      event.target.playVideo()
+      document.getElementById('youtube__embed').removeAttribute('style')
+    }, 10000)
   }
 
-  const schedule = document.getElementsByClassName("schedule");
-  let artistWrap = document.getElementsByClassName("schedule__artist");
-  let artist = document.getElementsByClassName("artist");
+  const schedule = document.getElementsByClassName('schedule')
+  let artistWrap = document.getElementsByClassName('schedule__artist')
+  let artist = document.getElementsByClassName('artist')
 
   // SELECT CURRENT ARTIST
   const currentArtist = (currentTime) => {
     const scheduleTimer = ({ current, timer, scroll }) => {
-      if (timer < 0) timer = 0;
+      if (timer < 0) timer = 0
 
       return setTimeout(function () {
         Array.from(artistWrap).forEach((artist, i) => {
-          artist.removeAttribute("id");
-          artist.firstElementChild.removeAttribute("id");
-        });
-        artistWrap[current].setAttribute("id", "schedule__artist-selected");
-        artist[current].setAttribute("id", "artist-selected");
-        schedule[0].scrollTop = scroll;
-      }, timer);
-    };
+          artist.removeAttribute('id')
+          artist.firstElementChild.removeAttribute('id')
+        })
+        artistWrap[current].setAttribute('id', 'schedule__artist-selected')
+        artist[current].setAttribute('id', 'artist-selected')
+        schedule[0].scrollTop = scroll
+      }, timer)
+    }
 
     Array.from(artistWrap).map((artistSchedule, i) => {
-      let scroll = 0;
-      scroll = scroll === 700 ? 0 : 100 * i;
+      let scroll = 0
+      scroll = scroll === 700 ? 0 : 100 * i
       let timer =
-        (+artistSchedule.firstElementChild.getAttribute("data-startIn") * 60 -
+        (+artistSchedule.firstElementChild.getAttribute('data-startIn') * 60 -
           currentTime) *
-        1000;
+        1000
 
       let timeoutID = scheduleTimer({
         current: i,
         timer,
         scroll,
-      });
+      })
 
-      if (!timeoutID) return;
-      timeoutIDList.push(timeoutID);
-    });
-  };
+      if (!timeoutID) return
+      timeoutIDList.push(timeoutID)
+    })
+  }
 </script>
 <script>
   // @ts-ignore
-  import "node_modules/simplycountdown.js/dist/simplyCountdown.min.js";
+  import 'node_modules/simplycountdown.js/dist/simplyCountdown.min.js'
 
-  const count = document.getElementById("countdown") as HTMLElement;
-  const change = document.getElementsByClassName("change")[0] as HTMLElement;
-  const headerText = document.querySelector(".header__text") as HTMLElement;
+  const count = document.getElementById('countdown') as HTMLElement
+  const change = document.getElementsByClassName('change')[0] as HTMLElement
+  const headerText = document.querySelector('.header__text') as HTMLElement
 
   const changeCount = () => {
-    headerText.innerHTML = "¡Bienvenidxs al Festival Frijol Mágico 2021!";
-    count.style.display = "none";
-    change.style.display = "flex";
-  };
+    headerText.innerHTML = '¡Bienvenidxs al Festival Frijol Mágico 2021!'
+    count.style.display = 'none'
+    change.style.display = 'flex'
+  }
 
-  const year = new Date().getFullYear();
-  const month = new Date().getMonth();
-  const day = new Date().getDate();
-  const hours = new Date().getHours();
-  const minutes = new Date().getMinutes();
-  const seconds = new Date().getSeconds();
+  const year = new Date().getFullYear()
+  const month = new Date().getMonth()
+  const day = new Date().getDate()
+  const hours = new Date().getHours()
+  const minutes = new Date().getMinutes()
+  const seconds = new Date().getSeconds()
 
-  simplyCountdown("#countdown", {
+  simplyCountdown('#countdown', {
     year: year, //
     month: month + 1,
     day: day,
@@ -605,28 +605,28 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     minutes: minutes,
     seconds: seconds + 12,
     words: {
-      days: { singular: "Día", plural: "Días" },
-      hours: { singular: "Hora", plural: "Horas" },
-      minutes: { singular: "Minuto", plural: "Minutos" },
-      seconds: { singular: "Segundo", plural: "Segundos" },
+      days: { singular: 'Día', plural: 'Días' },
+      hours: { singular: 'Hora', plural: 'Horas' },
+      minutes: { singular: 'Minuto', plural: 'Minutos' },
+      seconds: { singular: 'Segundo', plural: 'Segundos' },
     },
 
     plural: true,
     inline: false,
-    inlineClass: "simply-countdown-inline",
+    inlineClass: 'simply-countdown-inline',
 
     enableUtc: false,
     onEnd: function () {
-      changeCount();
+      changeCount()
     },
 
     refresh: 1000,
-    sectionClass: "simply-section",
-    amountClass: "simply-amount",
-    wordClass: "simply-word",
+    sectionClass: 'simply-section',
+    amountClass: 'simply-amount',
+    wordClass: 'simply-word',
     zeroPad: false,
     countUp: false,
-  });
+  })
 </script>
 
 <style>
@@ -636,57 +636,57 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     ------------- 
 */
   @font-face {
-    font-family: "Helvetica-light";
+    font-family: 'Helvetica-light';
     font-style: normal;
     font-weight: 200;
     src:
-      local(""),
-      url("/2021/fonts/Helvetica-light.woff2") format("woff2"),
-      url("/2021/fonts/Helvetica-light.woff") format("woff");
+      local(''),
+      url('/2021/fonts/Helvetica-light.woff2') format('woff2'),
+      url('/2021/fonts/Helvetica-light.woff') format('woff');
   }
 
   @font-face {
-    font-family: "Helvetica";
+    font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     src:
-      local(""),
-      url("/2021/fonts/Helvetica.woff2") format("woff2"),
-      url("/2021/fonts/Helvetica.woff") format("woff");
+      local(''),
+      url('/2021/fonts/Helvetica.woff2') format('woff2'),
+      url('/2021/fonts/Helvetica.woff') format('woff');
   }
 
   @font-face {
-    font-family: "Helvetica-Bold";
+    font-family: 'Helvetica-Bold';
     font-weight: normal;
     font-style: 700;
     src:
-      local(""),
-      url("/2021/fonts/Helvetica-Bold.woff2") format("woff2"),
-      url("/2021/fonts/Helvetica-Bold.woff") format("woff");
+      local(''),
+      url('/2021/fonts/Helvetica-Bold.woff2') format('woff2'),
+      url('/2021/fonts/Helvetica-Bold.woff') format('woff');
   }
 
   /* cabin-sketch-regular - latin */
   @font-face {
-    font-family: "Cabin Sketch";
+    font-family: 'Cabin Sketch';
     font-style: normal;
     font-weight: 400;
     src:
-      local(""),
-      url("/2021/fonts/cabin-sketch-v14-latin-regular.woff2") format("woff2"),
+      local(''),
+      url('/2021/fonts/cabin-sketch-v14-latin-regular.woff2') format('woff2'),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("/2021/fonts/cabin-sketch-v14-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url('/2021/fonts/cabin-sketch-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   /* cabin-sketch-700 - latin */
   @font-face {
-    font-family: "Cabin Sketch";
+    font-family: 'Cabin Sketch';
     font-style: normal;
     font-weight: 700;
     src:
-      local(""),
-      url("/2021/fonts/cabin-sketch-v14-latin-700.woff2") format("woff2"),
+      local(''),
+      url('/2021/fonts/cabin-sketch-v14-latin-700.woff2') format('woff2'),
       /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("/2021/fonts/cabin-sketch-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url('/2021/fonts/cabin-sketch-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   /*  
@@ -703,10 +703,10 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     --pink-normal: #fa2678;
     --yellow-normal: #ffd763;
 
-    --ff-title-sketch: "Cabin Sketch", Arial;
-    --ff-text-normal: "Helvetica", system-ui;
-    --ff-text-light: "Helvetica-light", system-ui;
-    --ff-text-bold: "Helvetica-Bold", system-ui;
+    --ff-title-sketch: 'Cabin Sketch', Arial;
+    --ff-text-normal: 'Helvetica', system-ui;
+    --ff-text-light: 'Helvetica-light', system-ui;
+    --ff-text-bold: 'Helvetica-Bold', system-ui;
   }
 
   /*  
@@ -1027,7 +1027,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
   }
 
   .stream__schedule:before {
-    content: "❬";
+    content: '❬';
     color: white;
     transform: rotate(-90deg);
     font-size: 6rem;
@@ -1149,8 +1149,8 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
     grid-template-rows: 8rem 4rem;
     grid-template-columns: 1fr 2rem;
     grid-template-areas:
-      "name time"
-      "supp supp";
+      'name time'
+      'supp supp';
   }
 
   .artist__main {
@@ -1196,8 +1196,8 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
       width: 650px;
       display: grid;
       grid-template:
-        "video video" 1fr
-        "chat  sched" 1fr / 1fr 1fr;
+        'video video' 1fr
+        'chat  sched' 1fr / 1fr 1fr;
       margin: 1.8rem auto 6rem;
       gap: 4rem;
     }
@@ -1513,7 +1513,7 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
   .nav__toggle span::after,
   .nav__toggle span::before {
-    content: "";
+    content: '';
     position: absolute;
   }
 
@@ -1605,31 +1605,31 @@ const goNext = dia === "dia-1" ? "dia-2" : dia === "dia-2" ? "dia-3" : "dia-1";
 
 <script>
   const navBtn = document.getElementsByClassName(
-    "nav__toggle"
-  )[0] as HTMLElement;
+    'nav__toggle'
+  )[0] as HTMLElement
   const navShow = document.getElementsByClassName(
-    "nav__container"
-  )[0] as HTMLElement;
+    'nav__container'
+  )[0] as HTMLElement
 
   navBtn.onclick = () => {
-    let margin = navShow.style.marginTop;
-    margin == "-100vh"
-      ? (navShow.style.marginTop = "0vh")
-      : (navShow.style.marginTop = "-100vh");
-  };
+    let margin = navShow.style.marginTop
+    margin == '-100vh'
+      ? (navShow.style.marginTop = '0vh')
+      : (navShow.style.marginTop = '-100vh')
+  }
 
   window.onscroll = function () {
-    let top = window.scrollY;
-    let header = document.getElementsByClassName("header__container")[0];
-    let headerSize = document.getElementsByClassName("header__main")[0];
-    let logoText = document.getElementsByClassName("logo__text")[0];
+    let top = window.scrollY
+    let header = document.getElementsByClassName('header__container')[0]
+    let headerSize = document.getElementsByClassName('header__main')[0]
+    let logoText = document.getElementsByClassName('logo__text')[0]
 
     top > 0
-      ? (header.classList.add("header__container-bg"),
-        headerSize.classList.add("header__main-bg"),
-        logoText.classList.add("logo__text-bg"))
-      : (header.classList.remove("header__container-bg"),
-        headerSize.classList.remove("header__main-bg"),
-        logoText.classList.remove("logo__text-bg"));
-  };
+      ? (header.classList.add('header__container-bg'),
+        headerSize.classList.add('header__main-bg'),
+        logoText.classList.add('logo__text-bg'))
+      : (header.classList.remove('header__container-bg'),
+        headerSize.classList.remove('header__main-bg'),
+        logoText.classList.remove('logo__text-bg'))
+  }
 </script>

@@ -1,17 +1,17 @@
 ---
-import { Image } from "astro:assets";
-import Link from "../atoms/Link.astro";
-import { getImagesByName } from "@utils/getImagesByName";
+import { Image } from 'astro:assets'
+import Link from '../atoms/Link.astro'
+import { getImagesByName } from '@utils/getImagesByName'
 
 interface Props {
-  artist: string;
-  id: string;
-  class?: string;
+  artist: string
+  id: string
+  class?: string
 }
 
-const { class: customClass, artist, id } = Astro.props;
+const { class: customClass, artist, id } = Astro.props
 
-const firstImage = getImagesByName(artist)[0];
+const firstImage = getImagesByName(artist)[0]
 ---
 
 <li
@@ -19,7 +19,7 @@ const firstImage = getImagesByName(artist)[0];
 >
   <div
     class:list={[
-      "max-w-[14rem] md:max-w-sm aspect-[9/12] relative block shadow mb-4 rounded-2xl overflow-hidden border-2 border-white",
+      'max-w-[14rem] md:max-w-sm aspect-[9/12] relative block shadow mb-4 rounded-2xl overflow-hidden border-2 border-white',
       customClass,
     ]}
   >
@@ -31,7 +31,7 @@ const firstImage = getImagesByName(artist)[0];
     />
     <Link
       text={artist}
-      href={"/illustradorxs/" + id}
+      href={'/illustradorxs/' + id}
       class="absolute bottom-3 left-3 sm:bottom-5 sm:left-5"
     />
   </div>

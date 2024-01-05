@@ -1,20 +1,20 @@
 ---
-import SectionTitle from "./SectionTitle.astro";
-import type { WithLink } from "@types/WithLink";
+import SectionTitle from './SectionTitle.astro'
+import type { WithLink } from '@customTypes/WithLink'
 interface Props {
-  title: string;
-  class?: string;
-  withLink?: WithLink;
+  title: string
+  class?: string
+  withLink?: WithLink
 }
 
-const { title, withLink, class: customClass } = Astro.props;
+const { title, withLink, class: customClass } = Astro.props
 ---
 
 <section class="h-fit w-full grid gap-4 max-w-5xl mx-auto px-4 sm:px-8">
   <SectionTitle withLink={withLink}>
     {title}
   </SectionTitle>
-  <div class:list={["pl-2 w-full relative", customClass]}>
+  <div class:list={['pl-2 w-full relative', customClass]}>
     <slot />
   </div>
 </section>

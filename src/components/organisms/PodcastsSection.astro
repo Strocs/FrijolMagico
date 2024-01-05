@@ -1,14 +1,14 @@
 ---
-import Card from "../atoms/Card.astro";
-import PodcastCard from "../atoms/PodcastCard.astro";
-import Section from "../molecules/Section.astro";
-import { PODCASTS_LIST } from "@data/PODCAST_INFO";
+import Card from '../atoms/Card.astro'
+import PodcastCard from '../atoms/PodcastCard.astro'
+import Section from '../molecules/Section.astro'
+import { PODCASTS_LIST } from '@data/PODCAST_INFO'
 
-const lastPodcast = PODCASTS_LIST[PODCASTS_LIST.length - 1];
+const lastPodcast = PODCASTS_LIST[PODCASTS_LIST.length - 1]
 ---
 
 <Section
-  withLink={{ text: "Ir a Podcasts", href: "/podcasts" }}
+  withLink={{ text: 'Ir a Podcasts', href: '/podcasts' }}
   title="Último Podcast"
 >
   <Card>

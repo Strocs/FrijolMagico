@@ -21,7 +21,7 @@
       "@assets/*": [
         "src/assets/*"
       ],
-      "@types/*": [
+      "@customTypes/*": [
         "src/types/*"
       ],
     }
