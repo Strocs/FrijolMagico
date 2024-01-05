@@ -1,31 +1,20 @@
 ---
-import Link from "./Link.astro";
-
+import SectionTitle from "./SectionTitle.astro";
+import type { WithLink } from "@types/WithLink";
 interface Props {
-  name: string;
   title: string;
   class?: string;
-  href?: string;
+  withLink?: WithLink;
 }
 
-const { name, title, class: customClass, href } = Astro.props;
-
-const lowerHref = href ? href : `/${name.toLowerCase()}`;
+const { title, withLink, class: customClass } = Astro.props;
 ---
 
-<section class="h-fit w-full grid gap-4 max-w-5xl mx-auto">
-  <div
-    class="flex flex-col sm:flex-row justify-between sm:items-end px-4 sm:px-8 gap-4 w-full"
-  >
-    <h2
-      class="text-2xl md:text-5xl lg:text-5xl leading-none font-galindo font-normal tracking-normal max-w-xl -mb-2"
-    >
-      {title}
-    </h2>
-    <Link text={`Ir a ${name}`} href={lowerHref} />
-  </div>
-  <div class:list={["pl-6 pr-4 sm:pl-10 sm:pr-8 w-full relative", customClass]}>
+<section class="h-fit w-full grid gap-4 max-w-5xl mx-auto px-4 sm:px-8">
+  <SectionTitle withLink={withLink}>
+    {title}
+  </SectionTitle>
+  <div class:list={["pl-2 w-full relative", customClass]}>
     <slot />
   </div>
-  <slot name="slider" />
 </section>

@@ -1,0 +1,17 @@
+---
+import Card from "./Card.astro";
+import PodcastCard from "./PodcastCard.astro";
+import Section from "./Section.astro";
+
+import { PODCASTS_LIST } from "@data/PODCAST_INFO";
+const lastPodcast = PODCASTS_LIST[PODCASTS_LIST.length - 1];
+---
+
+<Section
+  withLink={{ text: "Ir a Podcasts", href: "/podcasts" }}
+  title="Último Podcast"
+>
+  <Card>
+    <PodcastCard id={lastPodcast.id} />
+  </Card>
+</Section>

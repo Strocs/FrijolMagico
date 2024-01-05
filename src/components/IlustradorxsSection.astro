@@ -1,18 +1,18 @@
 ---
 import SliderCard from "./SliderCard.astro";
+import SectionTitle from "./SectionTitle.astro";
 import { ARTISTS_INFO } from "@data/ARTISTS_INFO";
-import Link from "./Link.astro";
 ---
 
-<div
+<section
   class="swiper w-full h-full touch-pan-y mx-auto space-y-8 relative overflow-hidden block"
 >
-  <header
-    class="flex flex-col sm:flex-row sm:items-end justify-between font-galindo px-4 sm:px-8 gap-4 w-full max-w-5xl mx-auto"
+  <!-- <SectionTitle
+    withLink={{ text: "Ir a Ilustradorxs", href: "/ilustradorxs" }}
+    class="max-w-5xl mx-auto px-4 sm:px-8"
   >
-    <h2 class="text-2xl md:text-5xl leading-none">Conoce a lxs Artistas</h2>
-    <Link text={`Ir a Ilustradorxs`} href="/ilustradorxs" />
-  </header>
+    Conoce a lxs artistas
+  </SectionTitle> -->
   <ul class="swiper-wrapper relative w-full h-full flex transition-transform">
     {
       ARTISTS_INFO.map(({ artist, id }) => {
@@ -20,7 +20,7 @@ import Link from "./Link.astro";
       })
     }
   </ul>
-</div>
+</section>
 
 <script>
   import Swiper from "swiper/bundle";

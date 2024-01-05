@@ -1,0 +1,29 @@
+---
+import PageTitle from "./PageTitle.astro";
+interface Props {
+  size?: "xl" | "sm";
+}
+const { size = "xl" } = Astro.props;
+
+const sizes = {
+  xl: {
+    before:
+      "before:text-sm md:before:text-base xl:before:text-lg 2xl:before:text-xl",
+    h1: "text-6xl md:text-9xl xl:text-[12rem] 2xl:text-[16rem]",
+  },
+  sm: {
+    before: "before:text-sm md:before:text-lg lg:before:text-2xl before:-top-6",
+    h1: "text-5xl md:text-8xl xl:text-[10rem] 2xl:text-[12rem]",
+  },
+};
+---
+
+<PageTitle
+  classList={[
+    sizes[size].h1,
+    sizes[size].before,
+    "relative before:content-['Asosiación_Cultural'] before:text-white before:font-montserrat before:font-light before:tracking-wider before:w-full before:h-10 before:absolute before:-top-4 ",
+  ]}
+>
+  Frijol Mágico
+</PageTitle>

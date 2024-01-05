@@ -1,27 +1,31 @@
 ---
 import Card from "@components/Card.astro";
-import H1 from "@components/H1.astro";
+import PageTitle from "@components/PageTitle.astro";
+import Paragraph from "@components/Paragraph.astro";
 import PodcastCard from "@components/PodcastCard.astro";
-import { PODCAST_INFO } from "@data/PODCAST_INFO";
+import SectionTitle from "@components/SectionTitle.astro";
+import { PODCASTS_LIST } from "@data/PODCAST_INFO";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Podcasts">
   <main class="grid place-items-center w-full gap-14 sm:gap-20 mb-20">
-    <H1>Podcasts</H1>
+    <PageTitle>Podcasts</PageTitle>
     {
-      PODCAST_INFO.map(({ title, id, artist }) => (
+      PODCASTS_LIST.map(({ title, id, artist, description }) => (
         <section class="max-w-5xl w-full pl-6 pr-4 sm:pl-10 sm:pr-8">
-          <h2 class="font-galindo text-xl sm:text-4xl leading-none">{title}</h2>
-          <h3 class="font-montserrat text-lg sm:text-xl">
+          <SectionTitle>{title}</SectionTitle>
+          <h3 class="font-montserrat ">
             con: <span class="font-bold">{artist}</span>
           </h3>
           <Card class="mt-2 sm:mt-4">
             <PodcastCard id={id} />
           </Card>
+          <div class="flex flex-col gap-4 mt-10">
+            <Paragraph text={description} class="text-sm font-montserrat" />
+          </div>
         </section>
       ))
     }
   </main>
 </Layout>
-@data/PODCAST_INFO
