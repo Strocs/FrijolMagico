@@ -1,5 +1,5 @@
 ---
-import PageTitle from '../atoms/PageTitle.astro'
+import Heading1 from '../atoms/Heading1.astro'
 interface Props {
   size?: 'xl' | 'sm'
 }
@@ -18,7 +18,7 @@ const sizes = {
 }
 ---
 
-<PageTitle
+<Heading1
   classList={[
     sizes[size].h1,
     sizes[size].before,
@@ -26,4 +26,4 @@ const sizes = {
   ]}
 >
   Frijol Mágico
-</PageTitle>
+</Heading1>

@@ -1,5 +1,5 @@
 ---
-import NavButton from '../atoms/NavButton.astro'
+import HamburguerButton from '../atoms/HamburguerButton.astro'
 
 interface Props {
   for?: 'footer' | 'header'
@@ -17,7 +17,7 @@ const isFooter = on === 'footer'
     'w-full h-full items-center justify-end text-white',
   ]}
 >
-  {!isFooter && <NavButton />}
+  {!isFooter && <HamburguerButton />}
   <nav
     id="nav_list"
     class:list={[

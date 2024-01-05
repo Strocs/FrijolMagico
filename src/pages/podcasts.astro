@@ -1,8 +1,8 @@
 ---
 import Card from '@components/atoms/Card.astro'
-import PageTitle from '@components/atoms/PageTitle.astro'
+import Heading1 from '@components/atoms/Heading1.astro'
 import Paragraph from '@components/atoms/Paragraph.astro'
-import PodcastCard from '@components/atoms/PodcastCard.astro'
+import PodcastCard from '@components/molecules/PodcastCard.astro'
 import SectionTitle from '@components/molecules/SectionTitle.astro'
 import { PODCASTS_LIST } from '@data/PODCAST_INFO'
 import Layout from '@layouts/Layout.astro'
@@ -10,7 +10,7 @@ import Layout from '@layouts/Layout.astro'
 
 <Layout title="Podcasts">
   <main class="grid place-items-center w-full gap-14 sm:gap-20 mb-20">
-    <PageTitle>Podcasts</PageTitle>
+    <Heading1>Podcasts</Heading1>
     {
       PODCASTS_LIST.map(({ title, id, artist, description }) => (
         <section class="max-w-5xl w-full pl-6 pr-4 sm:pl-10 sm:pr-8">
@@ -18,9 +18,7 @@ import Layout from '@layouts/Layout.astro'
           <h3 class="font-montserrat ">
             con: <span class="font-bold">{artist}</span>
           </h3>
-          <Card class="mt-2 sm:mt-4">
-            <PodcastCard id={id} />
-          </Card>
+          <PodcastCard id={id} />
           <div class="flex flex-col gap-4 mt-10">
             <Paragraph text={description} class="text-sm font-montserrat" />
           </div>

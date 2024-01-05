@@ -1,6 +1,5 @@
 ---
-import Card from '../atoms/Card.astro'
-import PodcastCard from '../atoms/PodcastCard.astro'
+import PodcastCard from '../molecules/PodcastCard.astro'
 import Section from '../molecules/Section.astro'
 import { PODCASTS_LIST } from '@data/PODCAST_INFO'
 
@@ -11,7 +10,5 @@ const lastPodcast = PODCASTS_LIST[PODCASTS_LIST.length - 1]
   withLink={{ text: 'Ir a Podcasts', href: '/podcasts' }}
   title="Último Podcast"
 >
-  <Card>
-    <PodcastCard id={lastPodcast.id} />
-  </Card>
+  <PodcastCard id={lastPodcast.id} />
 </Section>
