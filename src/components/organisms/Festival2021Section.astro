@@ -1,6 +1,12 @@
 ---
 import Card from '../atoms/Card.astro'
 import Section from '../molecules/Section.astro'
+
+const daysArray = [
+  { day: 'Día 1', bg: 'after:bg-[url(/dia1.webp)]' },
+  { day: 'Día 2', bg: 'after:bg-[url(/dia2.webp)]' },
+  { day: 'Día 3', bg: 'after:bg-[url(/dia3.webp)]' },
+]
 ---
 
 <Section
@@ -8,38 +14,18 @@ import Section from '../molecules/Section.astro'
   title="Revive: Festival Frijol Mágico 2021"
 >
   <div class="flex flex-col sm:flex-row gap-8">
-    <Card
-      Element="a"
-      href="festivales/XI/dia-1"
-      class="w-full sm:w-1/3 aspect-video after:content-[''] after:bg-[url(/dia1.webp)] after:bg-cover hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:inset-0 group flex items-center after:-z-10"
-    >
-      <p
-        class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 lg:opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
-      >
-        Dia 1
-      </p>
-    </Card>
-    <Card
-      Element="a"
-      href="festivales/XI/dia-2"
-      class="w-full sm:w-1/3 aspect-video after:content-[''] after:bg-[url(/dia2.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
-    >
-      <p
-        class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 lg:opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
-      >
-        Dia 2
-      </p>
-    </Card>
-    <Card
-      Element="a"
-      href="festivales/XI/dia-3"
-      class="w-full sm:w-1/3 aspect-video after:content-[''] after:bg-[url(/dia3.webp)] after:bg-cover after:bg-[80%] hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:top-0 group flex items-center after:-z-10"
-    >
-      <p
-        class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 lg:opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
-      >
-        Dia 3
-      </p>
-    </Card>
+    {
+      daysArray.map(({ day, bg }) => (
+        <Card
+          Element="a"
+          href={`/festivales/XI/${day.toLowerCase().replaceAll(' ', '-')}`}
+          class={`${bg} w-full sm:w-1/3 aspect-video after:content-[''] after:bg-cover hover:after:grayscale after:transition-[filter] duration-150 after:w-full after:h-full after:absolute after:inset-0 group flex items-center after:-z-10`}
+        >
+          <p class="mx-auto bg-s-pink px-6 w-fit group-hover:opacity-100 lg:opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full">
+            {day}
+          </p>
+        </Card>
+      ))
+    }
   </div>
 </Section>
