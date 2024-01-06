@@ -24,10 +24,13 @@ const isFooter = on === 'footer'
       'items-center text-lg font-extralight flex-shrink-0 w-full xl:w-fit',
       'peer-checked:flex peer-checked:absolute peer-checked:bg-p-blue peer-checked:bg-opacity-50 peer-checked:backdrop-blur-xl peer-checked:z-40 peer-checked:inset-0 peer-checked:flex-col peer-checked:items-center peer-checked:pt-40 peer-checked:text-2xl peer-checked:font-semibold',
       isFooter
-        ? 'flex flex-col sm:flex-row gap-2'
-        : 'xl:flex hidden gap-8 h-screen xl:h-fit',
+        ? 'flex flex-col sm:flex-row gap-3'
+        : 'xl:flex hidden gap-4 h-screen xl:h-fit',
     ]}
   >
+    <a class="hover:scale-110 transition-transform duration-150" href="/"
+      >Inicio</a
+    >
     <a
       class="hover:scale-110 transition-transform duration-150"
       href="/festivales/XIII/convocatoria-ilustracion"
@@ -37,9 +40,6 @@ const isFooter = on === 'footer'
       class="hover:scale-110 transition-transform duration-150"
       href="/festivales/XIII/convocatoria-musica">Convocatoria Música</a
     >
-    <!-- <a class="hover:scale-110 transition-transform duration-150" href="/"
-      >Inicio</a
-    > -->
     <!-- <a
       class="hover:scale-110 transition-transform duration-150"
       href="/ilustradorxs">Ilustradorxs</a
@@ -48,10 +48,10 @@ const isFooter = on === 'footer'
       class="hover:scale-110 transition-transform duration-150"
       href="/festivales">Festivales</a
     > -->
-    <!-- <a
+    <a
       class="hover:scale-110 transition-transform duration-150"
       href="/podcasts">Podcasts</a
-    > -->
+    >
     <!-- <a
       class="hover:scale-110 transition-transform duration-150"
       href="/talleres">Talleres</a

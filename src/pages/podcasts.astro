@@ -1,30 +1,39 @@
 ---
-import Card from '@components/atoms/Card.astro'
 import Heading1 from '@components/atoms/Heading1.astro'
 import Paragraph from '@components/atoms/Paragraph.astro'
 import PodcastCard from '@components/molecules/PodcastCard.astro'
 import SectionTitle from '@components/molecules/SectionTitle.astro'
-import { PODCASTS_LIST } from '@data/PODCAST_INFO'
+import { PODCASTS_LIST, PODCAST_INFO } from '@data/PODCAST_INFO'
 import Layout from '@layouts/Layout.astro'
 import Main from '@layouts/Main.astro'
 ---
 
 <Layout title="Podcasts">
   <Main class="flex flex-col items-center">
-    <Heading1 beforeTitle="Semilla Ilustrada">Podcast</Heading1>
-    {
-      PODCASTS_LIST.map(({ title, id, artist, description }) => (
-        <section class="max-w-5xl w-full pl-6 pr-4 sm:pl-10 sm:pr-8">
-          <SectionTitle>{title}</SectionTitle>
-          <h3 class="font-montserrat ">
-            con: <span class="font-bold">{artist}</span>
-          </h3>
-          <PodcastCard id={id} />
-          <div class="flex flex-col gap-4 mt-10">
-            <Paragraph text={description} class="text-sm font-montserrat" />
-          </div>
-        </section>
-      ))
-    }
+    <Heading1 beforeTitle="Podcast" size="sm">Semilla Ilustrada</Heading1>
+    <h2 class="text-center text-lg sm:text-2xl px-4 sm:px-8 max-w-xl">
+      {PODCAST_INFO.description}
+    </h2>
+    <article class="flex flex-col gap-20 py-20 w-full items-center">
+      {
+        PODCASTS_LIST.map(({ id, artist, description }) => (
+          <section class="max-w-5xl w-full pl-6 pr-4 sm:pl-10 sm:pr-8 flex gap-6 flex-col">
+            <SectionTitle
+              withLink={{
+                text: 'Escucha en Spotify',
+                href: `https://open.spotify.com/episode/${id}`,
+                target: '_blank',
+              }}
+            >
+              {artist}
+              <div class="flex flex-col gap-4 max-w-xl text-white mt-2">
+                <Paragraph text={description} class="text-sm font-montserrat" />
+              </div>
+            </SectionTitle>
+            <PodcastCard id={id} />
+          </section>
+        ))
+      }
+    </article>
   </Main>
 </Layout>

@@ -7,12 +7,10 @@ const daysArray = [
   { day: 'Día 2', bg: 'after:bg-[url(/dia2.webp)]' },
   { day: 'Día 3', bg: 'after:bg-[url(/dia3.webp)]' },
 ]
+// withLink={{ text: 'Ir a Festivales', href: '/festivales' }}
 ---
 
-<Section
-  withLink={{ text: 'Ir a Festivales', href: '/festivales' }}
-  title="Revive: Festival Frijol Mágico 2021"
->
+<Section title="Revive: Festival Frijol Mágico 2021">
   <div class="flex flex-col sm:flex-row gap-8">
     {
       daysArray.map(({ day, bg }) => (
