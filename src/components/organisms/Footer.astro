@@ -8,17 +8,15 @@ import Heading1 from '@components/atoms/Heading1.astro'
 ---
 
 <footer
-  class="font-sans text-sm w-full h-[84vh] relative after:content-[''] overflow-hidden after:w-[300%] lg:after:w-full after:h-full after:absolute after:bottom-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
+  class="font-sans text-sm w-full h-[84vh] relative after:content-[''] overflow-hidden after:w-[300%] lg:after:w-full after:h-full after:absolute after:bottom-0 after:left-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
 >
   <div class="grid content-center h-full px-4">
-    <Heading1 class="before:content-['Asosiación_Cultural']" size="sm">
-      Frijol Mágico
-    </Heading1>
+    <Heading1 size="sm">Frijol Mágico</Heading1>
     <div
       class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-10"
     >
       <div
-        class="flex flex-col sm:flex-row w-fit h-fit items-center justify-center gap-4 sm:justify-end"
+        class="flex flex-col sm:flex-row w-fit h-fit items-center justify-center gap-2 sm:gap-4 sm:justify-end"
       >
         <Nav for="footer" />
         •
@@ -42,7 +40,7 @@ import Heading1 from '@components/atoms/Heading1.astro'
       </p>
       <Logo
         size={100}
-        class="mx-auto hidden 2xl:block hover:scale-110 hover:rotate-3 transition-transform duration-150"
+        class="mx-auto hidden tall:block hover:scale-110 hover:rotate-3 transition-transform duration-150"
       />
     </div>
     <p class="absolute bottom-4 left-0 right-0 w-full text-center">

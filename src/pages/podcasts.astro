@@ -6,11 +6,12 @@ import PodcastCard from '@components/molecules/PodcastCard.astro'
 import SectionTitle from '@components/molecules/SectionTitle.astro'
 import { PODCASTS_LIST } from '@data/PODCAST_INFO'
 import Layout from '@layouts/Layout.astro'
+import Main from '@layouts/Main.astro'
 ---
 
 <Layout title="Podcasts">
-  <main class="grid place-items-center w-full gap-14 sm:gap-20 my-20">
-    <Heading1 class='before:content-["Podcast"]'>Semilla Ilustrada</Heading1>
+  <Main class="flex flex-col items-center">
+    <Heading1 beforeTitle="Semilla Ilustrada">Podcast</Heading1>
     {
       PODCASTS_LIST.map(({ title, id, artist, description }) => (
         <section class="max-w-5xl w-full pl-6 pr-4 sm:pl-10 sm:pr-8">
@@ -25,5 +26,5 @@ import Layout from '@layouts/Layout.astro'
         </section>
       ))
     }
-  </main>
+  </Main>
 </Layout>

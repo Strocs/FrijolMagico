@@ -5,18 +5,20 @@ import IlustradorxsSection from '@components/organisms/IlustradorxsSection.astro
 import Festival2021Section from '@components/organisms/Festival2021Section.astro'
 import PodcastsSection from '@components/organisms/PodcastsSection.astro'
 import Heading1 from '@components/atoms/Heading1.astro'
+import Main from '@layouts/Main.astro'
 ---
 
 <Layout>
-  <main class="w-full h-full pb-20 pt-48">
-    <Heading1 class="before:content-['Asosiación_Cultural']">
-      Frijol Mágico
-    </Heading1>
-    <article class="space-y-20 sm:space-y-32 pt-20" aria-label="Secciones">
+  <Main>
+    <Heading1 beforeTitle="Asosiación Cultural">Frijol Mágico</Heading1>
+    <article
+      class="space-y-20 sm:space-y-32 pt-6 sm:pt-20"
+      aria-label="Secciones"
+    >
       <FestivalSection />
-      <PodcastsSection />
-      <Festival2021Section />
+      <!-- <PodcastsSection /> -->
+      <!-- <Festival2021Section /> -->
       <IlustradorxsSection />
     </article>
-  </main>
+  </Main>
 </Layout>

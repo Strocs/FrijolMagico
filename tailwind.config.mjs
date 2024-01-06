@@ -21,6 +21,9 @@ export default {
         thickedy: 'Thickedy, system-ui, sans-serif',
         montserrat: 'montserrat, system-ui, sans-serif',
       },
+      screens: {
+        tall: { raw: '(min-height: 800px)' },
+      },
     },
   },
   plugins: [],

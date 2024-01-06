@@ -3,14 +3,11 @@ import Card from '../atoms/Card.astro'
 import Section from '../molecules/Section.astro'
 ---
 
-<Section
-  withLink={{ text: 'Ir a Festival 2024', href: '/festivales/XIII' }}
-  title="Frijol Mágico 2024"
->
+<Section title="Convocatoria 2024!">
   <div class="flex flex-col sm:flex-row gap-8">
     <Card
       Element="a"
-      href="/festivales/XIII/bases-ilustracion"
+      href="/festivales/XIII/convocatoria-ilustracion"
       class="after:bg-[url(/Ilustradoresbanner.png)] after:bg-cover after:w-full after:h-full after:absolute after:-z-10 after:hover:grayscale after:transition-[filter] w-full aspect-video grid place-content-center group"
     >
       <p
@@ -21,7 +18,7 @@ import Section from '../molecules/Section.astro'
     </Card>
     <Card
       Element="a"
-      href="/festivales/XIII/bases-bandas"
+      href="/festivales/XIII/convocatoria-musica"
       class="after:bg-[url(/Musicosbanner.png)] after:bg-cover after:w-full after:h-full after:absolute after:-z-10 hover:after:grayscale after:transition-[filter] w-full aspect-video grid place-content-center group"
     >
       <p

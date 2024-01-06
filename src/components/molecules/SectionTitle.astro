@@ -20,5 +20,13 @@ const { withLink, class: customClass } = Astro.props
   <Heading2>
     <slot />
   </Heading2>
-  {!!withLink && <Link text={withLink.text} href={withLink.href} />}
+  {
+    !!withLink && (
+      <Link
+        text={withLink.text}
+        href={withLink.href}
+        target={withLink.target}
+      />
+    )
+  }
 </header>

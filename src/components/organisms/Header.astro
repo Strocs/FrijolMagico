@@ -5,10 +5,10 @@ import Nav from '../molecules/Nav.astro'
 
 <header
   aria-label="Frijol Mágico"
-  class="w-full flex justify-center bg-p-blue fixed z-50"
+  class="w-full flex justify-center fixed z-50 before:content-[''] before:w-[300%] lg:before:w-full before:h-full before:absolute before:top-0 before:bg-p-blue before:bg-cover before:bg-bottom before:-z-20"
 >
   <div
-    class="flex justify-between bg-opacity-80 items-center w-full max-w-[90rem] h-fit py-4 px-8 rounded-full transition-[background] duration-150"
+    class="flex justify-between bg-opacity-80 items-center w-full max-w-[90rem] h-fit py-3 px-4 sm:px-8 rounded-full transition-[background] duration-150"
   >
     <a
       href="/"
@@ -20,3 +20,63 @@ import Nav from '../molecules/Nav.astro'
     <Nav />
   </div>
 </header>
+
+<style>
+  header::before {
+    clip-path: polygon(
+      100% 0%,
+      0% 0%,
+      0% 100%,
+      2% 99.83%,
+      4% 99.32%,
+      6% 98.49%,
+      8% 97.35%,
+      10% 95.93%,
+      12% 94.27%,
+      14% 92.39%,
+      16% 90.35%,
+      18% 88.18%,
+      20% 85.94%,
+      22% 83.68%,
+      24% 81.45%,
+      26% 79.3%,
+      28% 77.28%,
+      30% 75.44%,
+      32% 73.81%,
+      34% 72.44%,
+      36% 71.35%,
+      38% 70.57%,
+      40% 70.12%,
+      42% 70%,
+      44% 70.23%,
+      46% 70.79%,
+      48% 71.68%,
+      50% 72.86%,
+      52% 74.33%,
+      54% 76.03%,
+      56% 77.94%,
+      58% 80.01%,
+      60% 82.19%,
+      62% 84.43%,
+      64% 86.69%,
+      66% 88.91%,
+      68% 91.04%,
+      70% 93.04%,
+      72% 94.85%,
+      74% 96.44%,
+      76% 97.76%,
+      78% 98.8%,
+      80% 99.53%,
+      82% 99.92%,
+      84% 99.98%,
+      86% 99.7%,
+      88% 99.08%,
+      90% 98.14%,
+      92% 96.91%,
+      94% 95.4%,
+      96% 93.66%,
+      98% 91.73%,
+      100% 89.64%
+    );
+  }
+</style>
