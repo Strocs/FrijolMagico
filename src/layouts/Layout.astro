@@ -16,7 +16,6 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="lenguage" content="spanish" />
     <meta name="author" content="Frijol Mágico" />
     <meta name="audience" content="all" />
@@ -24,6 +23,23 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     <link rel="icon" type="image/png" href={SITE_INFO.logo} />
     <meta name="generator" content={Astro.generator} />
     <title>{`Frijol Mágico | ${title}`}</title>
+    <meta name="description" content={description} />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://elfrijolmagico.cl" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`Frijol Mágico | ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/OG.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="elfrijolmagico.cl" />
+    <meta property="twitter:url" content="https://elfrijolmagico.cl" />
+    <meta name="twitter:title" content={`Frijol Mágico | ${title}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/OG.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
