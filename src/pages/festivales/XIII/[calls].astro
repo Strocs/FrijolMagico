@@ -6,6 +6,7 @@ import { CALLS_INFO } from '@data/CALLS_INFO'
 import { normalizePath } from '@utils/normalizePath'
 import Section from '@components/molecules/Section.astro'
 import Card from '@components/atoms/Card.astro'
+import Article from '@layouts/Article.astro'
 console.log(normalizePath('Ilustración'))
 
 export const getStaticPaths = () => {
@@ -32,10 +33,10 @@ const banner =
     <Heading1 beforeTitle="Frijol Mágico 2024">
       {title}
     </Heading1>
-    <h2 class="text-center text-xl sm:text-4xl px-4 sm:px-8">
+    <h2 class="text-center text-xl sm:text-3xl px-4 sm:px-8 -mt-10">
       {description}
     </h2>
-    <article class="flex flex-col gap-20 pt-20">
+    <Article>
       <Section
         title="1. Lee las Bases"
         withLink={{
@@ -47,16 +48,16 @@ const banner =
         <Card class="bg-s-blue hidden sm:block">
           <iframe
             title="Bases"
-            class="w-full aspect-video lg:ml-[5.7vw] xl:ml-[5vw] 2xl:ml-[3.5vw]"
+            class="w-full aspect-video lg:ml-[3.7rem]"
             src=`https://docs.google.com/document/d/e/${bases}/pub?embedded=true`
           ></iframe>
         </Card>
       </Section>
-      <Section title="2. Llena el Formulario">
+      <Section title="2. Completa el Formulario">
         <Card
           Element="a"
           href={`https://docs.google.com/forms/d/e/${form}/viewform?usp=sharing`}
-          class={`${banner} after:bg-cover after:w-full after:h-full after:absolute after:-z-10 after:hover:grayscale after:transition-[filter] w-full aspect-video grid place-content-center group`}
+          class={`${banner} aspect-[19/6] after:bg-cover after:bg-center after:w-full after:h-full after:absolute after:-z-10 after:hover:grayscale after:transition-[filter] w-full grid place-content-center group`}
         >
           <p
             class="mx-auto bg-s-pink px-6 group-hover:opacity-100 opacity-0 transition-opacity duration-150 py-3 font-galindo rounded-full"
@@ -66,9 +67,9 @@ const banner =
         </Card>
       </Section>
       <Section
-        title="3. Gracias por Participar!"
+        title="3. Gracias por Postular!"
         withLink={{ text: 'Volver al Inicio', href: '/' }}
       />
-    </article>
+    </Article>
   </Main>
 </Layout>
