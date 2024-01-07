@@ -8,11 +8,18 @@ interface Props {
 }
 
 const { title, withLink, class: customClass } = Astro.props
+
+const specialTitle = title.split(':')
 ---
 
 <section class="h-fit w-full grid gap-4 max-w-5xl mx-auto px-4 sm:px-8">
   <SectionTitle withLink={withLink}>
-    {title}
+    {
+      specialTitle.length > 1 && (
+        <span class="text-s-yellow font-black">{specialTitle[0]}:</span>
+      )
+    }
+    {specialTitle.length > 1 ? specialTitle[1] : title}
   </SectionTitle>
   <div class:list={['pl-2 w-full relative', customClass]}>
     <slot />
