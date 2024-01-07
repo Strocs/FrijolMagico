@@ -1,18 +1,28 @@
 ---
 interface Props {
-  size?: number
-  class?: string
+  class?: string | undefined
+  size?: 'sm' | 'md' | 'xl' | undefined
 }
 
-const { size = 46, class: customClass } = Astro.props
+const { class: customClass, size = 'sm' } = Astro.props
+
+const sizeVariants = {
+  sm: 'w-12',
+  md: 'w-20',
+  xl: 'w-28',
+}
+
+const defaultSize = customClass?.includes('w-')
+  ? ''
+  : size
+    ? sizeVariants[size]
+    : ''
 ---
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  height={size}
-  width={size}
   viewBox="0 0 292.03 293.7"
-  class={customClass}
+  class:list={[customClass, defaultSize, 'aspect-square block']}
 >
   <g>
     <path
@@ -32,12 +42,36 @@ const { size = 46, class: customClass } = Astro.props
       d="m227.46,83.73h0C205.86,26.78,100.06-35.57,28.5,24.48c-11.43,9.6,8.8,11.45,20.8,13.74,7.04,1.35,15.83,4.89,15.83,4.89,0,0,30.88,6.09,46.06,34.05l.19.13c1.41.23,14.72,2.37,28.94,3.08,1.04.05,1.12,1.57.08,1.71-24.93,3.36-79.47,12.55-111.56,31.98-43.04,26.06,37.28,23.15,80.99,20.19l.24.38c-2.28,3.48-19.29,28.04-48.45,33.82-27.8,5.52-46.06,14.22-55.53,38.66-10.15,26.18,8.68,53.37,8.68,53.37,0,0,33.96,61.86,137.45,16.76,103.48-45.11,88.5-136.27,88.69-146.5.19-10.23-13.45-46.98-13.45-47"
     ></path>
     <path
-      class="fill-s-pink"
+      class="logo_eye fill-s-pink"
       d="m158.68,143.21c-.97,11.66-6.94,20.69-13.35,20.16-6.41-.53-10.81-10.42-9.85-22.08.97-11.67,6.95-20.7,13.35-20.16,6.41.53,10.81,10.42,9.85,22.08"
     ></path>
     <path
-      class="fill-s-pink"
+      class="logo_eye fill-s-pink"
       d="m201.36,145.43c-.97,11.66-6.94,20.69-13.35,20.16-6.41-.53-10.81-10.42-9.85-22.08.97-11.67,6.95-20.7,13.35-20.16,6.41.53,10.82,10.41,9.85,22.08"
     ></path>
   </g>
 </svg>
+
+<style>
+  .logo_eye {
+    animation: closingEyes 6s infinite;
+    transform-origin: center;
+  }
+
+  @keyframes closingEyes {
+    2% {
+      transform: scaleY(0.1);
+    }
+    4% {
+      transform: scaleY(1);
+    }
+
+    6% {
+      transform: scaleY(0.1);
+    }
+
+    8% {
+      transform: scaleY(1);
+    }
+  }
+</style>
