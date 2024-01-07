@@ -1,6 +1,7 @@
 ---
 // @ts-ignore
 import { LIVE_INFO } from '@data/LIVE_INFO'
+import { SITE_INFO } from '@data/SITE_INFO'
 
 export const getStaticPaths = () => {
   return LIVE_INFO.map((live) => {
@@ -10,7 +11,7 @@ export const getStaticPaths = () => {
     }
   })
 }
-
+const { title, description, OGImage } = SITE_INFO
 const { dia } = Astro.params
 const { day, video } = Astro.props
 
@@ -28,15 +29,27 @@ const goNext = dia === 'día-1' ? 'día-2' : dia === 'día-2' ? 'día-3' : 'día
     <meta name="generator" content={Astro.generator} />
     <meta name="lenguage" content="spanish" />
     <meta name="audience" content="all" />
-    <meta
-      name="description"
-      content="Frijol Mágico es un espacio que reúne a las y los Ilustradores de la Región de Coquimbo, generando distintas instancias que ayuden a potenciar su trabajo."
-    />
+    <meta name="description" content={description} />
     <meta
       name="keywords"
       content="ilustración chilena, ilustración la serena, ilustración coquimbo, dibujo"
     />
     <title>{`Frijol Mágico | Festival 2021!`}</title>
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://elfrijolmagico.cl" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`Frijol Mágico | ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={OGImage} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="elfrijolmagico.cl" />
+    <meta property="twitter:url" content="https://elfrijolmagico.cl" />
+    <meta name="twitter:title" content={`Frijol Mágico | ${title}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={OGImage} />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
