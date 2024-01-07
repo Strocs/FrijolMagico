@@ -4,17 +4,20 @@ import Paragraph from '@components/atoms/Paragraph.astro'
 import PodcastCard from '@components/molecules/PodcastCard.astro'
 import SectionTitle from '@components/molecules/SectionTitle.astro'
 import { PODCASTS_LIST, PODCAST_INFO } from '@data/PODCAST_INFO'
+import Article from '@layouts/Article.astro'
 import Layout from '@layouts/Layout.astro'
 import Main from '@layouts/Main.astro'
 ---
 
 <Layout title="Podcasts">
   <Main class="flex flex-col items-center">
-    <Heading1 beforeTitle="Podcast" size="sm">Semilla Ilustrada</Heading1>
+    <Heading1 beforeTitle="Podcast" class="text-end max-w-5xl">
+      Semilla Ilustrada
+    </Heading1>
     <h2 class="text-center text-lg sm:text-2xl px-4 sm:px-8 max-w-xl">
       {PODCAST_INFO.description}
     </h2>
-    <article class="flex flex-col gap-20 py-20 w-full items-center">
+    <Article>
       {
         PODCASTS_LIST.map(({ id, artist, description }) => (
           <section class="max-w-5xl w-full pl-6 pr-4 sm:pl-10 sm:pr-8 flex gap-6 flex-col">
@@ -27,13 +30,13 @@ import Main from '@layouts/Main.astro'
             >
               {artist}
               <div class="flex flex-col gap-4 max-w-xl text-white mt-2">
-                <Paragraph text={description} class="text-sm font-montserrat" />
+                <Paragraph text={description} class="text-base font-sans" />
               </div>
             </SectionTitle>
             <PodcastCard id={id} />
           </section>
         ))
       }
-    </article>
+    </Article>
   </Main>
 </Layout>
