@@ -10,8 +10,8 @@ const { class: customClass, size = 'base', beforeTitle } = Astro.props
 const before = !!beforeTitle ? `"${beforeTitle}"` : ''
 
 const defaultSize = {
-  base: 'text-6xl md:text-9xl xl:text-[12rem] 2xl:text-[16rem] before:text-sm md:before:text-base xl:before:text-lg 2xl:before:text-xl',
-  sm: 'before:text-sm md:before:text-lg lg:before:text-xl before:-top-6 text-5xl md:text-8xl xl:text-[10rem] 2xl:text-[12rem]',
+  base: 'text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[12rem] before:text-base md:before:text-2xl  lg:before:text-4xl w-min',
+  sm: 'before:text-sm md:before:text-lg lg:before:text-xl before:-top-6 text-[2.75rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] w-fit whitespace-nowrap',
 }
 ---
 
@@ -19,7 +19,7 @@ const defaultSize = {
   class:list={[
     customClass,
     defaultSize[size],
-    'pb-2 -mt-2 w-fit mx-auto font-thickedy text-transparent bg-clip-text bg-[url(/m5.webp)] bg-top font-black [text-shadow:0_0_.4rem_#ffcd6950] sm:[text-shadow:0_0_2rem_#ffcd6950] relative before:text-white before:font-montserrat before:font-light before:tracking-wider before:w-full before:h-10 before:absolute before:-top-4 whitespace-nowrap',
+    'py-8 -mt-2 mx-auto font-KOCHI font-black bg-top [background-size:180%] bg-clip-text text-transparent bg-[url(/m5.webp)] [text-shadow:0_0_0_#ffcd6930] relative before:text-white before:font-Sheiron before:font-medium before:tracking-wider before:right-0 before:absolute before:top-0 sm:before:-top-4 lg:before:-top-8 ',
   ]}
 >
   <slot />
