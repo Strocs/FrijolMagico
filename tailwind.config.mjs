@@ -18,8 +18,8 @@ export default {
       },
       fontFamily: {
         galindo: 'Galindo, system-ui, sans-serif',
-        thickedy: 'Thickedy, system-ui, sans-serif',
-        montserrat: 'montserrat, system-ui, sans-serif',
+        Sheiron: '"Sheiron Rodina", sans-serif',
+        KOCHI: '"KOCHI", sans-serif',
       },
       screens: {
         tall: { raw: '(min-height: 800px)' },
