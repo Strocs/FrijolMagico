@@ -6,19 +6,25 @@ import Festival2021Section from '@components/organisms/Festival2021Section.astro
 import PodcastsSection from '@components/organisms/PodcastsSection.astro'
 import Heading1 from '@components/atoms/Heading1.astro'
 import Main from '@layouts/Main.astro'
+import Logo from '@components/icons/Logo.astro'
+import Article from '@layouts/Article.astro'
 ---
 
 <Layout>
   <Main>
-    <Heading1 beforeTitle="Asosiación Cultural">Frijol Mágico</Heading1>
-    <article
-      class="space-y-20 sm:space-y-32 pt-6 sm:pt-20"
-      aria-label="Secciones"
-    >
+    <header class="relative w-fit flex items-center justify-center mx-auto">
+      <Logo
+        class="w-32 -mr-10 sm:w-48 sm:-mr-14 md:w-64 md:-mr-20 lg:w-[22rem] lg:-mr-28 xl:w-[24rem] mb-6 sm:mb-10"
+      />
+      <Heading1 beforeTitle="Asosiación Cultural" class="text-end max-w-3xl">
+        Frijol Mágico
+      </Heading1>
+    </header>
+    <Article>
+      <IlustradorxsSection />
       <FestivalSection />
       <PodcastsSection />
       <Festival2021Section />
-      <IlustradorxsSection />
-    </article>
+    </Article>
   </Main>
 </Layout>
