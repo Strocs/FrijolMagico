@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 import Footer from '@components/organisms/Footer.astro'
 import Header from '@components/organisms/Header.astro'
 import { SITE_INFO } from '@data/SITE_INFO'
@@ -53,6 +54,7 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     <link href="https://fonts.cdnfonts.com/css/kochi" rel="stylesheet" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <ViewTransitions />
   </head>
   <body
     class:list={[
@@ -66,28 +68,28 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     <Header />
     <slot />
     <Footer />
+    <style is:global>
+      :root {
+        --p-blue: #0d2a66;
+        --s-pink: #fa2678;
+        --s-yellow: #ffcd69;
+      }
+
+      @font-face {
+        font-family: Thickedy;
+        font-style: normal;
+        font-display: swap;
+        src: url(/fonts/ThickedyQuick.woff2) format('woff2');
+      }
+
+      body {
+        background-image: url(/background.webp);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-blend-mode: color;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  :root {
-    --p-blue: #0d2a66;
-    --s-pink: #fa2678;
-    --s-yellow: #ffcd69;
-  }
-
-  @font-face {
-    font-family: Thickedy;
-    font-style: normal;
-    font-display: swap;
-    src: url(/fonts/ThickedyQuick.woff2) format('woff2');
-  }
-
-  body {
-    background-image: url(/background.webp);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-blend-mode: color;
-  }
-</style>
