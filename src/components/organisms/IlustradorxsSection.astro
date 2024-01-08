@@ -16,12 +16,16 @@ import { ARTISTS_INFO } from '@data/ARTISTS_INFO'
 </section>
 
 <script>
+  import { ARTISTS_INFO } from '@data/ARTISTS_INFO'
   import Swiper from 'swiper/bundle'
+  const totalSliders = ARTISTS_INFO.length - 1
 
   const loadSlider = () => {
+    const randomSlider = Math.floor(Math.random() * totalSliders)
     const swiper = new Swiper('.swiper', {
       slidesPerView: 'auto',
       centeredSlides: true,
+      initialSlide: randomSlider,
       loop: true,
       autoplay: {
         delay: 5000,
