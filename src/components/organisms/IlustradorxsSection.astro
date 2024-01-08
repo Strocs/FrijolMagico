@@ -18,13 +18,18 @@ import { ARTISTS_INFO } from '@data/ARTISTS_INFO'
 <script>
   import Swiper from 'swiper/bundle'
 
-  const swiper = new Swiper('.swiper', {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-  })
+  const loadSlider = () => {
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    })
+  }
+
+  document.addEventListener('astro:page-load', loadSlider)
+  if (!document.startViewTransition) loadSlider()
 </script>
