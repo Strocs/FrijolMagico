@@ -19,7 +19,7 @@ const firstImage = getImagesByName(artist)[0]
 >
   <div
     class:list={[
-      'max-w-[14rem] md:max-w-sm aspect-[9/12] relative block shadow mb-4 rounded-2xl overflow-hidden',
+      'max-w-[14rem] md:max-w-sm aspect-[9/12] h-full relative block shadow mb-4 rounded-2xl overflow-hidden',
       customClass,
     ]}
   >
@@ -27,7 +27,7 @@ const firstImage = getImagesByName(artist)[0]
       src={firstImage}
       alt={`Ilustración hecha por ${artist}`}
       class="h-full w-full object-cover aspect-auto"
-      height={500}
+      width={350}
     />
     <Link
       text={artist}
