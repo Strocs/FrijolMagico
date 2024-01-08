@@ -1,0 +1,35 @@
+---
+import Behance from './Behance.astro'
+import Facebook from './Facebook.astro'
+import Email from './Email.astro'
+import Instagram from './Instagram.astro'
+import Tiktok from './Tiktok.astro'
+import Web from './Web.astro'
+import X from './X.astro'
+import Youtube from './Youtube.astro'
+
+interface Props {
+  icon:
+    | 'instagram'
+    | 'facebook'
+    | 'tiktok'
+    | 'x'
+    | 'youtube'
+    | 'email'
+    | 'behance'
+    | 'web'
+    | string
+  size?: string
+}
+
+const { icon, size } = Astro.props
+---
+
+{icon === 'instagram' && <Instagram />}
+{icon === 'facebook' && <Facebook />}
+{icon === 'tiktok' && <Tiktok />}
+{icon === 'x' && <X />}
+{icon === 'youtube' && <Youtube />}
+{icon === 'behance' && <Behance />}
+{icon === 'web' && <Web />}
+{icon === 'email' && <Email />}
