@@ -1,4 +1,5 @@
 ---
+import { NAV_INFO } from '@data/NAV_INFO'
 import HamburguerButton from '../atoms/HamburguerButton.astro'
 
 interface Props {
@@ -28,34 +29,13 @@ const isFooter = on === 'footer'
         : 'xl:flex hidden gap-4 h-screen xl:h-fit',
     ]}
   >
-    <a class="hover:scale-110 transition-transform duration-150" href="/"
-      >Inicio</a
-    >
-    <a
-      class="hover:scale-110 transition-transform duration-150"
-      href="/festivales/XIII/convocatoria-ilustracion"
-      >Convocatoria Ilustración</a
-    >
-    <a
-      class="hover:scale-110 transition-transform duration-150"
-      href="/festivales/XIII/convocatoria-musica">Convocatoria Música</a
-    >
-    <!-- <a
-      class="hover:scale-110 transition-transform duration-150"
-      href="/ilustradorxs">Ilustradorxs</a
-    > -->
-    <!-- <a
-      class="hover:scale-110 transition-transform duration-150"
-      href="/festivales">Festivales</a
-    > -->
-    <a
-      class="hover:scale-110 transition-transform duration-150"
-      href="/podcasts">Podcasts</a
-    >
-    <!-- <a
-      class="hover:scale-110 transition-transform duration-150"
-      href="/talleres">Talleres</a
-    > -->
+    {
+      NAV_INFO.map(({ title, path }) => (
+        <a class="hover:scale-110" href={path}>
+          {title}
+        </a>
+      ))
+    }
   </div>
 </nav>
 

@@ -1,6 +1,7 @@
 ---
 // @ts-ignore
 import { LIVE_INFO } from '@data/LIVE_INFO'
+import { NAV_INFO } from '@data/NAV_INFO'
 import { SITE_INFO } from '@data/SITE_INFO'
 
 export const getStaticPaths = () => {
@@ -97,20 +98,15 @@ const goNext = dia === 'día-1' ? 'día-2' : dia === 'día-2' ? 'día-3' : 'día
 
       <nav class="nav__container" style="margin-top: -100vh;">
         <ul class="nav__general">
-          <li class="nav__li">
-            <a class="nav__a" target="_self" href="/">Inicio</a>
-          </li>
-          <li class="nav__li">
-            <a class="nav__a" target="_self" href="/ilustradorxs"
-              >Ilustradorxs</a
-            >
-          </li>
-          <li class="nav__li">
-            <a class="nav__a" target="_self" href="/festivales">Festivales</a>
-          </li>
-          <li class="nav__li">
-            <a class="nav__a" target="_self" href="/podcasts">Podcasts</a>
-          </li>
+          {
+            NAV_INFO.map(({ title, path }) => (
+              <li class="nav__li">
+                <a class="nav__a" target="_self" href={path}>
+                  {title}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
     </header>
