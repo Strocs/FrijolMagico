@@ -1,0 +1,32 @@
+---
+import type { WithLink } from '@customTypes/WithLink'
+import Link from '../atoms/Link.astro'
+import Heading2 from '@components/atoms/Heading2.astro'
+
+interface Props {
+  withLink?: WithLink
+  class?: string
+}
+
+const { withLink, class: customClass } = Astro.props
+---
+
+<header
+  class:list={[
+    'flex flex-col sm:flex-row justify-between sm:items-end gap-4 w-full',
+    customClass,
+  ]}
+>
+  <Heading2>
+    <slot />
+  </Heading2>
+  {
+    !!withLink && (
+      <Link
+        text={withLink.text}
+        href={withLink.href}
+        target={withLink.target}
+      />
+    )
+  }
+</header>

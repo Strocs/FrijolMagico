@@ -1,0 +1,26 @@
+---
+interface Props {
+  text: string
+  class?: string
+}
+
+const { text, class: customStyle } = Astro.props
+const textSplited = text.split('\n')
+---
+
+{
+  textSplited.map((text: string) => {
+    const textBoldSplitted = text.split('\b')
+
+    return (
+      <p class:list={[customStyle]}>
+        {textBoldSplitted.map((text, index) => {
+          if (index % 2 === 0) {
+            return text
+          }
+          return <strong>{text}</strong>
+        })}
+      </p>
+    )
+  })
+}

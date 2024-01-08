@@ -1,22 +1,22 @@
 ---
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import { SITE_INFO } from "@data/SITE_INFO";
+import { ViewTransitions } from 'astro:transitions'
+import Footer from '@components/organisms/Footer.astro'
+import Header from '@components/organisms/Header.astro'
+import { SITE_INFO } from '@data/SITE_INFO'
 
 interface Props {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }
 
 const { title = SITE_INFO.title, description = SITE_INFO.description } =
-  Astro.props;
+  Astro.props
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="lenguage" content="spanish" />
     <meta name="author" content="Frijol Mágico" />
     <meta name="audience" content="all" />
@@ -24,6 +24,23 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
     <link rel="icon" type="image/png" href={SITE_INFO.logo} />
     <meta name="generator" content={Astro.generator} />
     <title>{`Frijol Mágico | ${title}`}</title>
+    <meta name="description" content={description} />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://elfrijolmagico.cl" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`Frijol Mágico | ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={SITE_INFO.OGImage} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="elfrijolmagico.cl" />
+    <meta property="twitter:url" content="https://elfrijolmagico.cl" />
+    <meta name="twitter:title" content={`Frijol Mágico | ${title}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={SITE_INFO.OGImage} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,32 +48,48 @@ const { title = SITE_INFO.title, description = SITE_INFO.description } =
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+      href="https://fonts.cdnfonts.com/css/sheiron-rodina"
       rel="stylesheet"
     />
+    <link href="https://fonts.cdnfonts.com/css/kochi" rel="stylesheet" />
+
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <ViewTransitions />
   </head>
   <body
     class:list={[
-      "font-montserrat bg-p-blue relative h-fit w-full min-h-[100dvh] text-white",
-      " after:content-[url(/ramaRight.png)] after:fixed after:top-[-34rem] sm:after:top-[-24rem] lg:after:top-[-38rem] after:-z-10 after:scale-[0.6] md:after:scale-[0.8] lg:after:scale-90 after:right-[-30rem] lg:after:right-[-26rem] xl:after:right-[-20rem]",
-      " before:content-[url(/ramaLeft.png)] before:fixed before:top-[-26rem] sm:before:top-[-24rem] lg:before:top-[-38rem] before:-z-10 before:scale-[0.6] md:before:scale-[0.8] lg:before:scale-90 before:left-[-30rem] lg:before:left-[-26rem] xl:before:left-[-20rem]",
+      'font-sans bg-p-blue relative h-fit w-full min-h-[100dvh] text-white',
+      '',
+      'before:content-[""] sm:before:content-[url(/rama.png)] before:fixed before:h-full before:-left-[28rem] lg:before:-left-[24rem] before:-top-80 before:-z-10',
+      '',
+      'after:content-[url(/rama.png)] after:fixed after:h-full after:-right-[28rem] lg:after:-right-[24rem] after:-top-80 sm:after:-top-80 after:-z-20 after:-scale-x-100',
     ]}
   >
     <Header />
     <slot />
     <Footer />
+    <style is:global>
+      :root {
+        --p-blue: #0d2a66;
+        --s-pink: #fa2678;
+        --s-yellow: #ffcd69;
+      }
+
+      @font-face {
+        font-family: Thickedy;
+        font-style: normal;
+        font-display: swap;
+        src: url(/fonts/ThickedyQuick.woff2) format('woff2');
+      }
+
+      body {
+        background-image: url(/background.webp);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-blend-mode: color;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  :root {
-    --p-blue: #0d2a66;
-    --s-pink: #fa2678;
-    --s-yellow: #ffcd69;
-  }
-
-  @font-face {
-    font-family: Thickedy;
-    src: url(/fonts/ThickedyQuick.woff2);
-  }
-</style>

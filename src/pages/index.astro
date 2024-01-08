@@ -1,25 +1,30 @@
 ---
-import PodcastCard from "@components/PodcastCard.astro";
-import Section from "@components/Section.astro";
-import Slider from "@components/Slider.astro";
-import Title from "@components/Title.astro";
-import Layout from "@layouts/Layout.astro";
-import { podcastData } from "@data/podcasts.data";
-
-const lastPodcast = podcastData[podcastData.length - 1];
+import Layout from '@layouts/Layout.astro'
+import FestivalSection from '@components/organisms/FestivalSection.astro'
+import IlustradorxsSection from '@components/organisms/IlustradorxsSection.astro'
+import Festival2021Section from '@components/organisms/Festival2021Section.astro'
+import PodcastsSection from '@components/organisms/PodcastsSection.astro'
+import Heading1 from '@components/atoms/Heading1.astro'
+import Main from '@layouts/Main.astro'
+import Logo from '@components/icons/Logo.astro'
+import Article from '@layouts/Article.astro'
 ---
 
 <Layout>
-  <main class="w-full h-full pt-4 pb-40">
-    <Title />
-    <article class="space-y-20 sm:space-y-32" aria-label="Secciones">
-      <Slider slot="slider" />
-      <!-- <Section name="Festivales" title="Próximo Festival">
-        <div class="bg-white w-full h-60 rounded-2xl shadow"></div>
-      </Section> -->
-      <Section name="Podcasts" title="Último Podcast">
-        <PodcastCard podcastId={lastPodcast.id} />
-      </Section>
-    </article>
-  </main>
+  <Main>
+    <header class="relative w-fit flex items-center justify-center mx-auto">
+      <Logo
+        class="w-32 -mr-10 sm:w-48 sm:-mr-14 md:w-64 md:-mr-20 lg:w-[22rem] lg:-mr-28 xl:w-[24rem] mb-6 sm:mb-10"
+      />
+      <Heading1 beforeTitle="Asosiación Cultural" class="text-end max-w-3xl">
+        Frijol Mágico
+      </Heading1>
+    </header>
+    <Article>
+      <IlustradorxsSection />
+      <FestivalSection />
+      <PodcastsSection />
+      <Festival2021Section />
+    </Article>
+  </Main>
 </Layout>

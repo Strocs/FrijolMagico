@@ -1,0 +1,32 @@
+---
+interface Props {
+  class?: string
+  size?: 'sm' | 'base'
+  beforeTitle?: string
+}
+
+const { class: customClass, size = 'base', beforeTitle } = Astro.props
+
+const before = !!beforeTitle ? `"${beforeTitle}"` : ''
+
+const defaultSize = {
+  base: 'text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[12rem] before:text-base md:before:text-2xl  lg:before:text-4xl w-min',
+  sm: 'before:text-sm md:before:text-lg lg:before:text-xl before:-top-6 text-[2.75rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] w-fit whitespace-nowrap',
+}
+---
+
+<h1
+  class:list={[
+    customClass,
+    defaultSize[size],
+    'py-8 -mt-2 mx-auto font-KOCHI font-black bg-top [background-size:180%] bg-clip-text text-transparent bg-[url(/m5.webp)] [text-shadow:0_0_0_#ffcd6930] relative before:text-white before:font-Sheiron before:font-medium before:tracking-wider before:right-0 before:absolute before:top-0 sm:before:-top-4 lg:before:-top-8 ',
+  ]}
+>
+  <slot />
+</h1>
+
+<style define:vars={{ before }}>
+  h1:before {
+    content: var(--before);
+  }
+</style>

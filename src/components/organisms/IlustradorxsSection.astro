@@ -1,0 +1,35 @@
+---
+import SliderCard from '../molecules/SliderCard.astro'
+import { ARTISTS_INFO } from '@data/ARTISTS_INFO'
+---
+
+<section
+  class="swiper w-full h-full touch-pan-y mx-auto space-y-8 relative overflow-hidden block"
+>
+  <ul class="swiper-wrapper relative w-full h-full flex transition-transform">
+    {
+      ARTISTS_INFO.map(({ artist, id }) => {
+        return <SliderCard artist={artist} id={id} />
+      })
+    }
+  </ul>
+</section>
+
+<script>
+  import Swiper from 'swiper/bundle'
+
+  const loadSlider = () => {
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    })
+  }
+
+  document.addEventListener('astro:page-load', loadSlider)
+  if (!document.startViewTransition) loadSlider()
+</script>
