@@ -1,14 +1,24 @@
 ---
-interface Props {
-  Element?: 'div' | 'a' | 'li'
+import type { HTMLAttributes, HTMLTag } from 'astro/types'
+
+interface Props extends HTMLAttributes<HTMLTag> {
+  tag?: HTMLTag
   class?: string
   href?: string
+  id?: string
+  withHover?: boolean
 }
 
-const { class: customClass, Element = 'div', href } = Astro.props
+const {
+  class: customClass,
+  tag: Element = 'div',
+  withHover,
+  href,
+  id,
+} = Astro.props
 
-const linkHover =
-  Element === 'a'
+const hover =
+  withHover || Element === 'a'
     ? 'hover:-translate-x-2 hover:translate-y-2 hover:shadow-none hover:shadow-s-pink transition-[transform_shadow] duration-150'
     : ''
 ---
@@ -16,10 +26,11 @@ const linkHover =
 <Element
   class:list={[
     'relative block shadow rounded-2xl overflow-hidden',
-    linkHover,
+    hover,
     customClass,
   ]}
   href={href}
+  id={id}
 >
   <slot />
 </Element>
