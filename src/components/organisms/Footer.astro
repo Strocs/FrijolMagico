@@ -3,20 +3,21 @@ import Nav from '../molecules/Nav.astro'
 import Facebook from '../icons/Facebook.astro'
 import Instagram from '../icons/Instagram.astro'
 import { SITE_INFO } from '@data/SITE_INFO'
-import Logo from '@components/icons/Logo.astro'
 import Heading1 from '@components/atoms/Heading1.astro'
 ---
 
 <footer
-  class="font-sans text-sm w-full h-[84vh] relative after:content-[''] overflow-hidden after:w-[300%] lg:after:w-full after:h-full after:absolute after:bottom-0 after:left-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
+  class="font-sans text-sm w-full h-[90vh] sm:h-[84vh] relative after:content-[''] overflow-hidden after:w-[300%] lg:after:w-full after:h-full after:absolute after:bottom-0 after:left-0 after:bg-p-blue after:bg-cover after:bg-bottom after:-z-20"
 >
-  <div class="grid content-center h-full px-4">
-    <Heading1 size="sm">Frijol Mágico</Heading1>
+  <div class="grid content-center h-full px-8 gap-4 sm:gap-10">
+    <Heading1 size="sm" class="text-end max-w-3xl -mb-5">
+      Frijol Mágico
+    </Heading1>
     <div
       class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-10"
     >
       <div
-        class="flex flex-col sm:flex-row w-fit h-fit items-center justify-center gap-2 sm:gap-4 sm:justify-end"
+        class="flex flex-col md:flex-row w-fit h-fit items-center justify-center gap-2 sm:gap-4 sm:justify-end"
       >
         <Nav for="footer" />
         •
@@ -35,18 +36,15 @@ import Heading1 from '@components/atoms/Heading1.astro'
           >
         </div>
       </div>
-      <p class="max-w-md text-base 2xl:text-lg italic font-light">
-        {SITE_INFO.description}
-      </p>
-      <Logo
-        size="xl"
-        class="mx-auto hidden tall:block hover:scale-110 hover:rotate-3 transition-transform duration-150"
-      />
     </div>
-    <p class="absolute bottom-4 left-0 right-0 w-full text-center px-4">
-      {SITE_INFO.footer} • Hecho con ❤ por <a
-        href="https://instagram.com/_strocs"
-        target="_blank">Strocs</a
+    <p
+      class="max-w-[50ch] text-sm sm:text-base xl:text-lg italic font-light text-center mx-auto"
+    >
+      {SITE_INFO.description}
+    </p>
+    <p class="absolute bottom-2 left-0 right-0 w-full text-center px-8">
+      Hecho con ❤ por <a href="https://instagram.com/_strocs" target="_blank"
+        >Strocs</a
       >
     </p>
   </div>
