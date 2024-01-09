@@ -10,7 +10,7 @@ export default {
         's-yellow': '#ffcd69',
       },
       boxShadow: {
-        DEFAULT: '-0.6rem 0.6rem 0 0',
+        DEFAULT: '-0.5rem 0.5rem 0 0',
         hover: '-0.3rem 0.3rem 0 0',
       },
       boxShadowColor: {

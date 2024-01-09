@@ -17,10 +17,10 @@ import Main from '@layouts/Main.astro'
     <h2 class="text-center text-lg sm:text-2xl px-4 sm:px-8 max-w-xl">
       {PODCAST_INFO.description}
     </h2>
-    <Article>
+    <Article class="w-full">
       {
         PODCASTS_LIST.map(({ id, artist, description }) => (
-          <section class="max-w-5xl w-full pl-6 pr-4 sm:pl-10 sm:pr-8 flex gap-6 flex-col">
+          <section class="max-w-5xl w-full mx-auto flex gap-6 flex-col  px-4 sm:px-8">
             <SectionTitle
               withLink={{
                 text: 'Escucha en Spotify',
@@ -30,10 +30,13 @@ import Main from '@layouts/Main.astro'
             >
               {artist}
               <div class="flex flex-col gap-4 max-w-xl text-white mt-2">
-                <Paragraph text={description} class="text-base font-sans" />
+                <Paragraph
+                  text={description}
+                  class="text-base font-sans w-full max-w-[60ch] text-pretty"
+                />
               </div>
             </SectionTitle>
-            <PodcastCard id={id} />
+            <PodcastCard id={id} class="ml-2" />
           </section>
         ))
       }

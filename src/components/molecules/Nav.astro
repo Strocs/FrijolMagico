@@ -25,7 +25,7 @@ const isFooter = on === 'footer'
       'items-center text-lg font-extralight shrink-0 w-full xl:w-fit',
       'peer-checked:flex peer-checked:absolute peer-checked:bg-p-blue peer-checked:bg-opacity-50 peer-checked:backdrop-blur-xl peer-checked:z-40 peer-checked:inset-0 peer-checked:flex-col peer-checked:items-center peer-checked:pt-40 peer-checked:text-2xl peer-checked:uppercase peer-checked:font-Sheiron',
       isFooter
-        ? 'flex flex-col sm:flex-row gap-3'
+        ? 'flex flex-col md:flex-row gap-3'
         : 'xl:flex hidden gap-4 h-screen xl:h-fit',
     ]}
   >
@@ -40,12 +40,17 @@ const isFooter = on === 'footer'
 </nav>
 
 <script>
-  const toggleBtn = document.querySelector(
-    '#toggle-nav-btn'
-  ) as HTMLInputElement
-  const body = document.querySelector('body') as HTMLBodyElement
-  toggleBtn?.addEventListener('change', () => {
-    if (toggleBtn.checked) return (body.style.overflow = 'hidden')
-    body.style.overflow = ''
-  })
+  const loadScript = () => {
+    const toggleBtn = document.querySelector(
+      '#toggle-nav-btn'
+    ) as HTMLInputElement
+    const body = document.querySelector('body') as HTMLBodyElement
+    toggleBtn?.addEventListener('change', () => {
+      if (toggleBtn.checked) return (body.style.overflow = 'hidden')
+      body.style.overflow = ''
+    })
+  }
+
+  document.addEventListener('astro:page-load', loadScript)
+  if (!document.startViewTransition) loadScript()
 </script>

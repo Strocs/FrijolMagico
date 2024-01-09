@@ -1,18 +1,23 @@
 ---
 import Logo from '@components/icons/Logo.astro'
 import Nav from '../molecules/Nav.astro'
+
+const withAnimation = Astro.url.pathname === '/'
 ---
 
 <header
   aria-label="Frijol Mágico"
-  class="w-full flex justify-center fixed z-50 h-20 before:content-[''] before:w-[300%] lg:before:w-full before:h-full before:absolute before:top-0 before:bg-p-blue before:-z-20"
+  class="w-full flex justify-center fixed z-50 h-20 before:content-[''] before:w-[300%] lg:before:w-full before:h-full before:absolute before:top-0 before:bg-p-blue/80 before:backdrop-blur-md before:-z-20"
 >
   <div
-    class="flex justify-between bg-opacity-80 items-center w-full max-w-[90rem] h-fit py-3 px-4 sm:px-8 rounded-full transition-[background] duration-150"
+    class="flex justify-between bg-opacity-80 items-center w-full max-w-[69rem] h-fit py-3 px-4 sm:px-8 rounded-full transition-[background] duration-150"
   >
     <a
       href="/"
-      class="hover:scale-110 hover:rotate-3 transition-transform duration-150 relative z-50"
+      class:list={[
+        'hover:scale-110 hover:rotate-3 transition-transform duration-150 relative z-50',
+        withAnimation ? 'opacity-0' : 'opacity-100',
+      ]}
     >
       <p class="sr-only">Ir a la página principal</p>
       <Logo /></a
@@ -22,6 +27,31 @@ import Nav from '../molecules/Nav.astro'
 </header>
 
 <style>
+  header::before {
+    opacity: 0;
+    animation: fade linear both;
+    animation-timeline: scroll();
+    animation-range: 0 50vh;
+  }
+
+  a {
+    animation: show linear both;
+    animation-timeline: scroll();
+    animation-range: 0 50vh;
+  }
+
+  @keyframes fade {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes show {
+    to {
+      opacity: 1;
+    }
+  }
+
   header::before {
     clip-path: polygon(
       100% 0%,
