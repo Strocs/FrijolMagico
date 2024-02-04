@@ -1,1 +1,16 @@
-export const NAV_INFO = [{ title: 'Inicio', path: '/' }, { title: 'Convocatoria Ilustración', path: '/festivales/XIII/convocatoria-ilustracion' }, { title: 'Convocatoria Música', path: '/festivales/XIII/convocatoria-musica' }, { title: 'Podcasts', path: '/podcasts' }]
+export const NAV_INFO = [
+  { title: 'Inicio', path: '/' },
+  {
+    title: 'Festival 2024',
+    path: '/festivales/XIII',
+  },
+  {
+    title: 'Ilustradorxs',
+    path: '/ilustradorxs',
+  },
+  {
+    title: 'Talleres',
+    path: '/talleres',
+  },
+  { title: 'Podcasts', path: '/podcasts' },
+]

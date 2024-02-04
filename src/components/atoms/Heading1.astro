@@ -10,7 +10,7 @@ const { class: customClass, size = 'base', beforeTitle } = Astro.props
 const before = !!beforeTitle ? `"${beforeTitle}"` : ''
 
 const defaultSize = {
-  base: 'text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[12rem] before:text-base md:before:text-2xl  lg:before:text-4xl w-min',
+  base: 'text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[12rem] before:text-base md:before:text-2xl lg:before:text-4xl w-min',
   sm: 'text-6xl sm:text-8xl md:text-[9rem] xl:text-[10rem] before:text-base md:before:text-2xl  lg:before:text-4xl w-min',
 }
 ---
@@ -19,7 +19,7 @@ const defaultSize = {
   class:list={[
     customClass,
     defaultSize[size],
-    'py-8 -mt-2 mx-auto font-KOCHI font-black bg-top [background-size:180%] bg-clip-text text-transparent bg-[url(/m5.webp)] [text-shadow:0_0_0_#ffcd6930] relative before:text-white before:font-Sheiron before:font-medium before:tracking-wider before:right-0 before:absolute before:top-0 sm:before:-top-4 lg:before:-top-8 ',
+    'py-8 -mt-2 mx-auto font-KOCHI font-black bg-top [background-size:180%] bg-clip-text text-transparent bg-[url(/m5.webp)] [text-shadow:0_0_0_#ffcd6930] relative before:text-white before:font-Sheiron before:font-medium before:tracking-wider before:right-0 before:absolute before:top-0 sm:before:-top-4 lg:before:-top-8',
   ]}
 >
   <slot />
