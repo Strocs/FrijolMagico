@@ -7,13 +7,13 @@ import { SITE_INFO } from '@data/SITE_INFO'
 interface Props {
   title?: string
   description?: string
-  background?: 'default' | string
+  bgColor?: 'default' | string
 }
 
 const {
   title = SITE_INFO.title,
   description = SITE_INFO.description,
-  background = 'default',
+  bgColor = 'default',
 } = Astro.props
 ---
 
@@ -62,9 +62,9 @@ const {
   </head>
   <body
     class:list={[
-      background === 'default'
+      bgColor === 'default'
         ? 'bg-p-blue [background-image:url(/background.webp)]'
-        : 'bg-s-yellow',
+        : bgColor,
       'font-sans relative h-fit w-full min-h-[100dvh] text-white',
       '',
       'before:content-[""] sm:before:content-[url(/rama.png)] before:fixed before:h-full before:-left-[28rem] lg:before:-left-[24rem] before:-top-80 before:-z-10',

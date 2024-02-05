@@ -7,15 +7,18 @@ import Layout from '@layouts/Layout.astro'
 import Main from '@layouts/Main.astro'
 ---
 
-<Layout background="default">
+<Layout bgColor="bg-[#000326]">
   <Main>
-    <Heading1 beforeTitle="Participantes" class="mb-20 text-right">
-      Frijol Mágico 2024
+    <Heading1
+      beforeTitle="Participantes"
+      class="mb-20 text-right text-[#f2368d]"
+    >
+      Frijol Mágico <span class="text-[#f2e527]">2024</span>
     </Heading1>
     {
       Object.keys(PARTICIPANTS).map((section) => (
         <section class="h-fit w-full grid gap-4 max-w-5xl mx-auto px-4 sm:px-8">
-          <h2 class="text-center text-5xl lg:text-[10rem] font-Sheiron text-s-pink">
+          <h2 class="text-center text-5xl lg:text-[10rem] font-Sheiron text-[#f2e527]">
             {section.replaceAll('-', ' ')}
           </h2>
           <div class:list={['pl-2 w-full relative']}>
@@ -35,7 +38,7 @@ import Main from '@layouts/Main.astro'
                     {index !== 0 && '•'}
                     <a
                       target="_blank"
-                      class="inline-block hover:scale-105 duration-150 hover:text-s-yellow"
+                      class="inline-block hover:scale-105 duration-150 hover:text-[#4cd201]"
                       href={link}
                     >
                       {nick}
@@ -54,7 +57,7 @@ import Main from '@layouts/Main.astro'
       </Card>
       <p class="mt-4">
         Afiche Realizado por <a
-          class="text-s-pink font-bold"
+          class="text-[#f2e527] font-bold"
           href="https://www.instagram.com/manucontinta/">manucontinta</a
         >
       </p>
