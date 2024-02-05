@@ -5,12 +5,12 @@
   playsinline
   id="main-video"
   preload="metadata"
-  class="video absolute hidden h-[120vh] object-cover w-full top-0 bottom-0 -z-20 opacity-50 animate-duration-[2s] animate-ease-in-out"
+  class="video absolute animate-fade-down h-[120vh] object-cover w-full top-0 bottom-0 -z-20 opacity-50 animate-duration-[2s] animate-ease-in-out"
 >
   <source src="/FestivalFrijolMagico.webm" type="video/webm" />
   <source src="/FestivalFrijolMagico.mp4" type="video/mp4" />
 </video>
-<video
+<!-- <video
   src="/FestivalFrijolMagico.webm"
   muted
   autoplay
@@ -19,9 +19,9 @@
   class="video absolute hidden bottom-0 -z-50 top-20 h-[120vh] object-cover w-full blur-[10rem] opacity-80 animate-duration-[2s] animate-ease-in-out"
   ><source src="/FestivalFrijolMagico.webm" type="video/webm" />
   <source src="/FestivalFrijolMagico.mp4" type="video/mp4" /></video
->
+> -->
 
-<script>
+<!-- <script>
   document.addEventListener('astro:page-load', () => {
     const firstVideo = document.querySelector('#main-video') as HTMLMediaElement
 
@@ -47,7 +47,7 @@
       })
     }
   })
-</script>
+</script> -->
 
 <style>
   video:first-child {
