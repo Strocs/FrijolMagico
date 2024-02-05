@@ -175,7 +175,7 @@ export const PARTICIPANTS = {
         link: 'https://Minamore.cl'
       },
       {
-        nick: 'Sr Tonks',
+        nick: 'Sra Tonks',
         link: 'https://www.instagram.com/sratonks/'
       },
   ],
