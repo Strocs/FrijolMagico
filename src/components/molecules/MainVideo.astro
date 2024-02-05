@@ -1,0 +1,110 @@
+<video
+  muted
+  autoplay
+  loop
+  playsinline
+  id="main-video"
+  preload="metadata"
+  class="video absolute animate-fade-down h-[120vh] object-cover w-full top-0 bottom-0 -z-20 opacity-50 animate-duration-[2s] animate-ease-in-out"
+>
+  <source src="/FestivalFrijolMagico.webm" type="video/webm" />
+  <source src="/FestivalFrijolMagico.mp4" type="video/mp4" />
+</video>
+<!-- <video
+  src="/FestivalFrijolMagico.webm"
+  muted
+  autoplay
+  loop
+  preload="metadata"
+  class="video absolute hidden bottom-0 -z-50 top-20 h-[120vh] object-cover w-full blur-[10rem] opacity-80 animate-duration-[2s] animate-ease-in-out"
+  ><source src="/FestivalFrijolMagico.webm" type="video/webm" />
+  <source src="/FestivalFrijolMagico.mp4" type="video/mp4" /></video
+> -->
+
+<!-- <script>
+  document.addEventListener('astro:page-load', () => {
+    const firstVideo = document.querySelector('#main-video') as HTMLMediaElement
+
+    if (firstVideo) {
+      const videos = document.querySelectorAll(
+        '.video'
+      ) as NodeListOf<HTMLMediaElement>
+
+      if (firstVideo.readyState >= 3) {
+        videos.forEach((videoEl) => {
+          videoEl.classList.remove('hidden')
+          videoEl.classList.add('animate-fade-down')
+        })
+
+        return
+      }
+
+      firstVideo.addEventListener('loadeddata', () => {
+        videos.forEach((videoEl) => {
+          videoEl.classList.remove('hidden')
+          videoEl.classList.add('animate-fade-down')
+        })
+      })
+    }
+  })
+</script> -->
+
+<style>
+  video:first-child {
+    clip-path: polygon(
+      100% 0%,
+      0% 0%,
+      0% 93.33%,
+      2% 93.29%,
+      4% 93.18%,
+      6% 92.99%,
+      8% 92.73%,
+      10% 92.42%,
+      12% 92.06%,
+      14% 91.66%,
+      16% 91.25%,
+      18% 90.83%,
+      20% 90.42%,
+      22% 90.04%,
+      24% 89.69%,
+      26% 89.4%,
+      28% 89.16%,
+      30% 89%,
+      32% 88.91%,
+      34% 88.89%,
+      36% 88.96%,
+      38% 89.1%,
+      40% 89.31%,
+      42% 89.59%,
+      44% 89.92%,
+      46% 90.29%,
+      48% 90.69%,
+      50% 91.11%,
+      52% 91.53%,
+      54% 91.93%,
+      56% 92.3%,
+      58% 92.63%,
+      60% 92.91%,
+      62% 93.12%,
+      64% 93.26%,
+      66% 93.33%,
+      68% 93.32%,
+      70% 93.22%,
+      72% 93.06%,
+      74% 92.82%,
+      76% 92.53%,
+      78% 92.18%,
+      80% 91.8%,
+      82% 91.39%,
+      84% 90.97%,
+      86% 90.56%,
+      88% 90.16%,
+      90% 89.8%,
+      92% 89.49%,
+      94% 89.23%,
+      96% 89.04%,
+      98% 88.93%,
+      100% 88.89%
+    );
+  }
+</style>
