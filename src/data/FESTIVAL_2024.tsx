@@ -17,7 +17,7 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/anima.red  '
     },
     {
-      nick: 'Assless7u7',
+      nick: 'Addless7u7',
       link: 'https://www.instagram.com/addless7u7'
     },
     {
@@ -133,7 +133,7 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/shobian.art/'
     },
     {
-      nick: 'Siniestro',
+      nick: 'Javo_Siniestro',
       link: 'https://www.instagram.com/javo_siniestro/'
     },
     {
