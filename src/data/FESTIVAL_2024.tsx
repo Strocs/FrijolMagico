@@ -41,6 +41,10 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/_cleib',
     },
     {
+      nick: 'Collarcitos',
+      link: 'http://www.instagram.com/collarcitosrv',
+    },
+    {
       nick: 'Edaliz',
       link: 'https://www.instagram.com/edaliz.cl?igsh=MXN3MGZybnNsaTZn&utm_source=qr',
     },
@@ -77,12 +81,20 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/javo_siniestro/',
     },
     {
+      nick: 'Kunturu y Yakana',
+      link: 'https://www.instagram.com/kunturi_y_yakana?igsh=MWFrbW9seTU2cGRiOA==',
+    },
+    {
       nick: 'Lain',
       link: 'https://www.instagram.com/lainfroufrou?igsh=cDR5eHpyN2g3NGlj',
     },
     {
       nick: 'Leeneal',
       link: 'https://www.instagram.com/leeneal__',
+    },
+    {
+      nick: 'Manucontinta',
+      link: 'https://www.instagram.com/manucontinta/',
     },
     {
       nick: 'Monhu',
@@ -128,7 +140,6 @@ export const PARTICIPANTS = {
       nick: 'Tachipin',
       link: 'https://www.instagram.com/tachipinillustrations/',
     },
-
     {
       nick: 'Tierramarga',
       link: 'https://www.instagram.com/_tierramarga/',
