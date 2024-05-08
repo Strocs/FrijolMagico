@@ -5,6 +5,10 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/abejasnegras.tt/',
     },
     {
+      nick: 'Addless7u7',
+      link: 'https://www.instagram.com/addless7u7',
+    },
+    {
       nick: 'Adolfo Pintor',
       link: 'https://www.instagram.com/adolfo.pintor',
     },
@@ -17,24 +21,20 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/anima.red  ',
     },
     {
-      nick: 'Addless7u7',
-      link: 'https://www.instagram.com/addless7u7',
+      nick: 'Bazar Plantasia',
+      link: 'https://www.instagram.com/bazarplantasia?igsh=ZjNoaHl5OTZlYXd0',
     },
     {
-      nick: 'Blue Stray Catt',
-      link: 'https://www.instagram.com/blue_straycatt_art/?hl=es',
+      nick: 'Bel Ilustravel',
+      link: 'https://www.instagram.com/bel.ilustravel/',
     },
     {
       nick: 'Camellia Liz',
       link: 'https://www.instagram.com/camellia.liz',
     },
     {
-      nick: 'Camila Guamán',
-      link: 'https://www.instagram.com/camilaguaman.ilustracion',
-    },
-    {
-      nick: 'Chilensisboy',
-      link: 'https://www.instagram.com/chilensisboy/',
+      nick: 'Canela qq',
+      link: 'https://www.instagram.com/canela_qq1?igsh=MXdjbWRxOGRmaWZiYQ==',
     },
     {
       nick: 'Cleib',
@@ -45,12 +45,12 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/edaliz.cl?igsh=MXN3MGZybnNsaTZn&utm_source=qr',
     },
     {
-      nick: 'Elale',
-      link: 'https://www.instagram.com/elale_ilustrador/',
-    },
-    {
       nick: 'Fran Koneko',
       link: 'https://www.instagram.com/fran.koneko?igsh=dGM4bzV3MDluZGth',
+    },
+    {
+      nick: 'Fluchinick',
+      link: 'https://www.instagram.com/fluchinick/',
     },
     {
       nick: 'Grabados Aleph',
@@ -73,23 +73,23 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/javivis00?igsh=MXJsdzBweWd3MnV3bg==',
     },
     {
-      nick: 'Bel Ilustravel',
-      link: 'https://www.instagram.com/bel.ilustravel/',
+      nick: 'Javo_Siniestro',
+      link: 'https://www.instagram.com/javo_siniestro/',
+    },
+    {
+      nick: 'Lain',
+      link: 'https://www.instagram.com/lainfroufrou?igsh=cDR5eHpyN2g3NGlj',
     },
     {
       nick: 'Leeneal',
       link: 'https://www.instagram.com/leeneal__',
     },
     {
-      nick: 'Valeria Suarez',
-      link: 'https://www.instagram.com/osamentaseneljardin?igsh=dDVpMnFrdHg3ZXFm',
+      nick: 'Monhu',
+      link: 'https://www.instagram.com/monxde_uwu?igsh=MjV1YXkyemJkb2Rq',
     },
     {
-      nick: 'Negrotham',
-      link: 'https://www.instagram.com/negrotham/',
-    },
-    {
-      nick: 'NIño Pan',
+      nick: 'Niño Pan',
       link: 'https://www.instagram.com/elninopan',
     },
     {
@@ -97,20 +97,12 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/noezzal/',
     },
     {
-      nick: 'Pancho Valdivia',
-      link: 'https://www.instagram.com/pancho_valdivia/',
+      nick: 'Pablo Fernandes Diseño',
+      link: 'www.instagram.com/pablofernandez.diseno',
     },
     {
       nick: 'Paperpupy',
       link: 'https://www.instagram.com/paperpupy?igsh=MTh6ZXgxamU3MGxi',
-    },
-    {
-      nick: 'Pez de Otoño',
-      link: 'https://pezdeotono.carrd.co',
-    },
-    {
-      nick: 'Plepi',
-      link: 'https://www.instagram.com/__plepi/',
     },
     {
       nick: 'Raices',
@@ -121,10 +113,6 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/rosuka64/',
     },
     {
-      nick: 'Sakanita',
-      link: 'https://www.instagram.com/_sakanita_/',
-    },
-    {
       nick: 'Saturno',
       link: 'https://www.instagram.com/sa_tu_rno?igsh=MW0xMHZlc3M1aW5pbw==',
     },
@@ -133,34 +121,43 @@ export const PARTICIPANTS = {
       link: 'https://www.instagram.com/shobian.art/',
     },
     {
-      nick: 'Javo_Siniestro',
-      link: 'https://www.instagram.com/javo_siniestro/',
+      nick: 'Skulcat.tattoos',
+      link: 'https://www.instagram.com/skullcat.tattoos?igsh=bW96MTR3a2l0aXV4',
     },
+    {
+      nick: 'Tachipin',
+      link: 'https://www.instagram.com/tachipinillustrations/',
+    },
+
     {
       nick: 'Tierramarga',
       link: 'https://www.instagram.com/_tierramarga/',
     },
     {
-      nick: 'Toraauwu',
-      link: 'https://www.Instagram.com/toraauwu/',
+      nick: 'Valeria Suarez',
+      link: 'https://www.instagram.com/osamentaseneljardin?igsh=dDVpMnFrdHg3ZXFm',
     },
     {
       nick: 'ViliZ VZ',
       link: 'https://www.instagram.com/viliz_vz/',
     },
     {
-      nick: 'Vlad Fausto A.',
-      link: 'https://www.instagram.com/vladfaustoaoficial/?hl=es',
-    },
-    {
-      nick: 'Yeco',
-      link: 'https://www.Instagram.com/_yeco',
+      nick: 'Yucenkio',
+      link: 'https://www.instagram.com/yucenkio?igsh=YXpyYnhoemh5NDlr',
     },
   ],
   Manualidades: [
     {
       nick: 'De Cordillera',
       link: 'https://www.instagram.cl/decordillera',
+    },
+    {
+      nick: 'Doña Jacinta',
+      link: 'https://www.instagram.com/donajaciinta?igsh=MXBzaHAzMjBxcHZ6Zg==',
+    },
+    {
+      nick: 'Estudio alza el vuelo',
+      link: 'https://www.instagram.com/estudioalzaelvuelo',
     },
     {
       nick: 'Innuerespatches',
@@ -183,10 +180,6 @@ export const PARTICIPANTS = {
     {
       nick: 'Carvajal Carvajal',
       link: 'https://www.instagram.com/carvajalilustraciones/',
-    },
-    {
-      nick: 'E Vincent',
-      link: 'https://www.instagram.com/e.vincent.v/',
     },
     {
       nick: 'Futuro Comics',
