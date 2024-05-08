@@ -207,14 +207,6 @@ export const PARTICIPANTS = {
   ],
   Música: [
     {
-      nick: 'Niños del Cerro',
-      link: 'https://www.instagram.com/ninosdelcerro/',
-    },
-    {
-      nick: 'Oye, Elizabeth',
-      link: 'https://www.instagram.com/oyeelizabeth_/',
-    },
-    {
       nick: 'LILLiA',
       link: 'https://www.instagram.com/lillia.cl/',
     },
