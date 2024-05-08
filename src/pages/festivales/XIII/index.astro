@@ -25,16 +25,7 @@ import Main from '@layouts/Main.astro'
             <div class="flex gap-2 flex-wrap w-full mb-20 sm:mb-40 items-center justify-center">
               {PARTICIPANTS[section].map(
                 ({ nick, link }: { nick: string; link: string }, index) => (
-                  <p
-                    class:list={[
-                      'font-galindo',
-                      section === 'Música'
-                        ? index === 0 || index === 1
-                          ? 'text-3xl lg:text-6xl'
-                          : 'text-2xl lg:text-5xl'
-                        : 'text-2xl lg:text-5xl',
-                    ]}
-                  >
+                  <p class:list={['font-galindo', 'text-2xl lg:text-5xl']}>
                     {index !== 0 && '•'}
                     <a
                       target="_blank"
