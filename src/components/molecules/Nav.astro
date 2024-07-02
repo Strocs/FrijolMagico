@@ -1,5 +1,4 @@
 ---
-import { NAV_INFO } from '@data/NAV_INFO'
 import HamburguerButton from '../atoms/HamburguerButton.astro'
 
 interface Props {
@@ -29,13 +28,6 @@ const isFooter = on === 'footer'
         : 'xl:flex hidden gap-4 h-screen xl:h-fit',
     ]}
   >
-    {
-      NAV_INFO.map(({ title, path }) => (
-        <a class="hover:scale-110" href={path}>
-          {title}
-        </a>
-      ))
-    }
   </div>
 </nav>
 

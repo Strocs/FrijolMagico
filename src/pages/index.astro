@@ -1,25 +1,14 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import FestivalSection from '@components/organisms/FestivalSection.astro'
-import IlustradorxsSection from '@components/organisms/IlustradorxsSection.astro'
-import Festival2021Section from '@components/organisms/Festival2021Section.astro'
-import PodcastsSection from '@components/organisms/PodcastsSection.astro'
 import Heading1 from '@components/atoms/Heading1.astro'
 import Main from '@layouts/Main.astro'
-import Logo from '@components/icons/Logo.astro'
-import Article from '@layouts/Article.astro'
-import MainVideo from '@components/molecules/MainVideo.astro'
 ---
 
 <Layout>
   <Main class="!pt-0">
-    <MainVideo />
     <header
       class="relative w-fit flex items-center justify-center mx-auto h-screen"
     >
-      <Logo
-        class="w-32 -mr-10 sm:w-48 sm:-mr-14 md:w-64 md:-mr-20 lg:w-[22rem] lg:-mr-28 xl:w-[24rem] mb-6 sm:mb-10"
-      />
       <Heading1
         beforeTitle="Asociación Cultural"
         class="text-end max-w-3xl text-white shadow-white"
@@ -27,11 +16,5 @@ import MainVideo from '@components/molecules/MainVideo.astro'
         Frijol Mágico
       </Heading1>
     </header>
-    <Article class="mt-40">
-      <FestivalSection />
-      <PodcastsSection />
-      <Festival2021Section />
-      <IlustradorxsSection />
-    </Article>
   </Main>
 </Layout>

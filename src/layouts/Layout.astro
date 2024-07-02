@@ -2,7 +2,6 @@
 import { ViewTransitions } from 'astro:transitions'
 import Footer from '@components/organisms/Footer.astro'
 import Header from '@components/organisms/Header.astro'
-import { SITE_INFO } from '@data/SITE_INFO'
 
 interface Props {
   title?: string
@@ -10,11 +9,7 @@ interface Props {
   bgColor?: 'default' | string
 }
 
-const {
-  title = SITE_INFO.title,
-  description = SITE_INFO.description,
-  bgColor = 'default',
-} = Astro.props
+const { title = '', description = '', bgColor = 'default' } = Astro.props
 ---
 
 <!doctype html>
@@ -25,7 +20,7 @@ const {
     <meta name="author" content="Frijol Mágico" />
     <meta name="audience" content="all" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href={SITE_INFO.logo} />
+    <link rel="icon" type="image/png" />
     <meta name="generator" content={Astro.generator} />
     <title>{`Frijol Mágico | ${title}`}</title>
     <meta name="description" content={description} />
@@ -35,7 +30,7 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`Frijol Mágico | ${title}`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={SITE_INFO.OGImage} />
+    <meta property="og:image" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -43,7 +38,7 @@ const {
     <meta property="twitter:url" content="https://elfrijolmagico.cl" />
     <meta name="twitter:title" content={`Frijol Mágico | ${title}`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={SITE_INFO.OGImage} />
+    <meta name="twitter:image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
