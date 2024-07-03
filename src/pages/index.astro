@@ -1,20 +1,130 @@
 ---
+import Facebook from '@components/icons/Facebook.astro'
+import Instagram from '@components/icons/Instagram.astro'
+import Spotify from '@components/icons/Spotify.astro'
+import GridCard from '@components/organisms/GridCard.astro'
 import Layout from '@layouts/Layout.astro'
-import Heading1 from '@components/atoms/Heading1.astro'
 import Main from '@layouts/Main.astro'
 ---
 
 <Layout>
-  <Main class="!pt-0">
-    <header
-      class="relative w-fit flex items-center justify-center mx-auto h-screen"
+  <Main
+    class="grid sm:grid-cols-3 sm:grid-rows-2 grid-cols-2 place-content-center gap-4 max-w-2xl mx-auto relative"
+  >
+    <img
+      src="logotipo_mono.png"
+      class="absolute -z-10 sm:w-40 w-32 aspect-auto -top-24 sm:-top-28 right-4 opacity-90"
+    />
+    <GridCard
+      class="bg-yellow sm:row-span-2 text-orange bg-[url(enredadera.png)] [background-size:150%] sm:bg-cover bg-no-repeat sm:bg-[60%_0] bg-[0%_48%] sm:hover:bg-[65%_10px]"
     >
-      <Heading1
-        beforeTitle="Asociación Cultural"
-        class="text-end max-w-3xl text-white shadow-white"
-      >
-        Frijol Mágico
-      </Heading1>
-    </header>
+      <strong class="block days text-8xl w-fit mx-auto"></strong>
+      <p class="mx-auto days-text">Días</p>
+    </GridCard>
+    <GridCard
+      class="bg-light-green sm:col-span-2 sm:h-40 text-yellow bg-[url(enredadera.png)] [background-size:150%] sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] sm:hover:bg-[0_75%]"
+    >
+      <strong class="block text-8xl w-fit mx-auto hours"></strong>
+      <p class="mx-auto hours-text">Horas</p>
+    </GridCard>
+    <GridCard
+      class="bg-orange sm:h-40 text-white bg-[url(mano.png)] bg-cover bg-no-repeat bg-[70px_80%] sm:bg-[90px_80%] sm:hover:bg-[90px_90%]"
+    >
+      <strong class="block text-8xl w-fit mx-auto minutes"></strong>
+      <p class="mx-auto minutes-text">Minutos</p>
+    </GridCard>
+    <GridCard
+      class="bg-yellow sm:h-40 text-light-green bg-[url(frijol.png)] bg-cover bg-no-repeat bg-[110px_20%] sm:bg-[140px_20%] sm:hover:bg-[132px_20%]"
+    >
+      <strong class="block text-8xl seconds w-fit mx-auto"></strong>
+      <p class="mx-auto seconds-text">Segundos</p>
+    </GridCard>
+    <GridCard
+      class="bg-black/90 col-span-2 sm:h-40 sm:col-span-3 text-white text-xl py-8 sm:text-4xl hover:bg-dark-green duration-300 transition-[background-color]"
+    >
+      <p>Festival Frijol Mágico</p>
+      <div class="mx-auto w-fit flex gap-4 items-center pt-2">
+        <a
+          href="https://www.instagram.com/festivalfrijolmagico/"
+          class="block hover:text-yellow duration-150 transition w-[22px] h-[22px]"
+        >
+          <Instagram />
+        </a>
+        <a
+          href="https://facebook.com/festivalfrijolmagico"
+          class="block hover:text-yellow duration-150 transition w-5 h-5"
+        >
+          <Facebook />
+        </a>
+        <a
+          href="https://open.spotify.com/show/6X92bkkwHr43dTP1Y3LPyg"
+          class="block hover:text-yellow duration-150 transition w-6 h-6"
+        >
+          <Spotify />
+        </a>
+      </div>
+    </GridCard>
   </Main>
 </Layout>
+
+<script>
+  import { formatTimer } from '@utils/formatTimer'
+
+  const expirationDate = 'Jul 08, 2024 11:59:59' // Define or get your date
+  let deadlineTime = new Date(expirationDate)
+
+  deadlineTime.setDate(deadlineTime.getDate())
+  let deadline = deadlineTime.getTime()
+
+  let daysElements = document.querySelector('.days') as HTMLElement
+  let hoursElements = document.querySelector('.hours') as HTMLElement
+  let minutesElements = document.querySelector('.minutes') as HTMLElement
+  let secondsElements = document.querySelector('.seconds') as HTMLElement
+  let daysTextElements = document.querySelector('.days-text') as HTMLElement
+  let hoursTextElements = document.querySelector('.hours-text') as HTMLElement
+  let minutesTextElements = document.querySelector(
+    '.minutes-text'
+  ) as HTMLElement
+  let secondsTextElements = document.querySelector(
+    '.seconds-text'
+  ) as HTMLElement
+
+  // Function to update countdown timer
+  function updateCountdown() {
+    // Getting current time in required format
+    let now = new Date().getTime()
+    let timeToLive = deadline - now
+
+    const { days, hours, minutes, seconds } = formatTimer(timeToLive)
+
+    // If you have many countdowns, you could fill all the tags using the classname
+    daysElements.innerHTML = days.toString()
+    hoursElements.innerHTML = hours.toString()
+    minutesElements.innerHTML = minutes.toString()
+    secondsElements.innerHTML = seconds.toString()
+
+    const daysText = days <= 1 ? 'Día' : 'Días'
+    const hoursText = hours <= 9 ? 'Hora' : 'Horas'
+    const minutesText = minutes <= 9 ? 'Minuto' : 'Minutos'
+    const secondsText = seconds <= 10 ? 'Segundo' : 'Segundos'
+
+    daysTextElements.innerHTML = daysText
+    hoursTextElements.innerHTML = hoursText
+    minutesTextElements.innerHTML = minutesText
+    secondsTextElements.innerHTML = secondsText
+
+    // Output for over time
+    if (timeToLive < 0) {
+      countdownInterval && clearInterval(countdownInterval)
+      daysElements.innerHTML = '0'
+      hoursElements.innerHTML = '0'
+      minutesElements.innerHTML = '0'
+      secondsElements.innerHTML = '0'
+    }
+  }
+
+  // To call defined function every second
+  let countdownInterval: NodeJS.Timeout | null = null
+  updateCountdown()
+  countdownInterval = setInterval(updateCountdown, 1000)
+</script>

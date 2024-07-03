@@ -20,15 +20,15 @@ const { title = '', description = '', bgColor = 'default' } = Astro.props
     <meta name="author" content="Frijol Mágico" />
     <meta name="audience" content="all" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" />
+    <link rel="icon" type="image/png" href="frijol.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>{`Frijol Mágico | ${title}`}</title>
+    <title>{`Asociación Cultural Frijol Mágico`}</title>
     <meta name="description" content={description} />
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://elfrijolmagico.cl" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`Frijol Mágico | ${title}`} />
+    <meta property="og:title" content={`Asociación Cultural Frijol Mágico`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" />
 
@@ -36,60 +36,35 @@ const { title = '', description = '', bgColor = 'default' } = Astro.props
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="elfrijolmagico.cl" />
     <meta property="twitter:url" content="https://elfrijolmagico.cl" />
-    <meta name="twitter:title" content={`Frijol Mágico | ${title}`} />
+    <meta name="twitter:title" content={`Asociación Cultural Frijol Mágico`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Galindo&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.cdnfonts.com/css/sheiron-rodina"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.cdnfonts.com/css/kochi" rel="stylesheet" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <ViewTransitions />
   </head>
   <body
     class:list={[
-      bgColor === 'default'
-        ? 'bg-p-blue [background-image:url(/background.webp)]'
-        : bgColor,
-      'font-sans relative h-fit w-full min-h-[100dvh] text-white',
-      '',
-      'before:content-[""] sm:before:content-[url(/rama.png)] before:fixed before:h-full before:-left-[28rem] lg:before:-left-[24rem] before:-top-80 before:-z-10',
-      '',
-      'after:content-[url(/rama.png)] after:fixed after:h-full after:-right-[28rem] lg:after:-right-[24rem] after:-top-80 sm:after:-top-80 after:-z-20 after:-scale-x-100',
+      'font-sans relative h-fit w-full min-h-[100dvh] text-white bg-slate-100 flex items-center noto-sans-mono',
     ]}
   >
-    <Header />
+    <div
+      class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
+    >
+    </div>
     <slot />
-    <Footer />
     <style is:global>
-      :root {
-        --p-blue: #0d2a66;
-        --s-pink: #fa2678;
-        --s-yellow: #ffcd69;
-      }
-
-      @font-face {
-        font-family: Thickedy;
+      .noto-sans-mono {
+        font-family: 'Noto Sans Mono', monospace;
+        font-optical-sizing: auto;
         font-style: normal;
-        font-display: swap;
-        src: url(/fonts/ThickedyQuick.woff2) format('woff2');
-      }
-
-      body {
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        background-blend-mode: color;
+        font-variation-settings: 'wdth' 100;
       }
     </style>
   </body>

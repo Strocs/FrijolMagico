@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'p-blue': '#0d2a66',
-        's-blue': '#0070b9',
-        's-pink': '#fa2678',
-        's-yellow': '#ffcd69',
+        'dark-green': '#033220',
+        'light-green': '#097333',
+        yellow: '#f9bd21',
+        orange: '#ef5026',
       },
       boxShadow: {
         DEFAULT: '-0.5rem 0.5rem 0 0',
