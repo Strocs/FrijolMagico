@@ -5,15 +5,19 @@ import Spotify from '@components/icons/Spotify.astro'
 import GridCard from '@components/organisms/GridCard.astro'
 import Layout from '@layouts/Layout.astro'
 import Main from '@layouts/Main.astro'
+import { Image } from 'astro:assets'
+
+import Logo from '../../public/logotipo_mono.png'
 ---
 
 <Layout>
   <Main
     class="grid sm:grid-cols-3 sm:grid-rows-2 grid-cols-2 place-content-center gap-4 max-w-2xl mx-auto relative"
   >
-    <img
-      src="logotipo_mono.png"
+    <Image
+      src={Logo}
       class="absolute -z-10 sm:w-40 w-32 aspect-auto -top-24 sm:-top-28 right-4 opacity-90"
+      alt="Logo Frijol Mágico"
     />
     <GridCard
       class="bg-yellow sm:row-span-2 text-orange bg-[url(/enredadera.png)] [background-size:150%] sm:bg-cover bg-no-repeat sm:bg-[60%_0] bg-[0%_48%] sm:hover:bg-[65%_10px]"
@@ -45,18 +49,21 @@ import Main from '@layouts/Main.astro'
       <p>Festival Frijol Mágico</p>
       <div class="mx-auto w-fit flex gap-4 items-center pt-2">
         <a
+          aria-label="Instagram"
           href="https://www.instagram.com/festivalfrijolmagico/"
           class="block hover:text-yellow duration-150 transition w-[22px] h-[22px]"
         >
           <Instagram />
         </a>
         <a
+          aria-label="Facebook"
           href="https://facebook.com/festivalfrijolmagico"
           class="block hover:text-yellow duration-150 transition w-5 h-5"
         >
           <Facebook />
         </a>
         <a
+          aria-label="Spotify"
           href="https://open.spotify.com/show/6X92bkkwHr43dTP1Y3LPyg"
           class="block hover:text-yellow duration-150 transition w-6 h-6"
         >
