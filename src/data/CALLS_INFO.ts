@@ -10,12 +10,11 @@ type CallInfo = Call[]
 
 export const CALLS_INFO = {
   'ilustracion': {
-    bases: 'https://docs.google.com/document/d/e/2PACX-1vSw95eCepDmXclZthTjzPpp5A4QoZ12PppMtTg3ynx_XFX6YnqsfqjbvIziN8XVIdrbOH1SCGHLuhWm/pub',
-    form: 'https://docs.google.com/forms/u/1/d/14q7uMp7SRUKfrVrJuaZR0jdDR9UQkBMxtCf7_Y8Uwt4'
+    bases: '/BASES POSTULACIÓN ILUSTRACIÓN, NARRATIVA GRAFICA Y MANUALIDADES.pdf',
+    form: 'https://forms.gle/BPHHmkn3TYKWLFn18'
   },
   'musica': {
-    bases: 'https://docs.google.com/document/d/e/2PACX-1vQNnN-LxK-zxD_qrgTBEOvEEPK35IFkDbymB5JVryWwhuRUdUCoDvP65kDdrWiomjKT1ItTH3lbXsj0/pub',
-    form: 'https://docs.google.com/forms/d/1FJJxalygoDLTg7DtDjVKVbNak9VwbT0Nwog_Il5jVpY'
+    bases: '/BASES BANDAS FESTIVAL FRIJOL MAGICO 2024.pdf',
+    form: 'https://forms.gle/5MsRMVkvuXmJXqrg7'
   }
 }
-
