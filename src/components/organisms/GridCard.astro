@@ -1,16 +1,24 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
   class?: string
+  element?: string
 }
 
-const { class: customStyle } = Astro.props
+const {
+  class: customStyle,
+  element: Element = 'section',
+  ...props
+} = Astro.props
 ---
 
-<section
+<Element
+  {...props}
   class:list={[
     customStyle,
-    'w-full h-full font-bold uppercase rounded-3xl grid place-content-center transition-[background-position] duration-300',
+    'w-full h-full font-bold uppercase rounded-3xl flex items-center justify-center transition-all duration-300',
   ]}
 >
   <slot />
-</section>
+</Element>

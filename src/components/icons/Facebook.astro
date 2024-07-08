@@ -1,3 +1,11 @@
+---
+interface Props {
+  size?: string
+}
+
+const { size = '24' } = Astro.props
+---
+
 <svg
   fill="currentColor"
   version="1.1"
@@ -5,6 +13,8 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   viewBox="0 0 60.734 60.733"
   xml:space="preserve"
+  height={size}
+  width={size}
 >
   <path
     d="M57.378,0.001H3.352C1.502,0.001,0,1.5,0,3.353v54.026c0,1.853,1.502,3.354,3.352,3.354h29.086V37.214h-7.914v-9.167h7.914
