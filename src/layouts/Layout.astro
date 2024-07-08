@@ -1,15 +1,14 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
-import Footer from '@components/organisms/Footer.astro'
-import Header from '@components/organisms/Header.astro'
-
+import { SITE } from '@data/SITE'
 interface Props {
   title?: string
   description?: string
-  bgColor?: 'default' | string
 }
 
-const { title = '', description = '', bgColor = 'default' } = Astro.props
+const {
+  title = 'Asociación Cultural Frijol Mágico',
+  description = SITE.description,
+} = Astro.props
 ---
 
 <!doctype html>
@@ -22,13 +21,13 @@ const { title = '', description = '', bgColor = 'default' } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="frijol.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>{`Asociación Cultural Frijol Mágico`}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://elfrijolmagico.cl" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`Asociación Cultural Frijol Mágico`} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" />
 
@@ -36,7 +35,7 @@ const { title = '', description = '', bgColor = 'default' } = Astro.props
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="elfrijolmagico.cl" />
     <meta property="twitter:url" content="https://elfrijolmagico.cl" />
-    <meta name="twitter:title" content={`Asociación Cultural Frijol Mágico`} />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" />
 
