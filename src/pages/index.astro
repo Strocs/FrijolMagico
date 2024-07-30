@@ -8,11 +8,10 @@ import Main from '@layouts/Main.astro'
 import { Image } from 'astro:assets'
 
 import Logo from '../../public/logotipo_mono.png'
-import { CALLS_INFO } from '@data/CALLS_INFO'
 import { SITE } from '@data/SITE'
 ---
 
-<Layout title="Convocatoria Frijol Mágico 2024 - Un nuevo germinar">
+<Layout title="Frijol Mágico 2024 - Un nuevo germinar">
   <Main
     class="grid sm:grid-cols-12 sm:grid-rows-[repeat(6,minmax(0,80px))] grid-cols-2 place-content-center gap-4 max-w-4xl mx-auto relative"
   >
@@ -30,9 +29,10 @@ import { SITE } from '@data/SITE'
       <h2 class="text-2xl sm:text-4xl text-center leading-6 sm:leading-9">
         <span
           class="text-lg sm:text-xl block leading-4 sm:leading-5 font-bold mb-1 text-yellow"
-          >Nueva Convocatoria</span
-        > Frijol Mágico
-        <span class="text-yellow font-black">2024</span>
+          >Pronto</span
+        > Más
+        <span class="text-yellow font-black">Info</span>
+        <span class="block">👁️</span>
       </h2>
     </GridCard>
     <!-- Header -->
@@ -41,58 +41,20 @@ import { SITE } from '@data/SITE'
     >
       <h1 class="font-black text-center">Festival Frijol Mágico</h1>
       <h2 class="normal-case text-lg font-medium text-center leading-5">
-        Un nuevo germinar
+        Un nuevo germinar 🌱
       </h2>
     </GridCard>
     <!-- First Row -->
-    <GridCard
-      class="sm:col-span-3 sm:row-span-2 text-orange justify-end text-end"
-    >
-      <p class="text-xl sm:text-2xl leading-6 font-black">
-        Ilustración <span class="text-light-green">Narrativa Gráfica</span> Manualidades
-      </p>
-    </GridCard>
-    <GridCard
-      class="bg-yellow sm:col-span-6 sm:row-span-2 text-light-green bg-[url(/mano.png)] sm:[background-size:110%] [background-size:240%] bg-no-repeat sm:bg-[90px_66%] bg-[43%_70%] sm:hover:bg-[90px_75%] p-4 sm:p-8 !justify-start"
-    >
-      <div class="grid gap-4">
-        <a
-          target="_blank"
-          href={CALLS_INFO.ilustracion.bases}
-          class="bg-white hover:bg-dark-green hover:text-white transition duration-150 rounded-xl px-6 py-2 sm:py-4 flex items-center leading-4"
-          >Lee las bases</a
-        >
-        <a
-          target="_blank"
-          href={CALLS_INFO.ilustracion.form}
-          class="bg-white hover:bg-dark-green hover:text-white transition duration-150 rounded-xl px-6 py-2 sm:py-4 flex items-center leading-4"
-          >Postula aquí</a
-        >
-      </div>
-    </GridCard>
+
     <!-- Second Row -->
     <GridCard
-      class="bg-orange sm:row-span-2 sm:col-span-6 text-light-green bg-[url(/frijol.png)] sm:bg-contain [background-size:180%] bg-no-repeat bg-[50%_20%] sm:bg-[10%] sm:hover:bg-[20%_20%] !justify-end sm:p-8 p-4"
+      class="bg-orange col-span-2 sm:row-span-4 sm:col-span-9 text-light-green bg-[url(/frijol.png)] [background-size:120%] sm:[background-size:90%] bg-no-repeat bg-[50%_20%] sm:bg-[-60px_50%] sm:hover:bg-[0_50%] !justify-end sm:p-8 p-4"
     >
-      <div class="grid gap-4">
-        <a
-          target="_blank"
-          href={CALLS_INFO.musica.bases}
-          class="bg-white hover:bg-dark-green hover:text-white transition duration-150 rounded-xl px-6 py-2 sm:py-4 flex items-center leading-4 text-end"
-          >Lee las bases</a
-        >
-        <a
-          target="_blank"
-          href={CALLS_INFO.musica.form}
-          class="bg-white hover:bg-dark-green hover:text-white transition duration-150 rounded-xl px-6 py-2 sm:py-4 flex items-center leading-4 text-end"
-          >Postula aquí</a
-        >
-      </div>
-    </GridCard>
-    <GridCard class="sm:col-span-3 sm:row-span-2 text-orange justify-start">
-      <p class="text-xl sm:text-2xl leading-6 font-black">
-        Bandas y <span class="text-light-green">Solistas</span>
-      </p>
+      <h2
+        class="text-white text-4xl sm:text-[5rem] text-wrap text-center sm:text-right leading-none"
+      >
+        PROXI_ MAMENTE
+      </h2>
     </GridCard>
     <!-- Footer -->
     <GridCard
