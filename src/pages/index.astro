@@ -4,87 +4,81 @@ import Instagram from '@components/icons/Instagram.astro'
 import Spotify from '@components/icons/Spotify.astro'
 import GridCard from '@components/organisms/GridCard.astro'
 import Layout from '@layouts/Layout.astro'
+import Grid from '@layouts/Grid.astro'
 import Main from '@layouts/Main.astro'
-import { Image } from 'astro:assets'
 
-import Logo from '../../public/logotipo_mono.png'
 import { SITE } from '@data/SITE'
 ---
 
 <Layout title="Frijol Mágico 2024 - Un nuevo germinar">
-  <Main
-    class="grid sm:grid-cols-12 sm:grid-rows-[repeat(6,minmax(0,80px))] grid-cols-2 place-content-center gap-4 max-w-4xl mx-auto relative"
-  >
-    <Image
-      src={Logo}
-      class="absolute -z-10 sm:w-40 w-32 aspect-auto -top-24 sm:-top-28 left-12 opacity-90"
-      alt="Logo Frijol Mágico"
-      loading="eager"
-    />
-
-    <!-- Full Column -->
-    <GridCard
-      class="bg-light-green col-span-full sm:row-span-4 sm:col-span-3 text-white bg-[url(/enredadera.png)] [background-size:150%] sm:bg-cover bg-no-repeat sm:bg-[60%_0] bg-[0%_48%] sm:hover:bg-[65%_10px] px-4 py-4 sm:py-0"
-    >
-      <h2 class="text-2xl sm:text-4xl text-center leading-6 sm:leading-9">
-        <span
-          class="text-lg sm:text-xl block leading-4 sm:leading-5 font-bold mb-1 text-yellow"
-          >Pronto</span
-        > Más
-        <span class="text-yellow font-black">Info</span>
-        <span class="block">👁️</span>
-      </h2>
-    </GridCard>
-    <!-- Header -->
-    <GridCard
-      class="bg-dark-green text-white col-span-full sm:col-span-9 text-xl sm:text-3xl bg-[url(/enredadera.png)] sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] flex-col p-4"
-    >
-      <h1 class="font-black text-center">Festival Frijol Mágico</h1>
-      <h2 class="normal-case text-lg font-medium text-center leading-5">
-        Un nuevo germinar 🌱
-      </h2>
-    </GridCard>
-    <!-- First Row -->
-
-    <!-- Second Row -->
-    <GridCard
-      class="bg-orange col-span-2 sm:row-span-4 sm:col-span-9 text-light-green bg-[url(/frijol.png)] [background-size:120%] sm:[background-size:90%] bg-no-repeat bg-[50%_20%] sm:bg-[-60px_50%] sm:hover:bg-[0_50%] !justify-end sm:p-8 p-4"
-    >
-      <h2
-        class="text-white text-4xl sm:text-[5rem] text-wrap text-center sm:text-right leading-none"
+  <Main class="h-screen grid items-center">
+    <Grid>
+      <!-- Full Column -->
+      <GridCard
+        element="a"
+        href="/un-nuevo-germinar"
+        class="bg-light-green col-span-full sm:row-span-4 sm:col-span-3 text-white bg-[url(/enredadera.png)] [background-size:150%] sm:bg-cover bg-no-repeat sm:bg-[60%_0] bg-[0%_48%] sm:hover:bg-[65%_10px] px-4 py-4 sm:py-0"
       >
-        PROXI_ MAMENTE
-      </h2>
-    </GridCard>
-    <!-- Footer -->
-    <GridCard
-      element="a"
-      href={SITE.podcast}
-      class="bg-white sm:bg-yellow col-span-1 row-span-2 py-4 sm:col-span-3 sm:row-span-2 text-center flex-col gap-2 hover:gap-0 text-yellow sm:text-white"
-    >
-      <p class="leading-6 text-2xl text-yellow sm:text-orange font-black">
-        Escucha <span class="text-light-green sm:text-white font-bold"
-          >nuestro</span
-        > Podcast
-      </p>
-      <Spotify size="42" />
-    </GridCard>
-    <GridCard class="hidden sm:flex sm:col-span-3 text-yellow justify-end">
-      <p class="text-xl font-black text-end">Redes Sociales</p>
-    </GridCard>
-    <GridCard
-      element="a"
-      href={SITE.social_media.ig}
-      class="bg-white text-light-green hover:bg-light-green hover:text-white transition duration-150 sm:col-span-3 group"
-    >
-      <p class="flex gap-2 items-center">Instagram <Instagram size="28" /></p>
-    </GridCard>
-    <GridCard
-      element="a"
-      href={SITE.social_media.fb}
-      class="bg-white text-orange sm:col-span-3 hover:bg-orange hover:text-white transition duration-150"
-    >
-      <p class="flex gap-2 items-center">Facebook <Facebook /></p>
-    </GridCard>
+        <h2 class="text-md sm:text-2xl text-center leading-6 sm:leading-6">
+          <span
+            class="text-lg sm:text-3xl block leading-4 sm:leading-7 font-bold text-yellow"
+            >Conoce</span
+          > a lxs <b class="font-black">Participantes</b>
+          <span class="text-yellow font-black text-4xl">Aquí</span>
+          <span class="block mt-2">🌟</span>
+        </h2>
+      </GridCard>
+      <!-- Header -->
+      <GridCard
+        class="bg-dark-green text-white col-span-full sm:col-span-9 text-xl sm:text-3xl bg-[url(/enredadera.png)] sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] flex-col p-4"
+      >
+        <h1 class="font-black text-center">Festival Frijol Mágico</h1>
+        <h2 class="normal-case text-lg font-medium text-center leading-5">
+          Un nuevo germinar 🌱
+        </h2>
+      </GridCard>
+      <!-- First Row -->
+
+      <!-- Second Row -->
+      <GridCard
+        class="bg-orange col-span-2 sm:row-span-4 sm:col-span-9 text-light-green bg-[url(/frijol.png)] [background-size:120%] sm:[background-size:90%] bg-no-repeat bg-[50%_20%] sm:bg-[-60px_50%] sm:hover:bg-[0_50%] !justify-end sm:p-8 p-4"
+      >
+        <h2
+          class="text-white text-4xl sm:text-[5rem] text-wrap text-center sm:text-right leading-none"
+        >
+          PROXI_ MAMENTE
+        </h2>
+      </GridCard>
+      <!-- Footer -->
+      <GridCard
+        element="a"
+        href={SITE.podcast}
+        class="bg-white sm:bg-yellow col-span-1 row-span-2 py-4 sm:col-span-3 sm:row-span-2 text-center flex-col gap-2 hover:gap-0 text-yellow sm:text-white"
+      >
+        <p class="leading-6 text-2xl text-yellow sm:text-orange font-black">
+          Escucha <span class="text-light-green sm:text-white font-bold"
+            >nuestro</span
+          > Podcast
+        </p>
+        <Spotify size="42" />
+      </GridCard>
+      <GridCard class="hidden sm:flex sm:col-span-3 text-yellow justify-end">
+        <p class="text-xl font-black text-end">Redes Sociales</p>
+      </GridCard>
+      <GridCard
+        element="a"
+        href={SITE.social_media.ig}
+        class="bg-white text-light-green hover:bg-light-green hover:text-white transition duration-150 sm:col-span-3 group"
+      >
+        <p class="flex gap-2 items-center">Instagram <Instagram size="28" /></p>
+      </GridCard>
+      <GridCard
+        element="a"
+        href={SITE.social_media.fb}
+        class="bg-white text-orange sm:col-span-3 hover:bg-orange hover:text-white transition duration-150"
+      >
+        <p class="flex gap-2 items-center">Facebook <Facebook /></p>
+      </GridCard>
+    </Grid>
   </Main>
 </Layout>

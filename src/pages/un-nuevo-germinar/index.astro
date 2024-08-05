@@ -1,0 +1,40 @@
+---
+import { Selected } from '@components/organisms/Selected.tsx'
+import GridCard from '@components/organisms/GridCard.astro'
+import Layout from '@layouts/Layout.astro'
+import Main from '@layouts/Main.astro'
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+import { HEADER_ROW_INFO } from '@data/CONSTANTS'
+import Footer from '@components/organisms/Footer.astro'
+
+const doc = new GoogleSpreadsheet(
+  '1ducD_zBevC74umnvJaOlXZy5uVz78oKqLkrRrxQmBGM',
+  { apiKey: import.meta.env.GOOGLE_API_KEY }
+)
+
+await doc.loadInfo()
+const sheet = doc.sheetsByIndex[2]
+const rows = await sheet.getRows()
+
+const parsedRows = rows.map((row) => {
+  return {
+    TrabajasEn: row.get(HEADER_ROW_INFO.CATEGORY),
+    Nick: row.get(HEADER_ROW_INFO.NICK),
+    SocialMedia: row.get(HEADER_ROW_INFO.SOCIAL_MEDIA),
+  }
+})
+---
+
+<Layout title="Seleccionados Frijol Mágico 2024">
+  <Main class="space-y-8 min-h-[96dvh]">
+    <GridCard class="text-dark-green mx-auto pt-40">
+      <h1
+        class="text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-orange to-yellow"
+      >
+        Selección Frijól Mágico 2024
+      </h1>
+    </GridCard>
+    <Selected rows={parsedRows} client:idle />
+  </Main>
+  <Footer />
+</Layout>

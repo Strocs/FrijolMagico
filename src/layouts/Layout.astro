@@ -1,4 +1,6 @@
 ---
+import LogoLink from '@components/molecules/LogoLink.astro'
+import TopBarInfo from '@components/organisms/TopBarInfo.astro'
 import { SITE } from '@data/SITE'
 interface Props {
   title?: string
@@ -50,15 +52,20 @@ const {
   </head>
   <body
     class:list={[
-      'font-sans relative h-fit w-full min-h-[100dvh] text-white bg-slate-100 flex items-center noto-sans-mono',
+      'font-sans relative h-fit w-full min-h-[100dvh] text-white bg-slate-100 noto-sans-mono',
     ]}
   >
+    <TopBarInfo />
+    <LogoLink />
     <div
-      class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
+      class="absolute h-full w-full bg-[radial-gradient(#d1dae7_1px,transparent_1px)] [background-size:16px_16px] -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
     >
     </div>
     <slot />
     <style is:global>
+      :root {
+        --top-bar-info-height: 44px;
+      }
       .noto-sans-mono {
         font-family: 'Noto Sans Mono', monospace;
         font-optical-sizing: auto;

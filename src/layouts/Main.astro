@@ -5,6 +5,11 @@ interface Props {
 const { class: customClass } = Astro.props
 ---
 
-<main class:list={['w-full h-full px-4 my-28 sm:p-4', customClass]}>
+<main
+  class:list={[
+    'px-4 sm:pt-[--top-bar-info-height] container mx-auto',
+    customClass,
+  ]}
+>
   <slot />
 </main>

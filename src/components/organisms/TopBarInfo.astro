@@ -1,0 +1,36 @@
+<header
+  aria-label="Frijol Mágico"
+  class="w-full font-sans fixed top-0 flex px-6 items-center justify-between py-2 bg-dark-green"
+>
+  <div class="flex space-x-6">
+    <h2 class="">
+      <b>Próximo festival:</b>
+      19 Octubre, <i>Un nuevo germinar</i> 🌱
+    </h2>
+    <p>
+      <b>Faltan:</b>
+      <span class="font-bold text-yellow" id="days-left"></span> días
+    </p>
+  </div>
+  <div class="flex gap-8">
+    <a
+      href="/un-nuevo-germinar"
+      class="py-0.5 px-2 rounded-lg font-bold bg-gradient-to-r from-orange to-yellow [background-size:150%] hover:bg-right transition-[background-position] duration-200"
+    >
+      Conoce a lxs participantes! 👈🏾
+    </a>
+  </div>
+</header>
+
+<script>
+  const festivalDay = 19
+  const oneDay = 1000 * 60 * 60 * 24
+  const currentDate = new Date()
+  const festivalDate = new Date(currentDate.getFullYear(), 9, festivalDay)
+  const daysLeftDOM = document.getElementById('days-left') as HTMLElement
+  const daysLeft = Math.round(
+    (festivalDate.getTime() - currentDate.getTime()) / oneDay
+  )
+  // TODO: change días text when just 1 day left
+  daysLeftDOM.innerText = `${daysLeft}`
+</script>
