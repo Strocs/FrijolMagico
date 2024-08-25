@@ -3,6 +3,7 @@ interface Props {
   class?: string
   grid?: string
 }
+
 const {
   class: customClass,
   grid = 'sm:grid-cols-12 sm:grid-rows-[repeat(6,minmax(0,80px))] grid-cols-2 grid-rows-6',
@@ -11,7 +12,7 @@ const {
 
 <section
   class:list={[
-    'grid  place-content-center gap-4 max-w-4xl mx-auto relative',
+    'grid place-content-center gap-4 container mx-auto relative',
     grid,
     customClass,
   ]}
