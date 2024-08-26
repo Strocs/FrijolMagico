@@ -1,0 +1,33 @@
+<div class="w-full space-y-2 overflow-hidden my-8">
+  <div class="-ml-16 flex animate-slide group-hover:animate-run">
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+  </div>
+  <div class="flex animate-slide group-hover:animate-run">
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+    <div class="mr-2 bg-orange rounded-md w-32 h-16 shrink-0"></div>
+  </div>
+</div>
+
+<style>
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc((-128px - 8px) * 3));
+    }
+  }
+  .animate-slide {
+    animation: slide 10s linear infinite;
+    animation-play-state: paused;
+  }
+</style>
