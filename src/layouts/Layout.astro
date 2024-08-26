@@ -44,7 +44,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Mono:wght@100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -52,25 +52,17 @@ const {
   </head>
   <body
     class:list={[
-      'font-sans relative h-fit w-full min-h-[100dvh] text-white bg-slate-100 noto-sans-mono',
-    ]}
-  >
+      'relative h-fit w-full min-h-[100dvh] text-white bg-slate-100 font-noto',
+    ]}>
     <TopBarInfo />
     <LogoLink />
     <div
-      class="absolute inset-0 h-full w-full bg-[radial-gradient(#d1dae7_1px,transparent_1px)] [background-size:16px_16px] -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
-    >
+      class="absolute inset-0 h-full w-full bg-[radial-gradient(#d1dae7_1px,transparent_1px)] [background-size:16px_16px] -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
     </div>
     <slot />
     <style is:global>
       :root {
         --top-bar-info-height: 44px;
-      }
-      .noto-sans-mono {
-        font-family: 'Noto Sans Mono', monospace;
-        font-optical-sizing: auto;
-        font-style: normal;
-        font-variation-settings: 'wdth' 100;
       }
     </style>
   </body>

@@ -17,6 +17,8 @@ const {
   col = 1,
   ...props
 } = Astro.props
+
+const isLandscape = col > row
 ---
 
 <Element
@@ -26,10 +28,10 @@ const {
   }}
   class:list={[
     empty ? 'hidden sm:block' : '',
+    isLandscape ? 'flex-row' : 'flex-col',
     customStyle,
-    'w-full h-full font-bold uppercase rounded-3xl flex items-center justify-center transition-all duration-300',
+    'w-full h-full font-bold  rounded-3xl flex items-center justify-center transition-all duration-300',
   ]}
-  {...props}
->
+  {...props}>
   <slot />
 </Element>

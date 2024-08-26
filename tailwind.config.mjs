@@ -20,9 +20,8 @@ export default {
         DEFAULT: 'var(--s-pink)',
       },
       fontFamily: {
-        galindo: 'Galindo, system-ui, sans-serif',
-        Sheiron: '"Sheiron Rodina", sans-serif',
-        KOCHI: '"KOCHI", sans-serif',
+        noto: '"Noto Sans Mono", monospace',
+        josefin: '"Josefin Sans", sans-serif',
       },
       screens: {
         tall: { raw: '(min-height: 800px)' },
