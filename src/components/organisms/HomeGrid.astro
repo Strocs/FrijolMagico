@@ -1,71 +1,99 @@
 ---
 import { Image } from 'astro:assets'
 
-import Grid from '@/layouts/Grid.astro'
-import GridCard from './GridCard.astro'
+import Grid from '@/components/organisms/Grid.astro'
+import GridItem from './GridItem.astro'
 import { SITE } from '@/data/SITE'
 import Spotify from '../icons/Spotify.astro'
 import Instagram from '../icons/Instagram.astro'
 import Facebook from '../icons/Facebook.astro'
+import CardsSkeletonAnimated from '../molecules/CardsSkeletonAnimated.astro'
 
 import manoImage from '/public/mano.png'
 import frijolImage from '/public/frijol.png'
+import enredaderaEsquina from '/public/enredadera-esquina.png'
 ---
 
-<Grid class="sm:grid-cols-10 sm:grid-rows-6 grid-cols-2 grid-rows-6 h-3/4">
-  <GridCard
+<Grid
+  container
+  class="sm:grid-cols-10 sm:grid-rows-6 grid-cols-2 grid-rows-6 h-[700px]">
+  <GridItem
     as="section"
     row={1}
     col={8}
-    class="uppercase bg-dark-green text-white sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] flex-col p-4">
+    class="uppercase bg-gradient-to-tl from-dark-green to-light-green text-white sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] flex-col p-4">
     <p>19 de Octubre 2024 - Mall Vivo Coquimbo</p>
     <h2
       class="font-josefin text-xl sm:text-4xl font-black text-center tracking-widest">
       🌱 Un nuevo germinar 🌱
     </h2>
-  </GridCard>
+  </GridItem>
 
-  <GridCard as="div" row={4} col={2} class="bg-light-green">
-    <h2>Galería</h2>
-  </GridCard>
-
-  <GridCard
+  <GridItem
     as="a"
-    row={5}
+    row={4}
     col={2}
     href="/un-nuevo-germinar"
-    class="bg-gradient-to-tr relative gap-6 from-orange to-yellow text-white px-4 py-4 sm:py-0">
+    class="bg-gradient-to-tr relative gap-6 hover:gap-2 transition-[gap] duration-300 group from-orange to-yellow text-white px-4 py-4 sm:py-0">
     <Image
       src={manoImage}
       alt=""
-      width={70}
+      width={50}
       class="absolute top-0 rotate-180"
     />
-    <h2 class="text-2xl sm:text-xl text-center leading-7">
+    <h2 class="text-2xl sm:text-xl text-center leading-7 -mt-4">
       Conoce a lxs
       <b
-        class="uppercase font-black text-2xl sm:text-3xl hidden sm:inline-block"
+        class="uppercase font-black group-hover:bg-orange px-2 transition duration-300 text-2xl sm:text-3xl hidden sm:inline-block"
         >Participantes</b
       >
       del próximo festival
       <span class="block mt-2 text-4xl w-fit mx-auto">🌟🌟🌟🌟</span>
     </h2>
-    <p class="uppercase text-center font-josefin text-lg leading-none">
+    <p
+      class="uppercase text-center font-josefin text-lg leading-none text-white/80 group-hover:text-white transition duration-300">
       Ilustración <br /> Manualidades <br /> Narrativa Gráfica <br /> Música
     </p>
     <Image
       src={frijolImage}
       alt="Imágen de frijol"
-      width={200}
-      class="absolute -bottom-6 [transform:rotateY(180deg)]"
+      width={150}
+      class="absolute -bottom-4"
     />
-  </GridCard>
+  </GridItem>
 
-  <GridCard
+  <GridItem
+    as="a"
+    href="/catálogo"
+    row={4}
+    col={2}
+    class="hover:scale-[1.03] text-center group bg-gradient-to-tl !justify-start py-10 gap-2 from-yellow to-orange relative">
+    <Image
+      src={enredaderaEsquina}
+      alt=""
+      class="absolute bottom-0 left-0 z-10 rotate-180"
+    />
+    <span class="absolute -top-2 -left-2 -rotate-6 px-2 bg-yellow rounded-md"
+      >Nuevo!</span
+    >
+    <h2 class="z-10 text-4xl font-black">Catálogo</h2>
+    <p class="font-normal">
+      Descubre tu próximo <span
+        class="uppercase font-bold bg-light-green px-1 text-xl"
+        >ilustrador favorito</span
+      >
+    </p>
+    <CardsSkeletonAnimated />
+    <p class="z-10 leading-none font-josefin px-2">
+      Nuevos artistas en cada edición del Festival Frijol Mágico
+    </p>
+  </GridItem>
+
+  <GridItem
     as="section"
     row={3}
     col={6}
-    class="uppercase relative overflow-hidden text-light-green sm:p-8 p-4 bg-[url(/enredadera.png)] bg-no-repeat bg-cover bg-[0_80%]">
+    class="animate-fade uppercase relative overflow-hidden text-light-green sm:p-8 p-4 bg-[url(/enredadera.png)] bg-no-repeat bg-cover bg-[0_80%]">
     <video autoplay loop muted class="absolute -z-10 w-auto">
       <source src="/FestivalFrijolMagico.webm" type="video/webm" />
     </video>
@@ -74,16 +102,17 @@ import frijolImage from '/public/frijol.png'
       <span class="text-5xl">Festival</span>
       <br /> Frijol Mágico
     </h1>
-  </GridCard>
+  </GridItem>
 
-  <GridCard
+  <GridItem
     as="div"
     row={2}
     col={4}
-    class="col-span-4 row-span-2 bg-light-green"
-  />
+    class="col-span-4 row-span-2 outline outline-light-green">
+    <h2 class="text-4xl text-dark-green">Pronto más contenidos</h2>
+  </GridItem>
 
-  <GridCard
+  <GridItem
     as="a"
     row={2}
     col={2}
@@ -97,29 +126,46 @@ import frijolImage from '/public/frijol.png'
       <br />Podcast
     </p>
     <Spotify size="62" />
-  </GridCard>
+  </GridItem>
 
-  <GridCard
+  <GridItem
+    as="section"
+    row={2}
+    col={2}
+    class="gap-4 grid-rows-2 grid-cols-1 w-full h-full">
+    <GridItem
+      as="a"
+      row={1}
+      href={SITE.social_media.fb}
+      class="bg-white hover:bg-orange transition duration-150 group">
+      <p
+        class="uppercase flex text-orange group-hover:text-white gap-2 items-center text-xl">
+        Facebook <Facebook size="28" />
+      </p>
+    </GridItem>
+    <p
+      class="cursor-default absolute text-dark-green font-bold text-4xl font-josefin -rotate-6">
+      Síguenos!
+    </p>
+    <GridItem
+      as="a"
+      row={1}
+      href={SITE.social_media.ig}
+      class="uppercase bg-white hover:bg-yellow transition duration-150 group">
+      <p
+        class="flex text-yellow group-hover:text-white gap-2 items-center text-xl">
+        Instagram <Instagram size="32" />
+      </p>
+    </GridItem>
+  </GridItem>
+
+  <GridItem
     as="a"
+    href="https://strocs.dev"
+    target="_blank"
     row={1}
     col={2}
-    href={SITE.social_media.fb}
-    class="bg-white hover:bg-orange transition duration-150 group">
-    <p
-      class="flex text-orange group-hover:text-white gap-2 items-center text-xl">
-      +info {'>'} Facebook <Facebook size="28" />
-    </p>
-  </GridCard>
-
-  <GridCard
-    as="a"
-    row={1}
-    col={2}
-    href={SITE.social_media.ig}
-    class="bg-white hover:bg-yellow transition duration-150 group">
-    <p
-      class="flex text-yellow group-hover:text-white gap-2 items-center text-xl">
-      Instagram <Instagram size="32" />
-    </p>
-  </GridCard>
+    class="bg-gradient-to-r text-center [background-size:200%] hover:bg-right from-dark-green to-light-green transition-all duration-300">
+    Desarrollado con ❤️ por StrocsDev
+  </GridItem>
 </Grid>
