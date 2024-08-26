@@ -1,70 +1,67 @@
 ---
-import Grid from '@layouts/Grid.astro'
-import GridCard from '@components/organisms/GridCard.astro'
-import { SITE } from '@data/SITE'
-import Spotify from '@components/icons/Spotify.astro'
-import Instagram from '@components/icons/Instagram.astro'
-import Facebook from '@components/icons/Facebook.astro'
+import Grid from '@/layouts/Grid.astro'
+import GridItem from '@/components/organisms/GridItem.astro'
+import { SITE } from '@/data/SITE'
+import Spotify from '@/components/icons/Spotify.astro'
+import Instagram from '@/components/icons/Instagram.astro'
+import Facebook from '@/components/icons/Facebook.astro'
 ---
 
 <footer class="pb-20">
-  <Grid grid="grid-cols-2 sm:grid-cols-12 grid-rows-5 sm:grid-rows-4 px-4">
-    <GridCard
-      element="a"
+  <Grid
+    class="max-w-4xl grid-cols-2 sm:grid-cols-12 grid-rows-5 sm:grid-rows-4 px-4">
+    <GridItem
+      as="a"
       href="/"
-      class="bg-dark-green col-span-full row-span-1 sm:col-span-8 sm:row-span-2 py-4 text-center flex-col gap-2 text-yellow sm:text-white bg-[url(/enredadera.png)] sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] group"
-    >
+      row={2}
+      col={8}
+      class="bg-dark-green py-4 text-center flex-col gap-2 text-yellow sm:text-white bg-[url(/enredadera.png)] sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] group">
       <p
-        class="leading-6 text-2xl text-yellow font-black group-hover:text-[1.6rem] duration-150"
-      >
+        class="leading-6 text-2xl text-yellow font-black group-hover:text-[1.6rem] duration-150">
         <span class="text-white font-bold">Volver al </span>
         Inicio
       </p>
-    </GridCard>
-    <GridCard
-      element="a"
+    </GridItem>
+    <GridItem
+      as="a"
       href={SITE.podcast}
-      class="bg-white sm:bg-yellow py-4 col-span-1 sm:col-span-4 row-span-2 sm:row-span-3 text-center flex-col gap-2 hover:gap-0 text-yellow sm:text-white"
-    >
+      row={3}
+      col={4}
+      class="bg-white sm:bg-yellow py-4 text-center flex-col gap-2 hover:gap-0 text-yellow sm:text-white">
       <p
-        class="leading-6 text-2xl text-yellow row-span-2 sm:text-orange font-black"
-      >
+        class="leading-6 text-2xl text-yellow row-span-2 sm:text-orange font-black">
         Escucha <span class="text-light-green sm:text-white font-bold"
           >nuestro</span
         > Podcast
       </p>
       <Spotify size="42" />
-    </GridCard>
-    <GridCard
-      class="hidden sm:flex row-span-1 col-span-2 text-yellow justify-end"
-    >
+    </GridItem>
+    <GridItem as="div" col={2} class="hidden sm:flex text-yellow justify-end">
       <p class="text-xl font-black text-end">Redes Sociales</p>
-    </GridCard>
-    <GridCard
-      element="a"
+    </GridItem>
+    <GridItem
+      as="a"
       href={SITE.social_media.ig}
-      class="bg-white text-light-green col-span-1 sm:col-span-3 row-span-1 hover:bg-light-green hover:text-white transition duration-150 group sm:rounded-xl"
-    >
+      col={3}
+      class="bg-white text-light-green hover:bg-light-green hover:text-white transition duration-150 group sm:rounded-xl">
       <p class="flex gap-2 items-center">Instagram <Instagram size="28" /></p>
-    </GridCard>
-    <GridCard
-      element="a"
+    </GridItem>
+    <GridItem
+      as="a"
       href={SITE.social_media.fb}
-      class="bg-white text-orange hover:bg-orange col-span-1 sm:col-span-3 row-span-1 hover:text-white transition duration-150 sm:rounded-xl"
-    >
+      col={3}
+      class="bg-white text-orange hover:bg-orange hover:text-white transition duration-150 sm:rounded-xl">
       <p class="flex gap-2 items-center">Facebook <Facebook /></p>
-    </GridCard>
-    <GridCard
-      class="col-span-full sm:col-span-6 row-span-1 bg-light-green text-white sm:rounded-xl"
-    >
-      <p>Frijol Mágico 2024 🌱</p>
-    </GridCard>
-    <GridCard
-      element="a"
+    </GridItem>
+    <GridItem as="p" col={6} class="bg-light-green text-white sm:rounded-xl">
+      Frijol Mágico 2024 🌱
+    </GridItem>
+    <GridItem
+      as="a"
       href="https://strocs.dev"
-      class="text-orange bg-white col-span-full sm:col-span-6 row-span-1 hover:text-yellow transition duration-150 sm:rounded-xl"
-    >
+      col={6}
+      class="text-orange bg-white hover:text-yellow transition duration-150 sm:rounded-xl">
       <p class="flex gap-2 items-center">Desarrollado con ❤️ por StrocsDev</p>
-    </GridCard>
+    </GridItem>
   </Grid>
 </footer>
