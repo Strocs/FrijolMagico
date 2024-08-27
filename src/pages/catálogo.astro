@@ -1,9 +1,83 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import { Input } from '@/components/ui/input.tsx'
+import Footer from '@/components/organisms/Footer.astro'
+import Main from '@/components/organisms/Main.astro'
+import Layout from '@/layouts/Layout.astro'
+import { Filter } from '@/components/organisms/Filter.tsx'
 
+interface User {
+  [key: string]: string
+}
 
+const mockData: User[] = [
+  {
+    name: 'Camipepe',
+    avatar: '',
+    bio: ' ',
+    rrss: '',
+    email: '',
+    work_area: 'Ilustración',
+    city: 'La Serena',
+  },
+  {
+    name: 'Camipepe',
+    avatar: '',
+    bio: ' ',
+    rrss: '',
+    email: '',
+    work_area: 'Ilustración',
+    city: 'Coquimbo',
+  },
+  {
+    name: 'Camipepe',
+    avatar: '',
+    bio: ' ',
+    rrss: '',
+    email: '',
+    work_area: 'Manualidades',
+    city: 'Ovalle',
+  },
+  {
+    name: 'Camipepe',
+    avatar: '',
+    bio: ' ',
+    rrss: '',
+    email: '',
+    work_area: 'Narrativa Gráfica',
+    city: 'Coquimbo',
+  },
+]
+
+const getUniqueDataByKey = (data: User[], key: string) => {
+  const extractData = data.map((d) => d[key])
+  return [...new Set(extractData)]
+}
+
+const cityFilterData = getUniqueDataByKey(mockData, 'city')
+const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
 ---
 
 <Layout title="Ilustradores de la Región de Coquimbo">
-
+  <header class="pt-52 text-dark-green space-y-8">
+    <h1
+      class="text-6xl py-2 font-black text-center text-transparent bg-gradient-to-r from-orange to-yellow bg-clip-text">
+      Catálogo Frijol Mágico
+    </h1>
+    <p class="font-medium max-w-prose text-center mx-auto">
+      ¿Necesitas un <b class="bg-light-green/80 px-0.5 text-white">ilustrador</b
+      >? Busca, filtra y contacta a los mejores artistas de la Región de
+      Coquimbo
+    </p>
+  </header>
+  <Main class="py-8">
+    <!-- SEARCH AND FILTER BAR -->
+    <section class="flex gap-6">
+      <Input />
+      <Filter items={cityFilterData} value="Ciudad" client:load />
+      <Filter items={areaFilterData} value="Disciplina" client:load />
+    </section>
+    <!-- GALLERY CARDS -->
+    <!-- MORE INFO PANEL -->
+  </Main>
+  <Footer />
 </Layout>
