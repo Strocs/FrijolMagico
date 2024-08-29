@@ -1,49 +1,46 @@
-import type { CatalogeArtist, Cataloge } from '@/interfaces/cataloge.d.ts'
+import type { CatalogeArtist } from '@/interfaces/cataloge.d.ts'
 import { normalizeString } from '@/utils/normalizeString'
 import { atom, map } from 'nanostores'
 
-export const $cataloge = atom<Cataloge | undefined>(undefined)
-export const $catalogeOriginal = atom<Cataloge>([])
-export const $selected = atom<CatalogeArtist | {}>({})
-export const $filtersActive = map({
-  city: '',
-  work_area: '',
-})
-
-export function searchArtist(searchValue: string) {
-  const originalState = $catalogeOriginal.get()
-
-  const searchedArtist = originalState.filter((item) =>
-    normalizeString(item.name).includes(normalizeString(searchValue))
-  )
-
-  $cataloge.set(searchedArtist)
-
-  //evaluate if any filter is active an filterData
-  const { city, work_area } = $filtersActive.get()
-
-  if (!!city || !!work_area) {
-    filterArtist({ city, work_area })
-  }
+interface SelectedFilters {
+  [key: string]: string[]
 }
 
-export function filterArtist({
-  city = '',
-  work_area = '',
-}: {
-  city?: string
-  work_area?: string
-}) {
-  $filtersActive.set({ city, work_area })
+export const $searchValue = atom<string>('')
+export const $selectedCataloge = atom<CatalogeArtist | {}>({})
+export const $selectedFilters = map<SelectedFilters>({
+  city: [],
+  work_area: [],
+})
 
-  const currentState = $cataloge.get()!
+export function setSearchValue(searchValue: string) {
+  $searchValue.set(normalizeString(searchValue))
+}
 
-  const filteredData = currentState.filter((item) => {
-    if (!city && !work_area) return
-    if (!city) return item.work_area === work_area
-    if (!work_area) return item.city === city
-    return item.city === city && item.work_area === work_area
+export function setSelectedArtist(artist: CatalogeArtist) {
+  $selectedCataloge.set(artist)
+}
+
+export function setSelectedFilter(key: string, value?: string) {
+  if (!value) return $selectedFilters.setKey(key, [])
+
+  const currentFilters = $selectedFilters.get()
+
+  if (currentFilters[key].includes(value)) {
+    const deletedValue = currentFilters[key].filter(
+      (filter) => filter !== value
+    )
+
+    $selectedFilters.setKey(key, deletedValue)
+    return
+  }
+
+  $selectedFilters.setKey(key, [value, ...currentFilters[key]])
+}
+
+export function resetFilters() {
+  $selectedFilters.set({
+    city: [],
+    work_area: [],
   })
-
-  $cataloge.set(filteredData)
 }
