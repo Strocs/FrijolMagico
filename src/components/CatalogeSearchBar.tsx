@@ -1,4 +1,4 @@
-import { Input } from '../ui/input'
+import { Input } from '@/components/ui/input'
 import { $searchValue, setSearchValue } from '@/store/cataloge'
 import { useStore } from '@nanostores/react'
 

@@ -1,10 +1,10 @@
 ---
-import Footer from '@/components/organisms/Footer.astro'
-import GridItem from '@/components/organisms/GridItem.astro'
-import { Selected } from '@/components/organisms/Selected.tsx'
+import Footer from '@/components/Footer.astro'
+import GridItem from '@/components/GridItem.astro'
+import { Selected } from '@/components/Selected.tsx'
 import { HEADER_ROW_INFO } from '@/data/CONSTANTS'
 import Layout from '@/layouts/Layout.astro'
-import Main from '@/components/organisms/Main.astro'
+import Main from '@/components/Main.astro'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 
 const doc = new GoogleSpreadsheet(import.meta.env.SHEET_ID, {

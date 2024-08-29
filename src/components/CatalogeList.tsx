@@ -1,5 +1,5 @@
 import type { Cataloge } from '@/interfaces/cataloge.d.ts'
-import { CatalogeCard } from './CatalogeCard'
+import { CatalogeCard } from '@/components/CatalogeCard'
 import { useCataloge } from '@/hooks/useCataloge'
 
 interface CatalogeProps {
