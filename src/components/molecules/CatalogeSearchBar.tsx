@@ -1,24 +1,23 @@
-import { useState } from 'react'
 import { Input } from '../ui/input'
-import { searchArtist } from '@/store/cataloge'
+import { $searchValue, setSearchValue } from '@/store/cataloge'
+import { useStore } from '@nanostores/react'
 
 export const CatalogeSearchBar = () => {
-  const [inputValue, setInputValue] = useState('')
+  const searchValue = useStore($searchValue)
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault()
 
     if (!e.target) return
 
-    setInputValue(e.target.value)
-    searchArtist(e.target.value)
+    setSearchValue(e.target.value)
   }
 
   return (
     <Input
       type="text"
       onChange={handleInput}
-      value={inputValue}
+      value={searchValue}
       placeholder="Busca a tu ilustrador favorito"
     />
   )
