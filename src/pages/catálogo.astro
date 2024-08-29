@@ -2,10 +2,10 @@
 import Footer from '@/components/organisms/Footer.astro'
 import Main from '@/components/organisms/Main.astro'
 import Layout from '@/layouts/Layout.astro'
-import { Filter } from '@/components/organisms/Filter.tsx'
 import type { Cataloge } from '@/interfaces/cataloge.d.ts'
 import { CatalogeList } from '@/components/organisms/CatalogeList.tsx'
 import { CatalogeSearchBar } from '@/components/molecules/CatalogeSearchBar.tsx'
+import { CatalogeFilter } from '@/components/CatalogeFilter.tsx'
 
 const mockData: Cataloge = [
   {
@@ -74,8 +74,9 @@ export const getUniqueDataByKey = (
   data: Cataloge,
   key: 'city' | 'work_area'
 ) => {
-  const extractData = data.map((d) => d[key])
-  return [...new Set(extractData)]
+  const uniqueData = new Set(data.map((d) => d[key]))
+
+  return [...uniqueData].map((data) => ({ value: data }))
 }
 
 const cityFilterData = getUniqueDataByKey(mockData, 'city')
@@ -89,7 +90,7 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
       Catálogo Frijol Mágico
     </h1>
     <p class="font-normal max-w-prose text-center mx-auto">
-      <b>¿Necesitas un encontrar algún </b><b
+      <b>¿Necesitas encontrar algún </b><b
         class="bg-light-green/80 px-0.5 text-white">ilustrador/a</b
       >? Busca, filtra y contacta a los mejores artistas de la Región de
       Coquimbo
@@ -99,13 +100,25 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
     <!-- SEARCH AND FILTER BAR -->
     <section class="flex gap-6 max-w-screen-md mx-auto">
       <CatalogeSearchBar client:load />
-      <Filter items={cityFilterData} value="Ciudad" client:load />
-      <Filter items={areaFilterData} value="Disciplina" client:load />
+      <CatalogeFilter
+        options={cityFilterData}
+        title="Ciudad"
+        filterKey="city"
+        client:load
+      />
+      <CatalogeFilter
+        options={areaFilterData}
+        title="Disciplina"
+        filterKey="work_area"
+        client:load
+      />
     </section>
+
+    <!-- GALLERY CARDS -->
     <section>
       <CatalogeList list={mockData} client:load />
     </section>
-    <!-- GALLERY CARDS -->
+
     <!-- MORE INFO PANEL -->
   </Main>
   <Footer />
