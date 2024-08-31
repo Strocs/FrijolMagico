@@ -1,4 +1,5 @@
 export interface CatalogeArtist {
+  id: string
   avatar: string
   name: string
   city: string

@@ -6,8 +6,23 @@ interface SelectedFilters {
   [key: string]: string[]
 }
 
+const defaultSelectedValue = {
+  id: '',
+  avatar: '',
+  name: '',
+  city: '',
+  work_area: '',
+  bio: '',
+  email: '',
+  rrss: '',
+}
+
 export const $searchValue = atom<string>('')
-export const $selectedCataloge = atom<CatalogeArtist | {}>({})
+
+export const $selectedCataloge = atom<CatalogeArtist>(defaultSelectedValue)
+
+export const $isArtistPanelOpen = atom(false)
+
 export const $selectedFilters = map<SelectedFilters>({
   city: [],
   work_area: [],
@@ -18,6 +33,10 @@ export function setSearchValue(searchValue: string) {
 }
 
 export function setSelectedArtist(artist: CatalogeArtist) {
+  const currentSelected = $selectedCataloge.get()
+
+  if (currentSelected.id === artist.id) return
+
   $selectedCataloge.set(artist)
 }
 
@@ -36,6 +55,20 @@ export function setSelectedFilter(key: string, value?: string) {
   }
 
   $selectedFilters.setKey(key, [value, ...currentFilters[key]])
+}
+
+export function setArtistPanelOpen(open?: boolean) {
+  const currentState = $isArtistPanelOpen.get()
+
+  if (typeof open === undefined) return $isArtistPanelOpen.set(!currentState)
+
+  if (currentState === open) return
+
+  if (!open) {
+    $selectedCataloge.set(defaultSelectedValue)
+  }
+
+  $isArtistPanelOpen.set(open!)
 }
 
 export function resetFilters() {

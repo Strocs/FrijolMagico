@@ -1,8 +1,17 @@
 import type { CatalogeArtist } from '@/interfaces/cataloge.d.ts'
 import { formatUrl } from '@/utils/formatUrl'
 import { Instagram, Mail } from 'lucide-react'
+import { Badge } from './ui/badge'
+import { Button } from './ui/button'
+import {
+  $selectedCataloge,
+  setArtistPanelOpen,
+  setSelectedArtist,
+} from '@/store/cataloge'
+import { useStore } from '@nanostores/react'
 
 export const CatalogeCard = ({
+  id,
   avatar,
   name,
   city,
@@ -13,19 +22,39 @@ export const CatalogeCard = ({
 }: CatalogeArtist) => {
   const rrssUrl = formatUrl(rrss)
 
+  const { id: selectedId } = useStore($selectedCataloge)
+
+  const isSelected = id === selectedId
+
+  function handleViewMoreButton() {
+    setSelectedArtist({
+      id,
+      avatar,
+      name,
+      city,
+      work_area,
+      bio,
+      email,
+      rrss,
+    })
+
+    setArtistPanelOpen(true)
+  }
+
   return (
-    <li className="cursor-default group bg-gradient-to-br from-orange to-yellow [background-size:250%] hover:bg-right-bottom  transition-all duration-300 p-4 rounded-xl relative space-y-6">
+    <li
+      className={`text-background cursor-default group bg-gradient-to-br from-secondary to-accent [background-size:250%] hover:bg-right-bottom ${isSelected ? 'bg-right-bottom scale-105' : ''} transition-all duration-300 p-4 rounded-xl relative space-y-6`}>
       <section className="flex gap-4 items-center">
         <div className="bg-slate-300 rounded-full w-12 h-12" />
         <section className="space-y-0.5">
           <h2 className="text-xl font-bold ml-1">{name}</h2>
           <div className="flex gap-2">
-            <span className="bg-orange rounded px-2 font-semibold text-sm">
+            <Badge className="bg-secondary hover:bg-foreground text-secondary-foreground">
               {work_area}
-            </span>
-            <span className="bg-yellow rounded px-2 font-semibold text-sm">
+            </Badge>
+            <Badge className="bg-accent hover:bg-foreground text-accent-foreground">
               {city}
-            </span>
+            </Badge>
           </div>
         </section>
       </section>
@@ -40,9 +69,12 @@ export const CatalogeCard = ({
           </a>
         </section>
 
-        <button className="absolute right-4 bottom-4 rotate-6 outline outline-white font-semibold group-hover:rotate-0 hover:bg-white hover:text-neutral-800 transition duration-300 bg-orange text-white px-4 py-0.5 rounded-lg shrink-0">
+        <Button
+          onClick={handleViewMoreButton}
+          size="sm"
+          className={`absolute right-4 bottom-4 rotate-6 outline outline-background group-hover:rotate-0 ${isSelected ? 'rotate-0 bg-primary' : 'bg-secondary'} hover:bg-foreground transition duration-300 text-secondary-foreground shrink-0`}>
           Ver más
-        </button>
+        </Button>
       </section>
     </li>
   )

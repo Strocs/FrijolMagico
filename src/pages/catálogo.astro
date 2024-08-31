@@ -6,9 +6,12 @@ import type { Cataloge } from '@/interfaces/cataloge.d.ts'
 import { CatalogeList } from '@/components/CatalogeList'
 import { CatalogeSearchBar } from '@/components/CatalogeSearchBar'
 import { CatalogeFilter } from '@/components/CatalogeFilter'
+import { CatalogePanel } from '@/components/CatalogePanel'
+import type { only } from 'node:test'
 
 const mockData: Cataloge = [
   {
+    id: '1',
     name: 'Camipepe',
     avatar:
       'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
@@ -19,6 +22,7 @@ const mockData: Cataloge = [
     city: 'La Serena',
   },
   {
+    id: '2',
     name: 'Shobian',
     avatar:
       'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
@@ -29,6 +33,7 @@ const mockData: Cataloge = [
     city: 'Coquimbo',
   },
   {
+    id: '3',
     name: 'Karime Simons',
     avatar:
       'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
@@ -39,6 +44,7 @@ const mockData: Cataloge = [
     city: 'Ovalle',
   },
   {
+    id: '4',
     name: 'Osamenta En El Jardín',
     avatar:
       'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
@@ -49,6 +55,7 @@ const mockData: Cataloge = [
     city: 'Coquimbo',
   },
   {
+    id: '5',
     name: 'Me Pego Un Tiro',
     avatar:
       'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
@@ -59,6 +66,7 @@ const mockData: Cataloge = [
     city: 'Illapel',
   },
   {
+    id: '6',
     name: 'Carvajal Ilustraciones',
     avatar:
       'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
@@ -84,42 +92,66 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
 ---
 
 <Layout title="Ilustradores de la Región de Coquimbo">
-  <header class="pt-52 text-dark-green space-y-8">
-    <h1
-      class="text-6xl py-2 font-black text-center text-transparent bg-gradient-to-r from-orange to-yellow bg-clip-text">
-      Catálogo Frijol Mágico
-    </h1>
-    <p class="font-normal max-w-prose text-center mx-auto">
-      <b>¿Necesitas encontrar algún </b><b
-        class="bg-light-green/80 px-0.5 text-white">ilustrador/a</b
-      >? Busca, filtra y contacta a los mejores artistas de la Región de
-      Coquimbo
-    </p>
-  </header>
-  <Main class="py-8">
-    <!-- SEARCH AND FILTER BAR -->
-    <section class="flex gap-6 max-w-screen-md mx-auto">
-      <CatalogeSearchBar client:load />
-      <CatalogeFilter
-        options={cityFilterData}
-        title="Ciudad"
-        filterKey="city"
-        client:load
-      />
-      <CatalogeFilter
-        options={areaFilterData}
-        title="Disciplina"
-        filterKey="work_area"
-        client:load
-      />
-    </section>
+  <div class="pt-[calc(var(--top-bar-info-height)+2rem)] flex">
+    <div id="cataloge-wrapper" class="h-full w-full transition-all duration-300">
+      <header
+        class="text-foreground space-y-8">
+        <h1
+          class="text-6xl py-2 font-black text-center text-transparent bg-gradient-to-r from-secondary to-accent bg-clip-text">
+          Catálogo Frijol Mágico
+        </h1>
+        <p class="font-normal max-w-prose text-center mx-auto">
+          <b
+            >¿Necesitas encontrar algún <span class="bg-accent px-0.5"
+              >ilustrador/a</span
+            >?
+          </b> Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo
+        </p>
+      </header>
+      <Main class="py-8 space-y-4">
+        <!-- SEARCH AND FILTER BAR -->
+        <section class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
+          <CatalogeSearchBar client:load />
+          <div>
+            <CatalogeFilter
+              options={cityFilterData}
+              title="Ciudad"
+              filterKey="city"
+              client:load
+            />
+            <CatalogeFilter
+              options={areaFilterData}
+              title="Disciplina"
+              filterKey="work_area"
+              client:load
+            />
+          </div>
+        </section>
 
-    <!-- GALLERY CARDS -->
-    <section>
-      <CatalogeList list={mockData} client:load />
-    </section>
+        <!-- GALLERY CARDS -->
+        <section>
+          <CatalogeList list={mockData} client:load />
+        </section>
 
-    <!-- MORE INFO PANEL -->
-  </Main>
-  <Footer />
+        <!-- MORE INFO PANEL -->
+      </Main>
+      <Footer />
+    </div>
+    <CatalogePanel client:only="react" />
+  </div>
 </Layout>
+
+
+<script>
+  import {$isArtistPanelOpen} from '../store/cataloge.ts'
+  const catalogeWrapper = document.getElementById('cataloge-wrapper') as HTMLDivElement
+
+  $isArtistPanelOpen.subscribe(open => {
+     // open ?
+     //  catalogeWrapper.classList.remove('ml-0')
+     //  : catalogeWrapper.classList.add('ml-0') 
+     //
+  })
+
+
+</script>
