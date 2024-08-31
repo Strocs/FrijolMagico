@@ -13,18 +13,22 @@ module.exports = {
     },
     extend: {
       colors: {
-        'dark-green': '#033220',
-        'light-green': '#097333',
-        yellow: '#f9bd21',
-        orange: '#ef5026',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: {
+          DEFAULT: 'var(--green)',
+          foreground: 'var(--green-foreground)',
+        },
+        secondary: {
+          DEFAULT: 'var(--orange)',
+          foreground: 'var(--orange-foreground)',
+        },
+        accent: {
+          DEFAULT: 'var(--yellow)',
+          foreground: 'var(--yellow-foreground)',
+        },
       },
-      boxShadow: {
-        DEFAULT: '-0.5rem 0.5rem 0 0',
-        hover: '-0.3rem 0.3rem 0 0',
-      },
-      boxShadowColor: {
-        DEFAULT: 'var(--s-pink)',
-      },
+
       fontFamily: {
         noto: '"Noto Sans Mono", monospace',
         josefin: '"Josefin Sans", sans-serif',
@@ -50,4 +54,3 @@ module.exports = {
   },
   plugins: [require('tailwindcss-animate')],
 }
-
