@@ -16,29 +16,29 @@ const separatorEmoji = ['🌱', '🍃', '🌿', '✨', '🍀', '⭐']
 const categories = {
   illustration: {
     styles: {
-      hover: 'text-orange hover:bg-orange bg-white',
-      active: 'bg-orange',
+      hover: 'text-secondary hover:bg-secondary bg-background',
+      active: 'bg-secondary text-secondary-foreground',
     },
     title: 'Ilustración',
   },
   manuals: {
     styles: {
-      hover: 'text-yellow hover:bg-yellow bg-white',
-      active: 'bg-yellow',
+      hover: 'text-accent hover:bg-accent bg-background',
+      active: 'bg-accent text-accent-foreground',
     },
     title: 'Manualidades',
   },
   graphic: {
     styles: {
-      hover: 'text-light-green hover:bg-light-green bg-white',
-      active: 'bg-light-green',
+      hover: 'text-primary hover:bg-primary bg-background',
+      active: 'bg-primary text-primary-foreground',
     },
     title: 'Narrativa Gráfica',
   },
   music: {
     styles: {
-      hover: 'text-red-700 hover:bg-red-700 bg-white',
-      active: 'bg-red-700',
+      hover: 'text-red-700 hover:bg-red-700 bg-background',
+      active: 'bg-red-700 text-background',
     },
     title: 'Música',
   },
@@ -62,7 +62,7 @@ export const Selected = ({ rows }: Props) => {
               <button
                 key={category.title}
                 onClick={() => handleClick(category.title)}
-                className={`w-fit h-full font-bold uppercase rounded-3xl transition-all duration-300 hover:text-white py-4 sm:py-6 px-6 sm:px-12 show-btn ${
+                className={`w-fit h-full font-bold uppercase rounded-3xl transition-all duration-300 hover:text-background py-4 sm:py-6 px-6 sm:px-12 show-btn ${
                   filter === category.title
                     ? category.styles.active
                     : category.styles.hover
@@ -89,9 +89,9 @@ export const Selected = ({ rows }: Props) => {
             return (
               <li
                 key={nick}
-                className="flex flex-col sm:flex-row items-center sm:gap-4 text-orange text-center">
+                className="flex flex-col sm:flex-row items-center sm:gap-4 text-secondary text-center">
                 <a
-                  className="hover:bg-gradient-to-r from-orange to-yellow hover:text-white px-4 py-1 rounded-lg"
+                  className="hover:bg-gradient-to-r from-secondary to-accent hover:text-background px-4 py-1 rounded-lg"
                   target="_blank"
                   href={social_media}>
                   {nick}

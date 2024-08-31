@@ -41,22 +41,21 @@ export function CatalogeFilter({
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="h-8 border-dashed">
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-8 border-dashed rounded-xl">
           <PlusCircleIcon className="mr-2 h-4 w-4" />
           {title}
           {selectedValues.length > 0 && (
             <>
               <Separator orientation="vertical" className="mx-2 h-4" />
-              <Badge
-                variant="secondary"
-                className="rounded-sm px-1 font-normal lg:hidden">
+              <Badge className="rounded-sm bg-background hover:bg-accent px-1 font-normal lg:hidden">
                 {selectedValues.length}
               </Badge>
               <div className="hidden space-x-1 lg:flex">
                 {selectedValues.length > 2 ? (
-                  <Badge
-                    variant="secondary"
-                    className="rounded-sm px-1 font-normal">
+                  <Badge className="rounded-lg px-1 font-normal bg-background hover:bg-accent text-foreground">
                     {selectedValues.length} seleccionados
                   </Badge>
                 ) : (
@@ -64,9 +63,8 @@ export function CatalogeFilter({
                     .filter((option) => selectedValues.includes(option.value))
                     .map((option) => (
                       <Badge
-                        variant="secondary"
                         key={option.value}
-                        className="rounded-sm px-1 font-normal">
+                        className="rounded-lg text-foreground bg-background hover:bg-accent px-1 font-normal">
                         {option.value}
                       </Badge>
                     ))
@@ -78,7 +76,7 @@ export function CatalogeFilter({
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0" align="start">
         <Command>
-          <CommandInput placeholder={title} />
+          {/* <CommandInput placeholder={title} /> */}
           <CommandList>
             <CommandEmpty>No hay resultados.</CommandEmpty>
             <CommandGroup>
@@ -112,7 +110,7 @@ export function CatalogeFilter({
                 <CommandGroup>
                   <CommandItem
                     onSelect={() => setSelectedFilter(filterKey)}
-                    className="justify-center text-center">
+                    className="text-foreground justify-center text-center">
                     Borrar filtros
                   </CommandItem>
                 </CommandGroup>

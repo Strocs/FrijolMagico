@@ -18,7 +18,8 @@ export const CatalogeSearchBar = () => {
       type="text"
       onChange={handleInput}
       value={searchValue}
-      placeholder="Busca a tu ilustrador favorito"
+      placeholder="Busca a tu artista favorito/a"
+      className="rounded-xl h-8 border-dashed shrink-0 max-w-sm"
     />
   )
 }
