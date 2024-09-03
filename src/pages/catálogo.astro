@@ -7,7 +7,6 @@ import { CatalogeList } from '@/components/CatalogeList'
 import { CatalogeSearchBar } from '@/components/CatalogeSearchBar'
 import { CatalogeFilter } from '@/components/CatalogeFilter'
 import { CatalogePanel } from '@/components/CatalogePanel'
-import type { only } from 'node:test'
 
 const mockData: Cataloge = [
   {
@@ -76,6 +75,73 @@ const mockData: Cataloge = [
     work_area: 'Narrativa Gráfica',
     city: 'La Serena',
   },
+
+  {
+    id: '7',
+    name: 'Camipepe',
+    avatar:
+      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
+    bio: '"Lic. en arquitectura, ilustradora y artista visual chilena. Desarrolla trabajos con temáticas relacionadas a la fantasía y la naturaleza, enfocándose en ilustrar y diseñar en torno a la creación de personajes originales y criaturas imaginarias, sus medios principales tradicionales artísticos son la acuarela, el grafito y los lápices de colores"',
+    rrss: 'Instagram.com/anima.red',
+    email: 'Animared.ilustracion@gmail.com',
+    work_area: 'Ilustración',
+    city: 'La Serena',
+  },
+  {
+    id: '8',
+    name: 'Shobian',
+    avatar:
+      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
+    bio: 'Shobian, diseñadora gráfica de profesión e ilustradora autodidacta, se caracteriza por utilizar texturas análogas en la ilustración digital, aportando calidez a sus obras que retratan naturaleza y elementos de la vida cotidiana. Ha estado presente en diversos eventos de ilustración, destacando previas versiones del Festival Frijol Mágico y Festival ARC.',
+    rrss: 'Instagram.com/anima.red',
+    email: 'Animared.ilustracion@gmail.com',
+    work_area: 'Ilustración',
+    city: 'Coquimbo',
+  },
+  {
+    id: '9',
+    name: 'Karime Simons',
+    avatar:
+      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
+    bio: '"Hola! Soy Josefa Aguilera, Ilustradora y artista de videojuegos, tengo 27 años y dibujo con motivación desde los 14. Adoro crear personajes con trasfondos interesantes inspirados en la cultura Chilena y Asiática, siempre esperando generar un impacto a nivel emocional y espiritual, actualmente soy freelancer y estoy dibujando un manga "Si el río suena es porque piedras trae." 川石の音 (Kawaishi no oto) el cual está basado en las mencionadas culturas. He trabajado también para diversas compañías de videojuegos internacionales y participado en ferias de arte a lo largo del país. ¡Espero que disfrutes mucho mi trabajo!',
+    rrss: 'Instagram.com/anima.red',
+    email: 'Animared.ilustracion@gmail.com',
+    work_area: 'Manualidades',
+    city: 'Ovalle',
+  },
+  {
+    id: '10',
+    name: 'Osamenta En El Jardín',
+    avatar:
+      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
+    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
+    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
+    email: 'Animared.ilustracion@gmail.com',
+    work_area: 'Narrativa Gráfica',
+    city: 'Coquimbo',
+  },
+  {
+    id: '11',
+    name: 'Me Pego Un Tiro',
+    avatar:
+      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
+    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
+    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
+    email: 'Animared.ilustracion@gmail.com',
+    work_area: 'Manualidades',
+    city: 'Illapel',
+  },
+  {
+    id: '12',
+    name: 'Carvajal Ilustraciones',
+    avatar:
+      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
+    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
+    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
+    email: 'Animared.ilustracion@gmail.com',
+    work_area: 'Narrativa Gráfica',
+    city: 'La Serena',
+  },
 ]
 
 export const getUniqueDataByKey = (
@@ -92,10 +158,11 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
 ---
 
 <Layout title="Ilustradores de la Región de Coquimbo">
-  <div class="pt-[calc(var(--top-bar-info-height)+2rem)] flex">
-    <div id="cataloge-wrapper" class="h-full w-full transition-all duration-300">
-      <header
-        class="text-foreground space-y-8">
+  <div class="flex">
+    <div
+      id="cataloge-wrapper"
+      class="pt-[calc(var(--top-bar-info-height)+2rem)] h-full w-full transition-all duration-300">
+      <header class="text-foreground space-y-8">
         <h1
           class="text-6xl py-2 font-black text-center text-transparent bg-gradient-to-r from-secondary to-accent bg-clip-text">
           Catálogo Frijol Mágico
@@ -110,7 +177,8 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
       </header>
       <Main class="py-8 space-y-4">
         <!-- SEARCH AND FILTER BAR -->
-        <section class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
+        <section
+          class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
           <CatalogeSearchBar client:load />
           <div>
             <CatalogeFilter
@@ -141,17 +209,16 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
   </div>
 </Layout>
 
-
 <script>
-  import {$isArtistPanelOpen} from '../store/cataloge.ts'
-  const catalogeWrapper = document.getElementById('cataloge-wrapper') as HTMLDivElement
+  import { $isArtistPanelOpen } from '../store/cataloge.ts'
+  const catalogeWrapper = document.getElementById(
+    'cataloge-wrapper'
+  ) as HTMLDivElement
 
-  $isArtistPanelOpen.subscribe(open => {
-     // open ?
-     //  catalogeWrapper.classList.remove('ml-0')
-     //  : catalogeWrapper.classList.add('ml-0') 
-     //
+  $isArtistPanelOpen.subscribe((open) => {
+    // open ?
+    //  catalogeWrapper.classList.remove('ml-0')
+    //  : catalogeWrapper.classList.add('ml-0')
+    //
   })
-
-
 </script>
