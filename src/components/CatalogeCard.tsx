@@ -43,7 +43,7 @@ export const CatalogeCard = ({
 
   return (
     <li
-      className={`text-background cursor-default group bg-gradient-to-br from-secondary to-accent [background-size:250%] hover:bg-right-bottom ${isSelected ? 'bg-right-bottom scale-105' : ''} transition-all duration-300 p-4 rounded-xl relative space-y-6`}>
+      className={`text-background w-full sm:w-fit cursor-default group bg-gradient-to-br from-secondary to-accent [background-size:250%] hover:bg-right-bottom ${isSelected ? 'bg-right-bottom scale-105' : ''} transition-all duration-300 p-4 rounded-xl relative space-y-6`}>
       <section className="flex gap-4 items-center">
         <div className="bg-slate-300 rounded-full w-12 h-12" />
         <section className="space-y-0.5">
