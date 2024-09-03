@@ -65,7 +65,9 @@ export function setArtistPanelOpen(open?: boolean) {
   if (currentState === open) return
 
   if (!open) {
-    $selectedCataloge.set(defaultSelectedValue)
+    setTimeout(() => {
+      $selectedCataloge.set(defaultSelectedValue)
+    }, 500)
   }
 
   $isArtistPanelOpen.set(open!)
