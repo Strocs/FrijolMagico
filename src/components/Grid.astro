@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string
+  container?: boolean
+}
+
+const { class: customClass, container } = Astro.props
+---
+
+<section
+  class:list={[
+    'grid place-content-center gap-4 mx-auto relative',
+    container ?? 'container',
+    customClass,
+  ]}>
+  <slot />
+</section>

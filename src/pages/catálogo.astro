@@ -1,0 +1,113 @@
+---
+import Footer from '@/components/Footer.astro'
+import Main from '@/components/Main.astro'
+import Layout from '@/layouts/Layout.astro'
+import type { Cataloge, CatalogeArtist } from '@/interfaces/cataloge.d.ts'
+import { CatalogeList } from '@/components/CatalogeList'
+import { CatalogeSearchBar } from '@/components/CatalogeSearchBar'
+import { CatalogeFilter } from '@/components/CatalogeFilter'
+import { CatalogePanel } from '@/components/CatalogePanel'
+import { getFiltersData } from '@/utils/getFiltersData'
+import { CATALOGE_HEADER_INFO } from '@/data/CONSTANTS'
+
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+import type { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
+
+const doc = new GoogleSpreadsheet(import.meta.env.CATALOGE_SHEET_ID, {
+  apiKey: import.meta.env.GOOGLE_API_KEY,
+})
+
+await doc.loadInfo()
+const sheet = doc.sheetsByIndex[0]
+const rows = await sheet.getRows()
+
+const importedImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/cataloge-images/*'
+)
+
+const imagesPath = Object.entries(importedImages)
+
+async function getProcessedImage(imageName: string) {
+  const selectImage = imagesPath.find(([src]) => src.includes(imageName))
+  if (!selectImage)
+    throw new Error('No existe la imágen con el nombre indicado')
+  const processedImage = await getImage({
+    src: selectImage[1](),
+    format: 'webp',
+    height: 200,
+    width: 200,
+  })
+  return processedImage.src
+}
+
+const catalogePromise: Promise<CatalogeArtist>[] = rows.map(async (row) => {
+  return {
+    id: row.get(CATALOGE_HEADER_INFO.ID),
+    name: row.get(CATALOGE_HEADER_INFO.NAME),
+    city: row.get(CATALOGE_HEADER_INFO.CITY),
+    work_area: row.get(CATALOGE_HEADER_INFO.WORK_AREA),
+    bio: row.get(CATALOGE_HEADER_INFO.BIO),
+    email: row.get(CATALOGE_HEADER_INFO.EMAIL),
+    rrss: row.get(CATALOGE_HEADER_INFO.RRSS),
+    avatar: await getProcessedImage(row.get(CATALOGE_HEADER_INFO.AVATAR)),
+  }
+})
+
+const cataloge: Cataloge = await Promise.all(catalogePromise)
+
+const cityFilterData = getFiltersData(cataloge, 'city')
+const areaFilterData = getFiltersData(cataloge, 'work_area')
+---
+
+<Layout title="Ilustradores de la Región de Coquimbo">
+  <div class="flex w-screen overflow-hidden">
+    <div
+      id="cataloge-wrapper"
+      class="pt-[calc(var(--top-bar-info-height)+2rem)] h-full w-full transition-all duration-300">
+      <header class="text-foreground space-y-8">
+        <h1
+          class="text-6xl py-2 font-black text-center text-transparent bg-gradient-to-r from-secondary to-accent bg-clip-text">
+          Catálogo Frijol Mágico
+        </h1>
+        <p class="font-normal max-w-prose text-center mx-auto">
+          <b
+            >¿Necesitas encontrar algún <span class="bg-accent px-0.5"
+              >ilustrador/a</span
+            >?
+          </b> Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo
+        </p>
+      </header>
+      <Main class="py-8 space-y-4">
+        <!-- SEARCH AND FILTER BAR -->
+        <section
+          class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
+          <CatalogeSearchBar client:load />
+          <div>
+            <CatalogeFilter
+              options={cityFilterData}
+              title="Ciudad"
+              filterKey="city"
+              client:load
+            />
+            <CatalogeFilter
+              options={areaFilterData}
+              title="Disciplina"
+              filterKey="work_area"
+              client:load
+            />
+          </div>
+        </section>
+
+        <!-- GALLERY CARDS -->
+        <section>
+          <CatalogeList list={cataloge} client:load />
+        </section>
+
+        <!-- MORE INFO PANEL -->
+      </Main>
+      <Footer />
+    </div>
+    <CatalogePanel client:only="react" />
+  </div>
+</Layout>
