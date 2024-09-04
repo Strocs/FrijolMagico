@@ -50,7 +50,7 @@ export function CatalogeFilter({
           {selectedValues.length > 0 && (
             <>
               <Separator orientation="vertical" className="mx-2 h-4" />
-              <Badge className="rounded-sm bg-background hover:bg-accent px-1 font-normal lg:hidden">
+              <Badge className="text-foreground rounded-sm bg-background hover:bg-accent px-1 font-normal lg:hidden">
                 {selectedValues.length}
               </Badge>
               <div className="hidden space-x-1 lg:flex">
