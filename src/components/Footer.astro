@@ -13,8 +13,8 @@ import Facebook from '@/components/icons/Facebook.astro'
     <GridItem
       as="a"
       href="/"
-      row={2}
-      col={8}
+      rows={{ base: 1, sm: 2 }}
+      cols={{ base: 2, sm: 8 }}
       class="bg-foreground py-4 text-center flex-col gap-2 text-accent sm:text-background bg-[url(/enredadera.png)] sm:bg-cover bg-no-repeat sm:bg-[0_70%] bg-[80%_80%] group">
       <p
         class="leading-6 text-2xl text-accent font-black group-hover:text-[1.6rem] duration-150">
@@ -22,12 +22,13 @@ import Facebook from '@/components/icons/Facebook.astro'
         Inicio
       </p>
     </GridItem>
+
     <GridItem
       as="a"
       href={SITE.podcast}
-      row={3}
-      col={4}
-      class="bg-background sm:bg-accent py-4 text-center flex-col gap-2 hover:gap-0 text-accent sm:text-accent-foreground">
+      rows={{ base: 2, sm: 3 }}
+      cols={{ base: 1, sm: 4 }}
+      class="bg-background sm:bg-accent py-4 text-center flex-col gap-2 text-accent sm:text-accent-foreground">
       <p
         class="leading-6 text-2xl text-accent row-span-2 sm:text-secondary font-black">
         Escucha <span class="text-primary sm:text-white font-bold">nuestro</span
@@ -35,33 +36,42 @@ import Facebook from '@/components/icons/Facebook.astro'
       </p>
       <Spotify size="42" />
     </GridItem>
-    <GridItem as="div" col={2} class="hidden sm:flex text-accent justify-end">
+
+    <GridItem as="div" cols={2} class="hidden sm:flex text-accent justify-end">
       <p class="text-xl font-black text-end">Redes Sociales</p>
     </GridItem>
+
     <GridItem
       as="a"
       href={SITE.social_media.ig}
-      col={3}
-      class="bg-white text-primary hover:bg-primary hover:text-primary-foreground transition duration-150 group sm:rounded-xl">
-      <p class="flex gap-2 items-center">Instagram <Instagram size="28" /></p>
+      cols={{ base: 1, sm: 3 }}
+      class="bg-background text-accent hover:bg-accent hover:text-primary-foreground transition duration-150 group sm:rounded-xl">
+      <p class="font-bold uppercase flex gap-2 items-center">
+        Instagram <Instagram size="28" />
+      </p>
     </GridItem>
+
     <GridItem
       as="a"
       href={SITE.social_media.fb}
-      col={3}
-      class="bg-white text-secondary hover:bg-secondary hover:text-secondary-foreground transition duration-150 sm:rounded-xl">
-      <p class="flex gap-2 items-center">Facebook <Facebook /></p>
+      cols={{ base: 1, sm: 3 }}
+      class="bg-background text-secondary hover:bg-secondary hover:text-secondary-foreground transition duration-150 sm:rounded-xl">
+      <p class="font-bold uppercase flex gap-2 items-center">
+        Facebook <Facebook />
+      </p>
     </GridItem>
+
     <GridItem
       as="p"
-      col={6}
+      cols={{ base: 2, sm: 6 }}
       class="bg-primary text-primary-foreground sm:rounded-xl">
       Frijol Mágico 2024 🌱
     </GridItem>
+
     <GridItem
       as="a"
       href="https://strocs.dev"
-      col={6}
+      cols={{ base: 2, sm: 6 }}
       class="text-secondary bg-background hover:text-accent transition duration-150 sm:rounded-xl">
       <p class="flex gap-2 items-center">Desarrollado con ❤️ por StrocsDev</p>
     </GridItem>

@@ -28,7 +28,7 @@ export const CatalogePanel = () => {
     <div
       className={cn([
         '[--max-width:488px] ',
-        'fixed sm:relative z-50',
+        'fixed lg:relative z-50',
         'w-full max-w-[--max-width]',
         'transition-[margin-right,right] duration-500',
         isOpen
@@ -37,25 +37,25 @@ export const CatalogePanel = () => {
       ])}>
       <aside
         className={cn([
-          'fixed bottom-0 top-0 sm:top-[10%]',
-          'w-full h-full max-w-[--max-width] sm:max-h-[84vh] space-y-4 p-8',
+          'fixed bottom-0 top-0 sm:landscape:top-[10%] sm:top-[25%]',
+          'w-full h-full max-w-[--max-width] sm:landscape:max-h-[84vh] sm:max-h-[50vh] space-y-4 p-8',
           'transition-[opacity] duration-500 bg-white text-primary sm:rounded-2xl',
           isOpen ? 'opacity-1' : '',
         ])}>
         <header className="flex items-center gap-x-4">
           <div
             onClick={handleOpenImage}
-            className="rounded-full w-28 sm:w-36 aspect-square bg-zinc-600 shrink-0"
+            className="rounded-full w-28 lg:w-36 aspect-square bg-zinc-600 shrink-0"
           />
 
           <div className="space-y-2">
-            <h2 className="text-4xl font-bold">{name}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">{name}</h2>
 
-            <div className="space-x-2">
-              <Badge className="text-sm bg-secondary hover:bg-foreground text-secondary-foreground">
+            <div className="flex gap-2 flex-wrap">
+              <Badge className="text-sm shrink-0 bg-secondary hover:bg-foreground text-secondary-foreground">
                 {work_area}
               </Badge>
-              <Badge className="text-sm bg-primary hover:bg-foreground text-secondary-foreground">
+              <Badge className="text-sm shrink-0 bg-primary hover:bg-foreground text-secondary-foreground">
                 {city}
               </Badge>
             </div>
@@ -83,7 +83,7 @@ export const CatalogePanel = () => {
         <Button
           size="sm"
           className={cn([
-            'absolute bottom-8 right-8 sm:left-8 sm:right-auto',
+            'absolute bottom-8 right-8 lg:left-8 lg:right-auto',
             'bg-secondary  hover:bg-primary transition duration-300 text-secondary-foreground shrink-0',
           ])}
           onClick={handleClosePanel}>
