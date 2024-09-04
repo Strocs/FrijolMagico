@@ -45,10 +45,15 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'card-slides': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc((-128px - 8px) * 4))' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'card-slides': 'card-slides 12s linear infinite',
       },
     },
   },
