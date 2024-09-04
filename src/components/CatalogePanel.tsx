@@ -39,13 +39,15 @@ export const CatalogePanel = () => {
         className={cn([
           'fixed bottom-0 top-0 sm:landscape:top-[10%] sm:top-[25%]',
           'w-full h-full max-w-[--max-width] sm:landscape:max-h-[84vh] sm:max-h-[50vh] space-y-4 p-8',
-          'transition-[opacity] duration-500 bg-white text-primary sm:rounded-2xl',
+          'transition-[opacity] duration-500 bg-slate-200 text-primary sm:rounded-2xl',
           isOpen ? 'opacity-1' : '',
         ])}>
         <header className="flex items-center gap-x-4">
-          <div
+          <img
             onClick={handleOpenImage}
-            className="rounded-full w-28 lg:w-36 aspect-square bg-zinc-600 shrink-0"
+            loading="lazy"
+            src={avatar}
+            className="rounded-full overflow-hidden w-28 lg:w-36 aspect-square bg-zinc-600 shrink-0"
           />
 
           <div className="space-y-2">
@@ -64,18 +66,18 @@ export const CatalogePanel = () => {
 
         <p className="font-medium xl:text-sm 2xl:text-base">{bio}</p>
 
-        <footer>
+        <footer className="grid">
           <h3 className="text-xl font-bold mb-2">Contacto</h3>
           <a
             target="_blank"
             href={'mailto:' + email}
-            className="inline-flex gap-x-2 hover:text-secondary transition duration-150">
+            className="inline-flex w-fit gap-x-2 hover:text-secondary transition duration-150">
             <Mail className="shrink-0" /> {email.toLowerCase()}
           </a>
           <a
             target="_blank"
             href={rrss}
-            className="inline-flex gap-x-2 hover:text-secondary transition duration-150">
+            className="inline-flex w-fit gap-x-2 hover:text-secondary transition duration-150">
             <Instagram className="shrink-0" /> {getInstagramUserTag(rrss)}
           </a>
         </footer>

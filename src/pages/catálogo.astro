@@ -2,159 +2,62 @@
 import Footer from '@/components/Footer.astro'
 import Main from '@/components/Main.astro'
 import Layout from '@/layouts/Layout.astro'
-import type { Cataloge } from '@/interfaces/cataloge.d.ts'
+import type { Cataloge, CatalogeArtist } from '@/interfaces/cataloge.d.ts'
 import { CatalogeList } from '@/components/CatalogeList'
 import { CatalogeSearchBar } from '@/components/CatalogeSearchBar'
 import { CatalogeFilter } from '@/components/CatalogeFilter'
 import { CatalogePanel } from '@/components/CatalogePanel'
+import { getFiltersData } from '@/utils/getFiltersData'
+import { CATALOGE_HEADER_INFO } from '@/data/CONSTANTS'
 
-const mockData: Cataloge = [
-  {
-    id: '1',
-    name: 'Camipepe',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: '"Lic. en arquitectura, ilustradora y artista visual chilena. Desarrolla trabajos con temáticas relacionadas a la fantasía y la naturaleza, enfocándose en ilustrar y diseñar en torno a la creación de personajes originales y criaturas imaginarias, sus medios principales tradicionales artísticos son la acuarela, el grafito y los lápices de colores"',
-    rrss: 'Instagram.com/anima.red',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Ilustración',
-    city: 'La Serena',
-  },
-  {
-    id: '2',
-    name: 'Shobian',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Shobian, diseñadora gráfica de profesión e ilustradora autodidacta, se caracteriza por utilizar texturas análogas en la ilustración digital, aportando calidez a sus obras que retratan naturaleza y elementos de la vida cotidiana. Ha estado presente en diversos eventos de ilustración, destacando previas versiones del Festival Frijol Mágico y Festival ARC.',
-    rrss: 'Instagram.com/anima.red',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Ilustración',
-    city: 'Coquimbo',
-  },
-  {
-    id: '3',
-    name: 'Karime Simons',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: '"Hola! Soy Josefa Aguilera, Ilustradora y artista de videojuegos, tengo 27 años y dibujo con motivación desde los 14. Adoro crear personajes con trasfondos interesantes inspirados en la cultura Chilena y Asiática, siempre esperando generar un impacto a nivel emocional y espiritual, actualmente soy freelancer y estoy dibujando un manga "Si el río suena es porque piedras trae." 川石の音 (Kawaishi no oto) el cual está basado en las mencionadas culturas. He trabajado también para diversas compañías de videojuegos internacionales y participado en ferias de arte a lo largo del país. ¡Espero que disfrutes mucho mi trabajo!',
-    rrss: 'Instagram.com/anima.red',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Manualidades',
-    city: 'Ovalle',
-  },
-  {
-    id: '4',
-    name: 'Osamenta En El Jardín',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
-    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Narrativa Gráfica',
-    city: 'Coquimbo',
-  },
-  {
-    id: '5',
-    name: 'Me Pego Un Tiro',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
-    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Manualidades',
-    city: 'Illapel',
-  },
-  {
-    id: '6',
-    name: 'Carvajal Ilustraciones',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
-    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Narrativa Gráfica',
-    city: 'La Serena',
-  },
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+import type { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
 
-  {
-    id: '7',
-    name: 'Camipepe',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: '"Lic. en arquitectura, ilustradora y artista visual chilena. Desarrolla trabajos con temáticas relacionadas a la fantasía y la naturaleza, enfocándose en ilustrar y diseñar en torno a la creación de personajes originales y criaturas imaginarias, sus medios principales tradicionales artísticos son la acuarela, el grafito y los lápices de colores"',
-    rrss: 'Instagram.com/anima.red',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Ilustración',
-    city: 'La Serena',
-  },
-  {
-    id: '8',
-    name: 'Shobian',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Shobian, diseñadora gráfica de profesión e ilustradora autodidacta, se caracteriza por utilizar texturas análogas en la ilustración digital, aportando calidez a sus obras que retratan naturaleza y elementos de la vida cotidiana. Ha estado presente en diversos eventos de ilustración, destacando previas versiones del Festival Frijol Mágico y Festival ARC.',
-    rrss: 'Instagram.com/anima.red',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Ilustración',
-    city: 'Coquimbo',
-  },
-  {
-    id: '9',
-    name: 'Karime Simons',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: '"Hola! Soy Josefa Aguilera, Ilustradora y artista de videojuegos, tengo 27 años y dibujo con motivación desde los 14. Adoro crear personajes con trasfondos interesantes inspirados en la cultura Chilena y Asiática, siempre esperando generar un impacto a nivel emocional y espiritual, actualmente soy freelancer y estoy dibujando un manga "Si el río suena es porque piedras trae." 川石の音 (Kawaishi no oto) el cual está basado en las mencionadas culturas. He trabajado también para diversas compañías de videojuegos internacionales y participado en ferias de arte a lo largo del país. ¡Espero que disfrutes mucho mi trabajo!',
-    rrss: 'Instagram.com/anima.red',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Manualidades',
-    city: 'Ovalle',
-  },
-  {
-    id: '10',
-    name: 'Osamenta En El Jardín',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
-    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Narrativa Gráfica',
-    city: 'Coquimbo',
-  },
-  {
-    id: '11',
-    name: 'Me Pego Un Tiro',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
-    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Manualidades',
-    city: 'Illapel',
-  },
-  {
-    id: '12',
-    name: 'Carvajal Ilustraciones',
-    avatar:
-      'https://drive.google.com/file/d/16JEtYpg7vapz29psrjrmK-j9SkvOexNC/view?usp=drive_link',
-    bio: 'Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.',
-    rrss: 'https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==',
-    email: 'Animared.ilustracion@gmail.com',
-    work_area: 'Narrativa Gráfica',
-    city: 'La Serena',
-  },
-]
+const doc = new GoogleSpreadsheet(import.meta.env.CATALOGE_SHEET_ID, {
+  apiKey: import.meta.env.GOOGLE_API_KEY,
+})
 
-export const getUniqueDataByKey = (
-  data: Cataloge,
-  key: 'city' | 'work_area'
-) => {
-  const uniqueData = new Set(data.map((d) => d[key]))
+await doc.loadInfo()
+const sheet = doc.sheetsByIndex[0]
+const rows = await sheet.getRows()
 
-  return [...uniqueData].map((data) => ({ value: data }))
+const importedImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/cataloge-images/*'
+)
+
+const imagesPath = Object.entries(importedImages)
+
+async function getProcessedImage(imageName: string) {
+  const selectImage = imagesPath.find(([src]) => src.includes(imageName))
+  if (!selectImage)
+    throw new Error('No existe la imágen con el nombre indicado')
+  const processedImage = await getImage({
+    src: selectImage[1](),
+    format: 'webp',
+    height: 200,
+    width: 200,
+  })
+  return processedImage.src
 }
 
-const cityFilterData = getUniqueDataByKey(mockData, 'city')
-const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
+const catalogePromise: Promise<CatalogeArtist>[] = rows.map(async (row) => {
+  return {
+    id: row.get(CATALOGE_HEADER_INFO.ID),
+    name: row.get(CATALOGE_HEADER_INFO.NAME),
+    city: row.get(CATALOGE_HEADER_INFO.CITY),
+    work_area: row.get(CATALOGE_HEADER_INFO.WORK_AREA),
+    bio: row.get(CATALOGE_HEADER_INFO.BIO),
+    email: row.get(CATALOGE_HEADER_INFO.EMAIL),
+    rrss: row.get(CATALOGE_HEADER_INFO.RRSS),
+    avatar: await getProcessedImage(row.get(CATALOGE_HEADER_INFO.AVATAR)),
+  }
+})
+
+const cataloge: Cataloge = await Promise.all(catalogePromise)
+
+const cityFilterData = getFiltersData(cataloge, 'city')
+const areaFilterData = getFiltersData(cataloge, 'work_area')
 ---
 
 <Layout title="Ilustradores de la Región de Coquimbo">
@@ -198,7 +101,7 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
 
         <!-- GALLERY CARDS -->
         <section>
-          <CatalogeList list={mockData} client:load />
+          <CatalogeList list={cataloge} client:load />
         </section>
 
         <!-- MORE INFO PANEL -->
@@ -208,17 +111,3 @@ const areaFilterData = getUniqueDataByKey(mockData, 'work_area')
     <CatalogePanel client:only="react" />
   </div>
 </Layout>
-
-<script>
-  import { $isArtistPanelOpen } from '../store/cataloge.ts'
-  const catalogeWrapper = document.getElementById(
-    'cataloge-wrapper'
-  ) as HTMLDivElement
-
-  $isArtistPanelOpen.subscribe((open) => {
-    // open ?
-    //  catalogeWrapper.classList.remove('ml-0')
-    //  : catalogeWrapper.classList.add('ml-0')
-    //
-  })
-</script>

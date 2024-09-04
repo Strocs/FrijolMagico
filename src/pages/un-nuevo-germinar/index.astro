@@ -2,12 +2,12 @@
 import Footer from '@/components/Footer.astro'
 import GridItem from '@/components/GridItem.astro'
 import { Selected } from '@/components/Selected.tsx'
-import { HEADER_ROW_INFO } from '@/data/CONSTANTS'
+import { SELECTED_HEADER_INFO } from '@/data/CONSTANTS'
 import Layout from '@/layouts/Layout.astro'
 import Main from '@/components/Main.astro'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 
-const doc = new GoogleSpreadsheet(import.meta.env.SHEET_ID, {
+const doc = new GoogleSpreadsheet(import.meta.env.SELECTED_SHEET_ID, {
   apiKey: import.meta.env.GOOGLE_API_KEY,
 })
 
@@ -17,9 +17,9 @@ const rows = await sheet.getRows()
 
 const parsedRows = rows.map((row) => {
   return {
-    TrabajasEn: row.get(HEADER_ROW_INFO.CATEGORY),
-    Nick: row.get(HEADER_ROW_INFO.NICK),
-    SocialMedia: row.get(HEADER_ROW_INFO.SOCIAL_MEDIA),
+    TrabajasEn: row.get(SELECTED_HEADER_INFO.CATEGORY),
+    Nick: row.get(SELECTED_HEADER_INFO.NICK),
+    SocialMedia: row.get(SELECTED_HEADER_INFO.SOCIAL_MEDIA),
   }
 })
 ---
