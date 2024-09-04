@@ -7,9 +7,8 @@ const { class: customClass } = Astro.props
 
 <main
   class:list={[
-    'px-4 sm:pt-[--top-bar-info-height] container mx-auto',
+    'px-4 pt-[--top-bar-info-height] container mx-auto',
     customClass,
-  ]}
->
+  ]}>
   <slot />
 </main>
