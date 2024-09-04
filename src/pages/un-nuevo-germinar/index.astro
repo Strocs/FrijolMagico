@@ -1,11 +1,10 @@
 ---
 import Footer from '@/components/Footer.astro'
-import GridItem from '@/components/GridItem.astro'
-import { Selected } from '@/components/Selected.tsx'
-import { SELECTED_HEADER_INFO } from '@/data/CONSTANTS'
+import { Selected } from '@/components/Selected.tsx' import { SELECTED_HEADER_INFO } from '@/data/CONSTANTS'
 import Layout from '@/layouts/Layout.astro'
 import Main from '@/components/Main.astro'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
+import DoodleLine from '@/components/ui/DoodleLine.astro'
 
 const doc = new GoogleSpreadsheet(import.meta.env.SELECTED_SHEET_ID, {
   apiKey: import.meta.env.GOOGLE_API_KEY,
@@ -26,13 +25,13 @@ const parsedRows = rows.map((row) => {
 
 <Layout title="Seleccionados Frijol Mágico 2024">
   <Main class="space-y-8 min-h-[96dvh]">
-    <GridItem as="section" class="text-foreground mx-auto p-10">
-      <h1
-        class="text-6xl py-2 font-black text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent">
-        Selección Frijól Mágico 2024
-      </h1>
-    </GridItem>
+    <h1
+      class="text-6xl py-10 font-black text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent">
+      Selección Frijól Mágico 2024
+    </h1>
+    <DoodleLine color="text-primary" />
     <Selected rows={parsedRows} client:idle />
   </Main>
+  <DoodleLine color="text-primary" />
   <Footer />
 </Layout>

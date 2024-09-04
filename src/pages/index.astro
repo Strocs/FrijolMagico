@@ -2,10 +2,12 @@
 import HomeGrid from '@/components/HomeGrid.astro'
 import Layout from '@/layouts/Layout.astro'
 import Main from '@/components/Main.astro'
+import DoodleLine from '@/components/ui/DoodleLine.astro'
 ---
 
 <Layout title="Frijol Mágico 2024 - Un nuevo germinar">
-  <Main class="h-[86dvh] sm:h-screen grid items-center">
+  <Main class="h-full sm:h-screen grid items-center">
     <HomeGrid />
   </Main>
+  <DoodleLine class="md:hidden" color="text-primary" />
 </Layout>

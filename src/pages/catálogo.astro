@@ -13,6 +13,7 @@ import { CATALOGE_HEADER_INFO } from '@/data/CONSTANTS'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import type { ImageMetadata } from 'astro'
 import { getImage } from 'astro:assets'
+import DoodleLine from '@/components/ui/DoodleLine.astro'
 
 const doc = new GoogleSpreadsheet(import.meta.env.CATALOGE_SHEET_ID, {
   apiKey: import.meta.env.GOOGLE_API_KEY,
@@ -78,7 +79,8 @@ const areaFilterData = getFiltersData(cataloge, 'work_area')
           </b> Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo
         </p>
       </header>
-      <Main class="py-8 space-y-4">
+      <DoodleLine color="text-primary" />
+      <Main class="pt-0 space-y-4">
         <!-- SEARCH AND FILTER BAR -->
         <section
           class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
@@ -106,6 +108,7 @@ const areaFilterData = getFiltersData(cataloge, 'work_area')
 
         <!-- MORE INFO PANEL -->
       </Main>
+      <DoodleLine color="text-primary" />
       <Footer />
     </div>
     <CatalogePanel client:only="react" />
