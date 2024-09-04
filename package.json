@@ -26,7 +26,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
-    "google-spreadshret": "^4.1.2",
+    "google-spreadsheet": "^4.1.2",
     "lucide-react": "^0.438.0",
     "nanostores": "^0.11.3",
     "normalize.css": "^8.0.1",
