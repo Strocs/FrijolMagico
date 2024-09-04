@@ -7,7 +7,7 @@ import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://elfrijolmagico.cl',
+  site: 'https://www.frijolmagico.cl',
   integrations: [
     sitemap(),
     tailwind({
@@ -18,4 +18,3 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
 })
-
