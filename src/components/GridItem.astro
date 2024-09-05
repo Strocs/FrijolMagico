@@ -1,14 +1,20 @@
 ---
 import type { HTMLTag, Polymorphic } from 'astro/types'
 
-type GridSpan = number | Record<'base' | 'sm' | 'md' | 'lg' | 'xl', number>
+interface GridSpan {
+  base: number
+  sm?: number
+  md?: number
+  lg?: number
+  xl?: number
+}
 
 type Props<Tag extends HTMLTag> = {
+  as: Tag
   class?: string
-  as?: Tag
   empty?: boolean
-  rows?: GridSpan
-  cols?: GridSpan
+  rows?: GridSpan | number
+  cols?: GridSpan | number
 } & Polymorphic<{ as: Tag }>
 
 const {
@@ -20,8 +26,8 @@ const {
   ...props
 } = Astro.props
 
-const row = typeof rows === 'number' ? { base: rows } : rows
-const col = typeof cols === 'number' ? { base: cols } : cols
+const row: GridSpan = typeof rows === 'number' ? { base: rows } : rows
+const col: GridSpan = typeof cols === 'number' ? { base: cols } : cols
 
 const twGridVariants = {
   base: {
@@ -148,13 +154,18 @@ const twGridVariants = {
 
 function generateClasses(
   variants: typeof twGridVariants,
-  search: Record<'row' | 'col', GridSpan>
+  search: {
+    row?: GridSpan
+    col?: GridSpan
+  }
 ): string {
   const [[span, property]] = Object.entries(search)
 
   return Object.entries(property)
     .map(([breakpoint, value]) => {
-      return variants[breakpoint][span][value]
+      return variants[breakpoint as keyof GridSpan][span as 'row' | 'col'][
+        value
+      ]
     })
     .join(' ')
 }
