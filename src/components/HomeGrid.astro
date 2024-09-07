@@ -3,11 +3,11 @@ import { Image } from 'astro:assets'
 
 import Grid from '@/components/Grid.astro'
 import GridItem from '@/components/GridItem.astro'
-import { SITE } from '@/data/SITE'
 import Spotify from '@/components/icons/Spotify.astro'
 import Instagram from '@/components/icons/Instagram.astro'
 import Facebook from '@/components/icons/Facebook.astro'
 import CardsSkeletonAnimated from '@/components/CardsSkeletonAnimated.astro'
+import { SITE } from '@/data/SITE'
 
 import manoImage from '/public/mano.png'
 import frijolImage from '/public/frijol.png'
@@ -16,11 +16,11 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
 
 <Grid
   container
-  class="sm:grid-cols-10 sm:grid-rows-6 grid-cols-2 grid-rows-12 h-[1200px] sm:h-[700px]">
+  class="md:grid-cols-8 md:grid-rows-10 xl:grid-cols-10 xl:grid-rows-6 grid-cols-2 grid-rows-12 h-[1200px] md:h-[80vh] xl:h-[700px]">
   <GridItem
     as="section"
-    rows={{ base: 1, sm: 1 }}
-    cols={{ base: 2, sm: 8 }}
+    rows={{ base: 1 }}
+    cols={{ base: 2, md: 8 }}
     class="uppercase bg-gradient-to-tl from-foreground to-primary text-background flex-col">
     <p class="tracking-tight sm:tracking-normal text-sm sm:text-base">
       19 de Octubre 2024 - Mall Vivo Coquimbo
@@ -33,13 +33,14 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
 
   <GridItem
     as="a"
-    rows={{ base: 4, sm: 4 }}
-    cols={{ base: 2, sm: 2 }}
+    rows={{ base: 4 }}
+    cols={{ base: 2, md: 3, xl: 2 }}
     href="/un-nuevo-germinar"
     class="overflow-hidden sm:overflow-visible flex-col bg-gradient-to-tr relative gap-6 hover:gap-2 transition-[gap] duration-300 group from-secondary to-accent text-secondary-foreground px-4 py-4 sm:py-0">
     <Image
       src={manoImage}
-      alt=""
+      alt="Ilustración de una mano indicando a los participantes del próximo festival"
+      loading="eager"
       width={50}
       class="w-20 sm:w-auto absolute -top-12 sm:top-0 left-8 sm:left-auto rotate-90 sm:rotate-180"
     />
@@ -58,7 +59,8 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
     </p>
     <Image
       src={frijolImage}
-      alt="Imágen de frijol"
+      loading="eager"
+      alt="Imágen de Frijolito en la sección de los participantes del próximo festival"
       width={150}
       class="w-60 sm:w-auto absolute sm:-bottom-4 -bottom-10 -right-28 sm:right-auto"
     />
@@ -67,13 +69,14 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
   <GridItem
     as="a"
     href="/catálogo"
-    rows={{ base: 4, sm: 4 }}
-    cols={{ base: 2, sm: 2 }}
+    rows={{ base: 4 }}
+    cols={{ base: 2, md: 3, xl: 2 }}
     class="flex-col sm:hover:scale-[1.03] text-center group bg-gradient-to-tl !justify-start py-4 sm:py-10 gap-2 from-accent to-secondary relative">
     <Image
       src={enredaderaEsquina}
-      alt=""
-      class="w-2/3 sm:w-auto sm:h-auto absolute bottom-0 left-0 z-10 rotate-180"
+      loading="eager"
+      alt="Ilustración de enredadera temática de Frijol Mágico"
+      class="w-2/3 xl:w-auto sm:h-auto absolute bottom-0 left-0 z-10 rotate-180"
     />
     <span
       class="font-bold absolute outline outline-background -top-2 -left-2 -rotate-6 px-2 bg-accent rounded-md"
@@ -90,16 +93,13 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
       >
     </p>
     <CardsSkeletonAnimated />
-    <!-- <p class="z-10 text-background text-sm leading-none font-josefin px-2"> -->
-    <!--   Nuevos artistas en cada edición del Festival Frijol Mágico -->
-    <!-- </p> -->
   </GridItem>
 
   <GridItem
     as="section"
-    rows={{ base: 2, sm: 3 }}
-    cols={{ base: 2, sm: 6 }}
-    class="order-first sm:order-none uppercase relative overflow-hidden sm:p-8 p-4 bg-[url(/enredadera.png)] bg-no-repeat bg-cover bg-[0_80%]">
+    rows={{ base: 2, xl: 3 }}
+    cols={{ base: 2, md: 8, xl: 6 }}
+    class="order-first xl:order-none uppercase relative overflow-hidden sm:p-8 p-4 bg-[url(/enredadera.png)] bg-no-repeat bg-cover bg-[0_80%]">
     <video autoplay loop muted class="absolute -z-10 w-auto">
       <source src="/FestivalFrijolMagico.webm" type="video/webm" />
     </video>
@@ -112,16 +112,16 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
 
   <GridItem
     as="div"
-    rows={{ base: 1, sm: 2 }}
-    cols={{ base: 2, sm: 4 }}
-    class="hidden sm:flex bg-background outline-dashed outline-primary">
-    <h2 class="text-2xl text-primary">Pronto más contenidos</h2>
+    rows={{ base: 1, xl: 2 }}
+    cols={{ base: 2, md: 4 }}
+    class="hidden sm:flex md:order-last xl:order-none bg-background outline-dashed outline-primary">
+    <h2 class="text-2xl text-center text-primary">Pronto más contenidos</h2>
   </GridItem>
 
   <GridItem
     as="a"
-    rows={{ base: 2, sm: 2 }}
-    cols={{ base: 1, sm: 2 }}
+    rows={{ base: 2 }}
+    cols={{ base: 1, md: 2 }}
     href={SITE.podcast}
     class="bg-background sm:bg-accent text-secondary py-4 flex-col gap-2 hover:gap-0">
     <p
@@ -136,12 +136,12 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
 
   <GridItem
     as="section"
-    rows={{ base: 2, sm: 2 }}
-    cols={{ base: 1, sm: 2 }}
+    rows={{ base: 2 }}
+    cols={{ base: 1, md: 2 }}
     class="flex-col gap-4 grid-rows-2 grid-cols-1 w-full h-full">
     <GridItem
       as="a"
-      rows={{ base: 1, sm: 1 }}
+      rows={{ base: 1 }}
       href={SITE.social_media.fb}
       class="bg-background hover:bg-secondary transition duration-150 group">
       <p
@@ -155,7 +155,7 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
     </p>
     <GridItem
       as="a"
-      rows={{ base: 1, sm: 1 }}
+      rows={{ base: 1 }}
       href={SITE.social_media.ig}
       class="uppercase bg-background hover:bg-accent transition duration-150 group">
       <p
@@ -169,8 +169,8 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
     as="a"
     href="https://strocs.dev"
     target="_blank"
-    rows={{ base: 1, sm: 1 }}
-    cols={{ base: 2, sm: 2 }}
+    rows={{ base: 1 }}
+    cols={{ base: 2, md: 4, xl: 2 }}
     class="text-secondary leading-none text-center [background-size:200%] hover:text-accent transition-all duration-300">
     Desarrollado con ❤️ por StrocsDev
   </GridItem>

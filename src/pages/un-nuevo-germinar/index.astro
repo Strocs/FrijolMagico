@@ -6,6 +6,7 @@ import Layout from '@/layouts/Layout.astro'
 import Main from '@/components/Main.astro'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import DoodleLine from '@/components/ui/DoodleLine.astro'
+import Header from '@/components/Header.astro'
 
 const doc = new GoogleSpreadsheet(import.meta.env.SELECTED_SHEET_ID, {
   apiKey: import.meta.env.GOOGLE_API_KEY,
@@ -15,24 +16,26 @@ await doc.loadInfo()
 const sheet = doc.sheetsByIndex[2]
 const rows = await sheet.getRows()
 
-const parsedRows = rows.map((row) => {
-  return {
-    TrabajasEn: row.get(SELECTED_HEADER_INFO.CATEGORY),
-    Nick: row.get(SELECTED_HEADER_INFO.NICK),
-    SocialMedia: row.get(SELECTED_HEADER_INFO.SOCIAL_MEDIA),
-  }
-})
+const parsedRows = rows
+  .map((row) => {
+    return {
+      work_area: row.get(SELECTED_HEADER_INFO.CATEGORY),
+      name: row.get(SELECTED_HEADER_INFO.NICK),
+      social_media: row.get(SELECTED_HEADER_INFO.SOCIAL_MEDIA),
+    }
+  })
+  .filter((row) => !!row.name)
 ---
 
 <Layout title="Seleccionados Frijol Mágico 2024">
-  <Main class="space-y-8 min-h-[96dvh]">
-    <h1
-      class="text-6xl py-10 font-black text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent">
-      Selección Frijól Mágico 2024
-    </h1>
-    <DoodleLine color="text-primary" />
+  <Header title="Selección" subTitle="Frijol Mágico 2024">
+    Descubre a los exponentes encargados de dar vida al próximo
+    <b>Festival Frijol Mágico: Un nuevo germinar 🌱</b>
+  </Header>
+  <DoodleLine />
+  <Main class="min-h-[50dvh]">
     <Selected rows={parsedRows} client:idle />
   </Main>
-  <DoodleLine color="text-primary" />
+  <DoodleLine />
   <Footer />
 </Layout>

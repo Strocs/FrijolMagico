@@ -7,14 +7,14 @@ interface SelectedFilters {
 }
 
 const defaultSelectedValue = {
-  id: '',
-  avatar: '',
-  name: '',
-  city: '',
-  work_area: '',
-  bio: '',
-  email: '',
-  rrss: '',
+  id: '0',
+  avatar: '/frijol.png',
+  name: 'Frijol Mágico',
+  city: 'Coquimbo',
+  work_area: 'Festival',
+  bio: 'Apoyando la Ilustración de la Región de Coquimbo',
+  email: 'respaldo.frijol.magico@gmail.com',
+  rrss: 'https://www.instagram.com/festivalfrijolmagico/',
 }
 
 export const $searchValue = atom<string>('')
@@ -60,14 +60,14 @@ export function setSelectedFilter(key: string, value?: string) {
 export function setArtistPanelOpen(open?: boolean) {
   const currentState = $isArtistPanelOpen.get()
 
-  if (typeof open === undefined) return $isArtistPanelOpen.set(!currentState)
+  if (open === undefined) return $isArtistPanelOpen.set(!currentState)
 
   if (currentState === open) return
 
   if (!open) {
     setTimeout(() => {
       $selectedCataloge.set(defaultSelectedValue)
-    }, 500)
+    }, 300)
   }
 
   $isArtistPanelOpen.set(open!)

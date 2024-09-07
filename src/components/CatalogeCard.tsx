@@ -48,6 +48,8 @@ export const CatalogeCard = ({
         <img
           loading="lazy"
           src={avatar}
+          alt={`Imágen de ${name}`}
+          width={48}
           className="bg-slate-300 overflow-hidden rounded-full w-12 h-12"
         />
         <section className="space-y-0.5">
@@ -62,13 +64,21 @@ export const CatalogeCard = ({
           </div>
         </section>
       </section>
+
       <section className="text-sm">
         <section className="flex gap-2 w-full items-center">
           <b>Contacto:</b>
-          <a href={rrssUrl} className="hover:scale-105" target="_blank">
+          <a
+            href={rrssUrl}
+            aria-label="Instagram"
+            className="hover:scale-105"
+            target="_blank">
             <Instagram size={22} />
           </a>
-          <a href={`mailto:${email}`} className="hover:scale-105">
+          <a
+            href={`mailto:${email}`}
+            aria-label="Email"
+            className="hover:scale-105">
             <Mail />
           </a>
         </section>

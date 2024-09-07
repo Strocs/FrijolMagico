@@ -1,19 +1,19 @@
 ---
-import Footer from '@/components/Footer.astro'
-import Main from '@/components/Main.astro'
-import Layout from '@/layouts/Layout.astro'
-import type { Cataloge, CatalogeArtist } from '@/interfaces/cataloge.d.ts'
+import { CatalogeFilter } from '@/components/CatalogeFilter'
 import { CatalogeList } from '@/components/CatalogeList'
 import { CatalogeSearchBar } from '@/components/CatalogeSearchBar'
-import { CatalogeFilter } from '@/components/CatalogeFilter'
-import { CatalogePanel } from '@/components/CatalogePanel'
-import { getFiltersData } from '@/utils/getFiltersData'
+import Footer from '@/components/Footer.astro'
+import Main from '@/components/Main.astro'
+import Header from '@/components/Header.astro'
+import { CatalogePanel } from '@/components/cataloge-panel'
+import DoodleLine from '@/components/ui/DoodleLine.astro'
 import { CATALOGE_HEADER_INFO } from '@/data/CONSTANTS'
-
-import { GoogleSpreadsheet } from 'google-spreadsheet'
+import type { Cataloge, CatalogeArtist } from '@/interfaces/cataloge.d.ts'
+import Layout from '@/layouts/Layout.astro'
+import { getFiltersData } from '@/utils/getFiltersData'
 import type { ImageMetadata } from 'astro'
 import { getImage } from 'astro:assets'
-import DoodleLine from '@/components/ui/DoodleLine.astro'
+import { GoogleSpreadsheet } from 'google-spreadsheet'
 
 const doc = new GoogleSpreadsheet(import.meta.env.CATALOGE_SHEET_ID, {
   apiKey: import.meta.env.GOOGLE_API_KEY,
@@ -31,6 +31,7 @@ const imagesPath = Object.entries(importedImages)
 
 async function getProcessedImage(imageName: string) {
   const selectImage = imagesPath.find(([src]) => src.includes(imageName))
+
   if (!selectImage)
     throw new Error('No existe la imágen con el nombre indicado')
   const processedImage = await getImage({
@@ -62,55 +63,70 @@ const areaFilterData = getFiltersData(cataloge, 'work_area')
 ---
 
 <Layout title="Ilustradores de la Región de Coquimbo">
-  <div class="flex w-screen overflow-hidden">
-    <div
-      id="cataloge-wrapper"
-      class="pt-[calc(var(--top-bar-info-height)+2rem)] h-full w-full transition-all duration-300">
-      <header class="text-foreground space-y-8">
-        <h1
-          class="text-6xl py-2 font-black text-center text-transparent bg-gradient-to-r from-secondary to-accent bg-clip-text">
-          Catálogo Frijol Mágico
-        </h1>
-        <p class="font-normal max-w-prose text-center mx-auto">
-          <b
-            >¿Necesitas encontrar algún <span class="bg-accent px-0.5"
-              >ilustrador/a</span
-            >?
-          </b> Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo
-        </p>
-      </header>
-      <DoodleLine color="text-primary" />
-      <Main class="pt-0 space-y-4">
-        <!-- SEARCH AND FILTER BAR -->
-        <section
-          class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
-          <CatalogeSearchBar client:load />
-          <div>
-            <CatalogeFilter
-              options={cityFilterData}
-              title="Ciudad"
-              filterKey="city"
-              client:load
-            />
-            <CatalogeFilter
-              options={areaFilterData}
-              title="Disciplina"
-              filterKey="work_area"
-              client:load
-            />
-          </div>
-        </section>
+  <div
+    id="cataloge-wrapper"
+    aria-hidden="true"
+    class="transform-gpu transition-transform duration-500 h-full mx-auto">
+    <Header title="Catálogo" subTitle="Frijol Mágico">
+      <b
+        >¿Necesitas encontrar algún <span class="bg-accent px-0.5"
+          >ilustrador/a</span
+        >?
+      </b> Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo
+    </Header>
 
-        <!-- GALLERY CARDS -->
-        <section>
-          <CatalogeList list={cataloge} client:load />
-        </section>
+    <DoodleLine color="text-primary" />
 
-        <!-- MORE INFO PANEL -->
-      </Main>
-      <DoodleLine color="text-primary" />
-      <Footer />
-    </div>
-    <CatalogePanel client:only="react" />
+    <Main class="pt-0 space-y-4">
+      <!-- SEARCH AND FILTER BAR -->
+      <section class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
+        <CatalogeSearchBar client:load />
+
+        <div>
+          <CatalogeFilter
+            options={cityFilterData}
+            title="Ciudad"
+            filterKey="city"
+            client:load
+          />
+          <CatalogeFilter
+            options={areaFilterData}
+            title="Disciplina"
+            filterKey="work_area"
+            client:load
+          />
+        </div>
+      </section>
+
+      <!-- GALLERY CARDS -->
+      <section>
+        <CatalogeList list={cataloge} client:load />
+      </section>
+    </Main>
+
+    <DoodleLine color="text-primary" />
+
+    <Footer />
   </div>
+  <CatalogePanel client:load />
 </Layout>
+
+<style is:global>
+  :root {
+    --panel-width: 488px;
+  }
+</style>
+
+<script>
+  import { $isArtistPanelOpen } from '@/store/cataloge'
+
+  const wrapper = document.getElementById('cataloge-wrapper') as HTMLDivElement
+
+  $isArtistPanelOpen.listen((value) => {
+    wrapper.classList.toggle('-translate-x-[calc(var(--panel-width)/2)]', value)
+    wrapper.classList.toggle(
+      'lg:!w-[calc(var(--px-w)-var(--panel-width))]',
+      value
+    )
+  })
+</script>

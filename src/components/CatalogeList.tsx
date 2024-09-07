@@ -10,7 +10,7 @@ export const CatalogeList = ({ list }: CatalogeProps) => {
   const { cataloge } = useCataloge(list)
 
   return (
-    <ul className="flex gap-4 py-4 flex-wrap mx-auto w-full max-w-[calc(var(--card-width)*3+2rem)] [--card-width:24rem]">
+    <ul className="flex gap-4 py-4 flex-wrap mx-auto w-full justify-center max-w-[calc(var(--card-width)*3+2rem)] [--card-width:24rem]">
       {cataloge.map((item) => (
         <CatalogeCard key={item.id} {...item} />
       ))}
