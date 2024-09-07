@@ -4,6 +4,12 @@ export const SITE = {
   podcast: 'https://open.spotify.com/show/6X92bkkwHr43dTP1Y3LPyg',
   social_media: {
     ig: 'https://www.instagram.com/festivalfrijolmagico/',
-    fb: 'https://facebook.com/festivalfrijolmagico'
-  }
+    fb: 'https://facebook.com/festivalfrijolmagico',
+  },
+  next_festival: {
+    day: 19,
+    month: 10,
+    year: 2024,
+  },
 }
+
