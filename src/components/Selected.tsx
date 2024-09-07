@@ -58,9 +58,8 @@ export const Selected = ({ rows }: Props) => {
       <nav className="pt-4 sm:py-4 sticky top-0 sm:top-8 flex">
         <Swiper slidesPerView="auto" spaceBetween={20} slideToClickedSlide>
           {Object.values(categories).map((category) => (
-            <SwiperSlide className="max-w-fit !shrink-0">
+            <SwiperSlide key={category.title} className="max-w-fit !shrink-0">
               <button
-                key={category.title}
                 onClick={() => handleClick(category.title)}
                 className={`w-fit h-full font-bold uppercase rounded-3xl transition-all duration-300 hover:text-background py-4 sm:py-6 px-6 sm:px-12 show-btn ${
                   filter === category.title
