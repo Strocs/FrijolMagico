@@ -57,34 +57,34 @@ const {
       'relative h-fit w-full min-h-[100dvh] text-foreground bg-background font-noto',
     ]}>
     <TopBarInfo />
-    <!-- <LogoLink /> -->
     <div
+      aria-hidden="true"
       class="absolute inset-0 h-full w-full bg-[radial-gradient(#d1dae7_1px,transparent_1px)] dark:bg-[radial-gradient(#002200_1px,transparent_1px)] [background-size:16px_16px] -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
     </div>
     <slot />
-    <style is:global>
-      :root {
-        --top-bar-info-height: 44px;
-        --background: #f1f5f9;
-        --foreground: #033220;
-        --green: #097333;
-        --green-foreground: #f1f5f9;
-        --yellow: #fac331;
-        --yellow-foreground: #f1f5f9;
-        --orange: #ef5026;
-        --orange-foreground: #f1f5f9;
-      }
-      .dark {
-        --top-bar-info-height: 44px;
-        --background: #f1f5f9;
-        --foreground: #033220;
-        --green: #097333;
-        --green-foreground: #f1f5f9;
-        --yellow: #fac331;
-        --yellow-foreground: #f1f5f9;
-        --orange: #ef5026;
-        --orange-foreground: #f1f5f9;
-      }
-    </style>
   </body>
 </html>
+
+<style is:global>
+  @property --w_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vw;
+  }
+
+  :root {
+    --top-bar-height: 44px;
+
+    --background: #f1f5f9;
+    --foreground: #033220;
+    --green: #097333;
+    --green-foreground: #f1f5f9;
+    --yellow: #fac331;
+    --yellow-foreground: #f1f5f9;
+    --orange: #ef5026;
+    --orange-foreground: #f1f5f9;
+
+    --w: tan(atan2(var(--w_raw), 1px));
+    --px-w: calc(var(--w) * 1px);
+  }
+</style>
