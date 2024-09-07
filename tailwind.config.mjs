@@ -35,6 +35,7 @@ module.exports = {
       },
       screens: {
         tall: { raw: '(min-height: 800px)' },
+        '2md': '800px',
       },
       keyframes: {
         'accordion-down': {
