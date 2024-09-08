@@ -1,0 +1,11 @@
+---
+import { Image } from 'astro:assets'
+import frijol from 'public/frijol.png'
+---
+
+<a
+  href="/"
+  class="w-fit group mx-auto block relative hover:-rotate-6 transition-transform transform-gpu duration-150">
+  <Image loading="eager" src={frijol} alt="Vuelve al inicio" height={100} />
+  <span class="group-hover:block hidden absolute">Inicio</span>
+</a>
