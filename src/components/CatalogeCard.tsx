@@ -50,7 +50,7 @@ export const CatalogeCard = ({
           src={avatar}
           alt={`Imágen de ${name}`}
           width={48}
-          className="bg-slate-300 overflow-hidden rounded-full w-12 h-12"
+          className="bg-slate-300 overflow-hidden rounded-full object-cover w-12 h-12"
         />
         <section className="space-y-0.5">
           <h2 className="text-xl font-bold ml-1">{name}</h2>

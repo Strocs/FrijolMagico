@@ -15,7 +15,7 @@ export const CatalogePanelContent = () => {
           loading="eager"
           alt={`Imagen de ${name}`}
           src={avatar}
-          className="rounded-full overflow-hidden w-28 lg:w-36 aspect-square bg-zinc-600 shrink-0"
+          className="rounded-full overflow-hidden w-28 lg:w-36 aspect-square object-cover bg-zinc-600 shrink-0"
         />
 
         <div className="space-y-2">
