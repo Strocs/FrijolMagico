@@ -6,6 +6,7 @@ export const SITE = {
     ig: 'https://www.instagram.com/festivalfrijolmagico/',
     fb: 'https://facebook.com/festivalfrijolmagico',
   },
+  OG_IMAGE: '/OG.png',
   next_festival: {
     day: 19,
     month: 10,
