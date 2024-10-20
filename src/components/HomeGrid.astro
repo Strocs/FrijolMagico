@@ -22,12 +22,13 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
     rows={{ base: 1 }}
     cols={{ base: 2, md: 8 }}
     class="uppercase bg-gradient-to-tl from-foreground to-primary text-background flex-col">
-    <p class="tracking-tight sm:tracking-normal text-sm sm:text-base">
-      19 de Octubre 2024 - Mall Vivo Coquimbo
+    <p
+      class="tracking-tight sm:tracking-normal text-sm sm:text-base text-center">
+      {SITE.top_banner.subtitle}
     </p>
     <h2
       class="text-primary-foreground font-josefin text-xl sm:text-4xl font-black text-center tracking-widest">
-      🌱 Un nuevo germinar 🌱
+      {SITE.top_banner.text}
     </h2>
   </GridItem>
 
@@ -50,7 +51,7 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
         class="uppercase font-black bg-secondary sm:bg-transparent group-hover:bg-secondary px-2 transition duration-300 text-3xl"
         >Participantes</b
       >
-      <br /> del próximo festival
+      <br /> del último festival
       <span class="block mt-2 text-4xl w-fit mx-auto">🌟🌟🌟🌟</span>
     </h2>
     <p

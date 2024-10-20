@@ -6,6 +6,10 @@ export const SITE = {
     ig: 'https://www.instagram.com/festivalfrijolmagico/',
     fb: 'https://facebook.com/festivalfrijolmagico',
   },
+  top_banner: {
+    text: '🌱 Un nuevo germinar 🌱',
+    subtitle: 'Asociación Cultural Frijol Mágico',
+  },
   OG_IMAGE: '/OG.png',
   next_festival: {
     day: 19,
