@@ -1,4 +1,4 @@
-import { getImages } from "./getImages"
+import { getImages } from './getImages'
 
 const glob = import.meta.glob('../assets/images/*/*.png')
 const images = await getImages(glob)
@@ -12,3 +12,4 @@ export const getImagesByName: GetImagesByName = (name) => {
     if (originalPath[i].includes(name)) return image
   })
 }
+
