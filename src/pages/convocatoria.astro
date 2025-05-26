@@ -1,0 +1,19 @@
+---
+import { BackToTop } from "@/components/BackToTop";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import DoodleLine from "@/components/ui/DoodleLine.astro";
+---
+
+<Layout title="Covocatoria Frijol Mágico 2025">
+    <BackToTop client:load />
+    <Header title="Convocatoria" subTitle="Frijol Mágico 2025">
+        <b
+            >¿Necesitas encontrar algún <span class="bg-accent px-0.5"
+              >ilustrador/a</span
+            >?
+        </b> Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo
+    </Header>
+    <DoodleLine />
+
+</Layout>

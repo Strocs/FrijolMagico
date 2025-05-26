@@ -16,56 +16,15 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
 
 <Grid
   container
-  class="md:grid-cols-8 md:grid-rows-10 xl:grid-cols-10 xl:grid-rows-6 grid-cols-2 grid-rows-12 h-[1200px] md:h-[80vh] xl:h-[700px]">
+  class="md:grid-cols-8 md:grid-rows-6 xl:grid-cols-10 xl:grid-rows-6 grid-cols-2 grid-rows-12 h-[1200px] md:h-[80vh] xl:h-[700px] pt-10 sm:pt-auto">
   <GridItem
     as="section"
     rows={{ base: 1 }}
-    cols={{ base: 2, md: 8 }}
-    class="uppercase bg-gradient-to-tl from-foreground to-primary text-background flex-col">
-    <p
-      class="tracking-tight sm:tracking-normal text-sm sm:text-base text-center">
-      {SITE.top_banner.subtitle}
-    </p>
-    <h2
-      class="text-primary-foreground font-josefin text-xl sm:text-4xl font-black text-center tracking-widest">
-      {SITE.top_banner.text}
-    </h2>
+    cols={{ base: 2, md: 10 }}
+    class="hidden xl:block"
+    >
   </GridItem>
 
-  <GridItem
-    as="a"
-    rows={{ base: 4 }}
-    cols={{ base: 2, md: 3, xl: 2 }}
-    href="/un-nuevo-germinar"
-    class="overflow-hidden sm:overflow-visible flex-col bg-gradient-to-tr relative gap-6 hover:gap-2 transition-[gap] duration-300 group from-secondary to-accent text-secondary-foreground px-4 py-4 sm:py-0">
-    <Image
-      src={manoImage}
-      alt="Ilustración de una mano indicando a los participantes del próximo festival"
-      loading="eager"
-      width={50}
-      class="w-20 sm:w-auto absolute -top-12 sm:top-0 left-8 sm:left-auto rotate-90 sm:rotate-180"
-    />
-    <h2 class="text-2xl sm:text-xl text-center leading-7 sm:-mt-4">
-      Conoce a lxs <br />
-      <b
-        class="uppercase font-black bg-secondary sm:bg-transparent group-hover:bg-secondary px-2 transition duration-300 text-3xl"
-        >Participantes</b
-      >
-      <br /> del último festival
-      <span class="block mt-2 text-4xl w-fit mx-auto">🌟🌟🌟🌟</span>
-    </h2>
-    <p
-      class="uppercase text-center font-josefin text-lg leading-none text-white/80 group-hover:text-white transition duration-300">
-      Ilustración <br /> Manualidades <br /> Narrativa Gráfica <br /> Música
-    </p>
-    <Image
-      src={frijolImage}
-      loading="eager"
-      alt="Imágen de Frijolito en la sección de los participantes del próximo festival"
-      width={150}
-      class="w-60 sm:w-auto absolute sm:-bottom-4 -bottom-10 -right-28 sm:right-auto"
-    />
-  </GridItem>
 
   <GridItem
     as="a"
@@ -79,10 +38,6 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
       alt="Ilustración de enredadera temática de Frijol Mágico"
       class="w-2/3 xl:w-auto sm:h-auto absolute bottom-0 left-0 z-10 rotate-180"
     />
-    <span
-      class="font-bold absolute outline outline-background -top-2 -left-2 -rotate-6 px-2 bg-accent rounded-md"
-      >Nuevo!</span
-    >
     <h2 class="z-10 text-5xl sm:text-4xl font-black text-secondary-foreground">
       Catálogo
     </h2>
@@ -98,8 +53,8 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
 
   <GridItem
     as="section"
-    rows={{ base: 2, xl: 3 }}
-    cols={{ base: 2, md: 8, xl: 6 }}
+    rows={{ base: 2, md: 3 }}
+    cols={{ base: 2, md: 10, xl: 6 }}
     class="order-first xl:order-none uppercase relative overflow-hidden sm:p-8 p-4 bg-[url(/enredadera.png)] bg-no-repeat bg-cover bg-[0_80%]">
     <video autoplay loop muted class="absolute -z-10 w-auto">
       <source src="/FestivalFrijolMagico.webm" type="video/webm" />
@@ -112,67 +67,88 @@ import enredaderaEsquina from '/public/enredadera-esquina.png'
   </GridItem>
 
   <GridItem
-    as="div"
-    rows={{ base: 1, xl: 2 }}
-    cols={{ base: 2, md: 4 }}
-    class="hidden sm:flex md:order-last xl:order-none bg-background outline-dashed outline-primary">
-    <h2 class="text-2xl text-center text-primary">Pronto más contenidos</h2>
+    as="a"
+    rows={{ base: 4 }}
+    cols={{ base: 2, md: 3, xl: 2 }}
+    href="/convocatoria"
+    class="overflow-visible bg-gradient-to-tr relative group from-secondary to-accent text-secondary-foreground">
+
+    <span
+      class="font-bold absolute outline outline-background -top-2 -left-2 -rotate-6 px-2 bg-primary rounded-md"
+      >Nuevo!</span
+    >
+    <div class="overflow-hidden relative size-full px-4 py-4 sm:py-0">
+      <Image
+        src={manoImage}
+        alt="Ilustración de una mano indicando a los participantes del próximo festival"
+        loading="eager"
+        width={50}
+        class="hidden sm:block w-auto absolute -top-12 left-0 left-0 right-0 m-auto  rotate-180"
+      />
+
+      <div class="flex flex-col hover:gap-2 gap-6 duration-300 transition-[gap] size-full items-center sm:justify-center"> 
+        <h2 class="text-2xl sm:text-xl text-center leading-7 sm:-mt-4">
+          Postula ya! <br />
+          <b
+            class="uppercase font-black bg-secondary sm:bg-transparent group-hover:bg-secondary px-2 transition duration-300 text-3xl"
+            >Convocatoria</b> <br />
+        <b>2025</b>
+          <span class="block mt-2 text-4xl w-fit mx-auto">🌟🌟🌟🌟</span>
+        </h2>
+        <p
+          class="uppercase text-center font-josefin text-lg leading-none text-white/80 group-hover:text-white transition duration-300">
+          Ilustración <br /> Manualidades <br /> Narrativa Gráfica 
+        </p>
+      </div>
+
+      <Image
+        src={frijolImage}
+        loading="eager"
+        alt="Imágen de Frijolito en la sección de los participantes del próximo festival"
+        width={150}
+        class="w-40 sm:w-auto absolute sm:-bottom-8 -bottom-4 -right-10 sm:-right-12"
+      />
+    </div> 
   </GridItem>
 
   <GridItem
     as="a"
-    rows={{ base: 2 }}
-    cols={{ base: 1, md: 2 }}
+    rows={{ base: 1 }}
+    cols={{ base: 2, md: 4, lg: 2 }}
     href={SITE.podcast}
-    class="bg-background sm:bg-accent text-secondary py-4 flex-col gap-2 hover:gap-0">
+    class="bg-background sm:bg-accent text-secondary py-4 gap-4 hover:gap-2">
     <p
-      class="uppercase leading-6 text-3xl text-center text-secondary font-black">
+      class="uppercase leading-3 text-2xl text-center text-secondary font-black">
       Escucha <br /><span
         class="text-primary text-2xl sm:text-background font-bold">nuestro</span
       >
       <br />Podcast
     </p>
-    <Spotify size="62" />
-  </GridItem>
-
-  <GridItem
-    as="section"
-    rows={{ base: 2 }}
-    cols={{ base: 1, md: 2 }}
-    class="flex-col gap-4 grid-rows-2 grid-cols-1 w-full h-full">
-    <GridItem
-      as="a"
-      rows={{ base: 1 }}
-      href={SITE.social_media.fb}
-      class="bg-background hover:bg-secondary transition duration-150 group">
-      <p
-        class="font-bold uppercase flex text-secondary group-hover:text-background gap-2 items-center text-xl">
-        Facebook <Facebook size="28" />
-      </p>
-    </GridItem>
-    <p
-      class="cursor-default absolute text-foreground sm:font-bold text-2xl sm:text-4xl font-josefin -rotate-6">
-      Síguenos!
-    </p>
-    <GridItem
-      as="a"
-      rows={{ base: 1 }}
-      href={SITE.social_media.ig}
-      class="uppercase bg-background hover:bg-accent transition duration-150 group">
-      <p
-        class="font-bold flex text-accent group-hover:text-background gap-2 items-center text-xl">
-        Instagram <Instagram size="32" />
-      </p>
-    </GridItem>
+    <Spotify size="52" />
   </GridItem>
 
   <GridItem
     as="a"
-    href="https://strocs.dev"
-    target="_blank"
     rows={{ base: 1 }}
-    cols={{ base: 2, md: 4, xl: 2 }}
-    class="text-secondary leading-none text-center [background-size:200%] hover:text-accent transition-all duration-300">
-    Desarrollado con ❤️ por StrocsDev
+    cols={{ base: 1, md: 4, lg: 2 }}
+    href={SITE.social_media.fb}
+    class="bg-secondary hover:scale-105 transition duration-150 group">
+    <p
+      class="font-bold uppercase flex text-background group-hover:text-background gap-2 items-center text-xl">
+      Facebook <Facebook size="32" />
+    </p>
   </GridItem>
+
+  <GridItem
+    as="a"
+    rows={{ base: 1 }}
+    cols={{ base: 1, md: 4, lg: 2 }}
+    href={SITE.social_media.ig}
+    class="uppercase bg-primary hover:scale-105 transition duration-150 group">
+    <p
+      class="font-bold flex text-background group-hover:text-background gap-2 items-center text-xl">
+      Instagram <Instagram size="42" />
+    </p>
+  </GridItem>
+
 </Grid>
