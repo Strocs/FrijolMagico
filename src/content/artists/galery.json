@@ -1,0 +1,492 @@
+[
+    {
+      "id": 1,
+      "name": "Anima Red",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Lic. en arquitectura, ilustradora y artista visual chilena.\nDesarrolla trabajos con temáticas relacionadas a la fantasía y la naturaleza, enfocándose en ilustrar y diseñar en torno a la creación de personajes originales y criaturas imaginarias, sus medios principales tradicionales artísticos son la acuarela, el grafito y los lápices de colores",
+      "email": "Animared.ilustracion@gmail.com",
+      "rrss": "https://www.instagram.com/anima.red",
+      "avatar": "Anima Red_2024.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Shobian",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Shobian, diseñadora gráfica de profesión e ilustradora autodidacta, se caracteriza por utilizar texturas análogas en la ilustración digital, aportando calidez a sus obras que retratan naturaleza y elementos de la vida cotidiana. Ha estado presente en diversos eventos de ilustración, destacando previas versiones del Festival Frijol Mágico y Festival ARC.",
+      "email": "shobian.art@gmail.com",
+      "rrss": "https://www.instagram.com/shobian.art/",
+      "avatar": "Shobian_Profilepicture.png"
+    },
+    {
+      "id": 3,
+      "name": "Fran.Aerre",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Artista regional que busca representar la expresividad de los animales, la belleza de la naturaleza y la cotidianidad de lo que la rodea, por medio de una pincelada segura pero dinámica. Sus técnicas predilectas son el óleo y el medio digital.",
+      "email": "fran.aerre@gmail.com",
+      "rrss": "https://www.instagram.com/fran_aerre/",
+      "avatar": "fran.aerre.png"
+    },
+    {
+      "id": 4,
+      "name": "Skelly.Uwu",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Hola! Soy Josefa Aguilera, Ilustradora y artista de videojuegos, tengo 27 años y dibujo con motivación desde los 14. Adoro crear personajes con trasfondos interesantes inspirados en la cultura Chilena y Asiática, siempre esperando generar un impacto a nivel emocional y espiritual, actualmente soy freelancer y estoy dibujando un manga \"Si el río suena es porque piedras trae.\" 川石の音 (Kawaishi no oto) el cual está basado en las mencionadas culturas. He trabajado también para diversas compañías de videojuegos internacionales y participado en ferias de arte a lo largo del país. ¡Espero que disfrutes mucho mi trabajo!",
+      "email": "skelly.ilustra@gmail.com",
+      "rrss": "https://www.instagram.com/skelly.uwu/",
+      "avatar": "Skelly.png"
+    },
+    {
+      "id": 5,
+      "name": "P3Dro",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Mi trabajo principalmente consiste en dibujos tradicionales coloreados con lápices de colores escolares. Abordo tópicos como el anime, videojuegos, series animadas y películas de horror. También realizo pequeños cuadros inspirados en la flora y monumentos típicos de la cuarta región de Coquimbo hechos con lápices acuarelables.",
+      "email": "p_rojas03@hotmail.com",
+      "rrss": "https://www.instagram.com/p3dro_rv.03?igsh=MWh2cnRzZHpmeDMzNg==",
+      "avatar": "P3Dro.png"
+    },
+    {
+      "id": 6,
+      "name": "Catana",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Mi arte mezcla elementos provenientes de una biografía personal, desde el paisaje regional y la cultura popular de la generación millenial. Mis creaciones reflejan la manera en que habito el territorio, me inspira el patrimonio natural y urbano, los espacios de convivencia y la riqueza de la cotidianeidad.",
+      "email": "holacatana@gmail.com",
+      "rrss": "https://www.instagram.com/c_a_t_a_n_a/",
+      "avatar": "Catana 2024.png"
+    },
+    {
+      "id": 7,
+      "name": "Seba Endless",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "¡Hola! Mi nombre es Seba Endless, diseñador gráfico e ilustrador, actualmente estudiando licenciatura en artes visuales. Mi trabajo se basa en ilustraciones y pinturas digitales de colores vibrantes y saturados, todos en diversas temáticas como: fanart de series, videojuegos, comic, manga, anime y mi obra original.",
+      "email": "seba.endlesss@gmail.com",
+      "rrss": "https://www.instagram.com/seba.endless/",
+      "avatar": "Seba Endless.png"
+    },
+    {
+      "id": 8,
+      "name": "Viliz_Vz",
+      "city": "Vicuña",
+      "work_area": "Ilustración",
+      "bio": "Trabajos con xilografia, materiales gráficos, plasmando formas y estilos más naturales y organicos, además de plasmar mi caracter interno  y de lo que me rodea en ilustraciones variadas, tambien vendo yogurt congelado yo le llamo congurt.",
+      "email": "vilizthementor21@gmail.com",
+      "rrss": "https://www.instagram.com/viliz_vz?igsh=aTF5dWFzMWl4azl6",
+      "avatar": "Viliz_Vz.png"
+    },
+    {
+      "id": 9,
+      "name": "Karime Simon",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Trauerkult, que significa \"culto al luto\", representa plenamente el concepto de mi obra, en la cual la muerte se manifiesta en todas sus formas y escenarios, a partir de minuciosos puntos, luces y sombras.",
+      "email": "avinagretta@gmail.com",
+      "rrss": "https://www.instagram.com/trauerkult_/?hl=es",
+      "avatar": "TRAUERKULT.png"
+    },
+    {
+      "id": 10,
+      "name": "Uliseslo",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Enfocado en la ilustración y las técnicas graficas artesanales, realizo series de imágenes que muestran diversos aspectos del entorno de la cuarta region, desde la naturaleza hasta temas sociales, generando relatos en diversos soportes como papel, textil, cerámica y objetos editoriales.",
+      "email": "tallerelqui@gmail.com",
+      "rrss": "https://www.instagram.com/uliseslo",
+      "avatar": "ulises.png"
+    },
+    {
+      "id": 11,
+      "name": "Vale Ilustra",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Hola,soy Vale ilustra  y me complace presentar mi trabajo como ilustradora ,me inspiro principalmente en la moda coreana, japonesa  o contemporánea en general fusionando lo con un toque cute o kawaii.Utilizo principalmente el dibujo digital como metodología lo que me permite resaltar mejor los colores y detalles.\n en su mayoría es digital ya que me ayuda a resaltar mejor los colores y los detalles.",
+      "email": "valeilustra2@gmail.com",
+      "rrss": "https://www.instagram.com/vale_ilustra?igsh=a21rMmw0cGx5bDlh",
+      "avatar": "Vale Ilustra.png"
+    },
+    {
+      "id": 12,
+      "name": "Nyxandr",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Hago una mezcla de fanarts, personajes propios e historias, explorando tanto lo tierno como lo oscuro. Mi arte refleja la dualidad de lo dulce y lo místico.",
+      "email": "Nyxandr.contacto@gmail.com",
+      "rrss": "https://www.instagram.com/nyxandr",
+      "avatar": "Nyxandr.png"
+    },
+    {
+      "id": 13,
+      "name": "Canela",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "¡Hola! Soy Canela, ilustradora desde temprana edad con una pasión por el arte y la creatividad. En la actualidad, me concentro en comisiones y proyectos diversos, y también me encanta explorar la creación de contenido variado, como streams y mercancía. Mi estilo se caracteriza por ser tierno y colorido, pero me adapto a diferentes enfoques según tus necesidades :D!",
+      "email": "Canelaqq@gmail.com",
+      "rrss": "https://www.instagram.com/canela_qq1?igsh=MXdjbWRxOGRmaWZiYQ==",
+      "avatar": "Canela.png"
+    },
+    {
+      "id": 14,
+      "name": "Grabados Aleph",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Grabados Aleph básicamente está enfocado en la linografía y todo lo que tenga que ver con grabado. Mi trabajo abarca todo el proceso desde diseño, carvado e impresión de una linografía. En cuanto a las ilustraciones en si, son todos diseños originales y su temática abarca distintos ámbitos: desde animales y flores hasta referencias a clásicos de la literatura.",
+      "email": "angelbarra07@gmail.com",
+      "rrss": "https://www.instagram.com/grabados_aleph/",
+      "avatar": "Grabados Aleph.png"
+    },
+    {
+      "id": 15,
+      "name": "Ivichi.Jpg",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "¡Buenas! Soy IviChu.jpg, una chica que se expresa a través de ilustraciones vivas. Mi trabajo destaca personajes dinámicos y explora emociones, fantasía y relaciones, con un estilo único. dibujo capturando momentos que cuentas historias. ¡Acompáñame en este viaje artístico!",
+      "email": "Ivabelen@gmail.com",
+      "rrss": "https://www.instagram.com/ivichu.jpg/",
+      "avatar": "Ivichi.png"
+    },
+    {
+      "id": 16,
+      "name": "Osamenta En El Jardin",
+      "city": "Vicuña",
+      "work_area": "Ilustración",
+      "bio": "Mi trabajo se basa en crear dibujos y pinturas con una temática a la que me gusta llamar \"fantasía macabra\", para esto uso conceptos que me permitan crear una atmósfera oscura, tomando un estilo influenciado por la ilustración de libros antiguos y películas de terror.",
+      "email": "valeria.suarez.diaz97@gmail.com",
+      "rrss": "https://www.instagram.com/osamentaseneljardin/",
+      "avatar": "CollageOsamentas.png"
+    },
+    {
+      "id": 17,
+      "name": "Ckiryuu",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "¡Hola! ¡Soy Kiryuu! Mi trabajo se caracteriza por la búsqueda de la expresividad y la interpretación, ya sea mediante el humor ligero, o, en contraste, en trabajos de temas más oscuros o nostálgicos. Siento mucha pasión por el storytelling, actualmente desarrollándome en el área de la animación y storyboard.",
+      "email": "madkiryuu@gmail.com",
+      "rrss": "https://www.instagram.com/ckiryuu",
+      "avatar": "ckiryuu2.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Aderezo",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "¡Hola! Soy Aderezo, ilustrador digital, Mi estilo se basa en el animé, pero con un toque personal. con mis obras busco plasmar escenas como si de fotos se tratasen, tratando generalmente que mis trabajos cuenten una historia, por muy pequeña que sea. Eso sería todo, ¡Espero les guste mi trabajo!",
+      "email": "addless7u7@gmail.com",
+      "rrss": "https://www.instagram.com/addless7u7",
+      "avatar": "Logo ADEREZO.png"
+    },
+    {
+      "id": 19,
+      "name": "Purr Creatures",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "¿Cómo sería el mundo si los gatos fueran los más evolucionados? Purr Creatures aborda esta pregunta a través de personajes que combinan la figura de la mujer y los felinos. Destacando distintos rasgos de sus personalidades e incorporando un toque de humor gráfico.",
+      "email": "purrcreatures@gmail.com",
+      "rrss": "https://www.instagram.com/purrcreatures/",
+      "avatar": "milkiwai.png"
+    },
+    {
+      "id": 20,
+      "name": "Tapichin",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Tachipin se enfoca en ilustraciones y proyectos artísticos basados en una estética retro-futurista-surrealista, con inspiración en la animación occidental y oriental, que tratan de apelar al sentimiento de nostalgia, tomando inspiraciones de movimientos estéticos relevantes para las generaciones millennial y Z, reinterpretando personajes ya existentes, y generando historias que reflejan el vacío y la complejidad de las emociones humanas.",
+      "email": "tachipinillustrations@gmail.com",
+      "rrss": "https://linktr.ee/Tachipinillustrations13",
+      "avatar": "Zorro tinta.png"
+    },
+    {
+      "id": 21,
+      "name": "Saturno",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Saturno, soy diseñadora gráfica e ilustradora autodidacta, me caracterizo por utilizar colores muy llamativos en mis ilustraciones y por tener stickers chistosos. También me dedico a crear diseños únicos en cerámica como llaveros, imanes, platos, espejos, ceniceros, figuras, porta velas, entre otros. Trato siempre de tener diseños nuevos y creativos.",
+      "email": "saturnooarte@gmail.com",
+      "rrss": "https://www.instagram.com/sa_tu_rno/",
+      "avatar": "Sa_tu_rno.png"
+    },
+    {
+      "id": 22,
+      "name": "Fluchinick",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Soy Constanza Toro, alias Fluchinick, ilustradora y estudiante de Diseño Digital. Mi trabajo destaca por la representación de animales antropomórficos usando colores saturados, tonos pasteles y destellos vibrantes, fusionando ternura, amor y comedia. Actualmente, exploró el universo Steampunk con mis propios personajes, también expresando mis gustos hacia las caricaturas manteniendo mi estilo.",
+      "email": "Fluchinick@gmail.com",
+      "rrss": "https://www.instagram.com/fluchinick/",
+      "avatar": "Fluchinick.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Noezzal",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Mi trabajo se enfoca principalmente al desarrollo de obras ligadas al fan-art de series, animes, películas, videojuegos y gran parte del mundo geek, en general cosas que me gustan y me llaman la atención. Por otra parte, realizo obras que tienen que ver con el surrealismo y con la exploración del sentir humano, siendo un trabajo personal pero a la vez, algo que pueda conectar de forma directa con el espectador.",
+      "email": "noezzal@gmail.com",
+      "rrss": "https://www.instagram.com/noezzal",
+      "avatar": "Noezzal.png"
+    },
+    {
+      "id": 24,
+      "name": "Khyaruu",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Hola soy Khyaruu, Ilustradora freelancer amante de los conejitos, de todo lo rosita y kawaii. Mi especialidad es la ilustración digital en un estilo chibi, trabajando pedidos de ilustraciones personalizadas, emotes para redes sociales y ahora, finalmente merch!",
+      "email": "khyaruustore@gmail.com",
+      "rrss": "https://khyaruu.carrd.co/",
+      "avatar": "Khyaruu.png"
+    },
+    {
+      "id": 25,
+      "name": "Acekuros",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Mi nombre es Alexis Cepeda Esquivel alias Acekuros, me denomino como dibujante de la ciudad de La Serena. En mis obras trato de capturar momentos cotidianos como también destacar la biodiversidad de la región de Coquimbo, me esfuerzo en transmitir historias que conecten con el pasado y el presente, destacando la identidad cultural y el patrimonio natural en mi propio estilo.",
+      "email": "Acekuros@gmail.com",
+      "rrss": "https://www.instagram.com/acekuros",
+      "avatar": "Acekuros.png"
+    },
+    {
+      "id": 26,
+      "name": "Nomito",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "La mayoría de mi arte solo son dibujos de algun personaje que creo para serie, juego o anime.\nSuelo poner creativo en mis dibujos y experimentar con cosas nuevas en mis ilustraciones \nYa sea luces, sombras o lineart",
+      "email": "Olivaresdafne1@gmail.com",
+      "rrss": "https://www.instagram.com/_n0mito.art_/",
+      "avatar": "Nomito.png"
+    },
+    {
+      "id": 27,
+      "name": "Chiimewe",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Soy chiimewe, ilustrador de La Serena que se dedica a hacer arte creado a partir de la imaginación e inspirado en lo tierno y lo colorido. Creando personajes y criaturas constantemente usando lo tradicional y lo digital al mismo tiempo.",
+      "email": "chiimewe@gmail.com",
+      "rrss": "https://www.instagram.com/chiimewe?igsh=cG96N2txaWdseGtt",
+      "avatar": "Chiimewe.jpeg"
+    },
+    {
+      "id": 28,
+      "name": "Yem",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Hola soy Yem, un ilustrador digital, principalmente de personajes originales, aunque también disfruto haciendo fanarts de vez en cuando. Mi objetivo es que mi arte alcance un mayor reconocimiento y conecte con más personas a través de lo que hago.",
+      "email": "j.n.t.c.200312@gmail.com",
+      "rrss": "https://www.instagram.com/yem.ito_art?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "avatar": "Positivo_confondo.png"
+    },
+    {
+      "id": 29,
+      "name": "Skyderen",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Hola me presento soy Skyderen mi trabajo consiste en ilustraciones que exploran la creatividad y la imaginación tratando de que la ilustración sea uno lleno de color, textura y emoción. Mi enfoque se centra en el estilo artístico del cartoon, anime, los comics y un poco el de los videojuegos.",
+      "email": "marcelovergara4507@gmail.com",
+      "rrss": "https://linktr.ee/_skyderen",
+      "avatar": "Skyderen.jpg"
+    },
+    {
+      "id": 30,
+      "name": "Ghostie",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Soy Ghostie, un ilustrador que crear fanarts de personajes de Marvel, series icónicas como Hannibal, The Walking Dead y Breaking Bad, así como también de músicos legendarios como The Beatles y Guns N' Roses. Ofrezco prints, chapitas, stickers y llaveros de mis obras, compartiendo así mi arte con los demás.",
+      "email": "lcmr.brownstone@gmail.com",
+      "rrss": "https://www.instagram.com/lc_mr.brownstone?igsh=cjFmaHljbjhlczN4",
+      "avatar": "Ghostie 1080x1080.png"
+    },
+    {
+      "id": 31,
+      "name": "Camila Guaman",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Ilustradora naturalista, egresada de arquitectura. Enfoco mi trabajo en la naturaleza, arte y territorio a través de técnicas tradicionales como acuarela, gouache y lápices de colores. Autora del libro \"Bitácora: ilustrando la flora en la ciudad\" e ilustradora de diversas publicaciones sobre patrimonios, flora y fauna nativa y educación ambiental.",
+      "email": "camilaguaman.ilustracion@gmail.com",
+      "rrss": "https://www.instagram.com/camilaguaman.ilustracion",
+      "avatar": "Camila Guaman.png"
+    },
+    {
+      "id": 32,
+      "name": "Astro Glitter",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "La ilustración es mi forma de expresar ternura. En mis ilustraciones fusiono mi mundo interno de fantasía con la naturaleza de mi realidad y generalmente creo composiciones que transmiten paz y calma.",
+      "email": "astroglitter.studio@gmail.com",
+      "rrss": "https://www.instagram.com/astro.glitter/",
+      "avatar": "astro.png"
+    },
+    {
+      "id": 33,
+      "name": "Niño Pan",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Me dedico a hacer ilustraciones digitales de cosas que me llamen la atención así como también a hacer comisiones, generalmente ambas comparten temáticas como por ejemplo el medio ambiente, animales y lugares de la ciudad, también de vez en cuando busco plasmar sensaciones y pensamientos a través de viñetas y mas recientemente en animación.\nCómo dibujante quiero lograr hacer trazos mas simples combinados con texturas y colores vibrantes que en conjunto resulten en algo atractivo ^^",
+      "email": "elninopan99@gmail.com",
+      "rrss": "https://www.instagram.com/elninopan",
+      "avatar": "niño pan frijol 2024.png"
+    },
+    {
+      "id": 34,
+      "name": "Camellia Liz",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Soy ilustradora especializada en técnicas análogas, especialmente acuarela, lápices de color y técnicas mixtas. Los temas centrales de mi trabajo son la fantasía, el realismo mágico, la nostalgia y los cuentos de hadas.",
+      "email": "camihlatournerie@gmail.com",
+      "rrss": "https://www.instagram.com/camellia.liz",
+      "avatar": "Camellia Liz 1080x1080 .png"
+    },
+    {
+      "id": 35,
+      "name": "Hanrra",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Soy Diseñadora Gráfica e ilustradora. En mi trabajo me gusta representar, ya sea por medio de técnicas tradicionales o digitales, escenarios que resaltan elementos de la naturaleza y que estos interactúen a través de mundos oníricos con la imagen, a menudo femenina, que protagoniza la escena.",
+      "email": "hanrra.artwork@gmail.com",
+      "rrss": "https://www.instagram.com/hanrra_artwork/",
+      "avatar": "Hanrra.jpg"
+    },
+    {
+      "id": 36,
+      "name": "Sakanita",
+      "city": "Coquimbo",
+      "work_area": "Ilustración",
+      "bio": "Mi nombre es Daniela y en redes sociales soy Sakanita, tengo mi Tiendita llamada Sakana Papelería. Mis referentes son la naturaleza, los gatitos y halloween. Actualmente mi técnica es digital, dibujo con procreate y los productos de mi tienda van desde stickers a estuches estampados, todo realizado en mi taller.",
+      "email": "sakanastationery@gmail.com",
+      "rrss": "https://www.instagram.com/_sakanita_",
+      "avatar": "sakanitaperfil.png"
+    },
+    {
+      "id": 37,
+      "name": "Chilensis",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": " Hola soy Pablo, dibujante bajo el nick \"chilensis\" con más de una década de incursionar en el mundo del arte.\n\nHe enfatizado en crear personajes y cómics originales en un estilo simple y movido,para así también traer una propuesta original a series y juegos populares a través de fanart. ",
+      "email": "Chilensisboy@gmail.com",
+      "rrss": "https://www.instagram.com/chilensisboy/",
+      "avatar": "chilensis 1080.jpeg"
+    },
+    {
+      "id": 38,
+      "name": "El Ale",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Hola! Soy Alejandro Jorquera, más conocido como el ale ilustrador, Artista gráfico dedicado al diseño e Ilustración de autor, abordo temáticas de naturaleza con características antropomórficas, fusionando lo onírico y lo místico, la vida y la muerte. explorando el camino a través de técnicas de serigrafía, fotografía acuarela y el entintado.",
+      "email": "creativotrama@gmail.com",
+      "rrss": "https://www.instagram.com/elale_ilustrador/",
+      "avatar": "El Ale.jpg"
+    },
+    {
+      "id": 39,
+      "name": "Pancho Valdivia",
+      "city": "La Serena",
+      "work_area": "Ilustración",
+      "bio": "Francisco Valdivia Profesor, artista visual sus técnicas preferidas son las acuarelas, gouache, acrílico, lápices de colores y técnica mixta. Sus temas a retratar más recurrentes son: paisaje, animales, flores y criaturas con elementos híbridos (quimeras) en su compasión. Además de darle un halo de mitología, fantasía y",
+      "email": "HOMBREMEDIVAL@gmail.com",
+      "rrss": "https://www.instagram.com/pancho_valdivia/",
+      "avatar": "Pancho Valdivia.png"
+    },
+    {
+      "id": 40,
+      "name": "Polet Komiksu",
+      "city": "Coquimbo",
+      "work_area": "Narrativa Gráfica",
+      "bio": "Ilustradora y Diseñadora. Autora del Manga \"La Leyenda del Valle Negro\", manga basado en la Leyenda de los Brujos de Salamanca de donde provengo y autora de \"Pacita\", cómic de humor para mujeres. Mis ilustraciones, mangas y comics están inspirados en mangakas como Junji Ito, Kaori Yuki y Tamayo Akiyama.",
+      "email": "poletcomics@gmail.com",
+      "rrss": "https://www.instagram.com/poletkomiksu?igsh=MXd1bHdsOTd6YWl4cg==",
+      "avatar": "Polet Komiksu.png"
+    },
+    {
+      "id": 41,
+      "name": "Futuro Comics",
+      "city": "La Serena",
+      "work_area": "Narrativa Gráfica",
+      "bio": "Futuro Comics es un sello editorial autogestionado de historietas de aventuras y ciencia\nficción creado por el dibujante Diego Maya, nacido originalmente como fanzine a finales de\nlos noventa. Desde hace un par de años, con la llegada del autor a la IV Región, se ha\nreinventado en un nuevo formato más profesional, que busca acercar la narrativa gráfica al\npúblico lector, con un enfoque que busca encantar tanto a los fans veteranos del género,\ncomo a nuevas generaciones de comiqueros.",
+      "email": "contactodiegomaya@gmail.com",
+      "rrss": "http://instagram.com/futurocomics",
+      "avatar": "FUTURO COMICS.png"
+    },
+    {
+      "id": 42,
+      "name": "Carvajal Ilustraciones",
+      "city": "Coquimbo",
+      "work_area": "Narrativa Gráfica",
+      "bio": "Nada me ha motivado más que utilizar las historietas como generadoras de ideas, reflexión y muchas veces hasta de denuncia, sí, porque si bien las historietas basan gran parte de su contenido en entretener, en infinidad de géneros, sin duda no está exenta también  de abrir y expandir la mente para mantenernos atentos e informados, ya que es un arte directo que no da mucho para la imaginación a quien nos lee.",
+      "email": "nacionautonoma@yahoo.es",
+      "rrss": "https://www.instagram.com/carvajalilustraciones/",
+      "avatar": "Carvajal Ilustraciones.jpg"
+    },
+    {
+      "id": 43,
+      "name": "Rotten Monkey",
+      "city": "Coquimbo",
+      "work_area": "Narrativa Gráfica",
+      "bio": "Dibujante de comics, enfocado en el humor gráfico y la narrativa. Entre mi trabajo pueden encontrar viñetas semanales de humor gráfico, con personajes de Godzilla en situaciones del día a día, y comics con historias serializadas o auto concluyentes, que van desde lo personal a lo bizarro.",
+      "email": "ro.felipe768@gmail.com",
+      "rrss": "https://instagram.com/rottenmonkey_inc/",
+      "avatar": "rotten_weezer.png"
+    },
+    {
+      "id": 44,
+      "name": "Me Pego Un Tiro",
+      "city": "La Serena",
+      "work_area": "Manualidades",
+      "bio": "Mi nombre es Pía Ahumada y desde 2013 trabajo en Taller Editorial Me pego un tiro, me dedico principalmente a la encuadernación, reparación y publicación; en general me interesa cualquier labor que esté relacionada con libros como objeto o como bien cultural.",
+      "email": "tallermepegountiro@gmail.com",
+      "rrss": "https://www.instagram.com/mepegountiro?igsh=NW40MW5udWl4OGM0",
+      "avatar": "Me pego un tiro - Pía Ahumada - Frijol Mágico.png"
+    },
+    {
+      "id": 45,
+      "name": "Mami Sita",
+      "city": "La Serena",
+      "work_area": "Manualidades",
+      "bio": "Soy Mami Sita, artesana serenense y me enfoco principalmente en el arte japonés del amigurumi. Realizo retratos de personajes, artistas y personas, diseñando y elaborando cada proyecto con dedicación, esperando que transmitan alegría, ayudando a conectar con recuerdos significativos.",
+      "email": "Mamisitamodeon@gmail.com",
+      "rrss": "https://www.instagram.com/mamisitamodeon",
+      "avatar": "Mami Sita.png"
+    },
+    {
+      "id": 46,
+      "name": "Sra Tonks",
+      "city": "La Serena",
+      "work_area": "Manualidades",
+      "bio": "Soy Pía, bordadora y collagista desde el año 2020. Comencé a bordar por el deseo que tenía de retratar a mi gatita tonks y hacer collages digitales como hobby, el 2021 decidí abrir @sratonks para mostrar mis bordados y experimentos varios, con el tiempo se transformó en mi trabajo y hoy bordo mascotas a pedido",
+      "email": "nidoodepajaros@gmail.com",
+      "rrss": "https://www.instagram.com/sratonks/",
+      "avatar": "SraTonks foto Frijol.jpg"
+    },
+    {
+      "id": 47,
+      "name": "Alkimia",
+      "city": "Coquimbo",
+      "work_area": "Manualidades",
+      "bio": "Alkimia.cl , un espacio para seres mágicos. Joyería artesanal hecha a mano con cristales. Amuletos intencionados que sacan a relucir tu belleza interior, te acompañan y protegen. Boutique de artículos brujiles para usar en el día a día.",
+      "email": "Valentinasofiascalderon@gmail.com",
+      "rrss": "https://www.instagram.com/alkimia.cl?igsh=MW9vZDZhcWs2d3YxbQ==",
+      "avatar": "Alkimia.jpeg"
+    },
+    {
+      "id": 48,
+      "name": "Kao Artwork",
+      "city": "Coquimbo",
+      "work_area": "Manualidades",
+      "bio": "KaO ArtWork es un espacio de creación que ha evolucionado a lo largo de 10 años. Hoy en día uno oficios y técnicas como joyería, artesanías, pintura y en este último tiempo tatuajes. Tras bambalinas, estoy yo Jessica de profesión Diseñadora, oficio Orfebre y autodidacta en dibujo y pintura y más.",
+      "email": "Kathykiba@gmail.com",
+      "rrss": "https://www.instagram.com/kao.art.work/",
+      "avatar": "Kao Artwork.png"
+    },
+    {
+      "id": 49,
+      "name": "De Cordillera",
+      "city": "Coquimbo",
+      "work_area": "Manualidades",
+      "bio": "Decordillera es un espacio donde creo cuadritos decorativos en madera inspirados en la naturaleza. Utilizando la técnica de corte láser transformo mis ilustraciones en paisajes tridimensionales, fusionando arte, diseño y precisión. Cada pieza está diseñada para aportar profundidad y vida a cualquier espacio, con un toque de naturaleza y color.",
+      "email": "neve.90@gmail.com",
+      "rrss": "https://www.instagram.com/decordillera",
+      "avatar": "decordillera-01.jpg"
+    }
+]

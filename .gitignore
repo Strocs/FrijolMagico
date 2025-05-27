@@ -24,3 +24,7 @@ pnpm-debug.log*
 /blob-report/
 /playwright/.cache/
 .vercel
+
+node_modules
+.env
+.env*.local
