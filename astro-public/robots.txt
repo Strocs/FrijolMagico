@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elfrijolmagico.cl/sitemap-index.xml

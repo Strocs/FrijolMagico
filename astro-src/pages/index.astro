@@ -1,0 +1,20 @@
+---
+import HomeGrid from '@/components/HomeGrid.astro'
+import Layout from '@/layouts/Layout.astro'
+import Main from '@/components/Main.astro'
+import DoodleLine from '@/components/ui/DoodleLine.astro'
+---
+
+<Layout title="Frijol Mágico 2024 - Un nuevo germinar">
+  <Main class="pt-[--top-bar-height] h-full sm:h-screen grid items-center">
+    <HomeGrid />
+  </Main>
+  <DoodleLine class="md:hidden" color="text-primary" />
+
+  <a
+    href="https://strocs.dev"
+    target="_blank"
+    class="absolute -bottom-2 sm:bottom-2 left-0 right-0 mx-auto pt-10 px-4 w-fit text-secondary leading-none text-center hover:text-accent transition-all duration-300">
+    Desarrollado con ❤️ por StrocsDev
+  </a>
+</Layout>
