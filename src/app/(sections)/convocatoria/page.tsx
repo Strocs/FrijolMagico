@@ -30,21 +30,24 @@ export default function ConvocatoriaPage() {
               alt='Frijol Mágico'
               width={600}
               height={600}
-              className='mirror-x lg:mirror-none absolute bottom-0 left-0 -z-10 lg:-bottom-10'
+              className='mirror-x lg:mirror-none absolute -bottom-10 left-0 -z-10'
             />
 
-            <div>
+            <div className='max-w-sm'>
               <ReactMarkdown
                 components={{
                   h3: ({ ...props }) => (
                     <h3
-                      className='text-fm-white font-noto max-w-sm text-4xl font-bold sm:text-5xl lg:text-6xl'
+                      className='text-fm-white font-noto text-4xl font-bold sm:text-5xl lg:text-6xl'
                       {...props}
                     />
                   ),
                 }}>
                 {apply.steps[0].title}
               </ReactMarkdown>
+              <p className='text-fm-white font-noto'>
+                {apply.steps[0].description}
+              </p>
             </div>
           </Link>
 
@@ -59,18 +62,21 @@ export default function ConvocatoriaPage() {
               className='absolute -top-8 -right-20 -z-10 sm:top-0'
             />
 
-            <div>
+            <div className='max-w-sm'>
               <ReactMarkdown
                 components={{
                   h3: ({ ...props }) => (
                     <h3
-                      className='text-fm-black font-noto max-w-sm text-4xl font-bold sm:text-5xl lg:text-6xl'
+                      className='text-fm-black font-noto text-4xl font-bold sm:text-5xl lg:text-6xl'
                       {...props}
                     />
                   ),
                 }}>
                 {apply.steps[1].title}
               </ReactMarkdown>
+              <p className='text-fm-black font-noto'>
+                {apply.steps[1].description}
+              </p>
             </div>
           </Link>
         </section>
