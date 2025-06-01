@@ -1,29 +1,28 @@
-import TEXTS from "@/i18n/topBanner.json";
-import ReactMarkdown from "react-markdown";
+import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import siteData from '@/i18n/site.json'
+const { top_bar } = siteData
 
-const TopBarInfo = () => {
+export const TopBarInfo = () => {
   return (
     <section
-      aria-label="Frijol Mágico"
-      className="w-full font-sans md:fixed md:top-0 flex flex-col sm:flex-row space-y-4 md:space-y-0 px-4 sm:px-6 items-center justify-between py-4 sm:py-2 bg-foreground relative z-40"
-    >
-      <div className="flex space-x-4 flex-nowrap">
-        <h2 className="text-background w-full 2md:max-w-fit leading-none 2md:leading-normal text-center">
-            <ReactMarkdown components={{
-             p: ({children}) => <>{children}</>   
+      aria-label='Frijol Mágico'
+      className='bg-fm-dark relative z-40 flex w-full flex-col items-center justify-between space-y-4 px-4 py-4 font-sans sm:flex-row sm:px-6 sm:py-2 md:top-0 md:space-y-0'>
+      <div className='flex flex-nowrap space-x-4'>
+        <h2 className='text-fm-white 2md:max-w-fit 2md:leading-normal w-full text-center leading-none'>
+          <ReactMarkdown
+            components={{
+              p: ({ children }) => <>{children}</>,
             }}>
-                {TEXTS.text}
-            </ReactMarkdown>
+            {top_bar.text}
+          </ReactMarkdown>
         </h2>
       </div>
-      <a
-        href={TEXTS.button.link}
-        className="py-0.5 px-4 rounded-lg font-bold bg-gradient-to-r text-secondary-foreground from-secondary to-accent [background-size:150%] hover:bg-right transition-[background-position] duration-200"
-      >
-        {TEXTS.button.text}
-      </a>
+      <Link
+        href={top_bar.button.link}
+        className='text-fm-white from-fm-orange to-fm-yellow rounded-lg bg-gradient-to-r [background-size:150%] px-4 py-0.5 font-bold transition-[background-position] duration-200 hover:bg-right'>
+        {top_bar.button.text}
+      </Link>
     </section>
-  );
-};
-
-export default TopBarInfo;
+  )
+}
