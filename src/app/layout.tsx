@@ -1,14 +1,21 @@
-import type { Metadata } from "next";
-import { Josefin_Sans } from "next/font/google";
-import SITE from "@/i18n/site.json";
-import "./globals.css";
-import TopBarInfo from "@/components/TopBarInfo";
-import { Background } from "@/components/Background";
+import type { Metadata } from 'next'
+import { Josefin_Sans, Noto_Sans } from 'next/font/google'
+import siteData from '@/i18n/site.json'
+import '@/styles/globals.css'
+import { TopBarInfo } from '@/components/TopBarInfo'
+import { Background } from '@/components/Background'
+
+const SITE = siteData
 
 const josefinSans = Josefin_Sans({
-  variable: "--font-josefin-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-josefin-sans',
+  subsets: ['latin'],
+})
+
+const notoSans = Noto_Sans({
+  variable: '--font-noto-sans',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: SITE.title,
@@ -26,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     title: SITE.title,
     description: SITE.description,
-    card: "summary_large_image",
+    card: 'summary_large_image',
     images: [
       {
         url: SITE.image,
@@ -36,22 +43,21 @@ export const metadata: Metadata = {
   icons: {
     icon: SITE.favicon,
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang={SITE.lang}>
       <body
-        className={`${josefinSans.variable} antialiased relative h-fit w-full min-h-[100dvh] text-foreground bg-background font-noto`}
-      >
-        <TopBarInfo />
+        className={`${josefinSans.variable} ${notoSans.variable} bg-fm-white font-noto relative flex size-full min-h-[100dvh] flex-col antialiased`}>
         <Background />
+        {SITE.top_bar.active && <TopBarInfo />}
         {children}
       </body>
     </html>
-  );
+  )
 }
