@@ -1,23 +1,62 @@
 {
-    "title": "Asociación Cultural Frijol Mágico",
-    "lang": "es",
-    "description": "Frijol Mágico es un espacio que reúne a las y los Ilustradores de la Región de Coquimbo, generando distintas instancias que ayuden a potenciar su trabajo.",
-    "favicon": "/frijol.png",
-    "url": "https://frijolmagico.cl",
-    "image": "https://frijolmagico.cl/og-image.png",
-    "podcast": "https://open.spotify.com/show/6X92bkkwHr43dTP1Y3LPyg",
-    "social_media": {
-        "ig": "https://www.instagram.com/festivalfrijolmagico/",
-        "fb": "https://facebook.com/festivalfrijolmagico"
-    },
-    "top_banner": {
-        "text": "🌱 Un nuevo germinar 🌱",
-        "subtitle": "Asociación Cultural Frijol Mágico"
-    },
-    "OG_IMAGE": "/OG.png",
-    "next_festival": {
-        "day": 19,
-        "month": 10,
-        "year": 2024
+  "title": "Asociación Cultural Frijol Mágico",
+  "lang": "es",
+  "description": "Frijol Mágico es un espacio que reúne a las y los Ilustradores de la Región de Coquimbo, generando distintas instancias que ayuden a potenciar su trabajo.",
+  "favicon": "/frijol.png",
+  "url": "https://frijolmagico.cl",
+  "image": "https://frijolmagico.cl/og-image.png",
+  "podcast": "https://open.spotify.com/show/6X92bkkwHr43dTP1Y3LPyg",
+  "social_media": {
+    "ig": "https://www.instagram.com/festivalfrijolmagico/",
+    "fb": "https://facebook.com/festivalfrijolmagico"
+  },
+  "top_banner": {
+    "text": "🌱 Un nuevo germinar 🌱",
+    "subtitle": "Asociación Cultural Frijol Mágico"
+  },
+  "top_bar": {
+    "active": true,
+    "text": "**➡️ Convocatoria Abierta!** *Frijol Mágico **2025*** 🌱",
+    "button": {
+      "text": "Postula al próximo festival 👈🏾",
+      "link": "/convocatoria"
     }
+  },
+  "OG_IMAGE": "/OG.png",
+  "next_festival": {
+    "day": 19,
+    "month": 10,
+    "year": 2024
+  },
+  "apply": {
+    "title": "# **Convocatoria Abierta**",
+    "subtitle": "## **Frijol Mágico 2025**",
+    "description": "**Te necesitamos para el próximo festival** 🌱, lee las bases y **postula!**",
+    "link": "/convocatoria",
+    "steps": [
+      {
+        "title": "### **Paso 1:** Lee las **Bases**",
+        "description": "Encontrarás aquí todas las bases y requisitos para postularse al festival.",
+        "link": "#"
+        },
+        {
+          "title": "### **Paso 2:** Llena el **Formulario**",
+          "description": "Llena el formulario con tus datos personales y de contacto.",
+          "link": "#"
+        }
+      ],
+    "seo": {
+      "title": "Convocatoria Abierta Frijol Mágico 2025!",
+      "description": "Te necesitamos para el próximo festival de Ilustración Frijol Mágico de La Serena y Coquimbo 🌱, lee las bases y postula!"
+    }
+  },
+  "catalog": {
+    "title": "# Catalogo **Frijol Mágico**",
+    "description": "**¿Necesitas encontrar algún ilustrador/a?** Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo",
+    "link": "/catalogo",
+    "seo": {
+      "title": "Ilustradores de la Región de Coquimbo",
+      "description": "¿Necesitas encontrar algún ilustrador/a? Busca, filtra y contacta a los mejores artistas de Coquimbo, La Serena y toda la Región!"
+    }
+  }
 }
