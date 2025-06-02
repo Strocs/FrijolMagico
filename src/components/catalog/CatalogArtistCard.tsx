@@ -5,6 +5,7 @@ import { Instagram, Mail } from 'lucide-react'
 import { formatUrl } from '@/utils/catalog'
 import Image from 'next/image'
 import { useCatalog } from '@/contexts/CatalogContext'
+import { cn } from '@/lib/utils'
 
 export const CatalogArtistCard = ({
   id,
@@ -37,9 +38,13 @@ export const CatalogArtistCard = ({
 
   return (
     <li
-      className={`text-fm-green group bg-fm-white hover:bg-fm-dark/10 outline-fm-green w-full cursor-default outline-1 outline-dashed sm:max-w-xs lg:max-w-sm ${
-        isSelected ? 'scale-105 bg-slate-200' : ''
-      } relative space-y-6 rounded-xl p-4 transition duration-300`}>
+      className={cn(
+        'text-fm-green group hover:bg-fm-white outline-fm-green w-full cursor-default bg-transparent outline-1 outline-dashed hover:outline-solid sm:max-w-xs lg:max-w-sm',
+        'relative space-y-6 rounded-xl p-4 transition-all duration-300',
+        {
+          'bg-fm-white scale-105 outline-solid': isSelected,
+        },
+      )}>
       <section className='flex items-center gap-4'>
         <Image
           loading='lazy'
