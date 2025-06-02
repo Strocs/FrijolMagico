@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+:root {
+  --top-bar-height: 0px;
+
+  --green: oklch(0.4866 0.1317 149.67);
+  --yellow: #fac331;
+  --orange: #ef5026;
+  --white: #f1f5f9;
+  --dark: #000000;
+
+  --w: tan(atan2(var(--w_raw), 1px));
+  --px-w: calc(var(--w) * 1px);
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-fm-white: var(--white);
+  --color-fm-dark: var(--color-neutral-900);
+  --color-fm-black: var(--color-neutral-800);
+
+  --color-fm-green: var(--green);
+  --color-fm-orange: var(--orange);
+  --color-fm-yellow: var(--yellow);
+
+  --font-noto: 'Noto Sans', sans-serif;
+  --font-josefin: 'Josefin Sans', sans-serif;
+
+  --animate-card-slides: card-slides 12s linear infinite;
+  --animate-slide-in-right: slide-in-right 0.3s ease-in-out forwards;
+}
+
+@keyframes card-slides {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc((-128px - 8px) * 4));
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@layer utilities {
+  .mirror-x {
+    transform: scaleX(-1);
+  }
+
+  .mirror-none {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}

@@ -1,3 +1,4 @@
+'use client'
 import { ArrowUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -38,10 +39,12 @@ export const BackToTop = () => {
 
   return (
     <button
-      aria-label="Navegar hacia arriba"
-      className={`${visible ? 'opacity-100 cursor-pointer' : 'opacity-0 cursor-default'} transition-[transform,opacity] fixed bottom-4 left-4 z-50 bg-secondary text-background hover:scale-105 transform-gpu transition-150 rounded-full w-10 aspect-square`}
+      aria-label='Navegar hacia arriba'
+      className={`${
+        visible ? 'cursor-pointer opacity-100' : 'cursor-default opacity-0'
+      } bg-fm-orange text-fm-white transition-150 fixed bottom-4 left-4 z-50 aspect-square w-10 transform-gpu rounded-full transition-[transform,opacity] hover:scale-105`}
       onClick={handleOnClick}>
-      <ArrowUp className="mx-auto" />
+      <ArrowUp className='mx-auto' />
     </button>
   )
 }
