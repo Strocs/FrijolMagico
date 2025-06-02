@@ -1,0 +1,55 @@
+<section
+  aria-label="Frijol Mágico"
+  class="w-full font-sans md:fixed md:top-0 flex flex-col sm:flex-row space-y-4 md:space-y-0 px-6 items-center justify-between py-2 bg-foreground relative z-40">
+  <div class="flex space-x-4 flex-nowrap">
+    <h2
+      class="text-background w-full max-w-[220px] 2md:max-w-fit leading-none 2md:leading-normal">
+      <b>Próximo festival:</b>
+      19 Octubre, <i>Un nuevo germinar</i> 🌱
+    </h2>
+    <p
+      id="days-wrapper"
+      class="text-background leading-none 2md:leading-normal">
+      <b>Faltan</b>
+      <b class="text-accent" id="days-left"></b>
+      <b id="days-text">días</b>
+    </p>
+  </div>
+  <a
+    href="/un-nuevo-germinar"
+    class="py-0.5 px-2 rounded-lg font-bold bg-gradient-to-r text-secondary-foreground from-secondary to-accent [background-size:150%] hover:bg-right transition-[background-position] duration-200">
+    Conoce a lxs participantes! 👈🏾
+  </a>
+</section>
+
+<script>
+  import { SITE } from '@/data/SITE'
+
+  const oneDay = 1000 * 60 * 60 * 24
+  const currentDate = new Date()
+  const festivalDate = new Date(
+    SITE.next_festival.year,
+    SITE.next_festival.month - 1,
+    SITE.next_festival.day,
+    12
+  )
+
+  const $ = document.getElementById('days-wrapper') as HTMLDivElement
+  const [daysTitleElement, daysLeftElement, daysTextElement] =
+    $.children as HTMLCollectionOf<HTMLElement>
+
+  const daysLeft = Math.round(
+    (festivalDate.getTime() - currentDate.getTime()) / oneDay
+  )
+
+  if (daysLeft === 1) {
+    daysTitleElement.innerText = 'Falta'
+    daysTextElement.innerText = 'día'
+  }
+
+  if (daysLeft === 0) {
+    $.innerHTML = '<b class="text-accent">Es hoy!</b>'
+  } else {
+    daysLeftElement.innerText = `${daysLeft}`
+  }
+</script>

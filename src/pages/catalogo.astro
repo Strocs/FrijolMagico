@@ -1,0 +1,134 @@
+---
+import { CatalogeFilter } from '@/components/CatalogeFilter'
+import { CatalogeList } from '@/components/CatalogeList'
+import { CatalogeSearchBar } from '@/components/CatalogeSearchBar'
+import Footer from '@/components/Footer.astro'
+import Main from '@/components/Main.astro'
+import Header from '@/components/Header.astro'
+import { CatalogePanel } from '@/components/cataloge-panel'
+import DoodleLine from '@/components/ui/DoodleLine.astro'
+import { CATALOGE_HEADER_INFO } from '@/data/CONSTANTS'
+import type { Cataloge, CatalogeArtist } from '@/interfaces/cataloge.d.ts'
+import Layout from '@/layouts/Layout.astro'
+import { getFiltersData } from '@/utils/getFiltersData'
+import type { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+import { BackToTop } from '@/components/BackToTop'
+
+const doc = new GoogleSpreadsheet(import.meta.env.CATALOGE_SHEET_ID, {
+  apiKey: import.meta.env.GOOGLE_API_KEY,
+})
+
+await doc.loadInfo()
+const sheet = doc.sheetsByIndex[0]
+const rows = await sheet.getRows()
+
+const importedImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/cataloge-images/*'
+)
+
+const imagesPath = Object.entries(importedImages)
+
+async function getProcessedImage(imageName: string) {
+  const selectImage = imagesPath.find(([src]) => src.includes(imageName))
+
+  if (!selectImage)
+    throw new Error('No existe la imágen con el nombre indicado')
+  const processedImage = await getImage({
+    src: selectImage[1](),
+    format: 'webp',
+    height: 200,
+    width: 200,
+  })
+  return processedImage.src
+}
+
+const catalogePromise: Promise<CatalogeArtist>[] = rows.map(async (row) => {
+  return {
+    id: row.get(CATALOGE_HEADER_INFO.ID),
+    name: row.get(CATALOGE_HEADER_INFO.NAME),
+    city: row.get(CATALOGE_HEADER_INFO.CITY),
+    work_area: row.get(CATALOGE_HEADER_INFO.WORK_AREA),
+    bio: row.get(CATALOGE_HEADER_INFO.BIO),
+    email: row.get(CATALOGE_HEADER_INFO.EMAIL),
+    rrss: row.get(CATALOGE_HEADER_INFO.RRSS),
+    avatar: await getProcessedImage(row.get(CATALOGE_HEADER_INFO.AVATAR)),
+  }
+})
+
+const cataloge: Cataloge = await Promise.all(catalogePromise)
+
+const cityFilterData = getFiltersData(cataloge, 'city')
+const areaFilterData = getFiltersData(cataloge, 'work_area')
+---
+
+<Layout title="Ilustradores de la Región de Coquimbo">
+  <BackToTop client:load />
+  <div
+    id="cataloge-wrapper"
+    aria-hidden="true"
+    class="transform-gpu transition-transform duration-500 h-full mx-auto">
+    <Header title="Catálogo" subTitle="Frijol Mágico">
+      <b
+        >¿Necesitas encontrar algún <span class="bg-accent px-0.5"
+          >ilustrador/a</span
+        >?
+      </b> Busca, filtra y contacta a los mejores artistas de la Región de Coquimbo
+    </Header>
+
+    <DoodleLine color="text-primary" />
+
+    <Main class="pt-0 space-y-4">
+      <!-- SEARCH AND FILTER BAR -->
+      <section class="flex flex-col gap-2 items-center max-w-screen-md mx-auto">
+        <CatalogeSearchBar client:load />
+
+        <div>
+          <CatalogeFilter
+            options={cityFilterData}
+            title="Ciudad"
+            filterKey="city"
+            client:load
+          />
+          <CatalogeFilter
+            options={areaFilterData}
+            title="Disciplina"
+            filterKey="work_area"
+            client:load
+          />
+        </div>
+      </section>
+
+      <!-- GALLERY CARDS -->
+      <section>
+        <CatalogeList list={cataloge} client:load />
+      </section>
+    </Main>
+
+    <DoodleLine color="text-primary" />
+
+    <Footer />
+  </div>
+  <CatalogePanel client:load />
+</Layout>
+
+<style is:global>
+  :root {
+    --panel-width: 488px;
+  }
+</style>
+
+<script>
+  import { $isArtistPanelOpen } from '@/store/cataloge'
+
+  const wrapper = document.getElementById('cataloge-wrapper') as HTMLDivElement
+
+  $isArtistPanelOpen.listen((value) => {
+    wrapper.classList.toggle('-translate-x-[calc(var(--panel-width)/2)]', value)
+    wrapper.classList.toggle(
+      'lg:!w-[calc(var(--px-w)-var(--panel-width))]',
+      value
+    )
+  })
+</script>

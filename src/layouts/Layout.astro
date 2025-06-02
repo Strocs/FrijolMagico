@@ -1,0 +1,89 @@
+---
+import '@/styles/global.css'
+
+import TopBarInfo from '@/components/TopBarInfo.astro'
+import { SITE } from '@/data/SITE'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Asociación Cultural Frijol Mágico',
+  description = SITE.description,
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="lenguage" content="spanish" />
+    <meta name="author" content="Frijol Mágico" />
+    <meta name="audience" content="all" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="frijol.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://elfrijolmagico.cl" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={SITE.OG_IMAGE} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="elfrijolmagico.cl" />
+    <meta property="twitter:url" content="https://elfrijolmagico.cl" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={SITE.OG_IMAGE} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Mono:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body
+    class:list={[
+      'relative h-fit w-full min-h-[100dvh] text-foreground bg-background font-noto',
+    ]}>
+    <!-- <TopBarInfo /> -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 h-full w-full bg-[radial-gradient(#d1dae7_1px,transparent_1px)] dark:bg-[radial-gradient(#002200_1px,transparent_1px)] [background-size:16px_16px] -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+    </div>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @property --w_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vw;
+  }
+
+  :root {
+    --top-bar-height: 0px;
+
+    --background: #f1f5f9;
+    --foreground: #033220;
+    --green: #097333;
+    --green-foreground: #f1f5f9;
+    --yellow: #fac331;
+    --yellow-foreground: #f1f5f9;
+    --orange: #ef5026;
+    --orange-foreground: #f1f5f9;
+
+    --w: tan(atan2(var(--w_raw), 1px));
+    --px-w: calc(var(--w) * 1px);
+  }
+</style>
