@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frijol Mágico Cultural Association
 
-## Getting Started
+Frijol Mágico is a space that brings together illustrators from the Coquimbo Region, creating various opportunities to enhance their work. This modern web platform, built with Next.js, React, and TypeScript, serves as the digital hub for the Frijol Mágico Festival, facilitating communication, open calls, and artist participation in the annual event.
 
-First, run the development server:
+## 🌱 About the Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Frijol Mágico is more than just a festival; it's a community that seeks to showcase and empower the work of local illustrators. Through this platform, artists can:
+
+- Stay informed about the latest news and events
+- Participate in open calls for the annual festival
+- Connect with other illustrators in the region
+- Access resources and opportunities from the artistic community
+
+The website serves as a digital meeting point for this community, providing information about the upcoming festival, important dates, and ways to participate.
+
+## 🚀 Technologies Used
+
+- **Frontend Framework**: Next.js 15 with App Router
+- **UI Components**: Built with React 19 and TypeScript
+- **Styling**: Tailwind CSS with `tailwind-variants` for component variants
+- **Content Management**: Google Sheets as a headless CMS for static content
+- **State Management**: React Context API
+- **Code Quality**: ESLint and Prettier for consistent code style
+- **Package Manager**: Bun (with npm compatibility)
+
+## 📦 Prerequisites
+
+- Node.js (v18 or later)
+- npm or Bun package manager
+- Google Cloud Platform account (for Google Sheets API if needed)
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/              # Next.js app directory with page routes
+├── components/       # Reusable UI components
+├── contexts/         # React context providers
+├── data/             # Site data configurations
+├── lib/              # Shared libraries and utilities
+├── styles/           # Global styles and Tailwind configuration
+└── types/            # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `dev`: Start the development server
+- `build`: Create a production build
+- `start`: Start the production server
+- `lint`: Run ESLint for code quality
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 License
 
-## Learn More
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ by Strocs
