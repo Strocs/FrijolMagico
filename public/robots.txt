@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://frijolmagico.cl
+
+# Sitemaps
+Sitemap: https://frijolmagico.cl/sitemap.xml
