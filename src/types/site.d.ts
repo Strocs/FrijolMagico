@@ -1,4 +1,4 @@
-declare module '@/i18n/site.json' {
+declare module '@/data/site.json' {
   interface SiteData {
     title: string
     lang: string
@@ -27,10 +27,10 @@ declare module '@/i18n/site.json' {
       description: string
       link: string
       steps: Array<{
-          title: string
-          description: string
-          link: string
-        }>
+        title: string
+        description: string
+        link: string
+      }>
       seo: {
         title: string
         description: string

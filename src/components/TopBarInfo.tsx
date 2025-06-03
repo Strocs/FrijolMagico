@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import siteData from '@/i18n/site.json'
+import siteData from '@/data/site.json'
 const { top_bar } = siteData
 
 export const TopBarInfo = () => {

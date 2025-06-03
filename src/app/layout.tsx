@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Josefin_Sans, Noto_Sans } from 'next/font/google'
-import siteData from '@/i18n/site.json'
+import siteData from '@/data/site.json'
 import '@/styles/globals.css'
 import { TopBarInfo } from '@/components/TopBarInfo'
 import { Background } from '@/components/Background'

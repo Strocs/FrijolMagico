@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import siteData from '@/i18n/site.json'
+import siteData from '@/data/site.json'
 const SITE = siteData
 import { Spotify } from '../icons/Spotify'
 import clsx from 'clsx'

@@ -1,5 +1,5 @@
 import { Header } from '@/components/Header'
-import siteData from '@/i18n/site.json'
+import siteData from '@/data/site.json'
 import Image from 'next/image'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'

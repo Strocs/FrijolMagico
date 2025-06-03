@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Instagram } from '../icons/Instagram'
 import { Facebook } from '../icons/Facebook'
 import clsx from 'clsx'
-import siteData from '@/i18n/site.json'
+import siteData from '@/data/site.json'
 const SITE = siteData
 
 export const RRSSCard = ({
