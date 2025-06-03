@@ -47,16 +47,22 @@ export const Footer = () => {
         </GridItem>
 
         <GridItem col={{ base: 1, sm: 3, lg: 4 }} row={{ base: 1 }}>
-          <p className='bg-fm-green text-fm-white font-josefin grid size-full place-items-center rounded-2xl text-lg'>
-            Frijol Mágico {new Date().getFullYear()} 🌱
-          </p>
+          <div className='bg-fm-green grid size-full place-items-center rounded-2xl'>
+            <p className='font-josefin text-fm-white -mb-1 size-fit text-center text-xl leading-none font-black'>
+              Frijol Mágico{' '}
+              <span className='text-fm-yellow'>
+                {new Date().getFullYear()}{' '}
+              </span>
+              🌱
+            </p>
+          </div>
         </GridItem>
 
         <GridItem col={{ base: 1, sm: 6, lg: 4 }} row={{ base: 1 }}>
           <Link
-            href='https://strocs.dev'
+            href='https://github.com/Strocs'
             className='text-fm-orange hover:text-fm-yellow grid size-full place-items-center text-center transition duration-150'>
-            Desarrollado ❤️ con por StrocsDev
+            Desarrollado con ❤ por StrocsDev
           </Link>
         </GridItem>
       </Grid>
