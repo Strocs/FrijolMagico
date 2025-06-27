@@ -1,6 +1,6 @@
 'use client'
 
-import type { CatalogArtist } from '@/types/catalog'
+import type { CatalogArtist } from '@/types/artists'
 import { Instagram, Mail } from 'lucide-react'
 import { formatUrl } from '@/utils/catalog'
 import Image from 'next/image'

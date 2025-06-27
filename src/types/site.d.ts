@@ -53,6 +53,16 @@ declare module '@/data/site.json' {
         description: string
       }
     }
+    selected_artists: {
+      title: string
+      subtitle: string
+      description: string
+      link: string
+      seo: {
+        title: string
+        description: string
+      }
+    }
   }
   const data: SiteData
   export default data

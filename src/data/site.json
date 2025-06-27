@@ -58,5 +58,15 @@
       "title": "Ilustradores de la Región de Coquimbo",
       "description": "¿Necesitas encontrar algún ilustrador/a? Busca, filtra y contacta a los mejores artistas de Coquimbo, La Serena y toda la Región!"
     }
+  },
+  "selected_artists": {
+    "title": "# **Frijol Mágico** 2025",
+    "subtitle": "## **Artistas Seleccionados**",
+    "description": "Descubre los artistas que participarán en una nueva edición del **Festival Frijol Mágico 2025 🌱**",
+    "link": "/participantes",
+    "seo": {
+      "title": "Participantes Frijol Mágico 2025",
+      "description": "Descubre los artistas que participarán en el festival Frijol Mágico 2025 a realizarse durante el mes de Octubre en La Serena para toda la Región de Coquimbo. 🌱"
+    }
   }
 }

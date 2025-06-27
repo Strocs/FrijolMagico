@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import { Catalog } from '@/types/catalog'
+import { Catalog } from '@/types/artists'
 import { CatalogArtistCard } from './CatalogArtistCard'
 import { filterCatalog } from '@/utils/catalog'
 import { useCatalog } from '@/contexts/CatalogContext'

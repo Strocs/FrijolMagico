@@ -1,38 +1,28 @@
-import { getCatalogData } from '@/lib/catalog'
 import { CatalogProvider } from '@/contexts/CatalogContext'
 import { CatalogPanel } from '@/components/catalog/CatalogPanel'
 import { Header } from '@/components/Header'
-import siteData from '@/data/site.json'
 import { CatalogSearchBar } from '@/components/catalog/CatalogSearchBar'
 import { CatalogList } from '@/components/catalog/CatalogList'
 import { CatalogError } from '@/components/catalog/CatalogError'
 import { CatalogFilterBar } from '@/components/catalog/CatalogFilterBar'
+import { useArtistsData } from '@/hooks/useArtistsData'
+import { CatalogArtist } from '@/types/artists'
+import siteData from '@/data/site.json'
 
 const { catalog } = siteData
 
 export default async function CatalogPage() {
-  let catalogData
-  let error = null
-
-  try {
-    // In production, use the real data
-    if (process.env.NODE_ENV === 'production') {
-      catalogData = await getCatalogData()
-    } else {
-      // In development, use mock data
-      const { getMockCatalogData } = await import('@/lib/catalog')
-      catalogData = getMockCatalogData()
-
-      // Simulate network delay in development
-      await new Promise((resolve) => setTimeout(resolve, 500))
-    }
-  } catch (err) {
-    console.error('Error fetching catalog data:', err)
-    error = 'Error al cargar el catálogo. Por favor, intente nuevamente.'
-  }
+  const { data: catalogData, error } =
+    await useArtistsData<CatalogArtist>('catalog')
 
   if (!catalogData) {
-    return <CatalogError error={error || ''} />
+    return (
+      <CatalogError
+        error={
+          error || 'Error al cargar el catálogo. Por favor, intente nuevamente.'
+        }
+      />
+    )
   }
 
   return (

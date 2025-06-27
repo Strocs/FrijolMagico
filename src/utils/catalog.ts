@@ -1,4 +1,4 @@
-import type { Catalog, SelectedFilters } from '@/types/catalog'
+import type { Catalog, SelectedFilters } from '@/types/artists'
 
 // Normalize string for search functionality
 export const normalizeString = (str: string): string => {

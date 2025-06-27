@@ -1,54 +1,34 @@
-import { GoogleSpreadsheet } from 'google-spreadsheet'
-import type { Catalog, CatalogArtist } from '@/types/catalog'
+import { googleSpreadsheetController } from '@/lib/googleSpreadsheetController'
+import { CatalogArtist } from '@/types/artists'
 
-const CATALOG_HEADER_INFO = {
-  ID: 'id',
-  NAME: 'name',
-  CITY: 'city',
-  WORK_AREA: 'work_area',
-  BIO: 'bio',
-  EMAIL: 'email',
-  RRSS: 'rrss',
-  AVATAR: 'avatar',
-} as const
+enum catalogTableHeaders {
+  ID = 'id',
+  NAME = 'name',
+  WORK_AREA = 'work_area',
+  RRSS = 'rrss',
+  AVATAR = 'avatar',
+  BIO = 'bio',
+  EMAIL = 'email',
+  CITY = 'city',
+}
 
 // Initialize the Google Spreadsheet
 export async function getCatalogData(): Promise<CatalogArtist[]> {
-  if (!process.env.CATALOG_SHEET_ID || !process.env.GOOGLE_API_KEY) {
-    console.error('Missing Google Sheets configuration')
+  const data = await googleSpreadsheetController<CatalogArtist>({
+    sheetId: process.env.CATALOG_SHEET_ID,
+    apiKey: process.env.GOOGLE_API_KEY,
+    headers: catalogTableHeaders,
+  })
+
+  if (!data) {
     return []
   }
 
-  try {
-    const doc = new GoogleSpreadsheet(process.env.CATALOG_SHEET_ID, {
-      apiKey: process.env.GOOGLE_API_KEY,
-    })
-
-    await doc.loadInfo()
-    const sheet = doc.sheetsByIndex[0]
-    const rows = await sheet.getRows()
-
-    // Process the rows into our Catalog format
-    const catalogPromises = rows.map(async (row) => ({
-      id: row.get(CATALOG_HEADER_INFO.ID) || '',
-      name: row.get(CATALOG_HEADER_INFO.NAME) || '',
-      city: row.get(CATALOG_HEADER_INFO.CITY) || '',
-      work_area: row.get(CATALOG_HEADER_INFO.WORK_AREA) || '',
-      bio: row.get(CATALOG_HEADER_INFO.BIO) || '',
-      email: row.get(CATALOG_HEADER_INFO.EMAIL) || '',
-      rrss: row.get(CATALOG_HEADER_INFO.RRSS) || '',
-      avatar: row.get(CATALOG_HEADER_INFO.AVATAR) || ''
-    }))
-
-    return await Promise.all(catalogPromises)
-  } catch (error) {
-    console.error('Error fetching catalog data:', error)
-    return []
-  }
+  return data
 }
 
 // For development/testing when Google Sheets isn't available
-export const getMockCatalogData = (): Catalog => {
+export const getMockCatalogData = (): CatalogArtist[] => {
   return [
     {
       id: '1',

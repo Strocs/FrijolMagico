@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
+import { redirect } from 'next/navigation'
+
 const { apply } = siteData
 
 export const metadata = {
@@ -12,6 +14,7 @@ export const metadata = {
 }
 
 export default function ConvocatoriaPage() {
+  redirect('/participantes')
   return (
     <>
       <Header

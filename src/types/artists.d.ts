@@ -9,8 +9,11 @@ export interface CatalogArtist {
   avatar: string
 }
 
-export type Catalog = CatalogArtist[]
-
 export interface SelectedFilters {
   [key: string]: string[]
 }
+
+export type SelectedArtist = Pick<
+  CatalogArtist,
+  'id' | 'name' | 'work_area' | 'rrss'
+>

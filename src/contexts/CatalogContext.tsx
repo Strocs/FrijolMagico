@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, useCallback } from 'react'
-import { CatalogArtist, SelectedFilters } from '@/types/catalog'
+import { CatalogArtist, SelectedFilters } from '@/types/artists'
 
 interface CatalogContextType {
   searchValue: string
@@ -26,9 +26,7 @@ const defaultArtist: CatalogArtist = {
   rrss: 'https://www.instagram.com/festivalfrijolmagico/',
 }
 
-const CatalogContext = createContext<CatalogContextType | undefined>(
-  undefined,
-)
+const CatalogContext = createContext<CatalogContextType | undefined>(undefined)
 
 export const CatalogProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
