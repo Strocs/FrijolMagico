@@ -18,10 +18,10 @@ export async function useArtistsData<T>(
         const { getCatalogData } = await import('@/lib/catalog')
         data = (await getCatalogData()) as T[]
       } else {
-        const { getSelectedArtistsData } = await import(
+        const { getApprovedArtistsData } = await import(
           '@/lib/selected_artists'
         )
-        data = (await getSelectedArtistsData()) as T[]
+        data = (await getApprovedArtistsData()) as T[]
       }
     } else {
       // In development, use mock data
@@ -29,10 +29,10 @@ export async function useArtistsData<T>(
         const { getMockCatalogData } = await import('@/lib/catalog')
         data = getMockCatalogData() as T[]
       } else {
-        const { getMockSelectedArtistsData } = await import(
+        const { getMockApprovedArtistsData } = await import(
           '@/lib/selected_artists'
         )
-        data = getMockSelectedArtistsData() as T[]
+        data = getMockApprovedArtistsData() as T[]
       }
 
       // Simulate network delay in development

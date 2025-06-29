@@ -9,7 +9,7 @@ export enum selectedArtistsTableHeaders {
 }
 
 // Initialize the Google Spreadsheet
-export async function getSelectedArtistsData(): Promise<SelectedArtist[]> {
+export async function getApprovedArtistsData(): Promise<SelectedArtist[]> {
   const data = await googleSpreadsheetController<SelectedArtist>({
     sheetId: process.env.SELECTED_ARTISTS_SHEET_ID,
     apiKey: process.env.GOOGLE_API_KEY,
@@ -23,7 +23,7 @@ export async function getSelectedArtistsData(): Promise<SelectedArtist[]> {
   return data
 }
 // For development/testing when Google Sheets isn't available
-export const getMockSelectedArtistsData = (): SelectedArtist[] => {
+export const getMockApprovedArtistsData = (): SelectedArtist[] => {
   return [
     {
       id: '1',

@@ -1,11 +1,10 @@
 import { Confetti } from '@/components/Confetti'
 import { Header } from '@/components/Header'
-import siteData from '@/data/site.json'
 import { SelectedArtist } from '@/types/artists'
 import { useArtistsData } from '@/hooks/useArtistsData'
 import { CatalogError } from '@/components/catalog/CatalogError'
-import { CatalogList } from '@/components/catalog/CatalogList'
-import { CatalogProvider } from '@/contexts/CatalogContext'
+import { SelectionLayout } from '@/components/selection/SelectionLayout'
+import siteData from '@/data/site.json'
 
 const { selected_artists } = siteData
 
@@ -29,6 +28,12 @@ export default async function ParticipantesPage() {
     )
   }
 
+  const {
+    Ilustración: ilustrators,
+    Manualidades: handcrafts,
+    'Narrativa Gráfica': graphics,
+  } = Object.groupBy(selectedArtistsData, (artist) => artist.work_area)
+
   return (
     <>
       <Header
@@ -36,10 +41,8 @@ export default async function ParticipantesPage() {
         subTitle={selected_artists.subtitle}
         description={selected_artists.description}
       />
-      <main className='size-full' id='confetti'>
-        <CatalogProvider>
-          <CatalogList catalog={selectedArtistsData} />
-        </CatalogProvider>
+      <main className='size-full'>
+        <SelectionLayout list={selectedArtistsData} />
       </main>
       <Confetti />
     </>
