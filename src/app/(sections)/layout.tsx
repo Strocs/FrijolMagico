@@ -1,15 +1,17 @@
 import { Footer } from '@/components/Footer'
 
-export interface SectionLayoutProps {
+export default function SectionLayout({
+  children,
+}: {
   children: React.ReactNode
-}
-
-export default function SectionLayout({ children }: SectionLayoutProps) {
+}) {
   return (
     <>
       {/* TODO: render children outside div to more accurate html composition */}
-      <div className='container mx-auto px-4'>{children}</div>
-      <Footer />
+      <div className='container mx-auto px-4'>
+        {children}
+        <Footer />
+      </div>
     </>
   )
 }
