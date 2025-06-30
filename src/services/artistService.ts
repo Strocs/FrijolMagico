@@ -1,13 +1,13 @@
 type DataType = 'catalog' | 'selectedArtists'
 
-interface UseArtistsDataResult<T> {
+export interface ArtistsDataResult<T> {
   data: T[] | null
   error: string | null
 }
 
-export async function useArtistsData<T>(
+export async function fetchArtistsData<T>(
   type: DataType,
-): Promise<UseArtistsDataResult<T>> {
+): Promise<ArtistsDataResult<T>> {
   let data: T[] | null = null
   let error: string | null = null
 
