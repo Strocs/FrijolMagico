@@ -58,6 +58,7 @@ declare module '@/data/site.json' {
       subtitle: string
       description: string
       link: string
+      categories: string[]
       seo: {
         title: string
         description: string

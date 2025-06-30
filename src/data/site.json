@@ -60,10 +60,11 @@
     }
   },
   "selected_artists": {
-    "title": "# **Frijol Mágico** 2025",
-    "subtitle": "## **Artistas Seleccionados**",
+    "title": "# Artistas **Seleccionados**",
+    "subtitle": "## **Frijol Mágico** 2025",
     "description": "Descubre los artistas que participarán en una nueva edición del **Festival Frijol Mágico 2025 🌱**",
-    "link": "/participantes",
+    "categories": ["Ilustración", "Manualidades", "Narrativa Gráfica"],
+    "link": "/festival/2025",
     "seo": {
       "title": "Participantes Frijol Mágico 2025",
       "description": "Descubre los artistas que participarán en el festival Frijol Mágico 2025 a realizarse durante el mes de Octubre en La Serena para toda la Región de Coquimbo. 🌱"
