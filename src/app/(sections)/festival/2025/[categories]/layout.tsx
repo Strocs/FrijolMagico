@@ -1,4 +1,8 @@
 import { ApprovedArtistsCategoriesNav } from '@/components/approved-artists/ApprovedArtistsCategoriesNav'
+import { Header } from '@/components/Header'
+import siteData from '@/data/site.json'
+
+const { selected_artists } = siteData
 
 export default function ApprovedArtistsLayout({
   children,
@@ -7,15 +11,15 @@ export default function ApprovedArtistsLayout({
 }) {
   return (
     <>
-      <section>
-        {/* SIDE PANEL WITH CATEGORIES */}
-        <aside>
-          <ApprovedArtistsCategoriesNav />
-        </aside>
+      <Header
+        title={selected_artists.title}
+        subTitle={selected_artists.subtitle}
+      />
 
-        {/* PRESENTATION */}
-        <section>{children}</section>
-      </section>
+      <main className='sticky top-0 container mx-auto h-[100vh] px-4 py-8'>
+        <ApprovedArtistsCategoriesNav />
+        {children}
+      </main>
     </>
   )
 }

@@ -5,7 +5,7 @@ import { CatalogSearchBar } from '@/components/catalog/CatalogSearchBar'
 import { CatalogList } from '@/components/catalog/CatalogList'
 import { CatalogError } from '@/components/catalog/CatalogError'
 import { CatalogFilterBar } from '@/components/catalog/CatalogFilterBar'
-import { useArtistsData } from '@/hooks/useArtistsData'
+import { fetchArtistsData } from '@/services/artistService'
 import { CatalogArtist } from '@/types/artists'
 import siteData from '@/data/site.json'
 
@@ -13,7 +13,7 @@ const { catalog } = siteData
 
 export default async function CatalogPage() {
   const { data: catalogData, error } =
-    await useArtistsData<CatalogArtist>('catalog')
+    await fetchArtistsData<CatalogArtist>('catalog')
 
   if (!catalogData) {
     return (
@@ -26,19 +26,17 @@ export default async function CatalogPage() {
   }
 
   return (
-    <>
+    <CatalogProvider>
       <Header title={catalog.title} description={catalog.description} />
-      <CatalogProvider>
-        <main className='container mx-auto px-4 py-8'>
-          {/* Search and Filter Section */}
-          <section className='flex flex-col items-center justify-center gap-4 pb-6 sm:flex-row'>
-            <CatalogSearchBar />
-            <CatalogFilterBar catalogData={catalogData} />
-          </section>
-          <CatalogList catalog={catalogData} />
-        </main>
-        <CatalogPanel />
-      </CatalogProvider>
-    </>
+      <main className='container mx-auto px-4 py-8'>
+        {/* Search and Filter Section */}
+        <section className='flex flex-col items-center justify-center gap-4 pb-6 sm:flex-row'>
+          <CatalogSearchBar />
+          <CatalogFilterBar catalogData={catalogData} />
+        </section>
+        <CatalogList catalog={catalogData} />
+      </main>
+      <CatalogPanel />
+    </CatalogProvider>
   )
 }

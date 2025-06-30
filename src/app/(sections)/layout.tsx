@@ -7,8 +7,7 @@ export default function SectionLayout({
 }) {
   return (
     <>
-      {/* TODO: render children outside div to more accurate html composition */}
-      <div className='container mx-auto px-4'>
+      <div aria-hidden className='relative container mx-auto px-4'>
         {children}
         <Footer />
       </div>

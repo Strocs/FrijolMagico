@@ -1,16 +1,17 @@
 import { CatalogError } from '@/components/catalog/CatalogError'
-import { useArtistsData } from '@/hooks/useArtistsData'
 import { SelectedArtist } from '@/types/artists'
 import { normalizeString } from '@/utils/catalog'
+import siteData from '@/data/site.json'
+import { ApprovedArtistsPresentation } from '@/components/approved-artists/ApprovedArtistsPresentation'
+import { fetchArtistsData } from '@/services/artistService'
 
 export const metadata = {
   title: 'selección ilustración',
 }
 
 export async function generateStaticParams() {
-  const categories = ['Ilustración', 'Narrativa Gráfica', 'Manualidades']
-  return categories.map((category) => ({
-    categories: normalizeString(category),
+  return siteData.selected_artists.categories.map((category) => ({
+    categories: normalizeString(category).replaceAll(' ', '-'),
   }))
 }
 
@@ -20,9 +21,7 @@ export default async function CategoryPage({
   params: Promise<{ categories: string }>
 }) {
   const { data: selectedArtistsData, error } =
-    await useArtistsData<SelectedArtist>('selectedArtists')
-
-  console.log(selectedArtistsData)
+    await fetchArtistsData<SelectedArtist>('selectedArtists')
 
   if (!selectedArtistsData) {
     return (
@@ -36,11 +35,16 @@ export default async function CategoryPage({
   }
 
   const groupedArtists = Object.groupBy(selectedArtistsData, ({ work_area }) =>
-    normalizeString(work_area),
+    normalizeString(work_area).replaceAll(' ', '-'),
   )
 
   const { categories } = await params
 
-  const artists = groupedArtists[categories]
-  return <>{JSON.stringify(artists)}</>
+  const artists = groupedArtists[categories] || []
+
+  return (
+    <>
+      <ApprovedArtistsPresentation artists={artists} />
+    </>
+  )
 }
