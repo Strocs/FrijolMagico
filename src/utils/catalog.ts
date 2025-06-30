@@ -1,4 +1,4 @@
-import type { Catalog, SelectedFilters } from '@/types/artists'
+import type { CatalogArtist, SelectedFilters } from '@/types/artists'
 
 // Normalize string for search functionality
 export const normalizeString = (str: string): string => {
@@ -28,8 +28,8 @@ export const getInstagramUserTag = (url: string): string => {
 
 // Get unique filter options for the given key
 export const getFiltersData = (
-  catalog: Catalog,
-  key: keyof Catalog[0],
+  catalog: CatalogArtist[],
+  key: keyof CatalogArtist,
 ): { value: string }[] => {
   const uniqueValues = new Set<string>()
 
@@ -47,10 +47,10 @@ export const getFiltersData = (
 
 // Filter catalog based on search and filters
 export const filterCatalog = (
-  catalog: Catalog,
+  catalog: CatalogArtist[],
   searchValue: string,
   filters: SelectedFilters,
-): Catalog => {
+): CatalogArtist[] => {
   const normalizedSearch = normalizeString(searchValue)
 
   return catalog.filter((item) => {

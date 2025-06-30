@@ -1,11 +1,11 @@
 'use client'
 import { CatalogFilter } from './CatalogFilter'
 import { getFiltersData } from '@/utils/catalog'
-import type { Catalog } from '@/types/artists'
+import type { CatalogArtist } from '@/types/artists'
 import { useState } from 'react'
 
 interface CatalogFilterBarProps {
-  catalogData: Catalog
+  catalogData: CatalogArtist[]
 }
 
 export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {

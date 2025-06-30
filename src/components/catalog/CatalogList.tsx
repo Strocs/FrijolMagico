@@ -1,14 +1,14 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import { Catalog } from '@/types/artists'
+import type { CatalogArtist } from '@/types/artists'
 import { CatalogArtistCard } from './CatalogArtistCard'
 import { filterCatalog } from '@/utils/catalog'
 import { useCatalog } from '@/contexts/CatalogContext'
 import { Pagination } from '@/components/ui/Pagination'
 
 interface CatalogListProps {
-  catalog: Catalog
+  catalog: CatalogArtist[]
 }
 
 export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
@@ -30,7 +30,7 @@ export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
   const totalItems = filteredCatalog.length
 
   // Get current items
-  const currentItems = useMemo(() => {
+  const currentItems = useMemo<CatalogArtist[]>(() => {
     const startIndex = (currentPage - 1) * itemsPerPage
     return filteredCatalog.slice(startIndex, startIndex + itemsPerPage)
   }, [filteredCatalog, currentPage, itemsPerPage])

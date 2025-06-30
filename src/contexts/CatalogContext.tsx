@@ -20,7 +20,7 @@ const defaultArtist: CatalogArtist = {
   avatar: '/frijol.png',
   name: 'Frijol Mágico',
   city: 'Coquimbo',
-  work_area: 'Festival',
+  work_area: 'Ilustración',
   bio: 'Apoyando la Ilustración de la Región de Coquimbo',
   email: 'respaldo.frijol.magico@gmail.com',
   rrss: 'https://www.instagram.com/festivalfrijolmagico/',
