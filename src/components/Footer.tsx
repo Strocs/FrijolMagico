@@ -6,6 +6,7 @@ import { GridItem } from '@/components/GridItem'
 import { SpotifyCard } from './home/SpotifyCard'
 import { RRSSCard } from './home/RRSSCard'
 import { BackToTop } from './BackToTop'
+import { paths } from '@/config/paths'
 
 export const Footer = () => {
   return (
@@ -20,7 +21,7 @@ export const Footer = () => {
           row={{ base: 2, sm: 2, lg: 2 }}
           col={{ base: 1, sm: 4, lg: 6 }}>
           <Link
-            href={'/'}
+            href={paths.home}
             className='bg-fm-dark group relative grid size-full place-items-center overflow-hidden rounded-2xl py-4 text-center'>
             <Image
               src='/enredadera.png'

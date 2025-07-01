@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
+import { paths } from '@/config/paths'
 
 const { apply } = siteData
 
@@ -13,7 +14,7 @@ export const metadata = {
 }
 
 export default function ConvocatoriaPage() {
-  redirect('/')
+  redirect(paths.home)
   return (
     <>
       <Header

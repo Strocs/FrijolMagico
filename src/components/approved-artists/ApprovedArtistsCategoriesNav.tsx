@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import siteData from '@/data/site.json'
 import { normalizeString } from '@/lib/utils'
+import { paths } from '@/config/paths'
 
 export const ApprovedArtistsCategoriesNav = () => {
   const categoriesList = siteData.selected_artists.categories
@@ -9,7 +10,7 @@ export const ApprovedArtistsCategoriesNav = () => {
       {categoriesList.map((category) => (
         <Link
           key={category}
-          href={'/festivales/2025/' + normalizeString(category)}>
+          href={paths.festival[2025] + '/' + normalizeString(category)}>
           {category}
         </Link>
       ))}

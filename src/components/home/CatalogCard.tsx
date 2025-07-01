@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { paths } from '@/config/paths'
 
 export const CatalogCard = () => {
   return (
     <Link
-      href='/catalogo'
+      href={paths.catalog}
       className='group from-fm-yellow to-fm-orange relative flex h-full flex-col !justify-start gap-2 overflow-hidden rounded-2xl bg-gradient-to-tl py-4 text-center transition-transform sm:py-10 sm:hover:scale-[1.03]'>
       <Image
         src='/enredadera-esquina.png'
