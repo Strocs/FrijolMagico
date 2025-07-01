@@ -5,8 +5,8 @@ import { HeroCard } from '@/components/home/HeroCard'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { SpotifyCard } from '@/components/home/SpotifyCard'
 import { RRSSCard } from '@/components/home/RRSSCard'
-import DoodleLine from '@/components/DoodleLine'
 import { ApprovedArtistsCard } from '@/components/home/ApprovedArtistsCard'
+import { DoodleLine } from '@/components/DoodleLine'
 
 export default function Home() {
   return (

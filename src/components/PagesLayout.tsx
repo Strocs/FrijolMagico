@@ -1,4 +1,4 @@
-import DoodleLine from './DoodleLine'
+import { DoodleLine } from './DoodleLine'
 import { LogoHomeLink } from './LogoHomeLink'
 
 export interface PagesLayoutProps {

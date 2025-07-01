@@ -8,7 +8,7 @@ interface Props {
   loopCount?: number
 }
 
-const DoodleLine: FC<Props> = ({
+export const DoodleLine: FC<Props> = ({
   className,
   width = '100%',
   height = '50px',
@@ -55,5 +55,3 @@ const DoodleLine: FC<Props> = ({
     </div>
   )
 }
-
-export default DoodleLine

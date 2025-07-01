@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import DoodleLine from './DoodleLine'
+import { DoodleLine } from './DoodleLine'
 import { Grid } from '@/components/Grid'
 import { GridItem } from '@/components/GridItem'
 import { SpotifyCard } from './home/SpotifyCard'

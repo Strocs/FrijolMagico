@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown'
-import DoodleLine from './DoodleLine'
+import { DoodleLine } from './DoodleLine'
 import { LogoHomeLink } from './LogoHomeLink'
 
 export const Header = ({
