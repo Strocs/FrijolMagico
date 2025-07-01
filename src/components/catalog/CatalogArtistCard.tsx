@@ -2,7 +2,7 @@
 
 import type { CatalogArtist } from '@/types/artists'
 import { Instagram, Mail } from 'lucide-react'
-import { formatUrl } from '@/utils/catalog'
+import { formatUrl } from '@/utils/utils'
 import Image from 'next/image'
 import { useCatalog } from '@/contexts/CatalogContext'
 import { cn } from '@/lib/utils'

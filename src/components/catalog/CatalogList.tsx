@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import type { CatalogArtist } from '@/types/artists'
 import { CatalogArtistCard } from './CatalogArtistCard'
-import { filterCatalog } from '@/utils/catalog'
+import { filterCatalog } from '@/utils/utils'
 import { useCatalog } from '@/contexts/CatalogContext'
 import { Pagination } from '@/components/ui/Pagination'
 

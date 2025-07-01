@@ -1,4 +1,4 @@
-import { classVariantSelector } from '@/utils/classVariantSelector'
+import { classVariantSelector } from '@/lib/classVariantSelector'
 import { Selector } from '@/types/media-queries'
 import clsx from 'clsx'
 

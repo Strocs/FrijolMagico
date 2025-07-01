@@ -1,6 +1,6 @@
 'use client'
 import { CatalogFilter } from './CatalogFilter'
-import { getFiltersData } from '@/utils/catalog'
+import { getFiltersData } from '@/utils/utils'
 import type { CatalogArtist } from '@/types/artists'
 import { useState } from 'react'
 
