@@ -1,6 +1,6 @@
 import { CatalogError } from '@/components/catalog/CatalogError'
 import { SelectedArtist } from '@/types/artists'
-import { normalizeString } from '@/utils/catalog'
+import { normalizeString } from '@/lib/utils'
 import siteData from '@/data/site.json'
 import { ApprovedArtistsPresentation } from '@/components/approved-artists/ApprovedArtistsPresentation'
 import { fetchArtistsData } from '@/services/artistService'
