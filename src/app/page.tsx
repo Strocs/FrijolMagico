@@ -2,11 +2,11 @@ import { GridItem } from '@/components/GridItem'
 import { Grid } from '@/components/Grid'
 import { CatalogCard } from '@/components/home/CatalogCard'
 import { HeroCard } from '@/components/home/HeroCard'
-import { FestivalApplyCard } from '@/components/home/FestivalApplyCard'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { SpotifyCard } from '@/components/home/SpotifyCard'
 import { RRSSCard } from '@/components/home/RRSSCard'
 import DoodleLine from '@/components/DoodleLine'
+import { ApprovedArtistsCard } from '@/components/home/ApprovedArtistsCard'
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
         <GridItem
           row={{ base: 2, sm: 2, lg: 2 }}
           col={{ base: 1, sm: 3, lg: 3 }}>
-          <FestivalApplyCard />
+          <ApprovedArtistsCard />
         </GridItem>
         <GridItem
           row={{ base: 2, sm: 2, lg: 2 }}

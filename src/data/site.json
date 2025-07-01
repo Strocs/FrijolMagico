@@ -16,10 +16,11 @@
   },
   "top_bar": {
     "active": true,
-    "text": "**➡️ Convocatoria Abierta!** *Frijol Mágico **2025*** 🌱",
+    "text": "Próximamente: Festival de ilustración **Frijol Mágico 2025** 🌱",
     "button": {
-      "text": "Postula al próximo festival 👈🏾",
-      "link": "/convocatoria"
+      "active": false,
+      "text": "Conoce a lxs participantes! 👈",
+      "link": "/festival/2025/ilustracion"
     }
   },
   "OG_IMAGE": "/OG.png",

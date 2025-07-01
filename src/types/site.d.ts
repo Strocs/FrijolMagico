@@ -40,6 +40,7 @@ declare module '@/data/site.json' {
       active: boolean
       text: string
       button: {
+        active: boolean
         text: string
         link: string
       }
