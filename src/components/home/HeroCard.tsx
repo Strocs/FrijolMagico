@@ -18,14 +18,10 @@ export const HeroCard = () => {
         preload='none'
         width={570}
         height={321}
+        poster='/FestivalFrijolMagico.png'
         className='absolute inset-0 -z-10 aspect-video scale-125 sm:scale-100'>
         <source src='/FestivalFrijolMagico.webm' type='video/webm' />
-        <Image
-          src='/FestivalFrijolMagico.png'
-          alt='Festival Frijol Mágico'
-          width={570}
-          height={321}
-        />
+        Tu navegador no soporta videos.
       </video>
       <h1 className='text-fm-white font-josefin text-center text-4xl leading-none font-black tracking-tighter text-wrap uppercase sm:text-6xl'>
         <span className='text-2xl sm:text-5xl'>Festival</span>
