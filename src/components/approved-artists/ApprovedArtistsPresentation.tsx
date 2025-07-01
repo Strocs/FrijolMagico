@@ -1,5 +1,6 @@
 'use client'
 
+import { formatUrl } from '@/lib/utils'
 import { SelectedArtist } from '@/types/artists'
 
 export const ApprovedArtistsPresentation = ({
@@ -14,7 +15,12 @@ export const ApprovedArtistsPresentation = ({
         <li
           key={artist.id}
           className='font-josefin text-6xl leading-none font-black'>
-          {artist.name}
+          <a
+            href={formatUrl(artist.rrss)}
+            target='_blank'
+            rel='noopener noreferrer'>
+            {artist.name}
+          </a>
         </li>
       ))}
     </ul>
