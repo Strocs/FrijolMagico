@@ -1,17 +1,33 @@
+import { Metadata } from 'next'
 import { CatalogError } from '@/components/catalog/CatalogError'
 import { SelectedArtist } from '@/types/artists'
 import { normalizeString } from '@/lib/utils'
-import siteData from '@/data/site.json'
 import { ApprovedArtistsPresentation } from '@/components/approved-artists/ApprovedArtistsPresentation'
 import { fetchArtistsData } from '@/services/artistService'
+import siteData from '@/data/site.json'
 
-export const metadata = {
-  title: 'selección ilustración',
+export async function generateMetadata({
+  params,
+}: {
+  params: { categories: string }
+}): Promise<Metadata> {
+  const category = params.categories
+
+  return {
+    title:
+      siteData.selected_artists.seo.category[
+        category as keyof typeof siteData.selected_artists.seo.category
+      ].title,
+    description:
+      siteData.selected_artists.seo.category[
+        category as keyof typeof siteData.selected_artists.seo.category
+      ].description,
+  }
 }
 
 export async function generateStaticParams() {
   return siteData.selected_artists.categories.map((category) => ({
-    categories: normalizeString(category).replaceAll(' ', '-'),
+    categories: normalizeString(category),
   }))
 }
 
@@ -35,7 +51,7 @@ export default async function CategoryPage({
   }
 
   const groupedArtists = Object.groupBy(selectedArtistsData, ({ work_area }) =>
-    normalizeString(work_area).replaceAll(' ', '-'),
+    normalizeString(work_area),
   )
 
   const { categories } = await params
@@ -44,7 +60,15 @@ export default async function CategoryPage({
 
   return (
     <>
-      <ApprovedArtistsPresentation artists={artists} />
+      {artists.length === 0 ? (
+        <CatalogError
+          error={
+            'Ocurrió un error al cargar los artistas seleccionados. Por favor, intente nuevamente.'
+          }
+        />
+      ) : (
+        <ApprovedArtistsPresentation artists={artists} />
+      )}
     </>
   )
 }
