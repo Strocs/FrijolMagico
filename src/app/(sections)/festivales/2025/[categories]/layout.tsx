@@ -1,4 +1,3 @@
-import { ApprovedArtistsCategoriesNav } from '@/components/approved-artists/ApprovedArtistsCategoriesNav'
 import { Header } from '@/components/Header'
 import siteData from '@/data/site.json'
 
@@ -15,11 +14,7 @@ export default function ApprovedArtistsLayout({
         title={selected_artists.title}
         subTitle={selected_artists.subtitle}
       />
-
-      <main className='sticky top-0 container mx-auto h-[100vh] px-4 py-8'>
-        <ApprovedArtistsCategoriesNav />
-        {children}
-      </main>
+      <main className='container mx-auto h-full px-4 py-8'>{children}</main>
     </>
   )
 }
