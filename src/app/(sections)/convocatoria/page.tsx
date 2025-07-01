@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import { paths } from '@/config/paths'
+import { unstable_ViewTransition as ViewTransition } from 'react'
+import { LogoHomeLink } from '@/components/LogoHomeLink'
 
 const { apply } = siteData
 
@@ -17,6 +19,12 @@ export default function ConvocatoriaPage() {
   redirect(paths.home)
   return (
     <>
+      <ViewTransition name='transition-logo'>
+        <div className='fixed right-0 bottom-2 scale-75'>
+          <LogoHomeLink />
+        </div>
+      </ViewTransition>
+
       <Header
         title={apply.title}
         subTitle={apply.subtitle}

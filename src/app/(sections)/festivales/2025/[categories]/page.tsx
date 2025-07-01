@@ -4,7 +4,10 @@ import { SelectedArtist } from '@/types/artists'
 import { normalizeString } from '@/lib/utils'
 import { ApprovedArtistsPresentation } from '@/components/approved-artists/ApprovedArtistsPresentation'
 import { fetchArtistsData } from '@/services/artistService'
+import { ApprovedArtistsCategoriesNav } from '@/components/approved-artists/ApprovedArtistsCategoriesNav'
 import siteData from '@/data/site.json'
+import { LogoHomeLink } from '@/components/LogoHomeLink'
+import { unstable_ViewTransition as ViewTransition } from 'react'
 
 export async function generateMetadata({
   params,
@@ -67,7 +70,15 @@ export default async function CategoryPage({
           }
         />
       ) : (
-        <ApprovedArtistsPresentation artists={artists} />
+        <>
+          <ViewTransition name='transition-logo'>
+            <div className='fixed right-0 bottom-2 scale-75'>
+              <LogoHomeLink />
+            </div>
+          </ViewTransition>
+          <ApprovedArtistsCategoriesNav currentCategory={categories} />
+          <ApprovedArtistsPresentation artists={artists} />
+        </>
       )}
     </>
   )

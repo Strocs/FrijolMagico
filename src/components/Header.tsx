@@ -1,6 +1,5 @@
 import ReactMarkdown from 'react-markdown'
 import { DoodleLine } from './DoodleLine'
-import { LogoHomeLink } from './LogoHomeLink'
 
 export const Header = ({
   title,
@@ -12,8 +11,7 @@ export const Header = ({
   description?: string
 }) => {
   return (
-    <header className='text-fm-green space-y-4 px-2 pt-4'>
-      <LogoHomeLink />
+    <header className='text-fm-green space-y-4 px-2 pt-16'>
       <div className='flex flex-col gap-2'>
         <ReactMarkdown
           components={{

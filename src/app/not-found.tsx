@@ -1,9 +1,16 @@
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { unstable_ViewTransition as ViewTransition } from 'react'
+import { LogoHomeLink } from '@/components/LogoHomeLink'
 
 export default function NotFound() {
   return (
     <>
+      <ViewTransition name='transition-logo'>
+        <div className='fixed right-0 bottom-2 scale-75'>
+          <LogoHomeLink />
+        </div>
+      </ViewTransition>
       <Header
         title='# 404'
         subTitle='## Página no encontrada'

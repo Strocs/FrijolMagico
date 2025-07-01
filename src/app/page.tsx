@@ -7,6 +7,7 @@ import { SpotifyCard } from '@/components/home/SpotifyCard'
 import { RRSSCard } from '@/components/home/RRSSCard'
 import { ApprovedArtistsCard } from '@/components/home/ApprovedArtistsCard'
 import { DoodleLine } from '@/components/DoodleLine'
+import { unstable_ViewTransition as ViewTransition } from 'react'
 
 export default function Home() {
   return (
@@ -36,7 +37,9 @@ export default function Home() {
           col={{ base: 1, sm: 2, lg: 3 }}>
           <div className='flex size-full flex-col items-center justify-center'>
             <DoodleLine className='sm:hidden' />
-            <LogoHomeLink />
+            <ViewTransition name='transition-logo'>
+              <LogoHomeLink />
+            </ViewTransition>
             <p className='text-fm-green text-center sm:hidden'>
               Asociación Cultural <strong>Frijol Mágico</strong>{' '}
               <span className='text-fm-orange font-black'>2025</span> 🌱
