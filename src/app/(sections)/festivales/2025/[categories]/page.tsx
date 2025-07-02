@@ -8,17 +8,19 @@ import { ApprovedArtistsCategoriesNav } from '@/components/approved-artists/Appr
 import siteData from '@/data/site.json'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { unstable_ViewTransition as ViewTransition } from 'react'
-import { getMockApprovedArtistsData } from '@/lib/approved_artists'
+
+type CategoryParams = {
+  categories: keyof typeof siteData.selected_artists.seo.category
+}
+
+type CategoryMetadata = Promise<Metadata>
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ categories: string }>
-}): Promise<Metadata> {
-  const currentParams = await params
-  const { categories } = currentParams as {
-    categories: keyof typeof siteData.selected_artists.seo.category
-  }
+  params: CategoryParams
+}): CategoryMetadata {
+  const { categories } = params
 
   return {
     title: siteData.selected_artists.seo.category[categories].title,
