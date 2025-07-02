@@ -14,7 +14,7 @@ export interface CatalogArtist extends BaseArtist {
   avatar: string
 }
 
-export type SelectedArtist = BaseArtist
+export type ApprovedArtist = BaseArtist
 
 export interface SelectedFilters {
   [key: string]: string[]

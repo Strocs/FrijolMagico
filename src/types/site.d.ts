@@ -55,7 +55,7 @@ declare module '@/data/site.json' {
       title: string
       subtitle: string
       description: string
-      categories: string[]
+      categories: WorkArea[]
       seo: {
         title: string
         description: string

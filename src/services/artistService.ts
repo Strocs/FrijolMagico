@@ -1,4 +1,4 @@
-type DataType = 'catalog' | 'selectedArtists'
+type DataType = 'catalog' | 'approvedArtists'
 
 export interface ArtistsDataResult<T> {
   data: T[] | null
@@ -19,7 +19,7 @@ export async function fetchArtistsData<T>(
         data = (await getCatalogData()) as T[]
       } else {
         const { getApprovedArtistsData } = await import(
-          '@/lib/selected_artists'
+          '@/lib/approved_artists'
         )
         data = (await getApprovedArtistsData()) as T[]
       }
@@ -30,7 +30,7 @@ export async function fetchArtistsData<T>(
         data = getMockCatalogData() as T[]
       } else {
         const { getMockApprovedArtistsData } = await import(
-          '@/lib/selected_artists'
+          '@/lib/approved_artists'
         )
         data = getMockApprovedArtistsData() as T[]
       }
