@@ -18,9 +18,9 @@ type CategoryMetadata = Promise<Metadata>
 export async function generateMetadata({
   params,
 }: {
-  params: CategoryParams
+  params: Promise<CategoryParams>
 }): CategoryMetadata {
-  const { categories } = params
+  const { categories } = await params
 
   return {
     title: siteData.selected_artists.seo.category[categories].title,
