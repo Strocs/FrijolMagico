@@ -30,6 +30,13 @@
   --animate-slide-in-right: slide-in-right 0.3s ease-in-out forwards;
 }
 
+@utility text-stroke-* {
+  -webkit-text-stroke-width: --value(integer)px;
+  -webkit-text-stroke-width: --value([*])px;
+  -webkit-text-stroke-color: --value(--color-*);
+  -webkit-text-stroke-color: --modifier(--color-*, [color]);
+}
+
 @keyframes card-slides {
   from {
     transform: translateX(0);
