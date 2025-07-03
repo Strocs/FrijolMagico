@@ -21,7 +21,7 @@ export const TopBarInfo = () => {
         </h2>
       </div>
       <Link
-        href={top_bar.button.active ? paths.apply : '#'}
+        href={top_bar.button.active ? paths.festival[2025].ilustracion : '#'}
         className={cn(
           'text-fm-white from-fm-orange to-fm-yellow rounded-lg bg-gradient-to-r [background-size:150%] px-4 py-0.5 font-bold transition-[background-position] duration-200 hover:bg-right',
           top_bar.button.active

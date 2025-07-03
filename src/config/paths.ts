@@ -9,7 +9,13 @@ export const paths = {
   apply: '/convocatoria',
   festival: {
     base: '/festivales',
-    2025: '/festivales/2025',
+    2025: {
+      base: '/festivales/2025',
+      apply: '/festivales/2025/aplicar',
+      ilustracion: '/festivales/2025/ilustracion',
+      manualidades: '/festivales/2025/manualidades',
+      narrativagrafica: '/festivales/2025/narrativagrafica',
+    },
   },
 } as const
 

@@ -21,7 +21,15 @@ export const ApprovedArtistsCategoriesNav = ({
                 normalizeString(category) === currentCategory,
             },
           )}
-          href={paths.festival[2025] + '/' + normalizeString(category)}>
+          href={
+            paths.festival[2025][
+              normalizeString(category) as
+                | 'ilustracion'
+                | 'manualidades'
+                | 'narrativagrafica'
+            ]
+          }
+          aria-label={`Ir a la categoría ${category}`}>
           {category}
         </Link>
       ))}
