@@ -6,6 +6,12 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import localFont from 'next/font/local'
+
+const superFortress = localFont({
+  src: '../../../public/fonts/SuperFortress.woff2',
+  variable: '--font-superfortress',
+})
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
@@ -24,8 +30,8 @@ export const ApprovedArtistsPresentation = ({
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
-          start: 'top 20%',
-          end: () => `+=${(container.current?.offsetHeight || 0) + 3000}`,
+          start: 'top 15%',
+          end: () => `+=${(container.current?.offsetHeight || 500) * 6}`,
           scrub: true,
           pin: true,
           pinSpacing: true,
@@ -50,14 +56,14 @@ export const ApprovedArtistsPresentation = ({
   )
   return (
     <section ref={container} className='container mx-auto overflow-x-hidden'>
-      <ul className='flex flex-wrap items-center justify-center gap-x-2 pb-40'>
+      <ul className='flex flex-wrap items-center justify-center gap-x-2 pt-5 pb-20'>
         {artists.map((artist) => (
           <li key={artist.id} className='artist-name rounded-lg px-2'>
             <a
               href={formatUrl(artist.rrss)}
               target='_blank'
               rel='noopener noreferrer'
-              className='font-noto text-fm-black text-stroke-1 text-stroke-fm-dark text-5xl font-black'>
+              className={`text-5xl leading-none font-bold text-[#b3636b] [text-shadow:3px_0_#fff,0_3px_#fff,-3px_0_#fff,0_-3px_#fff] ${superFortress.className}`}>
               {artist.name}
             </a>
           </li>
