@@ -11,8 +11,10 @@ export async function fetchArtistsData<T>(
   let data: T[] | null = null
   let error: string | null = null
 
+  const env = process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
+
   try {
-    if (process.env.NODE_ENV === 'production') {
+    if (env === 'production') {
       // In production, use real data
       if (type === 'catalog') {
         const { getCatalogData } = await import('@/lib/catalog')
