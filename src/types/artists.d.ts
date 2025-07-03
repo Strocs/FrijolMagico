@@ -1,4 +1,6 @@
-export type WorkArea = 'Ilustración' | 'Manualidades' | 'Narrativa Gráfica'
+import siteData from '@/data/site.json'
+
+export type WorkArea = (typeof siteData.selected_artists.categories)[number]
 
 export interface BaseArtist {
   id: string

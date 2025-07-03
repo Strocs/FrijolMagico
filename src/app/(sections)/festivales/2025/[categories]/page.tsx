@@ -1,25 +1,23 @@
 import { Metadata } from 'next'
+import { unstable_ViewTransition as ViewTransition } from 'react'
+import siteData from '@/data/site.json'
 import { CatalogError } from '@/components/catalog/CatalogError'
 import { ApprovedArtist } from '@/types/artists'
 import { normalizeString } from '@/lib/utils'
 import { ApprovedArtistsPresentation } from '@/components/approved-artists/ApprovedArtistsPresentation'
 import { fetchArtistsData } from '@/services/artistService'
 import { ApprovedArtistsCategoriesNav } from '@/components/approved-artists/ApprovedArtistsCategoriesNav'
-import siteData from '@/data/site.json'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
-import { unstable_ViewTransition as ViewTransition } from 'react'
 
 type CategoryParams = {
   categories: keyof typeof siteData.selected_artists.seo.category
 }
 
-type CategoryMetadata = Promise<Metadata>
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<CategoryParams>
-}): CategoryMetadata {
+}): Promise<Metadata> {
   const { categories } = await params
 
   return {
@@ -37,7 +35,7 @@ export async function generateStaticParams() {
 export default async function CategoryPage({
   params,
 }: {
-  params: Promise<{ categories: string }>
+  params: Promise<CategoryParams>
 }) {
   const { data: approvedArtistsData, error } =
     await fetchArtistsData<ApprovedArtist>('approvedArtists')
