@@ -15,7 +15,6 @@ export const ApprovedArtistsPresentation = ({
 }: {
   artists: ApprovedArtist[]
 }) => {
-  // TODO: apply gsap animation to artists presentation
   const container = useRef<HTMLUListElement>(null)
 
   useGSAP(
@@ -26,39 +25,39 @@ export const ApprovedArtistsPresentation = ({
         scrollTrigger: {
           trigger: container.current,
           start: 'top 20%',
-          end: '+=3000',
+          end: () => `+=${(container.current?.offsetHeight || 0) + 3000}`,
           scrub: true,
           pin: true,
-          markers: true,
+          pinSpacing: true,
         },
       })
 
       artistsList.forEach((artist) => {
         tl.from(artist, {
           opacity: 0,
-          y: gsap.utils.random(40, 100),
-          x: gsap.utils.random(-200, 200),
-          rotationZ: gsap.utils.random(-10, 10),
-          scale: gsap.utils.random(0.5, 1),
-          duration: 1.2,
-          ease: 'power2.out',
+          y: gsap.utils.random(-150, -50),
+          x: gsap.utils.random(-300, 300),
+          rotationZ: gsap.utils.random(-45, 45),
+          scale: gsap.utils.random(0.1, 0.3),
+          skewX: gsap.utils.random(-20, 20),
+          skewY: gsap.utils.random(-10, 10),
+          filter: 'blur(5px)',
+          ease: 'power3.out',
         })
       })
     },
     { scope: container },
   )
   return (
-    <section ref={container} className='container mx-auto max-w-6xl'>
-      <ul className='flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pb-40'>
+    <section ref={container} className='container mx-auto overflow-x-hidden'>
+      <ul className='flex flex-wrap items-center justify-center gap-x-2 pb-40'>
         {artists.map((artist) => (
-          <li
-            key={artist.id}
-            className='artist-name bg-fm-white/40 rounded-lg px-2'>
+          <li key={artist.id} className='artist-name rounded-lg px-2'>
             <a
               href={formatUrl(artist.rrss)}
               target='_blank'
               rel='noopener noreferrer'
-              className='font-noto text-fm-white text-stroke-1 text-stroke-fm-dark text-4xl font-black'>
+              className='font-noto text-fm-black text-stroke-1 text-stroke-fm-dark text-5xl font-black'>
               {artist.name}
             </a>
           </li>
