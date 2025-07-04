@@ -16,10 +16,10 @@ export const HeroCard = () => {
         muted
         playsInline
         preload='none'
-        width={570}
+        width={571}
         height={321}
         poster='/FestivalFrijolMagico.png'
-        className='absolute inset-0 -z-10 aspect-video scale-125 sm:scale-100'>
+        className='absolute inset-0 -z-10 aspect-video w-full scale-125 sm:scale-105'>
         <source src='/FestivalFrijolMagico.webm' type='video/webm' />
         Tu navegador no soporta videos.
       </video>
