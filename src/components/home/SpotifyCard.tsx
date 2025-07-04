@@ -20,9 +20,9 @@ export const SpotifyCard = ({
           'flex-row': orientation === 'horizontal',
         },
       )}>
-      <p className='text-fm-orange text-center text-3xl leading-3 font-black uppercase'>
+      <p className='text-fm-orange text-center text-3xl leading-6 font-black uppercase'>
         Escucha <br />
-        <span className='text-fm-green sm:text-fm-white text-2xl font-bold'>
+        <span className='text-fm-green sm:text-fm-white text-2xl leading-none font-bold tracking-widest'>
           nuestro
         </span>
         <br />

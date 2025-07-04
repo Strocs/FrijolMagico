@@ -2,6 +2,7 @@ import { Header } from '@/components/Header'
 import siteData from '@/data/site.json'
 import Image from 'next/image'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 
 const { apply } = siteData
@@ -12,6 +13,7 @@ export const metadata = {
 }
 
 export default function ConvocatoriaPage() {
+  redirect('/')
   return (
     <>
       <Header
