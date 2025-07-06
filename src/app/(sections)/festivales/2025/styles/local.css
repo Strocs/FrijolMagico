@@ -3,5 +3,6 @@
 @theme inline {
   --color-2025-orange: #b3636b;
   --color-2025-white: #ffffff;
+  --color-2025-yellow: #ffebd2;
   --font-superfortress: var(--font-superfortress), sans-serif;
 }
