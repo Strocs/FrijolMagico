@@ -57,7 +57,38 @@ export const ApprovedArtistsPresentation = ({
               href={formatUrl(artist.rrss)}
               target='_blank'
               rel='noopener noreferrer'
-              className='font-superfortress text-2025-orange text-5xl leading-none font-bold [text-shadow:3px_0_#fff,0_3px_#fff,-3px_0_#fff,0_-3px_#fff]'>
+              className='font-superfortress text-2025-orange text-5xl leading-none font-bold'
+              style={{
+                textShadow: [
+                  // 6px radius (8 directions)
+                  '6px 0 0 var(--color-2025-yellow)',
+                  '-6px 0 0 var(--color-2025-yellow)',
+                  '0 6px 0 var(--color-2025-yellow)',
+                  '0 -6px 0 var(--color-2025-yellow)',
+                  '4.24px 4.24px 0 var(--color-2025-yellow)',
+                  '-4.24px 4.24px 0 var(--color-2025-yellow)',
+                  '4.24px -4.24px 0 var(--color-2025-yellow)',
+                  '-4.24px -4.24px 0 var(--color-2025-yellow)',
+                  // 4.5px radius (8 directions)
+                  '4.5px 0 0 var(--color-2025-yellow)',
+                  '-4.5px 0 0 var(--color-2025-yellow)',
+                  '0 4.5px 0 var(--color-2025-yellow)',
+                  '0 -4.5px 0 var(--color-2025-yellow)',
+                  '3.18px 3.18px 0 var(--color-2025-yellow)',
+                  '-3.18px 3.18px 0 var(--color-2025-yellow)',
+                  '3.18px -3.18px 0 var(--color-2025-yellow)',
+                  '-3.18px -3.18px 0 var(--color-2025-yellow)',
+                  // 3px radius (8 directions)
+                  '3px 0 0 var(--color-2025-yellow)',
+                  '-3px 0 0 var(--color-2025-yellow)',
+                  '0 3px 0 var(--color-2025-yellow)',
+                  '0 -3px 0 var(--color-2025-yellow)',
+                  '2.12px 2.12px 0 var(--color-2025-yellow)',
+                  '-2.12px 2.12px 0 var(--color-2025-yellow)',
+                  '2.12px -2.12px 0 var(--color-2025-yellow)',
+                  '-2.12px -2.12px 0 var(--color-2025-yellow)',
+                ].join(', '),
+              }}>
               {artist.name}
             </a>
           </li>
