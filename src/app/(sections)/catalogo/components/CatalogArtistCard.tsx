@@ -47,7 +47,7 @@ export const CatalogArtistCard = ({
       <section className='flex items-center gap-4'>
         <Image
           loading='lazy'
-          src={encodeURI(`/images/catalog/${avatar}`)}
+          src={encodeURI(`/sections/catalogo/images/artists/${avatar}`)}
           alt={`Imágen de ${name}`}
           width={48}
           height={48}

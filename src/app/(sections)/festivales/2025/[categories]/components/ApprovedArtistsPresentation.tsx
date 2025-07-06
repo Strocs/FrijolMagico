@@ -6,12 +6,6 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import localFont from 'next/font/local'
-
-const superFortress = localFont({
-  src: '../../../public/fonts/SuperFortress.woff2',
-  variable: '--font-superfortress',
-})
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)
@@ -63,7 +57,7 @@ export const ApprovedArtistsPresentation = ({
               href={formatUrl(artist.rrss)}
               target='_blank'
               rel='noopener noreferrer'
-              className={`text-5xl leading-none font-bold text-[#b3636b] [text-shadow:3px_0_#fff,0_3px_#fff,-3px_0_#fff,0_-3px_#fff] ${superFortress.className}`}>
+              className='font-superfortress text-2025-orange text-5xl leading-none font-bold [text-shadow:3px_0_#fff,0_3px_#fff,-3px_0_#fff,0_-3px_#fff]'>
               {artist.name}
             </a>
           </li>

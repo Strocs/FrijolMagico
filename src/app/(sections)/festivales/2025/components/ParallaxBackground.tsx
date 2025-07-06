@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-export const Parallax = () => {
+export const ParallaxBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const layerCityRef = useRef<HTMLImageElement>(null)
   const layerGroundRef = useRef<HTMLImageElement>(null)
@@ -142,14 +142,14 @@ export const Parallax = () => {
         <div className='absolute inset-0 -z-20 aspect-square w-screen overflow-hidden rounded-full bg-[#ffebd2]' />
         <Image
           ref={layerCityRef}
-          src='/parallax/city.png'
+          src='/sections/festivales/2025/images/city.png'
           alt='Imágen de la ciudad de coquimbo destruída por un frijol maligno'
           width={2100}
           height={1313}
           className='absolute right-0 -bottom-[30rem] left-0 -z-15 ease-in-out'
         />
         <Image
-          src='/parallax/ground.png'
+          src='/sections/festivales/2025/images/ground.png'
           ref={layerGroundRef}
           alt='Imágen del suelo de coquimbo destruído por un frijol maligno'
           width={1920}
@@ -157,7 +157,7 @@ export const Parallax = () => {
           className='absolute right-0 -bottom-[40rem] left-0 -z-10 ease-in-out'
         />
         <Image
-          src='/parallax/rock-center.png'
+          src='/sections/festivales/2025/images/rock-center.png'
           ref={layerRockCenterRef}
           alt='Imágen de la roca central de coquimbo destruída por un frijol maligno'
           width={186}
@@ -165,7 +165,7 @@ export const Parallax = () => {
           className='absolute top-1/2 right-0 left-0 -z-5 mx-auto ease-in-out'
         />
         <Image
-          src='/parallax/rock-left.png'
+          src='/sections/festivales/2025/images/rock-left.png'
           alt='Imágen de la roca izquierda de coquimbo destruída por un frijol maligno'
           ref={layerRockLeftRef}
           width={498}
@@ -173,7 +173,7 @@ export const Parallax = () => {
           className='absolute top-0 left-0 -z-5 ease-in-out'
         />
         <Image
-          src='/parallax/rock-right.png'
+          src='/sections/festivales/2025/images/rock-right.png'
           alt='Imágen de la roca derecha de coquimbo destruída por un frijol maligno'
           ref={layerRockRightRef}
           width={333}

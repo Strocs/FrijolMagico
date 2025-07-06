@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-2025-orange: #b3636b;
+  --color-2025-white: #ffffff;
+  --font-superfortress: var(--font-superfortress), sans-serif;
+}

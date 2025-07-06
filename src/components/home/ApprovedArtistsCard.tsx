@@ -7,7 +7,7 @@ export const ApprovedArtistsCard = () => {
       <div className='group from-fm-black to-fm-dark text-fm-white relative block size-full rounded-2xl bg-gradient-to-tr'>
         <div className='relative size-full overflow-hidden px-4'>
           <Image
-            src='/mano.png'
+            src='/images/mano.png'
             alt='Ilustración de una mano indicando a los participantes del próximo festival'
             loading='eager'
             width={50}

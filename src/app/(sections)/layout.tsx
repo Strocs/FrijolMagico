@@ -1,4 +1,3 @@
-import { Parallax } from '@/components/approved-artists/Parallax'
 import { Footer } from '@/components/Footer'
 
 export default function SectionLayout({
@@ -8,7 +7,6 @@ export default function SectionLayout({
 }) {
   return (
     <>
-      <Parallax />
       <div aria-hidden className='mx-auto px-4'>
         {children}
         <Footer />

@@ -24,7 +24,7 @@ export const Footer = () => {
             href={paths.home}
             className='bg-fm-dark group relative grid size-full place-items-center overflow-hidden rounded-2xl py-4 text-center'>
             <Image
-              src='/enredadera.png'
+              src='/images/enredadera.png'
               alt='Frijol Mágico'
               width={600}
               height={600}

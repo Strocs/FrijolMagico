@@ -2,18 +2,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { NewBadget } from './NewBadget'
 import { DoodleLine } from '../DoodleLine'
+import { paths } from '@/config/paths'
 
 export const FestivalApplyCard = () => {
   return (
     <>
       <Link
-        href='/convocatoria'
+        href={paths.apply}
         className='group from-fm-black to-fm-dark text-fm-white relative block size-full rounded-2xl bg-gradient-to-tr'>
         <div className='bg-fm-orange absolute inset-0 -z-10 animate-pulse blur-sm transition duration-300 group-hover:blur-xl'></div>
         <NewBadget />
         <div className='relative size-full overflow-hidden px-4'>
           <Image
-            src='/mano.png'
+            src='/images/mano.png'
             alt='Ilustración de una mano indicando a los participantes del próximo festival'
             loading='eager'
             width={50}

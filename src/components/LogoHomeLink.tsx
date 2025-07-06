@@ -12,7 +12,7 @@ export const LogoHomeLink = () => {
         Inicio
       </span>
       <Image
-        src='/frijol.png'
+        src='/images/frijol.png'
         loading='eager'
         alt='Logo Frijol Mágico'
         width={120}

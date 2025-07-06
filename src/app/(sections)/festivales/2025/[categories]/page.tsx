@@ -1,13 +1,14 @@
 import { Metadata } from 'next'
 import { unstable_ViewTransition as ViewTransition } from 'react'
 import siteData from '@/data/site.json'
-import { CatalogError } from '@/components/catalog/CatalogError'
+import { ErrorSection } from '@/components/ErrorSection'
 import { ApprovedArtist } from '@/types/artists'
 import { normalizeString } from '@/lib/utils'
-import { ApprovedArtistsPresentation } from '@/components/approved-artists/ApprovedArtistsPresentation'
+import { ApprovedArtistsPresentation } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsPresentation'
 import { fetchArtistsData } from '@/services/artistService'
-import { ApprovedArtistsCategoriesNav } from '@/components/approved-artists/ApprovedArtistsCategoriesNav'
+import { ApprovedArtistsCategoriesNav } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsCategoriesNav'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
+import { Header } from '@/components/Header'
 
 type CategoryParams = {
   categories: keyof typeof siteData.selected_artists.seo.category
@@ -42,7 +43,7 @@ export default async function CategoryPage({
 
   if (!approvedArtistsData) {
     return (
-      <CatalogError
+      <ErrorSection
         error={
           error ||
           'Error al cargar los artistas seleccionados. Por favor, intente nuevamente.'
@@ -61,7 +62,7 @@ export default async function CategoryPage({
 
   if (artists.length === 0) {
     return (
-      <CatalogError
+      <ErrorSection
         error={
           'Ocurrió un error al cargar los artistas seleccionados. Por favor, intente nuevamente.'
         }
@@ -71,13 +72,19 @@ export default async function CategoryPage({
 
   return (
     <>
-      <ViewTransition name='transition-logo'>
-        <div className='fixed right-0 bottom-2 scale-75'>
-          <LogoHomeLink />
-        </div>
-      </ViewTransition>
-      <ApprovedArtistsCategoriesNav currentCategory={categories} />
-      <ApprovedArtistsPresentation artists={artists} key={categories} />
+      <Header
+        title={siteData.selected_artists.title}
+        subTitle={siteData.selected_artists.subtitle}
+      />
+      <main className={`relative container mx-auto h-full px-4 py-8`}>
+        <ViewTransition name='transition-logo'>
+          <div className='fixed right-0 bottom-2 scale-75'>
+            <LogoHomeLink />
+          </div>
+        </ViewTransition>
+        <ApprovedArtistsCategoriesNav currentCategory={categories} />
+        <ApprovedArtistsPresentation artists={artists} key={categories} />
+      </main>
     </>
   )
 }

@@ -1,0 +1,24 @@
+import localFont from 'next/font/local'
+import { ParallaxBackground } from './components/ParallaxBackground'
+import './styles/local.css'
+
+export const superFortress = localFont({
+  src: './fonts/SuperFortress.woff2',
+  variable: '--font-superfortress',
+  display: 'swap',
+})
+
+export default function Festival2025Layout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <>
+      <ParallaxBackground />
+      <div aria-hidden className={superFortress.variable}>
+        {children}
+      </div>
+    </>
+  )
+}

@@ -1,4 +1,4 @@
-export const CatalogError = ({ error }: { error: string }) => {
+export const ErrorSection = ({ error }: { error: string }) => {
   return (
     <main className='container mx-auto px-4 py-8'>
       <div className='mb-6 border-l-4 border-red-500 bg-red-50 p-4'>

@@ -4,7 +4,7 @@ export const HeroCard = () => {
   return (
     <section className='relative flex size-full h-full items-center justify-center overflow-hidden rounded-2xl sm:h-48'>
       <Image
-        src='/enredadera.png'
+        src='/images/enredadera.png'
         alt='Enredadera'
         width={800}
         height={800}
@@ -18,9 +18,9 @@ export const HeroCard = () => {
         preload='none'
         width={571}
         height={321}
-        poster='/FestivalFrijolMagico.png'
+        poster='/videos/FestivalFrijolMagico.png'
         className='absolute inset-0 -z-10 aspect-video w-full scale-125 sm:scale-105'>
-        <source src='/FestivalFrijolMagico.webm' type='video/webm' />
+        <source src='/videos/FestivalFrijolMagico.webm' type='video/webm' />
         Tu navegador no soporta videos.
       </video>
       <h1 className='text-fm-white font-josefin text-center text-4xl leading-none font-black tracking-tighter text-wrap uppercase sm:text-6xl'>

@@ -62,7 +62,9 @@ export const CatalogPanel = () => {
               <section className='flex items-center space-x-4'>
                 <figure className='relative h-20 w-20'>
                   <Image
-                    src={encodeURI(`/images/catalog/${selectedArtist.avatar}`)}
+                    src={encodeURI(
+                      `/sections/catalogo/images/artists/${selectedArtist.avatar}`,
+                    )}
                     alt={`Imagen de ${selectedArtist.name}`}
                     fill
                     className='border-fm-green rounded-full border-2 object-cover'

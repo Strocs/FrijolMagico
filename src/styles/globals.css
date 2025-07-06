@@ -31,10 +31,10 @@
 }
 
 @utility text-stroke-* {
-  -webkit-text-stroke-width: --value(integer)px;
-  -webkit-text-stroke-width: --value([*])px;
-  -webkit-text-stroke-color: --value(--color-*);
-  -webkit-text-stroke-color: --modifier(--color-*, [color]);
+  -webkit-text-stroke-width: --value(integer) px;
+  -webkit-text-stroke-width: --value([ *]) px;
+  -webkit-text-stroke-color: --value(--color- *);
+  -webkit-text-stroke-color: --modifier(--color- *, [color]);
 }
 
 @keyframes card-slides {
