@@ -28,4 +28,4 @@ export async function getCatalogData(): Promise<CatalogArtist[]> {
 }
 
 // Re-export mock function for development/testing when Google Sheets isn't available
-export { getMockCatalogData } from './__mocks__/catalog.mock'
+export { getMockCatalogData } from './mocks/catalog.mock'

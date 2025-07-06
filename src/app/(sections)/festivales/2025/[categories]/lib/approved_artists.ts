@@ -1,5 +1,5 @@
 import { ApprovedArtist } from '@/types/artists'
-import { googleSpreadsheetController } from './googleSpreadsheetController'
+import { googleSpreadsheetController } from '../../../../../../lib/googleSpreadsheetController'
 
 export enum approvedArtistsTableHeaders {
   ID = 'id',
@@ -24,4 +24,4 @@ export async function getApprovedArtistsData(): Promise<ApprovedArtist[]> {
 }
 
 // Re-export mock function for development/testing when Google Sheets isn't available
-export { getMockApprovedArtistsData } from './__mocks__/approved_artists.mock'
+export { getMockApprovedArtistsData } from './mocks/approved_artists.mock'

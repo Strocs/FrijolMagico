@@ -17,22 +17,22 @@ export async function fetchArtistsData<T>(
     if (env === 'production') {
       // In production, use real data
       if (type === 'catalog') {
-        const { getCatalogData } = await import('@/lib/catalog')
+        const { getCatalogData } = await import('@/app/(sections)/catalogo/lib/catalog')
         data = (await getCatalogData()) as T[]
       } else {
         const { getApprovedArtistsData } = await import(
-          '@/lib/approved_artists'
+          '@/app/(sections)/festivales/2025/[categories]/lib/approved_artists'
         )
         data = (await getApprovedArtistsData()) as T[]
       }
     } else {
       // In development, use mock data
       if (type === 'catalog') {
-        const { getMockCatalogData } = await import('@/lib/catalog')
+        const { getMockCatalogData } = await import('@/app/(sections)/catalogo/lib/catalog')
         data = getMockCatalogData() as T[]
       } else {
         const { getMockApprovedArtistsData } = await import(
-          '@/lib/approved_artists'
+          '@/app/(sections)/festivales/2025/[categories]/lib/approved_artists'
         )
         data = getMockApprovedArtistsData() as T[]
       }

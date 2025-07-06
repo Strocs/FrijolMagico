@@ -1,6 +1,6 @@
 'use client'
 
-import { useCatalog } from '@/contexts/CatalogContext'
+import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
 
 export const CatalogSearchBar = () => {
   const { searchValue, setSearchValue } = useCatalog()

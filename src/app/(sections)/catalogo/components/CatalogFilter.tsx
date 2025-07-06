@@ -1,5 +1,5 @@
 import { Check, PlusCircle } from 'lucide-react'
-import { useCatalog } from '@/contexts/CatalogContext'
+import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
 
 interface Option {
   value: string

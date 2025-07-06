@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import type { CatalogArtist } from '@/types/artists'
 import { Instagram, Mail } from 'lucide-react'
-import { useCatalog } from '@/contexts/CatalogContext'
+import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
 import { cn, formatUrl } from '@/lib/utils'
 
 export const CatalogArtistCard = ({

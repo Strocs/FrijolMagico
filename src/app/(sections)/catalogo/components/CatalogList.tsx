@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import type { CatalogArtist } from '@/types/artists'
 import { CatalogArtistCard } from './CatalogArtistCard'
 import { filterCatalog } from '@/lib/utils'
-import { useCatalog } from '@/contexts/CatalogContext'
+import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
 import { Pagination } from '@/components/ui/Pagination'
 
 interface CatalogListProps {

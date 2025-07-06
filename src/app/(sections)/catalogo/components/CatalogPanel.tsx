@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Instagram, Mail, X } from 'lucide-react'
-import { useCatalog } from '@/contexts/CatalogContext'
+import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
 import { getInstagramUserTag } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'

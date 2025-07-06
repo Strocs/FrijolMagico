@@ -1,4 +1,4 @@
-import { CatalogProvider } from '@/contexts/CatalogContext'
+import { CatalogProvider } from '@/app/(sections)/catalogo/contexts/CatalogContext'
 import { CatalogPanel } from '@/components/catalog/CatalogPanel'
 import { Header } from '@/components/Header'
 import { CatalogSearchBar } from '@/components/catalog/CatalogSearchBar'

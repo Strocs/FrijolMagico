@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import siteData from '@/data/site.json'
 const SITE = siteData
-import { Spotify } from '../icons/Spotify'
+import { Spotify } from '../../components/icons/Spotify'
 import clsx from 'clsx'
 
 export const SpotifyCard = ({

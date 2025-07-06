@@ -1,5 +1,5 @@
 import { CatalogArtist, WorkArea } from '@/types/artists'
-import { getRandomName, getRandomInstagram } from './mockDataUtils'
+import { getRandomName, getRandomInstagram } from '../../../../../lib/__mocks__/mockDataUtils'
 
 const quantitys: number[] = [30, 10, 10]
 
