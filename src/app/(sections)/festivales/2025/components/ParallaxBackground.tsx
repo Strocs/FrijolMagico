@@ -138,7 +138,7 @@ export const ParallaxBackground = () => {
 
   return (
     <div ref={containerRef} className='relative -z-10 overflow-hidden'>
-      <div className='fixed inset-0 scale-105'>
+      <div className='bg-2025-yellow fixed inset-0 scale-105'>
         <div className='absolute inset-0 -z-20 aspect-square w-screen overflow-hidden rounded-full bg-[#ffebd2]' />
         <Image
           ref={layerCityRef}
