@@ -1,10 +1,10 @@
-import { CatalogProvider } from '@/app/(sections)/catalogo/contexts/CatalogContext'
-import { CatalogPanel } from '@/components/catalog/CatalogPanel'
+import { CatalogProvider } from './contexts/CatalogContext'
+import { CatalogPanel } from './components/CatalogPanel'
 import { Header } from '@/components/Header'
-import { CatalogSearchBar } from '@/components/catalog/CatalogSearchBar'
-import { CatalogList } from '@/components/catalog/CatalogList'
-import { CatalogError } from '@/components/catalog/CatalogError'
-import { CatalogFilterBar } from '@/components/catalog/CatalogFilterBar'
+import { CatalogSearchBar } from './components/CatalogSearchBar'
+import { CatalogList } from './components/CatalogList'
+import { ErrorSection } from '@/components/ErrorSection'
+import { CatalogFilterBar } from './components/CatalogFilterBar'
 import { fetchArtistsData } from '@/services/artistService'
 import { CatalogArtist } from '@/types/artists'
 import siteData from '@/data/site.json'
@@ -24,7 +24,7 @@ export default async function CatalogPage() {
 
   if (!catalogData) {
     return (
-      <CatalogError
+      <ErrorSection
         error={
           error || 'Error al cargar el catálogo. Por favor, intente nuevamente.'
         }
