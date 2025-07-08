@@ -16,8 +16,11 @@ export default function NotFound() {
         subTitle='## Página no encontrada'
         description='*QUÉ BUSCABAS REALMENTE?* ACÁ NO HAY NADA QUE VER, LE SOLICITO QUE VUELVA EN OTRO MOMENTO **(Seguramente la página está en construcción u.u)**'
       />
-      <main className='flex h-full items-center justify-center'>
-        <p></p>
+      <main className='flex h-full flex-col items-center justify-center p-4 text-center'>
+        <p className='text-fm-dark/80 text-lg'>
+          Parece que te has perdido. Vuelve a la página de inicio para encontrar tu camino.
+        </p>
+        <LogoHomeLink />
       </main>
       <Footer />
     </>

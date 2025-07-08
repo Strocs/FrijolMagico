@@ -38,6 +38,9 @@ export const CatalogFilter = ({
     <div className='relative'>
       <button
         onClick={() => onToggle(filterKey)}
+        aria-haspopup='true'
+        aria-expanded={isOpen}
+        aria-controls={`filter-options-${filterKey}`}
         className='border-fm-green/30 text-fm-dark/80 hover:bg-fm-dark/10 flex cursor-pointer items-center gap-2 rounded-xl border border-dashed px-3 py-1.5 text-sm transition-colors'>
         <PlusCircle className='h-4 w-4' />
         <span>{title}</span>
@@ -49,7 +52,7 @@ export const CatalogFilter = ({
       </button>
 
       {isOpen && (
-        <div className='bg-fm-white absolute z-10 mt-2 w-48 rounded-md border border-gray-200 shadow-lg'>
+        <div id={`filter-options-${filterKey}`} role='menu' className='bg-fm-white absolute z-10 mt-2 w-48 rounded-md border border-gray-200 shadow-lg'>
           <ul className='max-h-60 space-y-1 overflow-auto p-1'>
             {options.map((option) => {
               const isSelected = selectedValues
@@ -59,6 +62,13 @@ export const CatalogFilter = ({
                 <li
                   key={option.value}
                   onClick={() => handleOptionClick(option.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleOptionClick(option.value)
+                    }
+                  }}
+                  role='menuitem'
+                  tabIndex={0}
                   className={`flex cursor-pointer items-center rounded px-3 py-2 text-sm ${
                     isSelected
                       ? 'text-fm-green font-bold'
@@ -71,11 +81,11 @@ export const CatalogFilter = ({
             })}
             {selectedValues.length > 0 && (
               <li className='mt-1 border-t border-gray-200 pt-1'>
-                <div
+                <button
                   onClick={handleClearClick}
-                  className='text-fm-orange hover:bg-fm-black/10 cursor-pointer rounded px-3 py-2 text-center text-sm'>
+                  className='text-fm-orange hover:bg-fm-black/10 cursor-pointer rounded px-3 py-2 text-center text-sm w-full'>
                   Borrar filtros
-                </div>
+                </button>
               </li>
             )}
           </ul>

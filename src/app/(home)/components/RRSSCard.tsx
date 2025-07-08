@@ -24,12 +24,16 @@ export const RRSSCard = ({
         <Link
           href={SITE.social_media.ig}
           target='_blank'
+          rel='noopener noreferrer'
+          aria-label='Síguenos en Instagram'
           className='hover:text-fm-yellow transition duration-150 hover:scale-110 hover:rotate-6'>
           <Instagram size={orientation === 'vertical' ? 52 : 32} />
         </Link>
         <Link
           href={SITE.social_media.fb}
           target='_blank'
+          rel='noopener noreferrer'
+          aria-label='Síguenos en Facebook'
           className='hover:text-fm-yellow transition duration-150 hover:scale-110 hover:rotate-6'>
           <Facebook size={orientation === 'vertical' ? 44 : 28} />
         </Link>

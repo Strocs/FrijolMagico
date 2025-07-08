@@ -20,10 +20,7 @@ export const ApprovedArtistsCard = () => {
               Pronto <br />
               <b className='font-black uppercase'>
                 <span className='bg-fm-orange group-hover:bg-fm-orange block rounded-xl px-2 py-1 text-3xl transition duration-300 sm:bg-transparent'>
-                  Selección
-                </span>
-                <span className='font-josefin text-fm-green block text-6xl'>
-                  2025
+                  Selección 2025
                 </span>
               </b>
             </h2>

@@ -87,6 +87,7 @@ export const CatalogArtistCard = ({
 
         <button
           onClick={handleViewMoreButton}
+          aria-label={`Ver más detalles de ${name}`}
           className={`outline-fm-white absolute right-4 bottom-4 rotate-6 cursor-pointer outline group-hover:rotate-0 ${
             isSelected ? 'bg-fm-green rotate-0' : 'bg-fm-orange'
           } text-fm-white rounded px-3 py-1.5 text-xs transition duration-300`}>

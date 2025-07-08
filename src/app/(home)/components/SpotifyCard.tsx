@@ -13,6 +13,8 @@ export const SpotifyCard = ({
     <Link
       href={SITE.podcast}
       target='_blank'
+      rel='noopener noreferrer'
+      aria-label='Escucha nuestro Podcast en Spotify'
       className={clsx(
         'bg-fm-white group sm:bg-fm-yellow text-fm-orange flex size-full items-center justify-center gap-4 rounded-2xl py-4 transition-[gap] duration-150 hover:gap-2',
         {

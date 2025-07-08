@@ -6,6 +6,7 @@ export const CatalogCard = () => {
   return (
     <Link
       href={paths.catalog}
+      aria-label='Ir al catálogo de artistas'
       className='group from-fm-yellow to-fm-orange relative flex h-full flex-col !justify-start gap-2 overflow-hidden rounded-2xl bg-gradient-to-tl py-4 text-center transition-transform sm:py-10 sm:hover:scale-[1.03]'>
       <Image
         src='/images/enredadera-esquina.png'
@@ -26,7 +27,7 @@ export const CatalogCard = () => {
       </p>
       {/* <CardsSkeletonAnimated /> */}
       <div className='w-full space-y-2 overflow-hidden'>
-        <div className='animate-card-slides -ml-16 flex group-hover:[animation-play-state:running] sm:[animation-play-state:paused]'>
+        <div className='animate-card-slides -ml-16 flex group-hover:[animation-play-state:running] sm:[animation-play-state:paused]' aria-hidden='true'>
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
@@ -36,7 +37,7 @@ export const CatalogCard = () => {
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
         </div>
-        <div className='animate-card-slides flex group-hover:[animation-play-state:running] sm:[animation-play-state:paused]'>
+        <div className='animate-card-slides flex group-hover:[animation-play-state:running] sm:[animation-play-state:paused]' aria-hidden='true'>
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
           <div className='bg-fm-orange mr-2 h-16 w-32 shrink-0 rounded-md'></div>
