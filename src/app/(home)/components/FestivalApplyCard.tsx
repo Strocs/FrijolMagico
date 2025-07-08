@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { NewBadget } from './NewBadget'
-import { DoodleLine } from '../../components/DoodleLine'
+import { DoodleLine } from '@/components/DoodleLine'
 import { paths } from '@/config/paths'
 
 export const FestivalApplyCard = () => {
