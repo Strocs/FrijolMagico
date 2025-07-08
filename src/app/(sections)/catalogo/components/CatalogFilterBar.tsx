@@ -1,6 +1,6 @@
 'use client'
 import { CatalogFilter } from './CatalogFilter'
-import { getFiltersData } from '@/lib/utils'
+import { getFiltersData, normalizeString } from '@/lib/utils'
 import type { CatalogArtist } from '@/types/artists'
 import { useState } from 'react'
 import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
@@ -33,16 +33,24 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
   const handleSelect = (filterKey: FilterKey, value: string) => {
     if (filterKey === 'city') {
       const current = filters.ciudad
+      const normalizedValue = normalizeString(value)
+      const alreadySelected = current
+        .map(normalizeString)
+        .includes(normalizedValue)
       setFilters({
-        ciudad: current.includes(value)
-          ? current.filter((v) => v !== value)
+        ciudad: alreadySelected
+          ? current.filter((v) => normalizeString(v) !== normalizedValue)
           : [...current, value],
       })
     } else if (filterKey === 'category') {
       const current = filters.categoria
+      const normalizedValue = normalizeString(value)
+      const alreadySelected = current
+        .map(normalizeString)
+        .includes(normalizedValue)
       setFilters({
-        categoria: current.includes(value)
-          ? current.filter((v) => v !== value)
+        categoria: alreadySelected
+          ? current.filter((v) => normalizeString(v) !== normalizedValue)
           : [...current, value],
       })
     }
