@@ -1,7 +1,8 @@
-import { googleSpreadsheetController } from '@/lib/googleSpreadsheetController'
+import { googleSpreadsheetController } from '@/services/googleSpreadsheetController'
 import { CatalogArtist } from '@/types/artists'
 
-enum catalogTableHeaders {
+// Exportar los headers para uso en el servicio
+export enum catalogTableHeaders {
   ID = 'id',
   NAME = 'name',
   WORK_AREA = 'work_area',
@@ -20,11 +21,7 @@ export async function getCatalogData(): Promise<CatalogArtist[]> {
     headers: catalogTableHeaders,
   })
 
-  if (!data) {
-    return []
-  }
-
-  return data
+  return data || []
 }
 
 // Re-export mock function for development/testing when Google Sheets isn't available

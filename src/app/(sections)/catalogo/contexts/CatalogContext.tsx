@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, useCallback } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { CatalogArtist, SelectedFilters } from '@/types/artists'
 
 interface CatalogContextType {
@@ -41,11 +41,9 @@ export const CatalogProvider: React.FC<{ children: React.ReactNode }> = ({
   )
   const [isArtistPanelOpen, setIsArtistPanelOpen] = useState(false)
 
-  const setSearchValue = useCallback((value: string) => {
-    setSearchValueInternal(value)
-  }, [])
-
-  const setSelectedFilter = useCallback((key: string, value?: string) => {
+  // Lógica de estado global únicamente
+  const setSearchValue = (value: string) => setSearchValueInternal(value)
+  const setSelectedFilter = (key: string, value?: string) => {
     setSelectedFilters((prev) => {
       if (!value) return { ...prev, [key]: [] }
 
@@ -63,29 +61,25 @@ export const CatalogProvider: React.FC<{ children: React.ReactNode }> = ({
         [key]: [...currentValues, value],
       }
     })
-  }, [])
-
-  const resetFilters = useCallback(() => {
+  }
+  const resetFilters = () => {
     setSelectedFilters({
       city: [],
       work_area: [],
     })
     setSearchValue('')
-  }, [setSearchValue])
-
-  const handleSetSelectedArtist = useCallback((artist: CatalogArtist) => {
+  }
+  const handleSetSelectedArtist = (artist: CatalogArtist) => {
     setSelectedArtist(artist)
-  }, [])
-
-  const handleSetArtistPanelOpen = useCallback((open: boolean) => {
+  }
+  const handleSetArtistPanelOpen = (open: boolean) => {
     setIsArtistPanelOpen(open)
     if (!open) {
-      // Delay clearing the selected artist to allow for animation
       setTimeout(() => {
         setSelectedArtist(null)
       }, 300)
     }
-  }, [])
+  }
 
   return (
     <CatalogContext.Provider

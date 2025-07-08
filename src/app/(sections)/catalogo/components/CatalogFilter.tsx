@@ -1,5 +1,4 @@
 import { Check, PlusCircle } from 'lucide-react'
-import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
 
 interface Option {
   value: string
@@ -11,6 +10,9 @@ interface CatalogFilterProps {
   options: Option[]
   isOpen: boolean
   onToggle: (filterKey: string) => void
+  selectedValues?: string[]
+  onSelect?: (filterKey: string, value: string) => void
+  onClear?: (filterKey: string) => void
 }
 
 export const CatalogFilter = ({
@@ -19,16 +21,15 @@ export const CatalogFilter = ({
   options,
   isOpen,
   onToggle,
+  selectedValues = [],
+  onSelect,
+  onClear,
 }: CatalogFilterProps) => {
-  const { selectedFilters, setSelectedFilter } = useCatalog()
-  const selectedValues = selectedFilters[filterKey] || []
-
-  const toggleOption = (value: string) => {
-    setSelectedFilter(filterKey, value)
+  const handleOptionClick = (value: string) => {
+    if (onSelect) onSelect(filterKey, value)
   }
-
-  const clearFilter = () => {
-    setSelectedFilter(filterKey)
+  const handleClearClick = () => {
+    if (onClear) onClear(filterKey)
   }
 
   return (
@@ -53,7 +54,7 @@ export const CatalogFilter = ({
               return (
                 <li
                   key={option.value}
-                  onClick={() => toggleOption(option.value)}
+                  onClick={() => handleOptionClick(option.value)}
                   className={`flex cursor-pointer items-center rounded px-3 py-2 text-sm ${
                     isSelected
                       ? 'text-fm-green font-bold'
@@ -67,7 +68,7 @@ export const CatalogFilter = ({
             {selectedValues.length > 0 && (
               <li className='mt-1 border-t border-gray-200 pt-1'>
                 <div
-                  onClick={clearFilter}
+                  onClick={handleClearClick}
                   className='text-fm-orange hover:bg-fm-black/10 cursor-pointer rounded px-3 py-2 text-center text-sm'>
                   Borrar filtros
                 </div>
