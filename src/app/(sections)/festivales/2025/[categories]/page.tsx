@@ -2,13 +2,12 @@ import { Metadata } from 'next'
 import { unstable_ViewTransition as ViewTransition } from 'react'
 import siteData from '@/data/site.json'
 import { ErrorSection } from '@/components/ErrorSection'
-import { ApprovedArtist } from '@/types/artists'
 import { normalizeString } from '@/lib/utils'
 import { ApprovedArtistsPresentation } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsPresentation'
-import { fetchArtistsData } from '@/services/artistService'
 import { ApprovedArtistsCategoriesNav } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsCategoriesNav'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { Header } from '@/components/Header'
+import { getApprovedArtistsDataByEnv } from './services/approvedArtistsService'
 
 type CategoryParams = {
   categories: keyof typeof siteData.selected_artists.seo.category
@@ -39,7 +38,7 @@ export default async function CategoryPage({
   params: Promise<CategoryParams>
 }) {
   const { data: approvedArtistsData, error } =
-    await fetchArtistsData<ApprovedArtist>('approvedArtists')
+    await getApprovedArtistsDataByEnv()
 
   if (!approvedArtistsData) {
     return (

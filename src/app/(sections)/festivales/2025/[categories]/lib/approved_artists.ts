@@ -1,6 +1,7 @@
+import { googleSpreadsheetController } from '@/services/googleSpreadsheetController'
 import { ApprovedArtist } from '@/types/artists'
-import { googleSpreadsheetController } from '../../../../../../lib/googleSpreadsheetController'
 
+// Exportar los headers para uso en el servicio
 export enum approvedArtistsTableHeaders {
   ID = 'id',
   NAME = 'name',
@@ -16,11 +17,7 @@ export async function getApprovedArtistsData(): Promise<ApprovedArtist[]> {
     headers: approvedArtistsTableHeaders,
   })
 
-  if (!data) {
-    return []
-  }
-
-  return data
+  return data || []
 }
 
 // Re-export mock function for development/testing when Google Sheets isn't available
