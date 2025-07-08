@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { DoodleLine } from '../../components/DoodleLine'
+import { DoodleLine } from '@/components/DoodleLine'
 
 export const ApprovedArtistsCard = () => {
   return (

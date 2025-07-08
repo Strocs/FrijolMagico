@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { Instagram } from '../../components/icons/Instagram'
-import { Facebook } from '../../components/icons/Facebook'
+import { Instagram } from '@/components/icons/Instagram'
+import { Facebook } from '@/components/icons/Facebook'
 import clsx from 'clsx'
 import siteData from '@/data/site.json'
 const SITE = siteData
