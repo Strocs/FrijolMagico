@@ -6,3 +6,8 @@
   --color-2025-yellow: #ffebd2;
   --font-superfortress: var(--font-superfortress), sans-serif;
 }
+
+@utility text-stroke-* {
+  -webkit-text-stroke-width: --value(integer)px;
+  -webkit-text-stroke-color: --value(--color-*);
+}

@@ -32,10 +32,8 @@
 }
 
 @utility text-stroke-* {
-  -webkit-text-stroke-width: --value(integer) px;
-  -webkit-text-stroke-width: --value([ *]) px;
-  -webkit-text-stroke-color: --value(--color- *);
-  -webkit-text-stroke-color: --modifier(--color- *, [color]);
+  -webkit-text-stroke-width: --value(integer)px;
+  -webkit-text-stroke-color: --value(--color-*);
 }
 
 @keyframes card-slides {
@@ -45,16 +43,6 @@
 
   to {
     transform: translateX(calc((-128px - 8px) * 4));
-  }
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-
-  to {
-    height: var(--radix-accordion-content-height);
   }
 }
 
@@ -75,25 +63,6 @@
 
   to {
     transform: translateX(0);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-
-  to {
-    height: 0;
-  }
-}
-
-@keyframes shine {
-  0% {
-    translatex: -100%;
-  }
-  100% {
-    translatex: 200%;
   }
 }
 
