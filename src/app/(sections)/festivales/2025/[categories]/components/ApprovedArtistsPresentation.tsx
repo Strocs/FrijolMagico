@@ -49,46 +49,17 @@ export const ApprovedArtistsPresentation = ({
     { scope: container },
   )
   return (
-    <section ref={container} className='container mx-auto overflow-x-hidden'>
-      <ul className='flex flex-wrap items-center justify-center gap-x-2 pt-5 pb-20'>
+    <section
+      ref={container}
+      className='container grid h-full place-items-center py-20'>
+      <ul className='flex h-min flex-wrap justify-center gap-2'>
         {artists.map((artist) => (
           <li key={artist.id} className='artist-name rounded-lg px-2'>
             <a
               href={formatUrl(artist.rrss)}
               target='_blank'
               rel='noopener noreferrer'
-              className='font-superfortress text-2025-orange text-5xl leading-none font-bold'
-              style={{
-                textShadow: [
-                  // 6px radius (8 directions)
-                  '6px 0 0 var(--color-2025-yellow)',
-                  '-6px 0 0 var(--color-2025-yellow)',
-                  '0 6px 0 var(--color-2025-yellow)',
-                  '0 -6px 0 var(--color-2025-yellow)',
-                  '4.24px 4.24px 0 var(--color-2025-yellow)',
-                  '-4.24px 4.24px 0 var(--color-2025-yellow)',
-                  '4.24px -4.24px 0 var(--color-2025-yellow)',
-                  '-4.24px -4.24px 0 var(--color-2025-yellow)',
-                  // 4.5px radius (8 directions)
-                  '4.5px 0 0 var(--color-2025-yellow)',
-                  '-4.5px 0 0 var(--color-2025-yellow)',
-                  '0 4.5px 0 var(--color-2025-yellow)',
-                  '0 -4.5px 0 var(--color-2025-yellow)',
-                  '3.18px 3.18px 0 var(--color-2025-yellow)',
-                  '-3.18px 3.18px 0 var(--color-2025-yellow)',
-                  '3.18px -3.18px 0 var(--color-2025-yellow)',
-                  '-3.18px -3.18px 0 var(--color-2025-yellow)',
-                  // 3px radius (8 directions)
-                  '3px 0 0 var(--color-2025-yellow)',
-                  '-3px 0 0 var(--color-2025-yellow)',
-                  '0 3px 0 var(--color-2025-yellow)',
-                  '0 -3px 0 var(--color-2025-yellow)',
-                  '2.12px 2.12px 0 var(--color-2025-yellow)',
-                  '-2.12px 2.12px 0 var(--color-2025-yellow)',
-                  '2.12px -2.12px 0 var(--color-2025-yellow)',
-                  '-2.12px -2.12px 0 var(--color-2025-yellow)',
-                ].join(', '),
-              }}>
+              className='font-superfortress text-2025-orange text-stroke-2025-yellow text-stroke-5 text-lg [paint-order:stroke_fill] md:text-4xl'>
               {artist.name}
             </a>
           </li>
