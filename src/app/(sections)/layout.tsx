@@ -7,7 +7,7 @@ export default function SectionLayout({
 }) {
   return (
     <>
-      <div className='mx-auto px-4'>
+      <div className='container mx-auto px-4'>
         {children}
         <Footer />
       </div>

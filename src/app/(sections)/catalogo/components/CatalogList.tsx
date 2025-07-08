@@ -6,13 +6,14 @@ import { CatalogArtistCard } from './CatalogArtistCard'
 import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
 import { filterCatalog } from '@/lib/utils'
 import { Pagination } from '@/components/ui/Pagination'
+import { CatalogCardLoader } from './CatalogSkeletonLoaders'
 
 interface CatalogListProps {
   catalog: CatalogArtist[]
 }
 
 export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
-  const { filters } = useCatalogFiltersContext()
+  const { filters, isReady } = useCatalogFiltersContext()
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 12
 
@@ -53,12 +54,12 @@ export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
-    // Scroll to top when changing pages
-    // window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   // Only show pagination if there are items to paginate
   const showPagination = totalItems > itemsPerPage
+
+  if (!isReady) return <CatalogCardLoader />
 
   return (
     <div className='w-full'>

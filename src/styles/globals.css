@@ -28,6 +28,7 @@
 
   --animate-card-slides: card-slides 12s linear infinite;
   --animate-slide-in-right: slide-in-right 0.3s ease-in-out forwards;
+  --animate-shine: shine 2s linear infinite;
 }
 
 @utility text-stroke-* {
@@ -84,6 +85,15 @@
 
   to {
     height: 0;
+  }
+}
+
+@keyframes shine {
+  0% {
+    translatex: -100%;
+  }
+  100% {
+    translatex: 200%;
   }
 }
 

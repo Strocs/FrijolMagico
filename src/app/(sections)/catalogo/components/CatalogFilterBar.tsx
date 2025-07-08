@@ -2,9 +2,10 @@
 import { CatalogFilter } from './CatalogFilter'
 import { getFiltersData, normalizeString } from '@/lib/utils'
 import type { CatalogArtist } from '@/types/artists'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
 import type { FilterKey } from '../lib/filterKeys'
+import { CatalogFiltersBarLoader } from './CatalogSkeletonLoaders'
 
 interface CatalogFilterBarProps {
   catalogData: CatalogArtist[]
@@ -16,9 +17,9 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
     category: false,
     search: false,
   })
-  const { filters, setFilters } = useCatalogFiltersContext()
+  const { filters, setFilters, isReady } = useCatalogFiltersContext()
 
-  const toggleFilter = (filterKey: FilterKey) => {
+  const toggleFilter = useCallback((filterKey: FilterKey) => {
     setFiltersOpen((prev) => {
       return Object.keys(prev).reduce(
         (acc, curr) => {
@@ -28,38 +29,48 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
         {} as Record<FilterKey, boolean>,
       )
     })
-  }
+  }, [])
 
-  const handleSelect = (filterKey: FilterKey, value: string) => {
-    if (filterKey === 'city') {
-      const current = filters.ciudad
-      const normalizedValue = normalizeString(value)
-      const alreadySelected = current
-        .map(normalizeString)
-        .includes(normalizedValue)
-      setFilters({
-        ciudad: alreadySelected
-          ? current.filter((v) => normalizeString(v) !== normalizedValue)
-          : [...current, value],
-      })
-    } else if (filterKey === 'category') {
-      const current = filters.categoria
-      const normalizedValue = normalizeString(value)
-      const alreadySelected = current
-        .map(normalizeString)
-        .includes(normalizedValue)
-      setFilters({
-        categoria: alreadySelected
-          ? current.filter((v) => normalizeString(v) !== normalizedValue)
-          : [...current, value],
-      })
-    }
-  }
+  const handleSelect = useCallback(
+    (filterKey: FilterKey, value: string) => {
+      if (!isReady) return
 
-  const handleClear = (filterKey: FilterKey) => {
-    if (filterKey === 'city') setFilters({ ciudad: [] })
-    else if (filterKey === 'category') setFilters({ categoria: [] })
-  }
+      if (filterKey === 'city') {
+        const current = filters.ciudad
+        const normalizedValue = normalizeString(value)
+        const alreadySelected = current
+          .map(normalizeString)
+          .includes(normalizedValue)
+        setFilters({
+          ciudad: alreadySelected
+            ? current.filter((v) => normalizeString(v) !== normalizedValue)
+            : [...current, value],
+        })
+      } else if (filterKey === 'category') {
+        const current = filters.categoria
+        const normalizedValue = normalizeString(value)
+        const alreadySelected = current
+          .map(normalizeString)
+          .includes(normalizedValue)
+        setFilters({
+          categoria: alreadySelected
+            ? current.filter((v) => normalizeString(v) !== normalizedValue)
+            : [...current, value],
+        })
+      }
+    },
+    [filters, setFilters, isReady],
+  )
+
+  const handleClear = useCallback(
+    (filterKey: FilterKey) => {
+      if (!isReady) return
+
+      if (filterKey === 'city') setFilters({ ciudad: [] })
+      else if (filterKey === 'category') setFilters({ categoria: [] })
+    },
+    [setFilters, isReady],
+  )
 
   // Mapeo de filtro visual a propiedad de modelo
   const FILTER_MODEL_KEYS = {
@@ -67,10 +78,13 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
     category: 'work_area',
   } as const
 
+  if (!isReady) return <CatalogFiltersBarLoader />
+
   const cityFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.city)
   const areaFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.category)
+
   return (
-    <div className='flex flex-wrap gap-4'>
+    <div className='flex flex-wrap justify-center gap-4'>
       <CatalogFilter
         title='Ciudad'
         filterKey='city'

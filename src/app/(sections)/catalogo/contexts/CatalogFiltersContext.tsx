@@ -6,6 +6,7 @@ import { useCatalogFilters, CatalogFilters } from '../hooks/useCatalogFilters'
 interface CatalogFiltersContextType {
   filters: CatalogFilters
   setFilters: (filters: Partial<CatalogFilters>) => void
+  isReady: boolean
 }
 
 const CatalogFiltersContext = createContext<
@@ -13,9 +14,10 @@ const CatalogFiltersContext = createContext<
 >(undefined)
 
 export function CatalogFiltersProvider({ children }: { children: ReactNode }) {
-  const { filters, setFilters } = useCatalogFilters()
+  const { filters, setFilters, isReady } = useCatalogFilters()
+
   return (
-    <CatalogFiltersContext.Provider value={{ filters, setFilters }}>
+    <CatalogFiltersContext.Provider value={{ filters, setFilters, isReady }}>
       {children}
     </CatalogFiltersContext.Provider>
   )

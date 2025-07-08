@@ -1,14 +1,23 @@
 'use client'
 
 import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
+import { useCallback } from 'react'
+import { CatalogSearchBarLoader } from './CatalogSkeletonLoaders'
 
 export const CatalogSearchBar = () => {
-  const { filters, setFilters } = useCatalogFiltersContext()
+  const { filters, setFilters, isReady } = useCatalogFiltersContext()
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    setFilters({ busqueda: e.target.value })
-  }
+  const handleInput = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      e.preventDefault()
+      if (isReady) {
+        setFilters({ busqueda: e.target.value })
+      }
+    },
+    [setFilters, isReady],
+  )
+
+  if (!isReady) return <CatalogSearchBarLoader />
 
   return (
     <input
