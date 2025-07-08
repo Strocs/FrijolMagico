@@ -35,7 +35,7 @@ export default async function CatalogPage() {
     <CatalogFiltersProvider>
       <CatalogProvider>
         <ViewTransition name='transition-logo'>
-          <div className='fixed right-0 bottom-2 scale-75'>
+          <div className='fixed right-0 bottom-2 z-40 scale-75'>
             <LogoHomeLink />
           </div>
         </ViewTransition>
