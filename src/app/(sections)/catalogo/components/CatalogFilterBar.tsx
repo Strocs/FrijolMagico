@@ -3,7 +3,7 @@ import { CatalogFilter } from './CatalogFilter'
 import { getFiltersData, normalizeString } from '@/lib/utils'
 import type { CatalogArtist } from '@/types/artists'
 import { useState, useCallback } from 'react'
-import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
+import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
 import type { FilterKey } from '../lib/filterKeys'
 import { CatalogFiltersBarLoader } from './CatalogSkeletonLoaders'
 
@@ -17,7 +17,9 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
     category: false,
     search: false,
   })
-  const { filters, setFilters, isReady } = useCatalogFiltersContext()
+  const filters = useCatalogFiltersStore((state) => state.filters)
+  const setFilters = useCatalogFiltersStore((state) => state.setFilters)
+  const isReady = useCatalogFiltersStore((state) => state.isReady)
 
   const toggleFilter = useCallback((filterKey: FilterKey) => {
     setFiltersOpen((prev) => {

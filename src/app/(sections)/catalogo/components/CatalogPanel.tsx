@@ -2,13 +2,19 @@
 
 import { useEffect, useState } from 'react'
 import { Instagram, Mail, X } from 'lucide-react'
-import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
+import { useCatalogPanelStore } from '../store/useCatalogPanelStore'
 import { getInstagramUserTag } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
 export const CatalogPanel = () => {
-  const { isArtistPanelOpen, setArtistPanelOpen, selectedArtist } = useCatalog()
+  const isArtistPanelOpen = useCatalogPanelStore(
+    (state) => state.isArtistPanelOpen,
+  )
+  const setArtistPanelOpen = useCatalogPanelStore(
+    (state) => state.setArtistPanelOpen,
+  )
+  const selectedArtist = useCatalogPanelStore((state) => state.selectedArtist)
   const [isVisible, setIsVisible] = useState(false)
 
   // Handle animation when opening/closing
@@ -17,9 +23,6 @@ export const CatalogPanel = () => {
       setIsVisible(true)
     } else {
       setIsVisible(false)
-      // const timer = setTimeout(() => {
-      // }, 300) // Match this with your CSS transition duration
-      // return () => clearTimeout(timer)
     }
   }, [isArtistPanelOpen])
 

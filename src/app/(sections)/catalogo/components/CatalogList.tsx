@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import type { CatalogArtist } from '@/types/artists'
 import { CatalogArtistCard } from './CatalogArtistCard'
-import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
+import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
 import { filterCatalog } from '@/lib/utils'
 import { Pagination } from '@/components/ui/Pagination'
 import { CatalogCardLoader } from './CatalogSkeletonLoaders'
@@ -13,7 +13,8 @@ interface CatalogListProps {
 }
 
 export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
-  const { filters, isReady } = useCatalogFiltersContext()
+  const filters = useCatalogFiltersStore((state) => state.filters)
+  const isReady = useCatalogFiltersStore((state) => state.isReady)
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 12
 

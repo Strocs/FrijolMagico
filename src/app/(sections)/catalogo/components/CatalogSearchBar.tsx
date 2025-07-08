@@ -1,11 +1,13 @@
 'use client'
 
-import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
 import { useCallback } from 'react'
+import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
 import { CatalogSearchBarLoader } from './CatalogSkeletonLoaders'
 
 export const CatalogSearchBar = () => {
-  const { filters, setFilters, isReady } = useCatalogFiltersContext()
+  const filters = useCatalogFiltersStore((state) => state.filters)
+  const setFilters = useCatalogFiltersStore((state) => state.setFilters)
+  const isReady = useCatalogFiltersStore((state) => state.isReady)
 
   const handleInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

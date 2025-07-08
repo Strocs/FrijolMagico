@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import type { CatalogArtist } from '@/types/artists'
 import { Instagram, Mail } from 'lucide-react'
-import { useCatalog } from '@/app/(sections)/catalogo/contexts/CatalogContext'
+import { useCatalogPanelStore } from '../store/useCatalogPanelStore'
 import { cn, formatUrl } from '@/lib/utils'
 
 export const CatalogArtistCard = ({
@@ -16,7 +16,13 @@ export const CatalogArtistCard = ({
   email,
   rrss,
 }: CatalogArtist) => {
-  const { selectedArtist, setSelectedArtist, setArtistPanelOpen } = useCatalog()
+  const selectedArtist = useCatalogPanelStore((state) => state.selectedArtist)
+  const setSelectedArtist = useCatalogPanelStore(
+    (state) => state.setSelectedArtist,
+  )
+  const setArtistPanelOpen = useCatalogPanelStore(
+    (state) => state.setArtistPanelOpen,
+  )
 
   const isSelected = selectedArtist?.id === id
   const rrssUrl = formatUrl(rrss)
