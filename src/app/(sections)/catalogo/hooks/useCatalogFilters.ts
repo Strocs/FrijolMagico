@@ -12,9 +12,6 @@ export interface CatalogFilters {
 const parseParamArray = (param?: string | null) =>
   param && param.length > 0 ? param.split(',').filter(Boolean).map(normalizeString) : []
 
-const serializeParamArray = (arr: string[]) =>
-  arr.length > 0 ? arr.map(normalizeString).join(',') : undefined
-
 function getInitialFiltersFromURL(): CatalogFilters {
   if (typeof window === 'undefined') {
     return { categoria: [], ciudad: [], busqueda: '' }
@@ -43,15 +40,18 @@ export function useCatalogFilters() {
     (newFilters: Partial<CatalogFilters>) => {
       setFilters((prev) => {
         const merged = { ...prev, ...newFilters }
+        // Eliminar duplicados en los arrays de filtros
+        const uniqueCategoria = Array.from(new Set(merged.categoria.map(normalizeString)))
+        const uniqueCiudad = Array.from(new Set(merged.ciudad.map(normalizeString)))
         const params = new URLSearchParams()
-        if (merged.categoria.length > 0) params.set('categoria', serializeParamArray(merged.categoria)!)
-        if (merged.ciudad.length > 0) params.set('ciudad', serializeParamArray(merged.ciudad)!)
+        if (uniqueCategoria.length > 0) params.set('categoria', uniqueCategoria.join(','))
+        if (uniqueCiudad.length > 0) params.set('ciudad', uniqueCiudad.join(','))
         if (merged.busqueda.trim() !== '') params.set('busqueda', normalizeString(merged.busqueda.trim()))
         const url = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`
         window.history.replaceState(null, '', url)
         return {
-          categoria: merged.categoria.map(normalizeString),
-          ciudad: merged.ciudad.map(normalizeString),
+          categoria: uniqueCategoria,
+          ciudad: uniqueCiudad,
           busqueda: normalizeString(merged.busqueda),
         }
       })

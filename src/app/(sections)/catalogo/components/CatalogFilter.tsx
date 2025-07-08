@@ -1,4 +1,6 @@
 import { Check, PlusCircle } from 'lucide-react'
+import type { FilterKey } from '../lib/filterKeys'
+import { normalizeString } from '@/lib/utils'
 
 interface Option {
   value: string
@@ -6,13 +8,13 @@ interface Option {
 
 interface CatalogFilterProps {
   title: string
-  filterKey: string
+  filterKey: FilterKey
   options: Option[]
   isOpen: boolean
-  onToggle: (filterKey: string) => void
+  onToggle: (filterKey: FilterKey) => void
   selectedValues?: string[]
-  onSelect?: (filterKey: string, value: string) => void
-  onClear?: (filterKey: string) => void
+  onSelect?: (filterKey: FilterKey, value: string) => void
+  onClear?: (filterKey: FilterKey) => void
 }
 
 export const CatalogFilter = ({
@@ -50,7 +52,9 @@ export const CatalogFilter = ({
         <div className='bg-fm-white absolute z-10 mt-2 w-48 rounded-md border border-gray-200 shadow-lg'>
           <ul className='max-h-60 space-y-1 overflow-auto p-1'>
             {options.map((option) => {
-              const isSelected = selectedValues.includes(option.value)
+              const isSelected = selectedValues
+                .map(normalizeString)
+                .includes(normalizeString(option.value))
               return (
                 <li
                   key={option.value}

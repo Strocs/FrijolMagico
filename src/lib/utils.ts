@@ -68,12 +68,13 @@ export const filterCatalog = (
 
     // Filter by city
     const matchesCity =
-      !filters.city?.length || (item.city && filters.city.includes(item.city))
+      !filters.city?.length ||
+      (item.city && filters.city.map(normalizeString).includes(normalizeString(item.city)))
 
-    // Filter by work area
+    // Filter by work area (disciplina/categoria)
     const matchesWorkArea =
       !filters.work_area?.length ||
-      (item.work_area && filters.work_area.includes(item.work_area))
+      (item.work_area && filters.work_area.map(normalizeString).includes(normalizeString(item.work_area)))
 
     return matchesSearch && matchesCity && matchesWorkArea
   })

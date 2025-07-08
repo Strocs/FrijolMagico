@@ -4,36 +4,33 @@ import { getFiltersData } from '@/lib/utils'
 import type { CatalogArtist } from '@/types/artists'
 import { useState } from 'react'
 import { useCatalogFiltersContext } from '../contexts/CatalogFiltersContext'
+import type { FilterKey } from '../lib/filterKeys'
 
 interface CatalogFilterBarProps {
   catalogData: CatalogArtist[]
 }
 
 export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
-  const [filtersOpen, setFiltersOpen] = useState<{ [key: string]: boolean }>({
+  const [filtersOpen, setFiltersOpen] = useState<Record<FilterKey, boolean>>({
     city: false,
-    work_area: false,
+    category: false,
+    search: false,
   })
   const { filters, setFilters } = useCatalogFiltersContext()
 
-  const toggleFilter = (filterKey: string) => {
-    // toggle the filter state and close the other filters
+  const toggleFilter = (filterKey: FilterKey) => {
     setFiltersOpen((prev) => {
       return Object.keys(prev).reduce(
         (acc, curr) => {
-          if (curr === filterKey) {
-            acc[curr] = !prev[curr]
-          } else {
-            acc[curr] = false
-          }
+          acc[curr as FilterKey] = curr === filterKey ? !prev[filterKey] : false
           return acc
         },
-        {} as { [key: string]: boolean },
+        {} as Record<FilterKey, boolean>,
       )
     })
   }
 
-  const handleSelect = (filterKey: string, value: string) => {
+  const handleSelect = (filterKey: FilterKey, value: string) => {
     if (filterKey === 'city') {
       const current = filters.ciudad
       setFilters({
@@ -41,7 +38,7 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
           ? current.filter((v) => v !== value)
           : [...current, value],
       })
-    } else if (filterKey === 'work_area') {
+    } else if (filterKey === 'category') {
       const current = filters.categoria
       setFilters({
         categoria: current.includes(value)
@@ -51,13 +48,19 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
     }
   }
 
-  const handleClear = (filterKey: string) => {
+  const handleClear = (filterKey: FilterKey) => {
     if (filterKey === 'city') setFilters({ ciudad: [] })
-    else if (filterKey === 'work_area') setFilters({ categoria: [] })
+    else if (filterKey === 'category') setFilters({ categoria: [] })
   }
 
-  const cityFilterData = getFiltersData(catalogData, 'city')
-  const areaFilterData = getFiltersData(catalogData, 'work_area')
+  // Mapeo de filtro visual a propiedad de modelo
+  const FILTER_MODEL_KEYS = {
+    city: 'city',
+    category: 'work_area',
+  } as const
+
+  const cityFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.city)
+  const areaFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.category)
   return (
     <div className='flex flex-wrap gap-4'>
       <CatalogFilter
@@ -72,9 +75,9 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
       />
       <CatalogFilter
         title='Disciplina'
-        filterKey='work_area'
+        filterKey='category'
         options={areaFilterData}
-        isOpen={filtersOpen.work_area}
+        isOpen={filtersOpen.category}
         onToggle={toggleFilter}
         selectedValues={filters.categoria}
         onSelect={handleSelect}
