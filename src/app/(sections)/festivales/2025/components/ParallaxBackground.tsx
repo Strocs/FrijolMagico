@@ -7,131 +7,93 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
+// Image size configuration for responsive loading
+const imageSizes = {
+  city: {
+    sizes: '100vw',
+    breakpoints: {
+      mobile: { width: 1050, height: 657 },
+      desktop: { width: 1920, height: 1313 },
+    },
+  },
+  ground: {
+    sizes: '100vw',
+    breakpoints: {
+      mobile: { width: 960, height: 486 },
+      desktop: { width: 1920, height: 971 },
+    },
+  },
+}
+
+// Check if user prefers reduced motion
+const prefersReducedMotion =
+  typeof window !== 'undefined'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false
+
 export const ParallaxBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const layerCityRef = useRef<HTMLImageElement>(null)
   const layerGroundRef = useRef<HTMLImageElement>(null)
-  const layerRockCenterRef = useRef<HTMLImageElement>(null)
-  const layerRockLeftRef = useRef<HTMLImageElement>(null)
-  const layerRockRightRef = useRef<HTMLImageElement>(null)
-
-  // Velocity config for each layer (higher = faster)
-  const velocity = {
-    city: 10,
-    ground: 20,
-    rock: 30,
-    scrollCity: 50,
-    scrollGround: 80,
-    scrollRock: 100,
-  }
-  // Smoothing factor for lerp
-  const smoothing = 0.12
-
-  // Initial Y offsets for each layer (match your -bottom or top-1/2 values)
-  const initialY = {
-    city: -30 * 16, // -30rem in px
-    ground: -40 * 16, // -40rem in px
-    rockCenter: 0, // top-1/2, handled by translateY in y
-    rockLeft: 0,
-    rockRight: 0,
-  }
-
-  // Store target and current positions for smooth rAF animation
-  const target = useRef({ x: 0, y: 0 })
-  const current = useRef({ x: 0, y: 0 })
-  const rAF = useRef<number | null>(null)
 
   useGSAP(
     () => {
-      if (!containerRef.current) return
+      // Skip animations if user prefers reduced motion
+      if (prefersReducedMotion) return
 
-      // Mouse move parallax
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e
-        const { innerWidth, innerHeight } = window
-        target.current.x = (clientX / innerWidth - 0.5) * 2
-        target.current.y = (clientY / innerHeight - 0.5) * 2
+      // Create a main timeline for better performance
+      const tl = gsap.timeline()
+
+      // Shared ScrollTrigger configuration
+      const scrollConfig = {
+        trigger: containerRef.current,
+        start: 'top top', // Animation starts when the top of the body hits the top of the viewport
+        end: 'max', // Animation ends when the scroll position reaches the maximum scroll position of the page
+        scrub: prefersReducedMotion ? 0 : 1,
+        invalidateOnRefresh: true,
       }
 
-      // Scroll parallax (only Y, inverse direction, with initial offset)
-      const scrollHandler = () => {
-        const scrollY = window.scrollY
-        const docHeight =
-          document.documentElement.scrollHeight - window.innerHeight
-        const progress = docHeight > 0 ? scrollY / docHeight : 0
-
-        if (layerCityRef.current)
-          gsap.to(layerCityRef.current, {
-            x: current.current.x * velocity.city,
-            y:
-              current.current.y * velocity.city -
-              progress * (initialY.city * -1),
-            overwrite: 'auto',
-            duration: 0.6,
-            ease: 'power1.out',
-          })
-        if (layerGroundRef.current)
-          gsap.to(layerGroundRef.current, {
-            x: current.current.x * velocity.ground,
-            y:
-              current.current.y * velocity.ground -
-              progress * (initialY.ground * -1),
-            overwrite: 'auto',
-            duration: 0.6,
-            ease: 'power1.out',
-          })
-        if (layerRockCenterRef.current)
-          gsap.to(layerRockCenterRef.current, {
-            x: current.current.x * velocity.rock,
-            y:
-              initialY.rockCenter +
-              current.current.y * velocity.rock -
-              progress * 200, // 200px scroll range for center rock
-            overwrite: 'auto',
-            duration: 0.6,
-            ease: 'power1.out',
-          })
-        if (layerRockLeftRef.current)
-          gsap.to(layerRockLeftRef.current, {
-            x: current.current.x * velocity.rock,
-            y:
-              initialY.rockLeft +
-              current.current.y * velocity.rock -
-              progress * 200,
-            overwrite: 'auto',
-            duration: 0.6,
-            ease: 'power1.out',
-          })
-        if (layerRockRightRef.current)
-          gsap.to(layerRockRightRef.current, {
-            x: current.current.x * velocity.rock,
-            y:
-              initialY.rockRight +
-              current.current.y * velocity.rock -
-              progress * 200,
-            overwrite: 'auto',
-            duration: 0.6,
-            ease: 'power1.out',
-          })
+      // City layer parallax - appears in middle of scroll
+      if (layerCityRef.current) {
+        tl.fromTo(
+          layerCityRef.current,
+          {
+            yPercent: 25, // Start 20% above its natural position
+          },
+          {
+            yPercent: 0, // End 20% below its natural position
+            ease: 'none', // Use 'none' for linear scrubbing with ScrollTrigger
+            duration: 1,
+            transformOrigin: 'center center',
+            force3D: true, // Force hardware acceleration
+          },
+          0,
+        )
       }
 
-      // Animate loop for mouse movement
-      const animate = () => {
-        current.current.x += (target.current.x - current.current.x) * smoothing
-        current.current.y += (target.current.y - current.current.y) * smoothing
-        scrollHandler()
-        rAF.current = requestAnimationFrame(animate)
+      // Ground layer parallax - appears last
+      if (layerGroundRef.current) {
+        tl.fromTo(
+          layerGroundRef.current,
+          {
+            yPercent: 100, // Start 50% below its natural position
+          },
+          {
+            yPercent: 0, // End 50% above its natural position
+            ease: 'none', // Use 'none' for linear scrubbing with ScrollTrigger
+            duration: 1,
+            transformOrigin: 'center bottom',
+            force3D: true, // Force hardware acceleration
+          },
+          0,
+        )
       }
 
-      window.addEventListener('mousemove', handleMouseMove)
-      window.addEventListener('scroll', scrollHandler)
-      rAF.current = requestAnimationFrame(animate)
-
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove)
-        window.removeEventListener('scroll', scrollHandler)
-        if (rAF.current) cancelAnimationFrame(rAF.current)
-      }
+      // Add ScrollTrigger to the timeline
+      ScrollTrigger.create({
+        ...scrollConfig,
+        animation: tl,
+      })
     },
     { scope: containerRef },
   )
@@ -139,46 +101,56 @@ export const ParallaxBackground = () => {
   return (
     <div ref={containerRef} className='relative -z-10 overflow-hidden'>
       <div className='bg-2025-yellow fixed inset-0 scale-105'>
-        <div className='absolute inset-0 -z-20 aspect-square w-screen overflow-hidden rounded-full bg-[#ffebd2]' />
+        {/* Overlay blur effect */}
+        <div className='fixed inset-0 z-0 bg-transparent backdrop-blur-sm'></div>
+        {/* City layer - background parallax */}{' '}
         <Image
           ref={layerCityRef}
           src='/sections/festivales/2025/images/city.png'
           alt='Imágen de la ciudad de coquimbo destruída por un frijol maligno'
-          width={2100}
-          height={1313}
-          className='absolute right-0 -bottom-[30rem] left-0 -z-15 ease-in-out'
+          width={imageSizes.city.breakpoints.desktop.width}
+          height={imageSizes.city.breakpoints.desktop.height}
+          sizes={imageSizes.city.sizes}
+          className='absolute right-0 left-0 -z-15 transform-gpu will-change-transform'
+          priority
+          quality={90}
         />
+        {/* Ground layer - foreground parallax */}
         <Image
           src='/sections/festivales/2025/images/ground.png'
           ref={layerGroundRef}
           alt='Imágen del suelo de coquimbo destruído por un frijol maligno'
-          width={1920}
-          height={971}
-          className='absolute right-0 -bottom-[40rem] left-0 -z-10 ease-in-out'
+          width={imageSizes.ground.breakpoints.desktop.width}
+          height={imageSizes.ground.breakpoints.desktop.height}
+          sizes={imageSizes.ground.sizes}
+          className='absolute right-0 bottom-0 left-0 -z-10 transform-gpu will-change-transform'
+          priority
+          quality={90}
         />
+        {/* Rock elements - static for now */}
         <Image
           src='/sections/festivales/2025/images/rock-center.png'
-          ref={layerRockCenterRef}
           alt='Imágen de la roca central de coquimbo destruída por un frijol maligno'
           width={186}
           height={339}
-          className='absolute top-1/2 right-0 left-0 -z-5 mx-auto ease-in-out'
+          className='absolute top-1/2 right-0 left-0 -z-5 mx-auto'
+          priority
         />
         <Image
           src='/sections/festivales/2025/images/rock-left.png'
           alt='Imágen de la roca izquierda de coquimbo destruída por un frijol maligno'
-          ref={layerRockLeftRef}
           width={498}
           height={574}
-          className='absolute top-0 left-0 -z-5 ease-in-out'
+          className='absolute top-0 left-0 -z-5'
+          priority
         />
         <Image
           src='/sections/festivales/2025/images/rock-right.png'
           alt='Imágen de la roca derecha de coquimbo destruída por un frijol maligno'
-          ref={layerRockRightRef}
           width={333}
           height={430}
-          className='absolute top-0 right-0 -z-5 ease-in-out'
+          className='absolute top-0 right-0 -z-5'
+          priority
         />
       </div>
     </div>
