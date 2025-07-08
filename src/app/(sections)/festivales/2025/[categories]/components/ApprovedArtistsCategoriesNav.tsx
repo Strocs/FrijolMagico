@@ -10,14 +10,14 @@ export const ApprovedArtistsCategoriesNav = ({
 }) => {
   const categoriesList = siteData.selected_artists.categories
   return (
-    <nav className='sticky top-8 z-50 flex items-center justify-center gap-8'>
+    <nav className='sticky top-8 z-50 flex flex-wrap items-center justify-center gap-2 md:gap-8'>
       {categoriesList.map((category) => (
         <Link
           key={category}
           className={cn(
-            'bg-fm-white outline-fm-green rounded-lg px-6 py-1 text-2xl leading-none outline transition duration-300 outline-dashed hover:scale-105',
+            'font-superfortress bg-2025-yellow text-2025-orange outline-2025-orange rounded-lg px-4 py-1 leading-none font-light outline transition duration-300 outline-dashed md:px-6 md:text-xl md:hover:scale-105',
             {
-              'bg-fm-orange text-fm-white outline-fm-orange scale-110 outline-solid':
+              'bg-2025-orange text-fm-white outline-none md:scale-110':
                 normalizeString(category) === currentCategory,
             },
           )}
