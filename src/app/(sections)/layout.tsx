@@ -7,7 +7,7 @@ export default function SectionLayout({
 }) {
   return (
     <>
-      <div aria-hidden className='mx-auto px-4'>
+      <div className='mx-auto px-4'>
         {children}
         <Footer />
       </div>
