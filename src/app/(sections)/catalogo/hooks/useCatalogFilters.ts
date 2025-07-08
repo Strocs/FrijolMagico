@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { normalizeString } from '@/lib/utils'
 
 export interface CatalogFilters {
@@ -20,20 +20,22 @@ function getInitialFiltersFromURL(): CatalogFilters {
   return {
     categoria: parseParamArray(params.get('categoria')),
     ciudad: parseParamArray(params.get('ciudad')),
-    busqueda: normalizeString(params.get('busqueda') || ''),
+    // Guardar el texto original, no normalizado
+    busqueda: params.get('busqueda') || '',
   }
 }
 
 export function useCatalogFilters() {
-  // Solo inicializa desde la URL en el primer render
-  const initialized = useRef(false)
-  const [filters, setFilters] = useState<CatalogFilters>(() => getInitialFiltersFromURL())
+  const [filters, setFilters] = useState<CatalogFilters>({
+    categoria: [],
+    ciudad: [],
+    busqueda: '',
+  })
 
-  // Solo lee los query params al montar
-  if (!initialized.current && typeof window !== 'undefined') {
+  // Inicializa los filtros desde la URL solo en el cliente
+  useEffect(() => {
     setFilters(getInitialFiltersFromURL())
-    initialized.current = true
-  }
+  }, [])
 
   // Actualiza los query params en la URL, pero no navega ni hace fetch
   const updateFilters = useCallback(
@@ -52,7 +54,7 @@ export function useCatalogFilters() {
         return {
           categoria: uniqueCategoria,
           ciudad: uniqueCiudad,
-          busqueda: normalizeString(merged.busqueda),
+          busqueda: merged.busqueda,
         }
       })
     },
