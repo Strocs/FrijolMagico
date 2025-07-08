@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function CategoryPage({
+export default async function ApprovedArtistsPage({
   params,
 }: {
   params: Promise<CategoryParams>
