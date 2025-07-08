@@ -10,12 +10,14 @@ interface CatalogFiltersState {
   initializeFromURL: () => void
 }
 
+const defaultFilters: CatalogFilters = {
+  categoria: [],
+  ciudad: [],
+  busqueda: '',
+}
+
 export const useCatalogFiltersStore = create<CatalogFiltersState>((set) => ({
-  filters: {
-    categoria: [],
-    ciudad: [],
-    busqueda: '',
-  },
+  filters: defaultFilters,
   isReady: false, // Siempre false en SSR y CSR, se setea a true tras inicialización
   setFilters: (newFilters) => {
     set((state) => {
@@ -36,7 +38,7 @@ export const useCatalogFiltersStore = create<CatalogFiltersState>((set) => ({
     if (typeof window !== 'undefined' && urlHasFilters()) {
       set({ filters: getFiltersFromURL(), isReady: true })
     } else {
-      set({ isReady: true })
+      set({ filters: defaultFilters, isReady: true })
     }
   },
 }))
