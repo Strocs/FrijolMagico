@@ -6,6 +6,7 @@ export const HeroCard = () => {
       <Image
         src='/images/enredadera.png'
         alt='Enredadera'
+        priority={true}
         width={800}
         height={800}
         className='absolute bottom-0 -left-10 aspect-square w-full scale-125 sm:-bottom-20'
