@@ -2,7 +2,7 @@ import localFont from 'next/font/local'
 import { ParallaxBackground } from './components/ParallaxBackground'
 import './styles/2025.css'
 
-export const superFortress = localFont({
+const superFortress = localFont({
   src: './fonts/SuperFortress.woff2',
   variable: '--font-superfortress',
   display: 'swap',
