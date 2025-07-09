@@ -3,14 +3,14 @@ import { CatalogArtist } from '@/types/artists'
 
 // Exportar los headers para uso en el servicio
 export enum catalogTableHeaders {
-  ID = 'id',
-  NAME = 'name',
-  WORK_AREA = 'work_area',
-  RRSS = 'rrss',
-  AVATAR = 'avatar',
-  BIO = 'bio',
-  EMAIL = 'email',
-  CITY = 'city',
+  id = 'id',
+  name = 'name',
+  work_area = 'work_area',
+  rrss = 'rrss',
+  avatar = 'avatar',
+  bio = 'bio',
+  email = 'email',
+  city = 'city',
 }
 
 // Initialize the Google Spreadsheet

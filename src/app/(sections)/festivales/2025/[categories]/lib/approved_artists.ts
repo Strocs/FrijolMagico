@@ -3,10 +3,10 @@ import { ApprovedArtist } from '@/types/artists'
 
 // Exportar los headers para uso en el servicio
 export enum approvedArtistsTableHeaders {
-  ID = 'id',
-  NAME = 'name',
-  WORK_AREA = 'work_area',
-  RRSS = 'rrss',
+  id = 'id',
+  name = 'name',
+  work_area = 'work_area',
+  rrss = 'rrss',
 }
 
 // Initialize the Google Spreadsheet

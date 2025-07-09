@@ -3,5 +3,5 @@ import { ApprovedArtist } from '@/types/artists'
 import { getApprovedArtistsData, getMockApprovedArtistsData } from '../lib/approved_artists'
 
 export async function getApprovedArtistsDataByEnv(): Promise<DataResult<ApprovedArtist>> {
-  return getDataByEnv<ApprovedArtist>(getApprovedArtistsData, getMockApprovedArtistsData)
+  return await getDataByEnv<ApprovedArtist>(getApprovedArtistsData, getMockApprovedArtistsData)
 }
