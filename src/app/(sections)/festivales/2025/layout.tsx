@@ -16,9 +16,7 @@ export default function Festival2025Layout({
   return (
     <>
       <ParallaxBackground />
-      <div className={superFortress.variable}>
-        {children}
-      </div>
+      <div className={superFortress.variable}>{children}</div>
     </>
   )
 }
