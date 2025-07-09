@@ -35,7 +35,7 @@ export default async function ApprovedArtistsPage({
       />
       <main className={`relative container mx-auto h-full px-4 py-8`}>
         <ViewTransition name='transition-logo'>
-          <div className='fixed right-0 bottom-2 scale-75'>
+          <div className='fixed right-0 bottom-2 z-100 scale-75'>
             <LogoHomeLink />
           </div>
         </ViewTransition>
