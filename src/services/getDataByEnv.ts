@@ -17,7 +17,7 @@ export async function getDataByEnv<T>(
   let error: string | null = null
   const env: Env = process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
   try {
-    if (mockFn && env !== 'production') {
+    if (mockFn && env !== 'production' && env !== 'preview') {
       data = mockFn()
       // Simula delay en desarrollo/preview
       await new Promise((resolve) => setTimeout(resolve, 500))
