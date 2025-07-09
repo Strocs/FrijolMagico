@@ -7,24 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-// Image size configuration for responsive loading
-const imageSizes = {
-  city: {
-    sizes: '100vw',
-    breakpoints: {
-      mobile: { width: 1050, height: 657 },
-      desktop: { width: 1920, height: 1313 },
-    },
-  },
-  ground: {
-    sizes: '100vw',
-    breakpoints: {
-      mobile: { width: 960, height: 486 },
-      desktop: { width: 1920, height: 971 },
-    },
-  },
-}
-
 // Check if user prefers reduced motion
 const prefersReducedMotion =
   typeof window !== 'undefined'
@@ -102,54 +84,43 @@ export const ParallaxBackground = () => {
     <div ref={containerRef} className='relative -z-10 overflow-hidden'>
       <div className='bg-2025-yellow fixed inset-0 scale-105'>
         {/* Overlay blur effect */}
-        <div className='fixed inset-0 z-0 bg-transparent backdrop-blur-sm'></div>
-        {/* City layer - background parallax */}{' '}
+        <div className='fixed inset-0 z-0 bg-transparent backdrop-blur-[0px]'></div>
         <Image
-          ref={layerCityRef}
-          src='/sections/festivales/2025/images/city.png'
+          src='/sections/festivales/2025/images/BACK.webp'
+          alt='Fondo de la sección de festivales 2025'
+          width={1440}
+          height={1786}
+          className='absolute -top-40 -z-20 w-full object-cover'
+          sizes='100vw'
+          priority
+          quality={90}
+        />
+        <Image
+          src='/sections/festivales/2025/images/CITY.webp'
           alt='Imágen de la ciudad de coquimbo destruída por un frijol maligno'
-          width={imageSizes.city.breakpoints.desktop.width}
-          height={imageSizes.city.breakpoints.desktop.height}
-          sizes={imageSizes.city.sizes}
-          className='absolute right-0 left-0 -z-15 transform-gpu will-change-transform'
+          ref={layerCityRef}
+          width={1440}
+          height={902}
+          className='absolute right-0 left-0 -z-15 w-full transform-gpu object-cover will-change-transform'
           priority
           quality={90}
         />
-        {/* Ground layer - foreground parallax */}
         <Image
-          src='/sections/festivales/2025/images/ground.png'
-          ref={layerGroundRef}
+          src='/sections/festivales/2025/images/GROUND.webp'
           alt='Imágen del suelo de coquimbo destruído por un frijol maligno'
-          width={imageSizes.ground.breakpoints.desktop.width}
-          height={imageSizes.ground.breakpoints.desktop.height}
-          sizes={imageSizes.ground.sizes}
-          className='absolute right-0 bottom-0 left-0 -z-10 transform-gpu will-change-transform'
+          ref={layerGroundRef}
+          width={1440}
+          height={648}
+          className='absolute right-0 bottom-0 left-0 -z-10 w-full transform-gpu object-cover will-change-transform'
           priority
           quality={90}
         />
-        {/* Rock elements - static for now */}
         <Image
-          src='/sections/festivales/2025/images/rock-center.png'
+          src='/sections/festivales/2025/images/ROCKS.webp'
           alt='Imágen de la roca central de coquimbo destruída por un frijol maligno'
-          width={186}
-          height={339}
-          className='absolute top-1/2 right-0 left-0 -z-5 mx-auto'
-          priority
-        />
-        <Image
-          src='/sections/festivales/2025/images/rock-left.png'
-          alt='Imágen de la roca izquierda de coquimbo destruída por un frijol maligno'
-          width={498}
-          height={574}
-          className='absolute top-0 left-0 -z-5'
-          priority
-        />
-        <Image
-          src='/sections/festivales/2025/images/rock-right.png'
-          alt='Imágen de la roca derecha de coquimbo destruída por un frijol maligno'
-          width={333}
-          height={430}
-          className='absolute top-0 right-0 -z-5'
+          width={1317}
+          height={798}
+          className='animate-rock-bounce absolute right-0 left-0 -z-5 mx-auto'
           priority
         />
       </div>
