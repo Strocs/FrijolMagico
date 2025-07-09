@@ -5,9 +5,20 @@
   --color-2025-white: #ffffff;
   --color-2025-yellow: #ffebd2;
   --font-superfortress: var(--font-superfortress), sans-serif;
+  --animate-rock-bounce: rock-bounce 5s ease-in-out infinite;
 }
 
 @utility text-stroke-* {
-  -webkit-text-stroke-width: --value(integer)px;
-  -webkit-text-stroke-color: --value(--color-*);
+  -webkit-text-stroke-width: --value(integer) px;
+  -webkit-text-stroke-color: --value(--color- *);
+}
+
+@keyframes rock-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
