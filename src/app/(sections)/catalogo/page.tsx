@@ -22,17 +22,7 @@ export const metadata = {
 }
 
 export default async function CatalogPage() {
-  const { data: catalogData, error } = await getCatalogDataByEnv()
-
-  if (!catalogData) {
-    return (
-      <ErrorSection
-        error={
-          error || 'Error al cargar el catálogo. Por favor, intente nuevamente.'
-        }
-      />
-    )
-  }
+  const { data, error, success } = await getCatalogDataByEnv()
 
   return (
     <>
@@ -45,12 +35,18 @@ export default async function CatalogPage() {
       <main className='container w-full py-8'>
         {/* Search and Filter Section */}
         <CatalogFiltersInitializer />
-        <Suspense fallback={<CatalogSearchSectionLoader />}>
-          <CatalogSearchSection catalogData={catalogData} />
-        </Suspense>
-        <Suspense fallback={<CatalogCardLoader />}>
-          <CatalogList catalog={catalogData} />
-        </Suspense>
+        {!success && error ? (
+          <ErrorSection error={error.message} />
+        ) : (
+          <>
+            <Suspense fallback={<CatalogSearchSectionLoader />}>
+              <CatalogSearchSection catalogData={data || []} />
+            </Suspense>
+            <Suspense fallback={<CatalogCardLoader />}>
+              <CatalogList catalog={data || []} />
+            </Suspense>
+          </>
+        )}
       </main>
       <CatalogPanel />
     </>

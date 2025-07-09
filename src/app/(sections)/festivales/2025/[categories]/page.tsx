@@ -13,6 +13,48 @@ type CategoryParams = {
   categories: keyof typeof siteData.selected_artists.seo.category
 }
 
+export default async function ApprovedArtistsPage({
+  params,
+}: {
+  params: Promise<CategoryParams>
+}) {
+  const { data, success, error } = await getApprovedArtistsDataByEnv()
+
+  const groupedArtists = Object.groupBy(data || [], ({ work_area }) =>
+    normalizeString(work_area),
+  )
+
+  const { categories } = await params
+  const artistsByCategory = groupedArtists[categories]
+
+  return (
+    <>
+      <Header
+        title={siteData.selected_artists.title}
+        subTitle={siteData.selected_artists.subtitle}
+      />
+      <main className={`relative container mx-auto h-full px-4 py-8`}>
+        <ViewTransition name='transition-logo'>
+          <div className='fixed right-0 bottom-2 scale-75'>
+            <LogoHomeLink />
+          </div>
+        </ViewTransition>
+        {!success && error ? (
+          <ErrorSection error={error.message} />
+        ) : (
+          <>
+            <ApprovedArtistsCategoriesNav currentCategory={categories} />
+            <ApprovedArtistsPresentation
+              artists={artistsByCategory || []}
+              key={categories}
+            />
+          </>
+        )}
+      </main>
+    </>
+  )
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -30,60 +72,4 @@ export async function generateStaticParams() {
   return siteData.selected_artists.categories.map((category) => ({
     categories: normalizeString(category),
   }))
-}
-
-export default async function ApprovedArtistsPage({
-  params,
-}: {
-  params: Promise<CategoryParams>
-}) {
-  const { data: approvedArtistsData, error } =
-    await getApprovedArtistsDataByEnv()
-
-  if (!approvedArtistsData) {
-    return (
-      <ErrorSection
-        error={
-          error ||
-          'Error al cargar los artistas seleccionados. Por favor, intente nuevamente.'
-        }
-      />
-    )
-  }
-
-  const groupedArtists = Object.groupBy(approvedArtistsData, ({ work_area }) =>
-    normalizeString(work_area),
-  )
-
-  const { categories } = await params
-
-  const artists = groupedArtists[categories] || []
-
-  if (artists.length === 0) {
-    return (
-      <ErrorSection
-        error={
-          'Ocurrió un error al cargar los artistas seleccionados. Por favor, intente nuevamente.'
-        }
-      />
-    )
-  }
-
-  return (
-    <>
-      <Header
-        title={siteData.selected_artists.title}
-        subTitle={siteData.selected_artists.subtitle}
-      />
-      <main className={`relative container mx-auto h-full px-4 py-8`}>
-        <ViewTransition name='transition-logo'>
-          <div className='fixed right-0 bottom-2 scale-75'>
-            <LogoHomeLink />
-          </div>
-        </ViewTransition>
-        <ApprovedArtistsCategoriesNav currentCategory={categories} />
-        <ApprovedArtistsPresentation artists={artists} key={categories} />
-      </main>
-    </>
-  )
 }

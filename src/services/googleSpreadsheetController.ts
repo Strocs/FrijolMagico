@@ -11,11 +11,11 @@ export const googleSpreadsheetController = async <T>({
   apiKey,
   headers,
 }: GoogleSpreadsheetConfig): Promise<T[]> => {
-  if (!sheetId || !apiKey) {
-    throw new Error('Missing Google Sheets configuration: sheetId or apiKey is undefined.')
-  }
-
   try {
+    if (!sheetId || !apiKey) {
+      throw new Error('Falta configuración de Google Sheets: sheetId o apiKey.')
+    }
+
     const doc = new GoogleSpreadsheet(sheetId, {
       apiKey,
     })
@@ -34,7 +34,10 @@ export const googleSpreadsheetController = async <T>({
 
     return await Promise.all(data)
   } catch (error) {
-    console.error('Error fetching Google Sheets data:', error)
-    return []
+    const err = error as Error
+    console.error(err)
+    return Promise.reject({
+      message: err.message,
+    })
   }
 }

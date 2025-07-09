@@ -11,13 +11,25 @@ export enum approvedArtistsTableHeaders {
 
 // Initialize the Google Spreadsheet
 export async function getApprovedArtistsData(): Promise<ApprovedArtist[]> {
-  const data = await googleSpreadsheetController<ApprovedArtist>({
-    sheetId: process.env.APPROVED_ARTISTS_SHEET_ID,
-    apiKey: process.env.GOOGLE_API_KEY,
-    headers: approvedArtistsTableHeaders,
-  })
+  try {
+    if (!process.env.APPROVED_ARTISTS_SHEET_ID || !process.env.GOOGLE_API_KEY) {
+      throw new Error('Falta configuración de Google Sheets: APPROVED_ARTISTS_SHEET_ID o GOOGLE_API_KEY.')
+    }
 
-  return data || []
+    const data = await googleSpreadsheetController<ApprovedArtist>({
+      sheetId: process.env.APPROVED_ARTISTS_SHEET_ID,
+      apiKey: process.env.GOOGLE_API_KEY,
+      headers: approvedArtistsTableHeaders,
+    })
+
+    return data
+  } catch (error) {
+    const err = error as Error
+    console.error(err.message)
+    return Promise.reject({
+      message: 'Error al obtener los artistas aprobados.',
+    })
+  }
 }
 
 // Re-export mock function for development/testing when Google Sheets isn't available

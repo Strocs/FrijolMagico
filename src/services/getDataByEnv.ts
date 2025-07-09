@@ -1,8 +1,11 @@
+import { ErrorObject } from "@/types/errors"
+
 type Env = 'production' | 'preview' | 'development' | string
 
 export interface DataResult<T> {
   data: T[] | null
-  error: string | null
+  error?: ErrorObject
+  success: boolean
 }
 
 /**
@@ -13,21 +16,23 @@ export async function getDataByEnv<T>(
   realFn: () => Promise<T[]>,
   mockFn?: () => T[]
 ): Promise<DataResult<T>> {
-  let data: T[] | null = null
-  let error: string | null = null
-  const env: Env = process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
-
   try {
+    let data: T[] | null = null
+    const env: Env = process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
+
     if (mockFn && env !== 'production' && env !== 'preview') {
       data = mockFn()
-      // Simula delay en desarrollo/preview
+      // Simula delay en desarrollo
       await new Promise((resolve) => setTimeout(resolve, 500))
     } else {
       data = await realFn()
     }
-  } catch (err) {
-    console.error('Error loading data:', err)
-    error = 'Error al cargar los datos. Por favor, intente nuevamente más tarde.'
+
+    return { data, success: true }
+  } catch {
+    return {
+      data: null,
+      success: false
+    }
   }
-  return { data, error }
 }
