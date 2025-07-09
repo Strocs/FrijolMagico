@@ -59,7 +59,7 @@ export const ApprovedArtistsPresentation = ({
               href={formatUrl(artist.rrss)}
               target='_blank'
               rel='noopener noreferrer'
-              className='font-superfortress text-2025-orange text-stroke-2025-yellow text-stroke-5 text-lg [paint-order:stroke_fill] md:text-4xl'>
+              className='font-superfortress text-2025-orange text-stroke-fm-white text-stroke-5 text-lg [paint-order:stroke_fill] md:text-4xl'>
               {artist.name}
             </a>
           </li>
