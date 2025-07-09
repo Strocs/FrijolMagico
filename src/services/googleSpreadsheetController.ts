@@ -12,8 +12,7 @@ export const googleSpreadsheetController = async <T>({
   headers,
 }: GoogleSpreadsheetConfig): Promise<T[]> => {
   if (!sheetId || !apiKey) {
-    console.error('Missing Google Sheets configuration')
-    return []
+    throw new Error('Missing Google Sheets configuration: sheetId or apiKey is undefined.')
   }
 
   try {

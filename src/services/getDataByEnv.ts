@@ -16,6 +16,7 @@ export async function getDataByEnv<T>(
   let data: T[] | null = null
   let error: string | null = null
   const env: Env = process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
+
   try {
     if (mockFn && env !== 'production' && env !== 'preview') {
       data = mockFn()
@@ -26,7 +27,7 @@ export async function getDataByEnv<T>(
     }
   } catch (err) {
     console.error('Error loading data:', err)
-    error = 'Error al cargar los datos. Por favor, intente nuevamente.'
+    error = 'Error al cargar los datos. Por favor, intente nuevamente más tarde.'
   }
   return { data, error }
 }
