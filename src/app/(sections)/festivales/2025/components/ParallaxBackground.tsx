@@ -82,7 +82,7 @@ export const ParallaxBackground = () => {
 
   return (
     <div ref={containerRef} className='relative -z-10 overflow-hidden'>
-      <div className='from-2025-yellow to-2025-orange/75 text-2025-white fixed inset-0 bg-gradient-to-tr'>
+      <div className='from-2025-yellow to-2025-orange fixed inset-0 bg-gradient-to-tr'>
         <Image
           src='/sections/festivales/2025/images/CITY.webp'
           alt='Imágen de la ciudad de Coquimbo destruída por un frijol maligno'
