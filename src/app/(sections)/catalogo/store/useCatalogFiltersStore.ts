@@ -29,9 +29,9 @@ export const useCatalogFiltersStore = create<CatalogFiltersState>((set) => ({
         ciudad: uniqueCiudad,
         busqueda: merged.busqueda,
       }
-      // Actualiza la URL
+
       updateURLParams(updated)
-      return { filters: updated }
+      return { filters: updated, isReady: true }
     })
   },
   initializeFromURL: () => {
