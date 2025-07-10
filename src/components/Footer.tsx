@@ -7,10 +7,16 @@ import { SpotifyCard } from '@/app/(home)/components/SpotifyCard'
 import { RRSSCard } from '@/app/(home)/components/RRSSCard'
 import { BackToTop } from './BackToTop'
 import { paths } from '@/config/paths'
+import { cn } from '@/lib/utils'
 
-export const Footer = () => {
+interface FooterProps {
+  doodleColor?: string
+}
+
+export const Footer = ({ doodleColor = 'text-fm-green' }: FooterProps) => {
   return (
-    <footer className='mx-auto w-full max-w-3xl px-4 lg:pb-10'>
+    <footer
+      className={cn('mx-auto w-full max-w-3xl px-4 lg:pb-10', doodleColor)}>
       <BackToTop />
       <DoodleLine />
       <Grid

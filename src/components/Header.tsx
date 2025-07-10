@@ -12,6 +12,7 @@ interface HeaderProps {
   title: string
   subTitle?: string
   description?: string
+  doodleColor?: string
   fontFamily?: StylesClassProps
   textColor?: StylesClassProps
   fontSize?: StylesClassProps
@@ -21,6 +22,7 @@ export const Header = ({
   title,
   subTitle,
   description,
+  doodleColor = 'text-fm-green',
   fontFamily = {
     titleClass: 'font-josefin',
     subTitleClass: 'font-josefin',
@@ -39,7 +41,7 @@ export const Header = ({
   },
 }: HeaderProps) => {
   return (
-    <header className={cn('space-y-4 px-2 pt-16')}>
+    <header className={cn('space-y-4 px-2 pt-16', doodleColor)}>
       <div className='flex flex-col gap-2'>
         <ReactMarkdown
           components={{

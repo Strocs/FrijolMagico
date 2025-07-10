@@ -44,6 +44,7 @@ export default async function ApprovedArtistsPage({
           titleClass: 'text-4xl sm:text-6xl',
           subTitleClass: 'text-3xl',
         }}
+        doodleColor='text-2025-white'
       />
       <main className={`relative container mx-auto h-full py-8`}>
         <ViewTransition name='transition-logo'>
