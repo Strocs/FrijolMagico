@@ -6,6 +6,7 @@ import { useState, useCallback } from 'react'
 import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
 import type { FilterKey } from '../lib/filterKeys'
 import { CatalogFiltersBarLoader } from './CatalogSkeletonLoaders'
+import { urlHasFilters } from '../lib/urlFilters'
 
 interface CatalogFilterBarProps {
   catalogData: CatalogArtist[]
@@ -86,7 +87,7 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
   const areaFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.category)
 
   return (
-    <div className='flex flex-wrap justify-center gap-4'>
+    <div className='flex shrink-0 flex-wrap justify-center gap-4'>
       <CatalogFilter
         title='Ciudad'
         filterKey='city'
@@ -107,6 +108,15 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
         onSelect={handleSelect}
         onClear={handleClear}
       />
+      {urlHasFilters() && (
+        <button
+          onClick={() =>
+            setFilters({ ciudad: [], categoria: [], busqueda: '' })
+          }
+          className='border-fm-orange/30 bg-fm-orange/80 text-fm-white hover:bg-fm-orange flex cursor-pointer items-center gap-2 rounded-xl border border-dashed px-3 py-1.5 text-sm transition-colors'>
+          <span>Limpiar filtros</span>
+        </button>
+      )}
     </div>
   )
 }
