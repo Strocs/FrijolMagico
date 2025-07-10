@@ -15,7 +15,7 @@ export const ApprovedArtistsCategoriesNav = ({
         <Link
           key={category}
           className={cn(
-            'font-superfortress bg-2025-yellow text-2025-orange outline-2025-orange rounded-lg px-4 py-1 leading-none font-light outline transition duration-300 outline-dashed md:px-6 md:text-xl md:hover:scale-105',
+            'font-superfortress bg-2025-white text-2025-orange outline-2025-orange rounded-lg px-4 py-1 leading-none font-light outline transition duration-300 outline-dashed md:px-6 md:text-xl md:hover:scale-105',
             {
               'bg-2025-orange text-fm-white outline-none md:scale-110':
                 normalizeString(category) === currentCategory,
