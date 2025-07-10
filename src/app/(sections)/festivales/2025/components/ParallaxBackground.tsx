@@ -40,7 +40,7 @@ export const ParallaxBackground = () => {
         tl.fromTo(
           layerCityRef.current,
           {
-            yPercent: 25, // Start 20% above its natural position
+            yPercent: 50, // Start 20% above its natural position
           },
           {
             yPercent: 0, // End 20% below its natural position
@@ -58,7 +58,7 @@ export const ParallaxBackground = () => {
         tl.fromTo(
           layerGroundRef.current,
           {
-            yPercent: 100, // Start 50% below its natural position
+            yPercent: 300,
           },
           {
             yPercent: 0, // End 50% above its natural position
@@ -82,19 +82,9 @@ export const ParallaxBackground = () => {
 
   return (
     <div ref={containerRef} className='relative -z-10 overflow-hidden'>
-      <div className='bg-2025-yellow fixed inset-0 scale-105'>
-        {/* Overlay blur effect */}
-        <div className='fixed inset-0 z-0 bg-transparent backdrop-blur-[0px]'></div>
-        <Image
-          src='/sections/festivales/2025/images/BACK.webp'
-          alt='Fondo de la sección de festivales 2025'
-          width={1440}
-          height={1786}
-          className='absolute -top-40 -z-20 w-full object-cover'
-          sizes='100vw'
-          priority
-          quality={90}
-        />
+      <div className='bg-2025-pink/75 fixed inset-0 scale-105'>
+        <div className='fixed inset-0 bg-transparent backdrop-blur-sm'></div>
+        <div className='bg-2025-yellow absolute -z-20 aspect-square w-full rounded-full'></div>
         <Image
           src='/sections/festivales/2025/images/CITY.webp'
           alt='Imágen de la ciudad de coquimbo destruída por un frijol maligno'
@@ -103,7 +93,6 @@ export const ParallaxBackground = () => {
           height={902}
           className='absolute right-0 left-0 -z-15 w-full transform-gpu object-cover will-change-transform'
           priority
-          quality={90}
         />
         <Image
           src='/sections/festivales/2025/images/GROUND.webp'
@@ -113,7 +102,6 @@ export const ParallaxBackground = () => {
           height={648}
           className='absolute right-0 bottom-0 left-0 -z-10 w-full transform-gpu object-cover will-change-transform'
           priority
-          quality={90}
         />
         <Image
           src='/sections/festivales/2025/images/ROCKS.webp'
