@@ -30,7 +30,6 @@ export const ApprovedArtistsPresentation = ({
           end: () => `+=${(containerRef.current?.offsetHeight || 500) * 8}`,
           scrub: true,
           pin: true,
-          markers: true,
           onEnter: () => {
             if (scrollIconRef.current) {
               scrollIconRef.current.classList.add('opacity-0')
