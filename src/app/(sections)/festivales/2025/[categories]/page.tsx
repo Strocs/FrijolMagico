@@ -32,6 +32,14 @@ export default async function ApprovedArtistsPage({
       <Header
         title={siteData.selected_artists.title}
         subTitle={siteData.selected_artists.subtitle}
+        fontFamily={{
+          titleClass: 'font-superfortress',
+          subTitleClass: 'font-superfortress',
+        }}
+        textColor={{
+          titleClass: 'text-2025-white',
+          subTitleClass: 'text-2025-orange',
+        }}
       />
       <main className={`relative container mx-auto h-full px-4 py-8`}>
         <ViewTransition name='transition-logo'>
