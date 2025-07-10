@@ -2,8 +2,9 @@
 
 @theme inline {
   --color-2025-orange: #b3636b;
-  --color-2025-white: #ffffff;
-  --color-2025-yellow: #ffebd2;
+  --color-2025-white: #fff2ee;
+  --color-2025-yellow: #ffdfc4;
+  --color-2025-pink: #ffa590;
   --font-superfortress: var(--font-superfortress), sans-serif;
   --animate-rock-bounce: rock-bounce 5s ease-in-out infinite;
 }
