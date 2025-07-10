@@ -25,7 +25,7 @@ export const ApprovedArtistsPresentation = ({
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
-          start: 'top 15%',
+          start: 'top 10%',
           end: () => `+=${(container.current?.offsetHeight || 500) * 8}`,
           scrub: true,
           pin: true,
@@ -68,7 +68,7 @@ export const ApprovedArtistsPresentation = ({
         className='fixed right-0 bottom-16 left-0 z-0 mx-auto flex w-fit flex-col items-center transition-opacity duration-500'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='stroke-2025-yellow h-24 w-24 animate-bounce'
+          className='stroke-2025-orange h-24 w-24 animate-bounce'
           viewBox='0 0 24 24'
           fill='none'
           strokeWidth='3'
@@ -76,7 +76,7 @@ export const ApprovedArtistsPresentation = ({
           strokeLinejoin='round'>
           <path d='M12 5v14m7-7l-7 7-7-7' />
         </svg>
-        <span className='font-superfortress text-stroke-3 text-stroke-2025-yellow text-2025-orange text-lg [paint-order:stroke_fill]'>
+        <span className='font-superfortress text-stroke-3 text-stroke-2025-white text-2025-orange text-xl [paint-order:stroke_fill]'>
           Scroll para revelar a los artistas seleccionados
         </span>
       </div>
@@ -84,7 +84,7 @@ export const ApprovedArtistsPresentation = ({
       <section
         ref={container}
         className='container grid h-full place-items-center overflow-x-hidden pt-20'>
-        <ul className='flex h-min flex-wrap justify-center gap-2 pb-46'>
+        <ul className='flex h-min flex-wrap justify-center gap-x-2 pb-52'>
           {artists.map((artist) => (
             <li
               key={artist.id}
@@ -93,7 +93,7 @@ export const ApprovedArtistsPresentation = ({
                 href={formatUrl(artist.rrss)}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='font-superfortress text-2025-orange text-stroke-fm-white text-stroke-5 text-lg [paint-order:stroke_fill] md:text-4xl'>
+                className='font-superfortress text-2025-orange text-stroke-fm-white text-stroke-5 text-lg [paint-order:stroke_fill] md:text-5xl'>
                 {artist.name}
               </a>
             </li>
