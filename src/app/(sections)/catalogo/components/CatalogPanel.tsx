@@ -21,10 +21,25 @@ export const CatalogPanel = () => {
   useEffect(() => {
     if (isArtistPanelOpen) {
       setIsVisible(true)
+      // Push a new state to the history stack when opening the panel
+      window.history.pushState({ artistPanel: true }, '')
     } else {
       setIsVisible(false)
     }
   }, [isArtistPanelOpen])
+
+  // Handle back gesture (popstate) to close the panel instead of navigating back
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isArtistPanelOpen) {
+        setArtistPanelOpen(false)
+      }
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+    }
+  }, [isArtistPanelOpen, setArtistPanelOpen])
 
   if (!isVisible) return null
 
