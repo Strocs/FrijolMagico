@@ -71,36 +71,37 @@ export const ParallaxBackground = () => {
   )
 
   return (
-    <div ref={containerRef} className='relative -z-10 overflow-hidden'>
-      <div className='from-2025-yellow to-2025-orange fixed inset-0 bg-gradient-to-tr'>
-        <Image
-          src='/sections/festivales/2025/images/CITY.webp'
-          alt='Imágen de la ciudad de Coquimbo destruída por un frijol maligno'
-          ref={layerCityRef}
-          loading='eager'
-          width={1440}
-          height={902}
-          sizes='(max-width: 768px) 50vw, 1440px'
-          className='absolute right-0 bottom-0 left-0 -z-15 w-full translate-y-[70%] transform-gpu object-cover will-change-transform sm:bottom-0'
-        />
-        <Image
-          src='/sections/festivales/2025/images/GROUND.webp'
-          alt='Suelo de Coquimbo destruído por un frijol maligno'
-          ref={layerGroundRef}
-          width={1440}
-          height={648}
-          sizes='(max-width: 768px) 50vw, 1440px'
-          className='absolute right-0 bottom-0 left-0 -z-10 w-full translate-y-[200%] transform-gpu object-cover will-change-transform'
-        />
-        <Image
-          src='/sections/festivales/2025/images/ROCKS.webp'
-          alt='Rocas flotando encima de Coquimbo, destruída por un frijol maligno'
-          width={1317}
-          height={798}
-          sizes='(max-width: 768px) 50vw, 1317px'
-          className='animate-rock-bounce absolute right-0 bottom-8 left-0 -z-5 mx-auto'
-        />
-      </div>
+    <div
+      ref={containerRef}
+      aria-hidden
+      className='from-2025-yellow to-2025-orange fixed inset-0 -z-10 h-screen overflow-hidden bg-gradient-to-tr'>
+      <Image
+        src='/sections/festivales/2025/images/CITY.webp'
+        alt='Imágen de la ciudad de Coquimbo destruída por un frijol maligno'
+        ref={layerCityRef}
+        loading='eager'
+        width={1440}
+        height={902}
+        sizes='(max-width: 768px) 50vw, 1440px'
+        className='absolute right-0 bottom-0 left-0 -z-15 w-full translate-y-[70%] transform-gpu object-cover will-change-transform sm:bottom-0'
+      />
+      <Image
+        src='/sections/festivales/2025/images/GROUND.webp'
+        alt='Suelo de Coquimbo destruído por un frijol maligno'
+        ref={layerGroundRef}
+        width={1440}
+        height={648}
+        sizes='(max-width: 768px) 50vw, 1440px'
+        className='absolute right-0 bottom-0 left-0 -z-10 w-full translate-y-[200%] transform-gpu object-cover will-change-transform'
+      />
+      <Image
+        src='/sections/festivales/2025/images/ROCKS.webp'
+        alt='Rocas flotando encima de Coquimbo, destruída por un frijol maligno'
+        width={1317}
+        height={798}
+        sizes='(max-width: 768px) 50vw, 1317px'
+        className='animate-rock-bounce absolute right-0 bottom-8 left-0 -z-5 mx-auto'
+      />
     </div>
   )
 }
