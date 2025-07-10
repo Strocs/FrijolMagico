@@ -2,26 +2,18 @@
 
 :root {
   --top-bar-height: 0px;
-
-  --green: oklch(0.4866 0.1317 149.67);
-  --yellow: #fac331;
-  --orange: #ef5026;
-  --white: #f1f5f9;
-  --dark: #000000;
-
   --w: tan(atan2(var(--w_raw), 1px));
   --px-w: calc(var(--w) * 1px);
   --radius: 0.625rem;
 }
 
 @theme inline {
-  --color-fm-white: var(--white);
+  --color-fm-white: oklch(96.826% 0.00696 248.26);
   --color-fm-dark: var(--color-neutral-900);
   --color-fm-black: var(--color-neutral-800);
-
-  --color-fm-green: var(--green);
-  --color-fm-orange: var(--orange);
-  --color-fm-yellow: var(--yellow);
+  --color-fm-green: oklch(0.4866 0.1317 149.67);
+  --color-fm-orange: oklch(64.598% 0.20233 35.168);
+  --color-fm-yellow: oklch(84.405% 0.16049 86.113);
 
   --font-noto: 'Noto Sans', sans-serif;
   --font-josefin: 'Josefin Sans', sans-serif;
@@ -32,8 +24,8 @@
 }
 
 @utility text-stroke-* {
-  -webkit-text-stroke-width: --value(integer)px;
-  -webkit-text-stroke-color: --value(--color-*);
+  -webkit-text-stroke-width: --value(integer) px;
+  -webkit-text-stroke-color: --value(--color- *);
 }
 
 @keyframes card-slides {
