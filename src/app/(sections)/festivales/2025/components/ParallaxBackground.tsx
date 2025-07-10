@@ -33,13 +33,10 @@ export const ParallaxBackground = () => {
 
       // City layer parallax
       if (layerCityRef.current) {
-        tl.fromTo(
+        tl.to(
           layerCityRef.current,
           {
-            yPercent: 75,
-          },
-          {
-            yPercent: 0,
+            yPercent: -50,
             ease: 'none',
             duration: 1,
             transformOrigin: 'center center',
@@ -51,13 +48,10 @@ export const ParallaxBackground = () => {
 
       // Ground layer parallax - appears last
       if (layerGroundRef.current) {
-        tl.fromTo(
+        tl.to(
           layerGroundRef.current,
           {
-            yPercent: 300,
-          },
-          {
-            yPercent: 0,
+            yPercent: -200,
             ease: 'none',
             duration: 1,
             transformOrigin: 'center bottom',
@@ -87,7 +81,7 @@ export const ParallaxBackground = () => {
           width={1440}
           height={902}
           sizes='(max-width: 768px) 50vw, 1440px'
-          className='absolute right-0 bottom-6 left-0 -z-15 w-full transform-gpu object-cover will-change-transform sm:bottom-0'
+          className='absolute right-0 bottom-0 left-0 -z-15 w-full translate-y-[70%] transform-gpu object-cover will-change-transform sm:bottom-0'
         />
         <Image
           src='/sections/festivales/2025/images/GROUND.webp'
@@ -96,7 +90,7 @@ export const ParallaxBackground = () => {
           width={1440}
           height={648}
           sizes='(max-width: 768px) 50vw, 1440px'
-          className='absolute right-0 bottom-0 left-0 -z-10 w-full transform-gpu object-cover will-change-transform'
+          className='absolute right-0 bottom-0 left-0 -z-10 w-full translate-y-[200%] transform-gpu object-cover will-change-transform'
         />
         <Image
           src='/sections/festivales/2025/images/ROCKS.webp'
