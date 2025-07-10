@@ -4,7 +4,7 @@ import { formatUrl } from '@/lib/utils'
 import { ApprovedArtist } from '@/types/artists'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(useGSAP)
@@ -15,8 +15,13 @@ export const ApprovedArtistsPresentation = ({
 }: {
   artists: ApprovedArtist[]
 }) => {
-  const container = useRef<HTMLUListElement>(null)
+  const containerRef = useRef<HTMLUListElement>(null)
   const scrollIconRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!scrollIconRef.current) return
+    scrollIconRef.current.hidden = false
+  }, [])
 
   useGSAP(
     () => {
@@ -24,9 +29,9 @@ export const ApprovedArtistsPresentation = ({
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: container.current,
+          trigger: containerRef.current,
           start: 'top 10%',
-          end: () => `+=${(container.current?.offsetHeight || 500) * 8}`,
+          end: () => `+=${(containerRef.current?.offsetHeight || 500) * 8}`,
           scrub: true,
           pin: true,
           onEnter: () => {
@@ -58,13 +63,14 @@ export const ApprovedArtistsPresentation = ({
         })
       })
     },
-    { scope: container },
+    { scope: containerRef },
   )
 
   return (
     <>
       <div
         ref={scrollIconRef}
+        hidden
         className='fixed right-0 bottom-1/4 left-0 z-0 mx-auto flex w-fit flex-col items-center transition-opacity duration-500 not-landscape:bottom-4 2xl:bottom-1/3'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -82,7 +88,7 @@ export const ApprovedArtistsPresentation = ({
       </div>
 
       <section
-        ref={container}
+        ref={containerRef}
         className='container grid h-full place-items-center overflow-x-clip pt-20'>
         <ul className='flex h-min flex-wrap justify-center sm:gap-x-2 sm:pb-54'>
           {artists.map((artist) => (
