@@ -14,6 +14,7 @@ interface HeaderProps {
   description?: string
   fontFamily?: StylesClassProps
   textColor?: StylesClassProps
+  fontSize?: StylesClassProps
 }
 
 export const Header = ({
@@ -31,6 +32,11 @@ export const Header = ({
     subTitleClass: 'text-fm-orange',
     descriptionClass: 'text-fm-green',
   },
+  fontSize = {
+    titleClass: 'text-5xl sm:text-6xl',
+    subTitleClass: 'text-4xl',
+    descriptionClass: 'text-base',
+  },
 }: HeaderProps) => {
   return (
     <header className={cn('space-y-4 px-2 pt-16')}>
@@ -40,9 +46,10 @@ export const Header = ({
             h1: ({ ...props }) => (
               <h1
                 className={cn(
-                  'py-2 text-center text-5xl sm:text-6xl',
+                  'py-2 text-center',
                   textColor.titleClass,
                   fontFamily.titleClass,
+                  fontSize.titleClass,
                 )}
                 {...props}
               />
@@ -56,9 +63,10 @@ export const Header = ({
               h2: ({ ...props }) => (
                 <h2
                   className={cn(
-                    'text-fm-orange -mt-6 py-2 text-center text-4xl',
+                    'text-fm-orange -mt-6 py-2 text-center',
                     textColor.subTitleClass,
                     fontFamily.subTitleClass,
+                    fontSize.subTitleClass,
                   )}
                   {...props}
                 />
@@ -77,6 +85,7 @@ export const Header = ({
                   'mx-auto max-w-prose text-center font-normal',
                   textColor.descriptionClass,
                   fontFamily.descriptionClass,
+                  fontSize.descriptionClass,
                 )}
                 {...props}
               />

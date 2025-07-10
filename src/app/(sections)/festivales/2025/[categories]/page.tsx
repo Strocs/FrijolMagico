@@ -40,8 +40,12 @@ export default async function ApprovedArtistsPage({
           titleClass: 'text-2025-white',
           subTitleClass: 'text-2025-orange',
         }}
+        fontSize={{
+          titleClass: 'text-4xl sm:text-6xl',
+          subTitleClass: 'text-3xl',
+        }}
       />
-      <main className={`relative container mx-auto h-full px-4 py-8`}>
+      <main className={`relative container mx-auto h-full py-8`}>
         <ViewTransition name='transition-logo'>
           <div className='fixed right-0 bottom-2 z-100 scale-75'>
             <LogoHomeLink />
