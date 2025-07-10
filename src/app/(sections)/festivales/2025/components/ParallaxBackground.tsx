@@ -82,13 +82,12 @@ export const ParallaxBackground = () => {
 
   return (
     <div ref={containerRef} className='relative -z-10 overflow-hidden'>
-      <div className='bg-2025-pink/75 fixed inset-0 scale-105'>
-        <div className='fixed inset-0 bg-transparent backdrop-blur-sm'></div>
-        <div className='bg-2025-yellow absolute -z-20 aspect-square w-full rounded-full'></div>
+      <div className='from-2025-yellow to-2025-orange/75 text-2025-white fixed inset-0 bg-gradient-to-tr'>
         <Image
           src='/sections/festivales/2025/images/CITY.webp'
-          alt='Imágen de la ciudad de coquimbo destruída por un frijol maligno'
+          alt='Imágen de la ciudad de Coquimbo destruída por un frijol maligno'
           ref={layerCityRef}
+          loading='eager'
           width={1440}
           height={902}
           className='absolute right-0 left-0 -z-15 w-full transform-gpu object-cover will-change-transform'
@@ -96,19 +95,21 @@ export const ParallaxBackground = () => {
         />
         <Image
           src='/sections/festivales/2025/images/GROUND.webp'
-          alt='Imágen del suelo de coquimbo destruído por un frijol maligno'
+          alt='Suelo de Coquimbo destruído por un frijol maligno'
           ref={layerGroundRef}
           width={1440}
+          loading='eager'
           height={648}
           className='absolute right-0 bottom-0 left-0 -z-10 w-full transform-gpu object-cover will-change-transform'
           priority
         />
         <Image
           src='/sections/festivales/2025/images/ROCKS.webp'
-          alt='Imágen de la roca central de coquimbo destruída por un frijol maligno'
+          alt='Rocas flotando encima de Coquimbo, destruída por un frijol maligno'
+          loading='eager'
           width={1317}
           height={798}
-          className='animate-rock-bounce absolute right-0 left-0 -z-5 mx-auto'
+          className='animate-rock-bounce absolute right-0 bottom-8 left-0 -z-5 mx-auto'
           priority
         />
       </div>
