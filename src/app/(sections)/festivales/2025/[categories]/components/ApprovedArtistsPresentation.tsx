@@ -65,10 +65,10 @@ export const ApprovedArtistsPresentation = ({
     <>
       <div
         ref={scrollIconRef}
-        className='fixed right-0 bottom-16 left-0 z-0 mx-auto flex w-fit flex-col items-center transition-opacity duration-500'>
+        className='fixed right-0 bottom-1/3 left-0 z-0 mx-auto flex w-fit flex-col items-center transition-opacity duration-500'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='stroke-2025-orange h-24 w-24 animate-bounce'
+          className='stroke-2025-white h-24 w-24 animate-bounce'
           viewBox='0 0 24 24'
           fill='none'
           strokeWidth='3'
@@ -83,8 +83,8 @@ export const ApprovedArtistsPresentation = ({
 
       <section
         ref={container}
-        className='container grid h-full place-items-center overflow-x-hidden pt-20'>
-        <ul className='flex h-min flex-wrap justify-center gap-x-2 pb-52'>
+        className='container grid h-full place-items-center overflow-x-clip pt-20'>
+        <ul className='flex h-min flex-wrap justify-center gap-x-2 pb-54'>
           {artists.map((artist) => (
             <li
               key={artist.id}
