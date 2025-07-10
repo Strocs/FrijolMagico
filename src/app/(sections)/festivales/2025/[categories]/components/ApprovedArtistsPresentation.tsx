@@ -88,12 +88,12 @@ export const ApprovedArtistsPresentation = ({
           {artists.map((artist) => (
             <li
               key={artist.id}
-              className='approved-artist group pointer-events-none rounded-lg px-2'>
+              className='approved-artist group pointer-events-none rounded-lg px-2 text-center'>
               <a
                 href={formatUrl(artist.rrss)}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='font-superfortress text-2025-orange text-stroke-2025-white text-stroke-3 2xl:text-stroke-6 group-hover:text-2025-pink hover:text-2025-pink lg:text-stroke-5 text-center text-lg leading-none transition-colors duration-300 ease-in-out [paint-order:stroke_fill] lg:text-4xl 2xl:text-5xl'>
+                className='font-superfortress text-2025-orange text-stroke-2025-white text-stroke-3 2xl:text-stroke-6 group-hover:text-2025-pink hover:text-2025-pink lg:text-stroke-5 inline-block text-lg leading-none transition-colors duration-300 ease-in-out [paint-order:stroke_fill] lg:text-4xl 2xl:text-5xl'>
                 {artist.name}
               </a>
             </li>
