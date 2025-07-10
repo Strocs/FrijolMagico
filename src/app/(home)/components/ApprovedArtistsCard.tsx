@@ -85,8 +85,9 @@ export const ApprovedArtistsCard = () => {
             alt='Ilustración de la ciudad de Coquimbo destruída por un Frijol Mágico'
             loading='eager'
             priority
-            width={420}
-            height={420}
+            width={1440}
+            height={902}
+            sizes='30vw'
             className='absolute right-0 bottom-4 left-0 m-auto w-full'
           />
           <Image
@@ -94,8 +95,9 @@ export const ApprovedArtistsCard = () => {
             alt='Ilustración de un Frijol Mágico maligno'
             loading='eager'
             priority
-            width={420}
-            height={420}
+            width={1217}
+            height={1648}
+            sizes='30vw'
             className='animate-rock-bounce absolute right-0 bottom-6 w-2/3 lg:-right-24 lg:-bottom-8 lg:w-full'
           />
 
@@ -122,9 +124,9 @@ export const ApprovedArtistsCard = () => {
             src='/sections/festivales/2025/images/GROUND.webp'
             alt='Ilustración de una mano indicando a los participantes del próximo festival'
             loading='eager'
-            priority
-            width={420}
-            height={420}
+            width={1440}
+            height={648}
+            sizes='50vw'
             className='absolute right-0 bottom-0 left-0 w-full'
           />
         </div>
