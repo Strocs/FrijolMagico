@@ -1,17 +1,18 @@
 @import 'tailwindcss';
 
 @theme inline {
-  --color-2025-orange: #b3636b;
-  --color-2025-white: #fff2ee;
-  --color-2025-yellow: #ffdfc4;
-  --color-2025-pink: #ffa590;
+  --color-2025-orange: oklch(59.331% 0.10329 14.304);
+  --color-2025-white: oklch(97.024% 0.01501 37.542);
+  --color-2025-yellow: oklch(92.327% 0.05031 62.25);
+  --color-2025-pink: oklch(80.637% 0.11154 33.77);
   --font-superfortress: var(--font-superfortress), sans-serif;
   --animate-rock-bounce: rock-bounce 5s ease-in-out infinite;
 }
 
+/* prettier-ignore */
 @utility text-stroke-* {
-  -webkit-text-stroke-width: --value(integer) px;
-  -webkit-text-stroke-color: --value(--color- *);
+  -webkit-text-stroke-width: --value(integer)px;
+  -webkit-text-stroke-color: --value(--color-*);
 }
 
 @keyframes rock-bounce {
