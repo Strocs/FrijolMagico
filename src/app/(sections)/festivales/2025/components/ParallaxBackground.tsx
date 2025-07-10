@@ -20,34 +20,30 @@ export const ParallaxBackground = () => {
 
   useGSAP(
     () => {
-      // Skip animations if user prefers reduced motion
       if (prefersReducedMotion) return
-
-      // Create a main timeline for better performance
       const tl = gsap.timeline()
 
-      // Shared ScrollTrigger configuration
       const scrollConfig = {
         trigger: containerRef.current,
-        start: 'top top', // Animation starts when the top of the body hits the top of the viewport
-        end: 'max', // Animation ends when the scroll position reaches the maximum scroll position of the page
+        start: 'top top',
+        end: 'max',
         scrub: prefersReducedMotion ? 0 : 1,
         invalidateOnRefresh: true,
       }
 
-      // City layer parallax - appears in middle of scroll
+      // City layer parallax
       if (layerCityRef.current) {
         tl.fromTo(
           layerCityRef.current,
           {
-            yPercent: 75, // Start 20% above its natural position
+            yPercent: 75,
           },
           {
-            yPercent: 0, // End 20% below its natural position
-            ease: 'none', // Use 'none' for linear scrubbing with ScrollTrigger
+            yPercent: 0,
+            ease: 'none',
             duration: 1,
             transformOrigin: 'center center',
-            force3D: true, // Force hardware acceleration
+            force3D: true,
           },
           0,
         )
@@ -61,11 +57,11 @@ export const ParallaxBackground = () => {
             yPercent: 300,
           },
           {
-            yPercent: 0, // End 50% above its natural position
-            ease: 'none', // Use 'none' for linear scrubbing with ScrollTrigger
+            yPercent: 0,
+            ease: 'none',
             duration: 1,
             transformOrigin: 'center bottom',
-            force3D: true, // Force hardware acceleration
+            force3D: true,
           },
           0,
         )
@@ -90,27 +86,25 @@ export const ParallaxBackground = () => {
           loading='eager'
           width={1440}
           height={902}
+          sizes='(max-width: 768px) 50vw, 1440px'
           className='absolute right-0 bottom-6 left-0 -z-15 w-full transform-gpu object-cover will-change-transform sm:bottom-0'
-          priority
         />
         <Image
           src='/sections/festivales/2025/images/GROUND.webp'
           alt='Suelo de Coquimbo destruído por un frijol maligno'
           ref={layerGroundRef}
           width={1440}
-          loading='eager'
           height={648}
+          sizes='(max-width: 768px) 50vw, 1440px'
           className='absolute right-0 bottom-0 left-0 -z-10 w-full transform-gpu object-cover will-change-transform'
-          priority
         />
         <Image
           src='/sections/festivales/2025/images/ROCKS.webp'
           alt='Rocas flotando encima de Coquimbo, destruída por un frijol maligno'
-          loading='eager'
           width={1317}
           height={798}
+          sizes='(max-width: 768px) 50vw, 1317px'
           className='animate-rock-bounce absolute right-0 bottom-8 left-0 -z-5 mx-auto'
-          priority
         />
       </div>
     </div>
