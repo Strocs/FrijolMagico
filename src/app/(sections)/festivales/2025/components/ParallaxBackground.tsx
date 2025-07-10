@@ -40,7 +40,7 @@ export const ParallaxBackground = () => {
         tl.fromTo(
           layerCityRef.current,
           {
-            yPercent: 50, // Start 20% above its natural position
+            yPercent: 75, // Start 20% above its natural position
           },
           {
             yPercent: 0, // End 20% below its natural position
@@ -90,7 +90,7 @@ export const ParallaxBackground = () => {
           loading='eager'
           width={1440}
           height={902}
-          className='absolute right-0 left-0 -z-15 w-full transform-gpu object-cover will-change-transform'
+          className='absolute right-0 bottom-6 left-0 -z-15 w-full transform-gpu object-cover will-change-transform sm:bottom-0'
           priority
         />
         <Image
