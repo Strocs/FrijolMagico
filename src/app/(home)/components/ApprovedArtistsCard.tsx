@@ -14,63 +14,46 @@ export const ApprovedArtistsCard = () => {
   const cardWrapperRef = useRef<HTMLAnchorElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
 
-  useGSAP(
-    (_, contextSafe) => {
-      const card = cardRef.current
-      const cardWrapper = cardWrapperRef.current
-      if (!card || !cardWrapper) return undefined
+  const { contextSafe } = useGSAP({ scope: cardWrapperRef })
 
-      // Defensive: contextSafe may be undefined in some edge cases
-      function safe<T extends (e: MouseEvent) => void>(fn: T): T {
-        return (contextSafe ? contextSafe(fn) : fn) as T
-      }
+  const handleMouseMove = contextSafe((e: React.MouseEvent) => {
+    const rect = cardRef?.current?.getBoundingClientRect()
+    if (!rect) return // Defensive check
 
-      // Mouse move handler for tilt
-      const handleMouseMove = safe((e: MouseEvent) => {
-        const rect = card.getBoundingClientRect()
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
-        const centerX = rect.width / 2
-        const centerY = rect.height / 2
-        const maxTilt = 8 // Maximum tilt in degrees
-        const rotateY = ((x - centerX) / centerX) * maxTilt
-        const rotateX = -((y - centerY) / centerY) * maxTilt
-        gsap.to(card, {
-          rotateY,
-          rotateX,
-          scale: 1.04,
-          transformPerspective: 800,
-          duration: 0.35,
-          ease: 'power2.out',
-        })
-      })
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const maxTilt = 8 // Maximum tilt in degrees
+    const rotateY = ((x - centerX) / centerX) * maxTilt
+    const rotateX = -((y - centerY) / centerY) * maxTilt
 
-      // Reset on mouse leave
-      const handleMouseLeave = safe(() => {
-        gsap.to(card, {
-          rotateY: 0,
-          rotateX: 0,
-          scale: 1,
-          duration: 0.5,
-          ease: 'power3.out',
-        })
-      })
+    gsap.to(cardRef.current, {
+      rotateY,
+      rotateX,
+      scale: 1.04,
+      transformPerspective: 800,
+      duration: 0.35,
+      ease: 'power2.out',
+    })
+  })
 
-      cardWrapper.addEventListener('mousemove', handleMouseMove)
-      cardWrapper.addEventListener('mouseleave', handleMouseLeave)
-
-      // Cleanup listeners
-      return () => {
-        cardWrapper.removeEventListener('mousemove', handleMouseMove)
-        cardWrapper.removeEventListener('mouseleave', handleMouseLeave)
-      }
-    },
-    { scope: cardWrapperRef },
-  )
+  // Reset on mouse leave
+  const handleMouseLeave = contextSafe(() => {
+    gsap.to(cardRef.current, {
+      rotateY: 0,
+      rotateX: 0,
+      scale: 1,
+      duration: 0.5,
+      ease: 'power3.out',
+    })
+  })
 
   return (
     <>
       <Link
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         ref={cardWrapperRef}
         href={paths.festival[2025].ilustracion}
         className='relative block size-full will-change-transform'>
@@ -87,9 +70,8 @@ export const ApprovedArtistsCard = () => {
             alt='Ilustración de una mano indicando a los participantes del próximo festival'
             loading='eager'
             priority
-            width={1217}
-            height={1648}
-            sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+            width={420}
+            height={420}
             className='absolute right-0 bottom-4 left-0 m-auto'
           />
           <Image
@@ -97,21 +79,17 @@ export const ApprovedArtistsCard = () => {
             alt='Ilustración de una mano indicando a los participantes del próximo festival'
             loading='eager'
             priority
-            width={1217}
-            height={1648}
-            sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+            width={420}
+            height={420}
             className='animate-rock-bounce absolute -right-24 -bottom-8'
           />
 
           <div className='flex h-full flex-col gap-4'>
-            <h2 className='sm:text-xl'>
-              Artistas Seleccionados <br />
-              <strong className='font-superfortress text-stroke-2025-white text-stroke-6 text-2025-orange block rounded-xl text-3xl leading-none font-black uppercase transition duration-300 [paint-order:stroke_fill]'>
-                <span className='text-2025-white text-stroke-2025-pink'>
-                  Frijol
-                </span>{' '}
-                <span className='text-2025-pink'>Mágico</span> <br /> 2025
-              </strong>
+            <h2 className='font-superfortress text-stroke-2025-white text-stroke-6 text-2025-orange block rounded-xl text-3xl leading-none font-black uppercase transition duration-300 [paint-order:stroke_fill]'>
+              <span className='text-2025-white text-stroke-2025-pink'>
+                Frijol
+              </span>{' '}
+              <span className='text-2025-pink'>Mágico</span> <br /> 2025
             </h2>
             <div>
               <p className='font-josefin text-sm leading-none uppercase'>
@@ -129,9 +107,8 @@ export const ApprovedArtistsCard = () => {
             alt='Ilustración de una mano indicando a los participantes del próximo festival'
             loading='eager'
             priority
-            width={1217}
-            height={1648}
-            sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+            width={420}
+            height={420}
             className='absolute right-0 bottom-0 left-0'
           />
         </div>
