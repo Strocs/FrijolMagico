@@ -74,7 +74,7 @@ export const ParallaxBackground = () => {
     <div
       ref={containerRef}
       aria-hidden
-      className='from-2025-yellow to-2025-orange fixed inset-0 -z-10 h-screen overflow-hidden bg-gradient-to-tr'>
+      className='from-2025-yellow to-2025-orange fixed inset-0 -z-20 h-screen overflow-hidden bg-gradient-to-tr'>
       <Image
         src='/sections/festivales/2025/images/CITY.webp'
         alt='Imágen de la ciudad de Coquimbo destruída por un frijol maligno'
