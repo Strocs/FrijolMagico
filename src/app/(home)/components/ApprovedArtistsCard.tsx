@@ -16,18 +16,13 @@ export const ApprovedArtistsCard = () => {
 
   const { contextSafe } = useGSAP({ scope: cardWrapperRef })
 
-  const handleMouseMove = contextSafe((e: React.MouseEvent) => {
-    const rect = cardRef?.current?.getBoundingClientRect()
-    if (!rect) return // Defensive check
-
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
+  // Helper: apply tilt effect
+  const applyTilt = (x: number, y: number, rect: DOMRect) => {
     const centerX = rect.width / 2
     const centerY = rect.height / 2
-    const maxTilt = 8 // Maximum tilt in degrees
+    const maxTilt = 8
     const rotateY = ((x - centerX) / centerX) * maxTilt
     const rotateX = -((y - centerY) / centerY) * maxTilt
-
     gsap.to(cardRef.current, {
       rotateY,
       rotateX,
@@ -36,10 +31,10 @@ export const ApprovedArtistsCard = () => {
       duration: 0.35,
       ease: 'power2.out',
     })
-  })
+  }
 
-  // Reset on mouse leave
-  const handleMouseLeave = contextSafe(() => {
+  // Helper: reset tilt
+  const resetTilt = () => {
     gsap.to(cardRef.current, {
       rotateY: 0,
       rotateX: 0,
@@ -47,13 +42,33 @@ export const ApprovedArtistsCard = () => {
       duration: 0.5,
       ease: 'power3.out',
     })
+  }
+
+  const handleMouseMove = contextSafe((e: React.MouseEvent) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    applyTilt(e.clientX - rect.left, e.clientY - rect.top, rect)
+  })
+
+  // Touch handlers
+  const handleTouchMove = contextSafe((e: React.TouchEvent) => {
+    if (!cardRef.current) return
+    const touch = e.touches[0]
+    const rect = cardRef.current.getBoundingClientRect()
+    applyTilt(touch.clientX - rect.left, touch.clientY - rect.top, rect)
+  })
+
+  const handleActionLeave = contextSafe(() => {
+    resetTilt()
   })
 
   return (
     <>
       <Link
         onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
+        onMouseLeave={handleActionLeave}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleActionLeave}
         ref={cardWrapperRef}
         href={paths.festival[2025].ilustracion}
         className='relative block size-full will-change-transform'>
@@ -67,28 +82,29 @@ export const ApprovedArtistsCard = () => {
           className='from-2025-yellow to-2025-orange text-2025-white relative size-full overflow-hidden rounded-2xl bg-gradient-to-tr p-6 will-change-transform'>
           <Image
             src='/sections/festivales/2025/images/CITY.webp'
-            alt='Ilustración de una mano indicando a los participantes del próximo festival'
+            alt='Ilustración de la ciudad de Coquimbo destruída por un Frijol Mágico'
             loading='eager'
             priority
             width={420}
             height={420}
-            className='absolute right-0 bottom-4 left-0 m-auto'
+            className='absolute right-0 bottom-4 left-0 m-auto w-full'
           />
           <Image
             src='/sections/festivales/2025/images/PJ.webp'
-            alt='Ilustración de una mano indicando a los participantes del próximo festival'
+            alt='Ilustración de un Frijol Mágico maligno'
             loading='eager'
             priority
             width={420}
             height={420}
-            className='animate-rock-bounce absolute -right-24 -bottom-8'
+            className='animate-rock-bounce absolute right-0 bottom-6 w-2/3 lg:-right-24 lg:-bottom-8 lg:w-full'
           />
 
           <div className='flex h-full flex-col gap-4'>
             <h2 className='font-superfortress text-stroke-2025-white text-stroke-6 text-2025-orange block rounded-xl text-3xl leading-none font-black uppercase transition duration-300 [paint-order:stroke_fill]'>
               <span className='text-2025-white text-stroke-2025-pink'>
                 Frijol
-              </span>{' '}
+              </span>
+              <br />
               <span className='text-2025-pink'>Mágico</span> <br /> 2025
             </h2>
             <div>
@@ -109,7 +125,7 @@ export const ApprovedArtistsCard = () => {
             priority
             width={420}
             height={420}
-            className='absolute right-0 bottom-0 left-0'
+            className='absolute right-0 bottom-0 left-0 w-full'
           />
         </div>
       </Link>
