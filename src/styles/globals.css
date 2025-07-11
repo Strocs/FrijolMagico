@@ -1,41 +1,42 @@
+@import './palettes/base.css';
+@import './palettes/festivales-2025.css';
 @import 'tailwindcss';
 
-:root {
-  --top-bar-height: 0px;
-  --w: tan(atan2(var(--w_raw), 1px));
-  --px-w: calc(var(--w) * 1px);
-  --radius: 0.625rem;
-}
-
-@theme inline {
-  --color-fm-white: oklch(96.826% 0.00696 248.26);
-  --color-fm-dark: var(--color-neutral-900);
-  --color-fm-black: var(--color-neutral-800);
-  --color-fm-green: oklch(0.4866 0.1317 149.67);
-  --color-fm-orange: oklch(64.598% 0.20233 35.168);
-  --color-fm-yellow: oklch(84.405% 0.16049 86.113);
-
+@theme {
   --font-noto: 'Noto Sans', sans-serif;
   --font-josefin: 'Josefin Sans', sans-serif;
+  --font-superfortress: 'Superfortress', sans-serif;
+}
 
+@theme {
   --animate-card-slides: card-slides 12s linear infinite;
-  --animate-slide-in-right: slide-in-right 0.3s ease-in-out forwards;
-  --animate-shine: shine 2s linear infinite;
+  --animate-soft-bounce: soft-bounce 5s ease-in-out infinite;
+
+  @keyframes card-slides {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc((-128px - 8px) * 4));
+    }
+  }
+
+  @keyframes soft-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
 }
 
+/* prettier-ignore */
 @utility text-stroke-* {
-  -webkit-text-stroke-width: --value(integer) px;
-  -webkit-text-stroke-color: --value(--color- *);
-}
-
-@keyframes card-slides {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(calc((-128px - 8px) * 4));
-  }
+  -webkit-text-stroke-width: --value(integer)px;
+  -webkit-text-stroke-color: --value(--color-*);
 }
 
 @layer utilities {
@@ -45,16 +46,6 @@
 
   .mirror-none {
     transform: scaleX(1);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
   }
 }
 
