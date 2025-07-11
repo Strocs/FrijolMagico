@@ -1,4 +1,5 @@
 import { ErrorObject } from "@/types/errors"
+import { googleSpreadsheetController } from "./googleSpreadsheetController"
 
 type Env = 'production' | 'preview' | 'development' | string
 
@@ -8,28 +9,38 @@ export interface DataResult<T> {
   success: boolean
 }
 
-/**
- * Obtiene datos usando la función real o mock según el entorno.
- * Si no se pasa mockFn, siempre usa realFn.
- */
-export async function getDataByEnv<T>(
-  realFn: () => Promise<T[]>,
-  mockFn?: () => T[]
-): Promise<DataResult<T>> {
+interface GetDataByEnvParams<T> {
+  mockFn: () => T[]
+  sheetId?: string
+  headers: Record<string, string>
+}
+
+export async function getDataByEnv<T>({
+  mockFn,
+  sheetId,
+  headers,
+}: GetDataByEnvParams<T>): Promise<DataResult<T>> {
   try {
-    let data: T[] | null = null
+
+    let data: T[]
     const env: Env = process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
 
-    if (mockFn && env !== 'production' && env !== 'preview') {
+    if (env === 'development' || !sheetId) {
       data = mockFn()
-      // Simula delay en desarrollo
-      await new Promise((resolve) => setTimeout(resolve, 500))
     } else {
-      data = await realFn()
+      data = await googleSpreadsheetController<T>({
+        sheetId,
+        headers,
+      })
+    }
+
+    if (data.length === 0 || !data) {
+      throw new Error('No data found or data is empty.')
     }
 
     return { data, success: true }
-  } catch {
+  } catch (error) {
+    console.error(error)
     return {
       data: null,
       success: false

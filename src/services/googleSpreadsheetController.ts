@@ -1,17 +1,17 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 
 interface GoogleSpreadsheetConfig {
-  sheetId: string | undefined
-  apiKey: string | undefined
+  sheetId: string
   headers: Record<string, string>
 }
 
 export const googleSpreadsheetController = async <T>({
   sheetId,
-  apiKey,
   headers,
 }: GoogleSpreadsheetConfig): Promise<T[]> => {
   try {
+    const apiKey = process.env.GOOGLE_API_KEY
+
     if (!sheetId || !apiKey) {
       throw new Error('Falta configuración de Google Sheets: sheetId o apiKey.')
     }
