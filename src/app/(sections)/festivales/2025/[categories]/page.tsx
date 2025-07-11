@@ -7,7 +7,7 @@ import { ApprovedArtistsPresentation } from '@/app/(sections)/festivales/2025/[c
 import { ApprovedArtistsCategoriesNav } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsCategoriesNav'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { Header } from '@/components/Header'
-import { getApprovedArtistsDataByEnv } from './services/approvedArtistsService'
+import { getApprovedArtistsData } from './lib/getApprovedArtistsData'
 
 type CategoryParams = {
   categories: keyof typeof siteData.selected_artists.seo.category
@@ -18,7 +18,7 @@ export default async function ApprovedArtistsPage({
 }: {
   params: Promise<CategoryParams>
 }) {
-  const { data, success, error } = await getApprovedArtistsDataByEnv()
+  const { data, success, error } = await getApprovedArtistsData()
 
   const groupedArtists = Object.groupBy(data || [], ({ work_area }) =>
     normalizeString(work_area),
@@ -38,7 +38,6 @@ export default async function ApprovedArtistsPage({
         }}
         textColor={{
           titleClass: 'text-2025-white',
-          subTitleClass: 'text-2025-orange',
         }}
         fontSize={{
           titleClass: 'text-4xl sm:text-6xl',
@@ -46,7 +45,7 @@ export default async function ApprovedArtistsPage({
         }}
         doodleColor='text-2025-white'
       />
-      <main className={`relative container mx-auto h-full py-8`}>
+      <main className={`relative container mx-auto h-full pt-8`}>
         <ViewTransition name='transition-logo'>
           <div className='fixed right-0 bottom-2 z-100 scale-75'>
             <LogoHomeLink />

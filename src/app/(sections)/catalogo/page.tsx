@@ -2,7 +2,6 @@ import { CatalogPanel } from './components/CatalogPanel'
 import { Header } from '@/components/Header'
 import { CatalogList } from './components/CatalogList'
 import { ErrorSection } from '@/components/ErrorSection'
-import { getCatalogDataByEnv } from './services/catalogService'
 import siteData from '@/data/site.json'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { unstable_ViewTransition as ViewTransition } from 'react'
@@ -13,6 +12,7 @@ import {
 } from './components/CatalogSkeletonLoaders'
 import { CatalogSearchSection } from './components/CatalogSearchSection'
 import { CatalogFiltersInitializer } from './components/CatalogFiltersInitializer'
+import { getCatalogData } from './lib/getCatalogData'
 
 const { catalog } = siteData
 
@@ -22,7 +22,7 @@ export const metadata = {
 }
 
 export default async function CatalogPage() {
-  const { data, error, success } = await getCatalogDataByEnv()
+  const { data, error, success } = await getCatalogData()
 
   return (
     <>
@@ -32,7 +32,7 @@ export default async function CatalogPage() {
         </div>
       </ViewTransition>
       <Header title={catalog.title} description={catalog.description} />
-      <main className='container w-full py-8'>
+      <main className='container mx-auto w-full py-8'>
         {/* Search and Filter Section */}
         <CatalogFiltersInitializer />
         {!success && error ? (
