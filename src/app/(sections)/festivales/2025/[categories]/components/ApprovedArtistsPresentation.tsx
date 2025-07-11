@@ -8,28 +8,32 @@ import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ApprovedArtistsScrollDownSignal } from './ApprovedArtistsScrollDownSignal'
 
-gsap.registerPlugin(useGSAP)
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
+
+interface ApprovedArtistsPresentationProps {
+  artists: ApprovedArtist[]
+}
 
 export const ApprovedArtistsPresentation = ({
   artists,
-}: {
-  artists: ApprovedArtist[]
-}) => {
+}: ApprovedArtistsPresentationProps) => {
   const containerRef = useRef<HTMLUListElement>(null)
   const scrollIconRef = useRef<HTMLDivElement>(null)
 
   useGSAP(
     () => {
       const artistsList = gsap.utils.toArray<HTMLLIElement>('.approved-artist')
+      const velocity = artists.length * 40
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 10%',
-          end: () => `+=${(containerRef.current?.offsetHeight || 500) * 8}`,
+          start: 'top top',
+          end: `+=${velocity}%`, // Adjust this value based on your layout
+          // end: 'max',
           scrub: true,
           pin: true,
+          pinSpacing: true,
           onEnter: () => {
             if (scrollIconRef.current) {
               scrollIconRef.current.classList.add('opacity-0')
@@ -46,9 +50,7 @@ export const ApprovedArtistsPresentation = ({
       artistsList.forEach((artist) => {
         tl.from(artist, {
           opacity: 0,
-          y: gsap.utils.random(-150, -50),
-          x: gsap.utils.random(-300, 300),
-          rotationZ: gsap.utils.random(-45, 45),
+          y: 100,
           ease: 'power1.inOut',
           onReverseComplete: () => {
             artist.classList.add('pointer-events-none')
@@ -67,8 +69,8 @@ export const ApprovedArtistsPresentation = ({
       <ApprovedArtistsScrollDownSignal ref={scrollIconRef} />
       <section
         ref={containerRef}
-        className='container grid h-full place-items-center overflow-x-clip pt-20'>
-        <ul className='flex h-full min-h-[50dvh] flex-wrap content-center justify-center min-[1920px]:min-h-[80dvh] sm:gap-x-2 xl:pb-54'>
+        className='container grid h-full min-h-screen place-items-center overflow-x-clip'>
+        <ul className='flex h-full flex-wrap content-center justify-center sm:gap-x-2'>
           {artists.map((artist) => (
             <li
               key={artist.id}
@@ -77,7 +79,7 @@ export const ApprovedArtistsPresentation = ({
                 href={formatUrl(artist.rrss)}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='font-superfortress text-2025-orange text-stroke-2025-white text-stroke-3 2xl:text-stroke-6 group-hover:text-2025-pink hover:text-2025-pink lg:text-stroke-5 inline-block text-lg leading-none transition-colors duration-300 ease-in-out [paint-order:stroke_fill] md:text-4xl lg:text-5xl 2xl:text-5xl'>
+                className='font-superfortress text-2025-orange text-stroke-2025-white text-stroke-3 2xl:text-stroke-6 group-hover:text-2025-pink hover:text-2025-pink lg:text-stroke-5 inline-block text-xl leading-none transition-colors duration-300 ease-in-out [paint-order:stroke_fill] md:text-4xl 2xl:text-5xl'>
                 {artist.name}
               </a>
             </li>
