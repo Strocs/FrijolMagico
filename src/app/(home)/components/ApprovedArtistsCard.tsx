@@ -98,7 +98,7 @@ export const ApprovedArtistsCard = () => {
             width={1217}
             height={1648}
             sizes='30vw'
-            className='animate-rock-bounce absolute right-0 bottom-6 w-2/3 lg:-right-24 lg:-bottom-8 lg:w-full'
+            className='animate-soft-bounce absolute right-0 bottom-6 w-2/3 lg:-right-24 lg:-bottom-8 lg:w-full'
           />
 
           <div className='flex h-full flex-col gap-4'>

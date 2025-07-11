@@ -11,7 +11,9 @@ import { unstable_ViewTransition as ViewTransition } from 'react'
 
 export default function Home() {
   return (
-    <main className='mx-auto flex h-full w-full max-w-4xl flex-1 items-center p-4'>
+    <main
+      data-palette='base'
+      className='mx-auto flex h-full w-full max-w-4xl flex-1 items-center p-4'>
       <Grid
         className='gap-4'
         row={{ base: 8, sm: 4, lg: 3 }}

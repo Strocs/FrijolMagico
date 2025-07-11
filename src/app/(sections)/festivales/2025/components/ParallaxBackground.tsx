@@ -100,7 +100,7 @@ export const ParallaxBackground = () => {
         width={1317}
         height={798}
         sizes='(max-width: 768px) 50vw, 1317px'
-        className='animate-rock-bounce absolute right-0 bottom-8 left-0 -z-5 mx-auto'
+        className='animate-soft-bounce absolute right-0 bottom-8 left-0 -z-5 mx-auto'
       />
     </div>
   )

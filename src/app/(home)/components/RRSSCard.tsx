@@ -13,7 +13,7 @@ export const RRSSCard = ({
   return (
     <div
       className={clsx(
-        'bg-fm-orange font-josefin text-fm-white flex size-full items-center justify-center rounded-2xl',
+        'bg-flexible-orange font-josefin text-flexible-white flex size-full items-center justify-center rounded-2xl',
         {
           'flex-col gap-2 p-2': orientation === 'vertical',
           'flex-row gap-8 p-3': orientation === 'horizontal',
@@ -26,7 +26,7 @@ export const RRSSCard = ({
           target='_blank'
           rel='noopener noreferrer'
           aria-label='Síguenos en Instagram'
-          className='hover:text-fm-yellow transition duration-150 hover:scale-110 hover:rotate-6'>
+          className='hover:text-flexible-yellow transition duration-150 hover:scale-110 hover:rotate-6'>
           <Instagram size={orientation === 'vertical' ? 52 : 32} />
         </Link>
         <Link
@@ -34,7 +34,7 @@ export const RRSSCard = ({
           target='_blank'
           rel='noopener noreferrer'
           aria-label='Síguenos en Facebook'
-          className='hover:text-fm-yellow transition duration-150 hover:scale-110 hover:rotate-6'>
+          className='hover:text-flexible-yellow transition duration-150 hover:scale-110 hover:rotate-6'>
           <Facebook size={orientation === 'vertical' ? 44 : 28} />
         </Link>
       </div>
