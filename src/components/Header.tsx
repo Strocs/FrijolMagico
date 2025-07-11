@@ -2,44 +2,30 @@ import ReactMarkdown from 'react-markdown'
 import { DoodleLine } from './DoodleLine'
 import { cn } from '@/lib/utils'
 
-interface StylesClassProps {
-  titleClass?: string
-  subTitleClass?: string
-  descriptionClass?: string
-}
-
-interface HeaderProps {
-  title: string
-  subTitle?: string
-  description?: string
-  doodleColor?: string
-  fontFamily?: StylesClassProps
-  textColor?: StylesClassProps
-  fontSize?: StylesClassProps
-}
-
 export const Header = ({
   title,
   subTitle,
   description,
   doodleColor = 'text-fm-green',
-  fontFamily = {
-    titleClass: 'font-josefin',
-    subTitleClass: 'font-josefin',
-    descriptionClass: 'font-noto',
-  },
-  textColor = {
-    titleClass:
-      'from-fm-orange to-fm-yellow bg-gradient-to-r bg-clip-text text-transparent',
-    subTitleClass: 'text-fm-orange',
-    descriptionClass: 'text-fm-green',
-  },
-  fontSize = {
-    titleClass: 'text-5xl sm:text-6xl',
-    subTitleClass: 'text-4xl',
-    descriptionClass: 'text-base',
-  },
+  fontFamily,
+  textColor,
+  fontSize,
 }: HeaderProps) => {
+  const finalFontFamily = {
+    ...defaultFontFamily,
+    ...fontFamily,
+  }
+
+  const finalTextColor = {
+    ...defaultTextColor,
+    ...textColor,
+  }
+
+  const finalFontSize = {
+    ...defaultFontSize,
+    ...fontSize,
+  }
+
   return (
     <header className={cn('space-y-4 px-2 pt-16', doodleColor)}>
       <div className='flex flex-col gap-2'>
@@ -50,9 +36,9 @@ export const Header = ({
               <h1
                 className={cn(
                   'py-2 text-center',
-                  textColor.titleClass,
-                  fontFamily.titleClass,
-                  fontSize.titleClass,
+                  finalTextColor.titleClass,
+                  finalFontFamily.titleClass,
+                  finalFontSize.titleClass,
                 )}
                 {...props}
               />
@@ -67,10 +53,10 @@ export const Header = ({
                 // eslint-disable-next-line jsx-a11y/heading-has-content
                 <h2
                   className={cn(
-                    'text-fm-orange -mt-6 py-2 text-center',
-                    textColor.subTitleClass,
-                    fontFamily.subTitleClass,
-                    fontSize.subTitleClass,
+                    '-mt-6 py-2 text-center',
+                    finalTextColor.subTitleClass,
+                    finalFontFamily.subTitleClass,
+                    finalFontSize.subTitleClass,
                   )}
                   {...props}
                 />
@@ -87,9 +73,9 @@ export const Header = ({
               <p
                 className={cn(
                   'mx-auto max-w-prose text-center font-normal',
-                  textColor.descriptionClass,
-                  fontFamily.descriptionClass,
-                  fontSize.descriptionClass,
+                  finalTextColor.descriptionClass,
+                  finalFontFamily.descriptionClass,
+                  finalFontSize.descriptionClass,
                 )}
                 {...props}
               />
@@ -101,4 +87,39 @@ export const Header = ({
       <DoodleLine />
     </header>
   )
+}
+
+interface StylesClassProps {
+  titleClass?: string
+  subTitleClass?: string
+  descriptionClass?: string
+}
+
+interface HeaderProps {
+  title: string
+  subTitle?: string
+  description?: string
+  doodleColor?: string
+  fontFamily?: StylesClassProps
+  textColor?: StylesClassProps
+  fontSize?: StylesClassProps
+}
+
+const defaultFontFamily: StylesClassProps = {
+  titleClass: 'font-josefin',
+  subTitleClass: 'font-josefin',
+  descriptionClass: 'font-noto',
+}
+
+const defaultTextColor: StylesClassProps = {
+  titleClass:
+    'from-flexible-orange to-flexible-yellow bg-gradient-to-r bg-clip-text text-transparent',
+  subTitleClass: 'text-flexible-orange',
+  descriptionClass: 'text-flexible-green',
+}
+
+const defaultFontSize: StylesClassProps = {
+  titleClass: 'text-5xl sm:text-6xl',
+  subTitleClass: 'text-4xl',
+  descriptionClass: 'text-base',
 }
