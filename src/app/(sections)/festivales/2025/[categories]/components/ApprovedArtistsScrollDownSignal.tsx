@@ -24,7 +24,7 @@ export const ApprovedArtistsScrollDownSignal = ({
     <div
       hidden
       ref={ref}
-      className='font-superfortress pointer-events-none fixed right-0 bottom-1/4 left-0 z-50 mx-auto flex w-fit flex-col items-center gap-1 transition-opacity duration-500 2xl:bottom-1/3'>
+      className='font-superfortress pointer-events-none fixed right-0 bottom-1/4 left-0 z-50 mx-auto flex w-fit flex-col items-center gap-1 transition-opacity duration-500 not-landscape:bottom-16 2xl:bottom-1/3'>
       <div>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -47,8 +47,8 @@ export const ApprovedArtistsScrollDownSignal = ({
       <button
         type='button'
         onClick={handleScrollDown}
-        className='bg-2025-orange text-2025-white hover:bg-2025-white hover:text-2025-orange pointer-events-auto cursor-pointer rounded-lg px-3 py-1 text-xl transition-colors'>
-        Ver todos ahora
+        className='bg-2025-orange text-2025-white hover:bg-2025-white hover:text-2025-orange pointer-events-auto cursor-pointer rounded-lg px-3 text-lg transition-colors'>
+        <p className='-mb-0.5 pt-0.5'>Ver todos ahora</p>
       </button>
     </div>
   )
