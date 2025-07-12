@@ -32,7 +32,7 @@ export default async function CatalogPage() {
         </div>
       </ViewTransition>
       <Header title={catalog.title} description={catalog.description} />
-      <main className='container mx-auto w-full py-8'>
+      <main className='container mx-auto w-full px-4 py-8'>
         {/* Search and Filter Section */}
         <CatalogFiltersInitializer />
         {!success && error ? (

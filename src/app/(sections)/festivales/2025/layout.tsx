@@ -1,5 +1,4 @@
-// import { MinimalFooter } from '@/components/MinimalFooter'
-// import { Footer } from '@/components/Footer'
+import { MinimalFooter } from '@/components/MinimalFooter'
 import { ParallaxBackground } from './components/ParallaxBackground'
 
 export default function Festival2025Layout({
@@ -12,8 +11,7 @@ export default function Festival2025Layout({
       <ParallaxBackground />
       <div data-palette='2025'>
         {children}
-        {/* <MinimalFooter /> */}
-        {/* <Footer doodleColor='text-2025-white' /> */}
+        <MinimalFooter />
       </div>
     </>
   )

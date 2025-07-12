@@ -19,7 +19,9 @@ export const RRSSCard = ({
           'flex-row gap-8 p-3': orientation === 'horizontal',
         },
       )}>
-      <p className='text-2xl font-black uppercase'>Síguenos!</p>
+      <p className='-mb-1 text-2xl leading-none font-black uppercase'>
+        Síguenos!
+      </p>
       <div className='flex items-center gap-8'>
         <Link
           href={SITE.social_media.ig}
