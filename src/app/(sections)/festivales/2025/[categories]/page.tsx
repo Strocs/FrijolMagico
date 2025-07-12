@@ -5,9 +5,9 @@ import { ErrorSection } from '@/components/ErrorSection'
 import { normalizeString } from '@/lib/utils'
 import { ApprovedArtistsPresentation } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsPresentation'
 import { ApprovedArtistsCategoriesNav } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsCategoriesNav'
-import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { Header } from '@/components/Header'
 import { getApprovedArtistsData } from './lib/getApprovedArtistsData'
+import { SectionHomeButton } from '@/components/SectionsHomeButton'
 
 type CategoryParams = {
   categories: keyof typeof siteData.selected_artists.seo.category
@@ -47,9 +47,7 @@ export default async function ApprovedArtistsPage({
       />
       <main className={`relative container mx-auto h-full pt-8`}>
         <ViewTransition name='transition-logo'>
-          <div className='fixed right-0 bottom-2 z-100 scale-75'>
-            <LogoHomeLink />
-          </div>
+          <SectionHomeButton />
         </ViewTransition>
         {!success && error ? (
           <ErrorSection error={error.message} />

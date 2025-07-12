@@ -3,7 +3,6 @@ import { Header } from '@/components/Header'
 import { CatalogList } from './components/CatalogList'
 import { ErrorSection } from '@/components/ErrorSection'
 import siteData from '@/data/site.json'
-import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { unstable_ViewTransition as ViewTransition } from 'react'
 import { Suspense } from 'react'
 import {
@@ -13,6 +12,7 @@ import {
 import { CatalogSearchSection } from './components/CatalogSearchSection'
 import { CatalogFiltersInitializer } from './components/CatalogFiltersInitializer'
 import { getCatalogData } from './lib/getCatalogData'
+import { SectionHomeButton } from '@/components/SectionsHomeButton'
 
 const { catalog } = siteData
 
@@ -27,9 +27,7 @@ export default async function CatalogPage() {
   return (
     <>
       <ViewTransition name='transition-logo'>
-        <div className='fixed right-0 bottom-2 z-40 scale-75'>
-          <LogoHomeLink />
-        </div>
+        <SectionHomeButton />
       </ViewTransition>
       <Header title={catalog.title} description={catalog.description} />
       <main className='container mx-auto w-full px-4 py-8'>
