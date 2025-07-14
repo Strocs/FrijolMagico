@@ -1,36 +1,42 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import DoodleLine from './DoodleLine'
+import { DoodleLine } from './DoodleLine'
 import { Grid } from '@/components/Grid'
 import { GridItem } from '@/components/GridItem'
-import { SpotifyCard } from './home/SpotifyCard'
-import { RRSSCard } from './home/RRSSCard'
+import { SpotifyCard } from '@/app/(home)/components/SpotifyCard'
+import { RRSSCard } from '@/app/(home)/components/RRSSCard'
 import { BackToTop } from './BackToTop'
+import { paths } from '@/config/paths'
+import { cn } from '@/lib/utils'
 
-export const Footer = () => {
+interface FooterProps {
+  doodleColor?: string
+}
+
+export const Footer = ({ doodleColor = 'text-fm-green' }: FooterProps) => {
   return (
-    <footer className='mx-auto w-full max-w-3xl px-4 lg:pb-10'>
+    <footer className={cn('mx-auto w-full max-w-3xl px-4', doodleColor)}>
       <BackToTop />
       <DoodleLine />
       <Grid
-        row={{ base: 7, sm: 4, lg: 4 }}
+        row={{ base: 6, sm: 4, lg: 4 }}
         col={{ base: 1, sm: 6, lg: 8 }}
-        className='gap-4 pt-4'>
+        className='gap-2 pt-4 sm:gap-4'>
         <GridItem
           row={{ base: 2, sm: 2, lg: 2 }}
           col={{ base: 1, sm: 4, lg: 6 }}>
           <Link
-            href={'/'}
-            className='bg-fm-dark group relative grid size-full place-items-center overflow-hidden rounded-2xl py-4 text-center'>
+            href={paths.home}
+            className='bg-flexible-dark group relative grid size-full place-items-center overflow-hidden rounded-2xl text-center'>
             <Image
-              src='/enredadera.png'
+              src='/images/enredadera.png'
               alt='Frijol Mágico'
               width={600}
               height={600}
               className='absolute -bottom-16 sm:-bottom-40'
             />
-            <p className='text-fm-yellow z-10 text-2xl font-black duration-300 group-hover:scale-110'>
-              <span className='text-fm-white font-bold'>Volver al </span>
+            <p className='text-flexible-yellow z-10 text-2xl font-black duration-300 group-hover:scale-110'>
+              <span className='text-flexible-white font-bold'>Volver al </span>
               Inicio
             </p>
           </Link>
@@ -39,31 +45,29 @@ export const Footer = () => {
         <GridItem
           row={{ base: 2, sm: 2, lg: 3 }}
           col={{ base: 1, sm: 2, lg: 2 }}>
-          <SpotifyCard orientation='vertical' />
+          <SpotifyCard />
         </GridItem>
 
         <GridItem col={{ base: 1, sm: 3, lg: 6 }} row={{ base: 1 }}>
           <RRSSCard orientation='horizontal' />
         </GridItem>
 
-        <GridItem col={{ base: 1, sm: 3, lg: 4 }} row={{ base: 1 }}>
-          <div className='bg-fm-green grid size-full place-items-center rounded-2xl'>
-            <p className='font-josefin text-fm-white -mb-1 size-fit text-center text-xl leading-none font-black'>
+        <GridItem col={{ base: 1, sm: 3, lg: 8 }} row={{ base: 1 }}>
+          <div className='bg-flexible-white flex size-full flex-col items-center justify-center rounded-2xl md:flex-row md:gap-8'>
+            <p className='font-josefin text-flexible-green text-lg leading-none font-black'>
               Frijol Mágico{' '}
-              <span className='text-fm-yellow'>
+              <span className='text-flexible-green'>
                 {new Date().getFullYear()}{' '}
               </span>
               🌱
             </p>
-          </div>
-        </GridItem>
 
-        <GridItem col={{ base: 1, sm: 6, lg: 4 }} row={{ base: 1 }}>
-          <Link
-            href='https://github.com/Strocs'
-            className='text-fm-orange hover:text-fm-yellow grid size-full place-items-center text-center transition duration-150'>
-            Desarrollado con ❤ por StrocsDev
-          </Link>
+            <Link
+              href='https://github.com/Strocs'
+              className='hover:text-flexible-orange text-flexible-green text-center text-sm transition duration-150'>
+              Desarrollado con ❤ por StrocsDev
+            </Link>
+          </div>
         </GridItem>
       </Grid>
     </footer>

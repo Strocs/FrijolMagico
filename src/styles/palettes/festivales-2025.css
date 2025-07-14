@@ -1,0 +1,13 @@
+[data-palette='2025'] {
+  /* Override flexible tokens with 2025-specific colors */
+  --flexible-primary: var(--color-2025-green);
+  --flexible-secondary: var(--color-2025-orange);
+  --flexible-accent: var(--color-2025-yellow);
+  --flexible-white: var(--color-2025-white);
+  --flexible-dark: var(--color-fm-dark);
+  --flexible-black: var(--color-fm-black);
+  --flexible-pink: var(--color-2025-pink);
+  --flexible-green: var(--color-2025-green);
+  --flexible-orange: var(--color-2025-orange);
+  --flexible-yellow: var(--color-2025-yellow);
+}

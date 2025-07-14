@@ -4,6 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
+import { paths } from '@/config/paths'
+import { unstable_ViewTransition as ViewTransition } from 'react'
+import { LogoHomeLink } from '@/components/LogoHomeLink'
 
 const { apply } = siteData
 
@@ -13,9 +16,15 @@ export const metadata = {
 }
 
 export default function ConvocatoriaPage() {
-  redirect('/')
+  redirect(paths.home)
   return (
     <>
+      <ViewTransition name='transition-logo'>
+        <div className='fixed right-0 bottom-2 scale-75'>
+          <LogoHomeLink />
+        </div>
+      </ViewTransition>
+
       <Header
         title={apply.title}
         subTitle={apply.subtitle}
@@ -39,6 +48,7 @@ export default function ConvocatoriaPage() {
               <ReactMarkdown
                 components={{
                   h3: ({ ...props }) => (
+                    // eslint-disable-next-line jsx-a11y/heading-has-content
                     <h3
                       className='text-fm-white font-noto text-4xl font-bold sm:text-5xl lg:text-6xl'
                       {...props}
@@ -68,6 +78,7 @@ export default function ConvocatoriaPage() {
               <ReactMarkdown
                 components={{
                   h3: ({ ...props }) => (
+                    // eslint-disable-next-line jsx-a11y/heading-has-content
                     <h3
                       className='text-fm-black font-noto text-4xl font-bold sm:text-5xl lg:text-6xl'
                       {...props}

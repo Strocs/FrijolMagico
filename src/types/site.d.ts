@@ -25,7 +25,6 @@ declare module '@/data/site.json' {
       title: string
       subtitle: string
       description: string
-      link: string
       steps: Array<{
         title: string
         description: string
@@ -42,16 +41,38 @@ declare module '@/data/site.json' {
       button: {
         active: boolean
         text: string
-        link: string
       }
     }
     catalog: {
       title: string
       description: string
-      link: string
       seo: {
         title: string
         description: string
+      }
+    }
+    selected_artists: {
+      title: string
+      subtitle: string
+      description: string
+      categories: WorkArea[]
+      seo: {
+        title: string
+        description: string
+        category: {
+          ilustracion: {
+            title: string
+            description: string
+          }
+          manualidades: {
+            title: string
+            description: string
+          }
+          narrativagrafica: {
+            title: string
+            description: string
+          }
+        }
       }
     }
   }

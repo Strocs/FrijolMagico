@@ -13,12 +13,16 @@
 # testing
 /coverage
 
+# public files that are generated
+/public/*.xml
+
 # next.js
 /.next/
 /out/
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -39,5 +43,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-.astro-src/
+.env*.local

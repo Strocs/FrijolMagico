@@ -1,6 +1,4 @@
-import { FC } from 'react'
-
-interface Props {
+interface DoodleLineProps {
   className?: string
   width?: string
   height?: string
@@ -8,13 +6,13 @@ interface Props {
   loopCount?: number
 }
 
-const DoodleLine: FC<Props> = ({
+export const DoodleLine = ({
   className,
   width = '100%',
   height = '50px',
-  color = 'text-fm-green',
+  color,
   loopCount = 7,
-}) => {
+}: DoodleLineProps) => {
   const generatePath = (count: number) => {
     let path = 'M0,25 '
     const loopWidth = 300 / count
@@ -55,5 +53,3 @@ const DoodleLine: FC<Props> = ({
     </div>
   )
 }
-
-export default DoodleLine

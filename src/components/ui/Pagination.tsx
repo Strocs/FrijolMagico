@@ -58,6 +58,7 @@ export function Pagination({
           variant={1 === currentPage ? 'default' : 'ghost'}
           size='sm'
           onClick={() => onPageChange(1)}
+          aria-current={1 === currentPage ? 'page' : undefined}
           className='h-8'>
           1
         </Button>,
@@ -66,11 +67,12 @@ export function Pagination({
       if (startPage > 2) {
         pageNumbers.push(
           <Button
-            key='ellipsis-start'
-            variant='ghost'
-            size='sm'
-            className='cursor-default'
-            disabled>
+          key='ellipsis-start'
+          variant='ghost'
+          size='sm'
+          className='cursor-default'
+          disabled
+          aria-hidden='true'>
             <MoreHorizontal className='h-4 w-4' />
           </Button>,
         )
@@ -85,6 +87,7 @@ export function Pagination({
           variant={i === currentPage ? 'default' : 'ghost'}
           size='sm'
           onClick={() => onPageChange(i)}
+          aria-current={i === currentPage ? 'page' : undefined}
           className='h-8'>
           {i}
         </Button>,
@@ -96,11 +99,12 @@ export function Pagination({
       if (endPage < totalPages - 1) {
         pageNumbers.push(
           <Button
-            key='ellipsis-end'
-            variant='ghost'
-            size='sm'
-            className='cursor-default'
-            disabled>
+          key='ellipsis-end'
+          variant='ghost'
+          size='sm'
+          className='cursor-default'
+          disabled
+          aria-hidden='true'>
             <MoreHorizontal className='h-4 w-4' />
           </Button>,
         )
@@ -122,6 +126,8 @@ export function Pagination({
 
   return (
     <div
+      role='navigation'
+      aria-label='Paginación de resultados'
       className={cn(
         'flex w-full flex-col items-center justify-between gap-4 sm:flex-row',
         className,
@@ -141,6 +147,7 @@ export function Pagination({
           size='sm'
           onClick={handlePrevious}
           disabled={currentPage === 1}
+          aria-label='Página anterior'
           className='h-8 w-8 p-0'>
           <ChevronLeft className='h-4 w-4' />
         </Button>
@@ -152,6 +159,7 @@ export function Pagination({
           size='sm'
           onClick={handleNext}
           disabled={currentPage === totalPages}
+          aria-label='Página siguiente'
           className='h-8 w-8 p-0'>
           <ChevronRight className='h-4 w-4' />
         </Button>

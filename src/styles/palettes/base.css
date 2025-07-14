@@ -1,0 +1,28 @@
+@theme inline {
+  /* Base site-wide palette */
+  --color-fm-white: oklch(96.826% 0.00696 248.26);
+  --color-fm-dark: var(--color-neutral-900);
+  --color-fm-black: var(--color-neutral-800);
+  --color-fm-green: oklch(0.4866 0.1317 149.67);
+  --color-fm-orange: oklch(64.598% 0.20233 35.168);
+  --color-fm-yellow: oklch(84.405% 0.16049 86.113);
+
+  /* Base 2025 festival palette */
+  --color-2025-white: oklch(97.024% 0.01501 37.542);
+  --color-2025-green: oklch(0.4866 0.1317 149.67);
+  --color-2025-orange: oklch(59.331% 0.10329 14.304);
+  --color-2025-yellow: oklch(92.327% 0.05031 62.25);
+  --color-2025-pink: oklch(80.637% 0.11154 33.77);
+
+  /* Flexible palette - defaults to FM brand colors but can be overridden by CSS */
+  --color-flexible-white: var(--flexible-white, var(--color-fm-white));
+  --color-flexible-dark: var(--flexible-dark, var(--color-fm-dark));
+  --color-flexible-black: var(--flexible-black, var(--color-fm-black));
+  --color-flexible-green: var(--flexible-green, var(--color-fm-green));
+  --color-flexible-orange: var(--flexible-orange, var(--color-fm-orange));
+  --color-flexible-yellow: var(--flexible-yellow, var(--color-fm-yellow));
+  --color-flexible-primary: var(--flexible-primary, var(--color-fm-green));
+  --color-flexible-secondary: var(--flexible-secondary, var(--color-fm-orange));
+  --color-flexible-accent: var(--flexible-accent, var(--color-fm-yellow));
+  --color-flexible-pink: var(--flexible-pink, var(--color-2025-pink));
+}

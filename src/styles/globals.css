@@ -1,53 +1,42 @@
+@import './palettes/base.css';
+@import './palettes/festivales-2025.css';
 @import 'tailwindcss';
 
-:root {
-  --top-bar-height: 0px;
-
-  --green: oklch(0.4866 0.1317 149.67);
-  --yellow: #fac331;
-  --orange: #ef5026;
-  --white: #f1f5f9;
-  --dark: #000000;
-
-  --w: tan(atan2(var(--w_raw), 1px));
-  --px-w: calc(var(--w) * 1px);
-  --radius: 0.625rem;
-}
-
-@theme inline {
-  --color-fm-white: var(--white);
-  --color-fm-dark: var(--color-neutral-900);
-  --color-fm-black: var(--color-neutral-800);
-
-  --color-fm-green: var(--green);
-  --color-fm-orange: var(--orange);
-  --color-fm-yellow: var(--yellow);
-
+@theme {
   --font-noto: 'Noto Sans', sans-serif;
   --font-josefin: 'Josefin Sans', sans-serif;
+  --font-superfortress: 'Superfortress', sans-serif;
+}
 
+@theme {
   --animate-card-slides: card-slides 12s linear infinite;
-  --animate-slide-in-right: slide-in-right 0.3s ease-in-out forwards;
+  --animate-soft-bounce: soft-bounce 5s ease-in-out infinite;
+
+  @keyframes card-slides {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc((-128px - 8px) * 4));
+    }
+  }
+
+  @keyframes soft-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
 }
 
-@keyframes card-slides {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(calc((-128px - 8px) * 4));
-  }
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-
-  to {
-    height: var(--radix-accordion-content-height);
-  }
+/* prettier-ignore */
+@utility text-stroke-* {
+  -webkit-text-stroke-width: --value(integer)px;
+  -webkit-text-stroke-color: --value(--color-*);
 }
 
 @layer utilities {
@@ -60,22 +49,11 @@
   }
 }
 
-@keyframes slide-in-right {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-
-  to {
-    height: 0;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
