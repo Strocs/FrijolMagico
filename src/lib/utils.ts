@@ -74,7 +74,10 @@ export const filterCatalog = (
   return catalog.filter((item) => {
     // Filter by search
     const matchesSearch =
-      !searchValue || normalizeString(item.name).includes(normalizedSearch)
+      !searchValue ||
+      normalizeString(item.name).includes(normalizedSearch) ||
+      (item.collective &&
+        normalizeString(item.collective.name).includes(normalizedSearch))
 
     // Filter by city
     const matchesCity =
