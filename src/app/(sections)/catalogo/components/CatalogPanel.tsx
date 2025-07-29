@@ -7,6 +7,7 @@ import { getInstagramUserTag } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { CatalogArtist } from '@/types/artists'
+import Markdown from 'react-markdown'
 
 export const CatalogPanel = ({
   catalogData,
@@ -153,7 +154,9 @@ export const CatalogPanel = ({
 
               <section>
                 <h4 className='mb-2 font-semibold'>Biografía</h4>
-                <p className='text-gray-700'>{selectedArtist.bio}</p>
+                <div className='flex flex-col gap-2 text-sm'>
+                  <Markdown>{selectedArtist.bio}</Markdown>
+                </div>
               </section>
 
               <section>
