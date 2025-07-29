@@ -1,4 +1,5 @@
 import { Check, PlusCircle } from 'lucide-react'
+import { useRef, useEffect } from 'react'
 import type { FilterKey } from '../lib/filterKeys'
 import { normalizeString } from '@/lib/utils'
 
@@ -27,6 +28,9 @@ export const CatalogFilter = ({
   onSelect,
   onClear,
 }: CatalogFilterProps) => {
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
   const handleOptionClick = (value: string) => {
     if (onSelect) onSelect(filterKey, value)
   }
@@ -34,9 +38,37 @@ export const CatalogFilter = ({
     if (onClear) onClear(filterKey)
   }
 
+  // Close dropdown on outside click or Escape
+  useEffect(() => {
+    if (!isOpen) return
+    function handleClick(event: Event) {
+      const dropdown = dropdownRef.current
+      const button = buttonRef.current
+      if (!dropdown || !button) return
+      const target = event.target as Node
+      if (!dropdown.contains(target) && !button.contains(target)) {
+        onToggle(filterKey)
+      }
+    }
+    function handleKey(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        onToggle(filterKey)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    document.addEventListener('touchstart', handleClick)
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      document.removeEventListener('touchstart', handleClick)
+      document.removeEventListener('keydown', handleKey)
+    }
+  }, [isOpen, onToggle, filterKey])
+
   return (
     <div className='relative'>
       <button
+        ref={buttonRef}
         onClick={() => onToggle(filterKey)}
         aria-haspopup='true'
         aria-expanded={isOpen}
@@ -52,7 +84,11 @@ export const CatalogFilter = ({
       </button>
 
       {isOpen && (
-        <div id={`filter-options-${filterKey}`} role='menu' className='bg-fm-white absolute z-10 mt-2 w-48 rounded-md border border-gray-200 shadow-lg'>
+        <div
+          ref={dropdownRef}
+          id={`filter-options-${filterKey}`}
+          role='menu'
+          className='bg-fm-white absolute z-10 mt-2 w-48 rounded-md border border-gray-200 shadow-lg'>
           <ul className='max-h-60 space-y-1 overflow-auto p-1'>
             {options.map((option) => {
               const isSelected = selectedValues
@@ -83,7 +119,7 @@ export const CatalogFilter = ({
               <li className='mt-1 border-t border-gray-200 pt-1'>
                 <button
                   onClick={handleClearClick}
-                  className='text-fm-orange hover:bg-fm-black/10 cursor-pointer rounded px-3 py-2 text-center text-sm w-full'>
+                  className='text-fm-orange hover:bg-fm-black/10 w-full cursor-pointer rounded px-3 py-2 text-center text-sm'>
                   Borrar filtros
                 </button>
               </li>

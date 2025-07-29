@@ -23,6 +23,16 @@ export const formatUrl = (url: string): string => {
   return url.startsWith('http') ? url : `https://${url}`
 }
 
+// Format URL without query parameters
+export const formatUrlWithoutQuery = (url: string): string => {
+  if (!url) return ''
+  const formattedUrl = formatUrl(url)
+  const urlWithoutQuery = formattedUrl.split('?')[0]
+  return urlWithoutQuery.endsWith('/')
+    ? urlWithoutQuery.slice(0, -1)
+    : urlWithoutQuery
+}
+
 // Extract Instagram username from URL
 export const getInstagramUserTag = (url: string): string => {
   if (!url) return ''
@@ -64,17 +74,24 @@ export const filterCatalog = (
   return catalog.filter((item) => {
     // Filter by search
     const matchesSearch =
-      !searchValue || normalizeString(item.name).includes(normalizedSearch)
+      !searchValue ||
+      normalizeString(item.name).includes(normalizedSearch) ||
+      (item.collective &&
+        normalizeString(item.collective.name).includes(normalizedSearch))
 
     // Filter by city
     const matchesCity =
       !filters.city?.length ||
-      (item.city && filters.city.map(normalizeString).includes(normalizeString(item.city)))
+      (item.city &&
+        filters.city.map(normalizeString).includes(normalizeString(item.city)))
 
     // Filter by work area (disciplina/categoria)
     const matchesWorkArea =
       !filters.work_area?.length ||
-      (item.work_area && filters.work_area.map(normalizeString).includes(normalizeString(item.work_area)))
+      (item.work_area &&
+        filters.work_area
+          .map(normalizeString)
+          .includes(normalizeString(item.work_area)))
 
     return matchesSearch && matchesCity && matchesWorkArea
   })

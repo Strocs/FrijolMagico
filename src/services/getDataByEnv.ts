@@ -1,5 +1,5 @@
-import { ErrorObject } from "@/types/errors"
-import { googleSpreadsheetController } from "./googleSpreadsheetController"
+import { ErrorObject } from '@/types/errors'
+import { googleSpreadsheetController } from './googleSpreadsheetController'
 
 type Env = 'production' | 'preview' | 'development' | string
 
@@ -21,9 +21,9 @@ export async function getDataByEnv<T>({
   headers,
 }: GetDataByEnvParams<T>): Promise<DataResult<T>> {
   try {
-
     let data: T[]
-    const env: Env = process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
+    const env: Env =
+      process.env.VERCEL_ENV || process.env.NODE_ENV || 'development'
 
     if (env === 'development' || !sheetId) {
       data = mockFn()
@@ -43,7 +43,7 @@ export async function getDataByEnv<T>({
     console.error(error)
     return {
       data: null,
-      success: false
+      success: false,
     }
   }
 }

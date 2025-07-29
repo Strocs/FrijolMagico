@@ -46,7 +46,7 @@ export default async function CatalogPage() {
           </>
         )}
       </main>
-      <CatalogPanel />
+      <CatalogPanel catalogData={data || []} />
     </>
   )
 }
