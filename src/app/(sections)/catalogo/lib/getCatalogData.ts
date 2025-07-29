@@ -1,6 +1,7 @@
 import { type DataResult, getDataByEnv } from '@/services/getDataByEnv'
 import type { CatalogArtist, RawCatalogArtist } from '@/types/artists'
 import { getMockCatalogData } from './mocks/getCatalogData.mock'
+import { formatUrlWithoutQuery } from '@/lib/utils'
 
 // Exportar los headers para uso en el servicio
 export enum catalogTableHeaders {
@@ -34,7 +35,7 @@ export async function getCatalogData(): Promise<DataResult<CatalogArtist>> {
     const catalogData = addCollectiveRelationship(data)
 
     return {
-      data: catalogData,
+      data: formatArtistData(catalogData),
       success,
     }
   } catch (error) {
@@ -70,6 +71,26 @@ export const addCollectiveRelationship = (
           name: member.name,
         })),
       },
+    }
+  })
+}
+
+export const formatArtistData = (
+  artistsData: CatalogArtist[],
+): CatalogArtist[] => {
+  return artistsData.map((artist) => {
+    const rrssUrl = formatUrlWithoutQuery(artist.rrss)
+    let formattedBio = artist.bio.replace(/(["'])(.+?)\1/g, '_$1$2$1_')
+    const usernameRegex = /\s@(\w+)/g
+    if (usernameRegex.test(formattedBio) && rrssUrl) {
+      formattedBio = formattedBio.replace(usernameRegex, (match, username) => {
+        return ` **[@${username}](${rrssUrl})**`
+      })
+    }
+    return {
+      ...artist,
+      bio: formattedBio,
+      rrss: rrssUrl,
     }
   })
 }
