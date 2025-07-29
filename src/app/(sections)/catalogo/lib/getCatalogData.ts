@@ -82,7 +82,8 @@ export const formatArtistData = (
     const rrssUrl = formatUrlWithoutQuery(artist.rrss)
 
     let formattedBio = artist.bio
-      .replace(/"([^"]+?)"/g, '_$1_')
+      .replaceAll(/"([^"]+?)"/g, '"_$1_"')
+      .replaceAll(/'([^']+?)'/g, "'_$1_'")
       .split('\n')
       .join('  \n')
 
