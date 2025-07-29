@@ -80,13 +80,19 @@ export const formatArtistData = (
 ): CatalogArtist[] => {
   return artistsData.map((artist) => {
     const rrssUrl = formatUrlWithoutQuery(artist.rrss)
-    let formattedBio = artist.bio.replace(/(["'])(.+?)\1/g, '_$1$2$1_')
+
+    let formattedBio = artist.bio
+      .replace(/"([^"]+?)"/g, '_$1_')
+      .split('\n')
+      .join('  \n')
+
     const usernameRegex = /\s@(\w+)/g
     if (usernameRegex.test(formattedBio) && rrssUrl) {
       formattedBio = formattedBio.replace(usernameRegex, (match, username) => {
         return ` **[@${username}](${rrssUrl})**`
       })
     }
+
     return {
       ...artist,
       bio: formattedBio,

@@ -14,7 +14,8 @@ export const getMockCatalogData = (): RawCatalogArtist[] => {
       work_area: 'Ilustración' as WorkArea,
       rrss: `${getRandomInstagram()}?param=${i + 1}`,
       avatar: 'placeholder-avatar.svg',
-      bio: `Diseñadora gráfica con "amplia experiencia" en branding y diseño editorial. Apasionada por la tipografía y el diseño "limpio" y funcional. @testing ${i + 1}`,
+      bio: `Diseñadora gráfica con "amplia experiencia" en branding y diseño editorial. Apasionada por la tipografía y el diseño "limpio" y funcional.
+      @testing ${i + 1} some other text`,
       email: `maria.gonzalez${i + 1}@ejemplo.com`,
       city: 'La Serena',
       collective: `Colectivo ${Math.ceil((i + 1) / 2)}`,
