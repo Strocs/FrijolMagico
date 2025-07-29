@@ -9,11 +9,24 @@ export interface BaseArtist {
   rrss: string
 }
 
-export interface CatalogArtist extends BaseArtist {
+export interface RawCatalogArtist extends BaseArtist {
   city: string
   bio: string
   email: string
   avatar: string
+  collective: string
+}
+
+export interface Collective {
+  name: string
+  members: {
+    id: string
+    name: string
+  }[]
+}
+
+export interface CatalogArtist extends RawCatalogArtist {
+  collective: Collective | null
 }
 
 export type ApprovedArtist = BaseArtist
