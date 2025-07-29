@@ -4,7 +4,7 @@ import Image from 'next/image'
 import type { CatalogArtist } from '@/types/artists'
 import { Instagram, Mail } from 'lucide-react'
 import { useCatalogPanelStore } from '../store/useCatalogPanelStore'
-import { cn, formatUrl } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 export const CatalogArtistCard = ({
   id,
@@ -26,7 +26,6 @@ export const CatalogArtistCard = ({
   )
 
   const isSelected = selectedArtist?.id === id
-  const rrssUrl = formatUrl(rrss)
 
   const handleViewMoreButton = () => {
     setSelectedArtist({
@@ -86,7 +85,7 @@ export const CatalogArtistCard = ({
         <section className='text-fm-black/80 flex w-full items-center gap-2'>
           <b className='font-semibold'>Contacto:</b>
           <a
-            href={rrssUrl}
+            href={rrss}
             aria-label='Instagram'
             className='hover:text-fm-orange transition duration-300 hover:scale-105'
             target='_blank'
