@@ -32,9 +32,9 @@ export const getFiltersData = (
 // Filter catalog based on search and filters
 export const filterCatalog = (
   catalog: CatalogArtist[],
-  searchValue: string,
   filters: CatalogFilterValues,
 ): CatalogArtist[] => {
+  const searchValue = filters.search
   const normalizedSearch = normalizeString(searchValue)
 
   return catalog.filter((item) => {

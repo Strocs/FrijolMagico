@@ -7,7 +7,6 @@ import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
 import { Pagination } from '@/components/ui/Pagination'
 import { CatalogCardLoader } from './CatalogSkeletonLoaders'
 import { filterCatalog } from '../lib/filterUtils'
-import { CatalogFilterValues } from '../types/filters'
 
 interface CatalogListProps {
   catalog: CatalogArtist[]
@@ -19,36 +18,15 @@ export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 12
 
-  // Memoize selectedFilters to avoid lint warnings
-  const selectedFilters: Omit<CatalogFilterValues, 'search'> = useMemo(
-    () => ({
-      city: filters.city,
-      category: filters.category,
-      country: filters.country,
-    }),
-    [filters.city, filters.category, filters.country], // Adjust based on your actual filter keys
-  )
-  const searchValue = filters.search
-
   // Filter the catalog based on search and filters
   const filteredCatalog = useMemo(() => {
-    return filterCatalog(catalog, searchValue, selectedFilters)
-  }, [catalog, searchValue, selectedFilters])
-
-  // Memoize dependencies for useEffect
-  const selectedFiltersDeps = [
-    selectedFilters.city.join(','),
-    selectedFilters.category.join(','),
-    selectedFilters.country.join(','),
-  ].join('|')
-
-  // NOTE: delete logs
-  console.log('selectedFiltersDeps: ', selectedFiltersDeps)
+    return filterCatalog(catalog, filters)
+  }, [catalog, filters])
 
   // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1)
-  }, [searchValue, selectedFiltersDeps])
+  }, [filters])
 
   // Calculate pagination
   const totalItems = filteredCatalog.length
