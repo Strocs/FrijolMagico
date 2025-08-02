@@ -16,7 +16,7 @@ export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
   const filters = useCatalogFiltersStore((state) => state.filters)
   const isReady = useCatalogFiltersStore((state) => state.isReady)
   const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 12
+  const itemsPerPage = 15
 
   // Filter the catalog based on search and filters
   const filteredCatalog = useMemo(() => {
