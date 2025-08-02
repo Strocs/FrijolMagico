@@ -13,7 +13,7 @@ export const CatalogSearchBar = () => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault()
       if (isReady) {
-        setFilters({ busqueda: e.target.value })
+        setFilters({ search: e.target.value })
       }
     },
     [setFilters, isReady],
@@ -24,7 +24,7 @@ export const CatalogSearchBar = () => {
   return (
     <input
       type='text'
-      value={filters.busqueda}
+      value={filters.search}
       onChange={handleInput}
       placeholder='Busca a tu artista favorito/a'
       aria-label='Buscar artista'

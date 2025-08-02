@@ -11,7 +11,8 @@ export const CatalogArtistCard = ({
   avatar,
   name,
   city,
-  work_area,
+  country,
+  category,
   bio,
   email,
   rrss,
@@ -33,7 +34,8 @@ export const CatalogArtistCard = ({
       avatar,
       name,
       city,
-      work_area,
+      country,
+      category,
       bio,
       email,
       rrss,
@@ -72,7 +74,7 @@ export const CatalogArtistCard = ({
           )}
           <div className='flex gap-2 py-1'>
             <span className='bg-fm-orange/20 text-fm-orange rounded px-2 py-1 text-xs leading-none font-medium'>
-              {work_area}
+              {category}
             </span>
             <span className='bg-fm-orange/20 text-fm-orange rounded px-2 py-1 text-xs leading-none font-medium'>
               {city}

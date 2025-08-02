@@ -1,5 +1,11 @@
-export interface CatalogFilters {
-  categoria: string[]
-  ciudad: string[]
-  busqueda: string
+import { FILTER_LABELS } from '../lib/filterConstants'
+
+export interface CatalogFilterValues {
+  category: string[]
+  country: string[]
+  city: string[]
+  search: string
 }
+
+export type CatalogFilterKey = keyof typeof FILTER_LABELS
+export type CatalogSelectionFilterKey = Exclude<CatalogFilterKey, 'search'>

@@ -20,8 +20,8 @@ export default async function ApprovedArtistsPage({
 }) {
   const { data, success, error } = await getApprovedArtistsData()
 
-  const groupedArtists = Object.groupBy(data || [], ({ work_area }) =>
-    normalizeString(work_area),
+  const groupedArtists = Object.groupBy(data || [], ({ category }) =>
+    normalizeString(category),
   )
 
   const { categories } = await params
