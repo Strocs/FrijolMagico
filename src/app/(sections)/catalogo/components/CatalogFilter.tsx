@@ -1,7 +1,7 @@
 import { Check, PlusCircle } from 'lucide-react'
 import { useRef, useEffect } from 'react'
 import { normalizeString } from '@/lib/utils'
-import { FiltersKey } from './CatalogFilterBar'
+import { CatalogSelectionFilterKey } from '../types/filters'
 
 interface Option {
   value: string
@@ -9,13 +9,13 @@ interface Option {
 
 interface CatalogFilterProps {
   title: string
-  filterKey: FiltersKey
+  filterKey: CatalogSelectionFilterKey
   options: Option[]
   isOpen: boolean
-  onToggle: (filterKey: FiltersKey) => void
+  onToggle: (filterKey: CatalogSelectionFilterKey) => void
   selectedValues?: string[]
-  onSelect?: (filterKey: FiltersKey, value: string) => void
-  onClear?: (filterKey: FiltersKey) => void
+  onSelect?: (filterKey: CatalogSelectionFilterKey, value: string) => void
+  onClear?: (filterKey: CatalogSelectionFilterKey) => void
 }
 
 export const CatalogFilter = ({
