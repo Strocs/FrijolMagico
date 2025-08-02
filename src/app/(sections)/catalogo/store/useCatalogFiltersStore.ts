@@ -1,19 +1,23 @@
 import { create } from 'zustand'
-import { normalizeString } from '@/lib/utils'
-import type { CatalogFilters } from '../types/filters'
-import { getFiltersFromURL, updateURLParams, urlHasFilters } from '../lib/urlFilters'
+import type { CatalogFilterValues } from '../types/filters'
+import {
+  getFiltersFromURL,
+  updateURLParams,
+  urlHasFilters,
+} from '../lib/urlFilters'
 
 interface CatalogFiltersState {
-  filters: CatalogFilters
+  filters: CatalogFilterValues
   isReady: boolean
-  setFilters: (filters: Partial<CatalogFilters>) => void
+  setFilters: (filters: Partial<CatalogFilterValues>) => void
   initializeFromURL: () => void
 }
 
-const defaultFilters: CatalogFilters = {
-  categoria: [],
-  ciudad: [],
-  busqueda: '',
+export const defaultFilters: CatalogFilterValues = {
+  category: [],
+  city: [],
+  country: [],
+  search: '',
 }
 
 export const useCatalogFiltersStore = create<CatalogFiltersState>((set) => ({
@@ -22,12 +26,15 @@ export const useCatalogFiltersStore = create<CatalogFiltersState>((set) => ({
   setFilters: (newFilters) => {
     set((state) => {
       const merged = { ...state.filters, ...newFilters }
-      const uniqueCategoria = Array.from(new Set(merged.categoria.map(normalizeString)))
-      const uniqueCiudad = Array.from(new Set(merged.ciudad.map(normalizeString)))
+      const uniqueCategory = Array.from(new Set(merged.category))
+      const uniqueCity = Array.from(new Set(merged.city))
+      const uniqueCountry = Array.from(new Set(merged.country))
+
       const updated = {
-        categoria: uniqueCategoria,
-        ciudad: uniqueCiudad,
-        busqueda: merged.busqueda,
+        category: uniqueCategory,
+        city: uniqueCity,
+        search: merged.search,
+        country: uniqueCountry,
       }
 
       updateURLParams(updated)

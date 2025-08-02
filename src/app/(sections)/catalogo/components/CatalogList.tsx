@@ -4,9 +4,10 @@ import { useState, useEffect, useMemo } from 'react'
 import type { CatalogArtist } from '@/types/artists'
 import { CatalogArtistCard } from './CatalogArtistCard'
 import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
-import { filterCatalog } from '@/lib/utils'
 import { Pagination } from '@/components/ui/Pagination'
 import { CatalogCardLoader } from './CatalogSkeletonLoaders'
+import { filterCatalog } from '../lib/filterUtils'
+import { CatalogFilterValues } from '../types/filters'
 
 interface CatalogListProps {
   catalog: CatalogArtist[]
@@ -19,14 +20,15 @@ export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
   const itemsPerPage = 12
 
   // Memoize selectedFilters to avoid lint warnings
-  const selectedFilters = useMemo(
+  const selectedFilters: Omit<CatalogFilterValues, 'search'> = useMemo(
     () => ({
-      city: filters.ciudad,
-      work_area: filters.categoria,
+      city: filters.city,
+      category: filters.category,
+      country: filters.country,
     }),
-    [filters.ciudad, filters.categoria],
+    [filters.city, filters.category, filters.country], // Adjust based on your actual filter keys
   )
-  const searchValue = filters.busqueda
+  const searchValue = filters.search
 
   // Filter the catalog based on search and filters
   const filteredCatalog = useMemo(() => {
@@ -36,8 +38,12 @@ export const CatalogList: React.FC<CatalogListProps> = ({ catalog }) => {
   // Memoize dependencies for useEffect
   const selectedFiltersDeps = [
     selectedFilters.city.join(','),
-    selectedFilters.work_area.join(','),
+    selectedFilters.category.join(','),
+    selectedFilters.country.join(','),
   ].join('|')
+
+  // NOTE: delete logs
+  console.log('selectedFiltersDeps: ', selectedFiltersDeps)
 
   // Reset to first page when filters change
   useEffect(() => {

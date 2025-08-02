@@ -2,19 +2,7 @@ import { type DataResult, getDataByEnv } from '@/services/getDataByEnv'
 import type { CatalogArtist, RawCatalogArtist } from '@/types/artists'
 import { getMockCatalogData } from './mocks/getCatalogData.mock'
 import { formatUrlWithoutQuery } from '@/lib/utils'
-
-// Exportar los headers para uso en el servicio
-export enum catalogTableHeaders {
-  id = 'id',
-  name = 'name',
-  work_area = 'work_area',
-  rrss = 'rrss',
-  avatar = 'avatar',
-  bio = 'bio',
-  email = 'email',
-  city = 'city',
-  collective = 'collective',
-}
+import { CATALOG_SHEET_HEADERS } from './filterConstants'
 
 export async function getCatalogData(): Promise<DataResult<CatalogArtist>> {
   try {
@@ -23,7 +11,7 @@ export async function getCatalogData(): Promise<DataResult<CatalogArtist>> {
     const { data, success } = await getDataByEnv<RawCatalogArtist>({
       mockFn: getMockCatalogData,
       sheetId: catalogId,
-      headers: catalogTableHeaders,
+      headers: CATALOG_SHEET_HEADERS,
     })
 
     if (!success || !data) {
@@ -89,7 +77,7 @@ export const formatArtistData = (
 
     const usernameRegex = /\s@(\w+)/g
     if (usernameRegex.test(formattedBio) && rrssUrl) {
-      formattedBio = formattedBio.replace(usernameRegex, (match, username) => {
+      formattedBio = formattedBio.replace(usernameRegex, (_, username) => {
         return ` **[@${username}](${rrssUrl})**`
       })
     }

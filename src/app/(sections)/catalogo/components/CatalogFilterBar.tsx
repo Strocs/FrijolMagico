@@ -1,76 +1,68 @@
 'use client'
 import { CatalogFilter } from './CatalogFilter'
-import { getFiltersData, normalizeString } from '@/lib/utils'
+import { normalizeString } from '@/lib/utils'
 import type { CatalogArtist } from '@/types/artists'
 import { useState, useCallback } from 'react'
 import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
-import type { FilterKey } from '../lib/filterKeys'
 import { CatalogFiltersBarLoader } from './CatalogSkeletonLoaders'
 import { urlHasFilters } from '../lib/urlFilters'
+import { CatalogSelectionFilterKey } from '../types/filters'
+import { getFiltersData } from '../lib/filterUtils'
 
 interface CatalogFilterBarProps {
   catalogData: CatalogArtist[]
 }
 
 export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
-  const [filtersOpen, setFiltersOpen] = useState<Record<FilterKey, boolean>>({
+  const [filtersOpen, setFiltersOpen] = useState<
+    Record<CatalogSelectionFilterKey, boolean>
+  >({
     city: false,
     category: false,
-    search: false,
+    country: false,
   })
+
   const filters = useCatalogFiltersStore((state) => state.filters)
   const setFilters = useCatalogFiltersStore((state) => state.setFilters)
   const isReady = useCatalogFiltersStore((state) => state.isReady)
 
-  const toggleFilter = useCallback((filterKey: FilterKey) => {
+  const toggleFilter = useCallback((filterKey: CatalogSelectionFilterKey) => {
     setFiltersOpen((prev) => {
       return Object.keys(prev).reduce(
         (acc, curr) => {
-          acc[curr as FilterKey] = curr === filterKey ? !prev[filterKey] : false
+          acc[curr as CatalogSelectionFilterKey] =
+            curr === filterKey ? !prev[filterKey] : false
           return acc
         },
-        {} as Record<FilterKey, boolean>,
+        {} as Record<CatalogSelectionFilterKey, boolean>,
       )
     })
   }, [])
 
   const handleSelect = useCallback(
-    (filterKey: FilterKey, value: string) => {
+    (filterKey: CatalogSelectionFilterKey, value: string) => {
       if (!isReady) return
 
-      if (filterKey === 'city') {
-        const current = filters.ciudad
-        const normalizedValue = normalizeString(value)
-        const alreadySelected = current
-          .map(normalizeString)
-          .includes(normalizedValue)
-        setFilters({
-          ciudad: alreadySelected
-            ? current.filter((v) => normalizeString(v) !== normalizedValue)
-            : [...current, value],
-        })
-      } else if (filterKey === 'category') {
-        const current = filters.categoria
-        const normalizedValue = normalizeString(value)
-        const alreadySelected = current
-          .map(normalizeString)
-          .includes(normalizedValue)
-        setFilters({
-          categoria: alreadySelected
-            ? current.filter((v) => normalizeString(v) !== normalizedValue)
-            : [...current, value],
-        })
-      }
+      const current = filters[filterKey]
+      const normalizedValue = normalizeString(value)
+      const alreadySelected = current
+        .map(normalizeString)
+        .includes(normalizedValue)
+
+      // if already selected, remove it, otherwise add it
+      setFilters({
+        [filterKey]: alreadySelected
+          ? current.filter((v) => normalizeString(v) !== normalizedValue)
+          : [...current, value],
+      })
     },
     [filters, setFilters, isReady],
   )
 
   const handleClear = useCallback(
-    (filterKey: FilterKey) => {
+    (filterKey: CatalogSelectionFilterKey) => {
       if (!isReady) return
-
-      if (filterKey === 'city') setFilters({ ciudad: [] })
-      else if (filterKey === 'category') setFilters({ categoria: [] })
+      setFilters({ [filterKey]: [] })
     },
     [setFilters, isReady],
   )
@@ -79,12 +71,20 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
   const FILTER_MODEL_KEYS = {
     city: 'city',
     category: 'work_area',
+    country: 'country',
   } as const
 
   if (!isReady) return <CatalogFiltersBarLoader />
 
   const cityFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.city)
-  const areaFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.category)
+  const categoryFilterData = getFiltersData(
+    catalogData,
+    FILTER_MODEL_KEYS.category,
+  )
+  const countryFilterData = getFiltersData(
+    catalogData,
+    FILTER_MODEL_KEYS.country,
+  )
 
   return (
     <div className='flex shrink-0 flex-wrap justify-center gap-4'>
@@ -94,24 +94,34 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
         options={cityFilterData}
         isOpen={filtersOpen.city}
         onToggle={toggleFilter}
-        selectedValues={filters.ciudad}
+        selectedValues={filters.city}
+        onSelect={handleSelect}
+        onClear={handleClear}
+      />
+      <CatalogFilter
+        title='País'
+        filterKey='country'
+        options={countryFilterData}
+        isOpen={filtersOpen.country}
+        onToggle={toggleFilter}
+        selectedValues={filters.country}
         onSelect={handleSelect}
         onClear={handleClear}
       />
       <CatalogFilter
         title='Disciplina'
         filterKey='category'
-        options={areaFilterData}
+        options={categoryFilterData}
         isOpen={filtersOpen.category}
         onToggle={toggleFilter}
-        selectedValues={filters.categoria}
+        selectedValues={filters.category}
         onSelect={handleSelect}
         onClear={handleClear}
       />
       {urlHasFilters() && (
         <button
           onClick={() =>
-            setFilters({ ciudad: [], categoria: [], busqueda: '' })
+            setFilters({ city: [], category: [], search: '', country: [] })
           }
           className='border-fm-orange/30 bg-fm-orange/80 text-fm-white hover:bg-fm-orange flex cursor-pointer items-center gap-2 rounded-xl border border-dashed px-3 py-1.5 text-sm transition-colors'>
           <span>Limpiar filtros</span>

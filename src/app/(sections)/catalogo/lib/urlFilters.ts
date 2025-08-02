@@ -1,19 +1,22 @@
 import { normalizeString } from '@/lib/utils'
-import type { CatalogFilters } from '../types/filters'
-import { FILTER_KEYS } from './filterKeys'
+import type { CatalogFilterValues } from '../types/filters'
+import { FILTER_KEYS } from './filterConstants'
 
 export const parseParamArray = (param?: string | null) =>
-  param && param.length > 0 ? param.split(',').filter(Boolean).map(normalizeString) : []
+  param && param.length > 0
+    ? param.split(',').filter(Boolean).map(normalizeString)
+    : []
 
-export function getFiltersFromURL(): CatalogFilters {
+export function getFiltersFromURL(): CatalogFilterValues {
   if (typeof window === 'undefined') {
-    return { categoria: [], ciudad: [], busqueda: '' }
+    return { category: [], city: [], search: '', country: [] }
   }
   const params = new URLSearchParams(window.location.search)
   return {
-    categoria: parseParamArray(params.get(FILTER_KEYS.category)),
-    ciudad: parseParamArray(params.get(FILTER_KEYS.city)),
-    busqueda: params.get(FILTER_KEYS.search) || '',
+    category: parseParamArray(params.get(FILTER_KEYS.category)),
+    city: parseParamArray(params.get(FILTER_KEYS.city)),
+    country: parseParamArray(params.get(FILTER_KEYS.country)),
+    search: params.get(FILTER_KEYS.search) || '',
   }
 }
 
@@ -23,18 +26,31 @@ export function urlHasFilters(): boolean {
   return (
     !!params.get(FILTER_KEYS.category) ||
     !!params.get(FILTER_KEYS.city) ||
-    !!params.get(FILTER_KEYS.search)
+    !!params.get(FILTER_KEYS.search) ||
+    !!params.get(FILTER_KEYS.country)
   )
 }
 
-export function updateURLParams(filters: CatalogFilters) {
+// Updates the browser URL parameters based on the provided catalog filters
+// without reloading the page. It normalizes and deduplicates filter values,
+// constructs the query string, and updates the URL using history.replaceState.
+export function updateURLParams(filters: CatalogFilterValues) {
   if (typeof window === 'undefined') return
-  const uniqueCategoria = Array.from(new Set(filters.categoria.map(normalizeString)))
-  const uniqueCiudad = Array.from(new Set(filters.ciudad.map(normalizeString)))
+  const uniqueCategory = Array.from(
+    new Set(filters.category.map(normalizeString)),
+  )
+  const uniqueCity = Array.from(new Set(filters.city.map(normalizeString)))
+  const uniqueCountry = Array.from(
+    new Set(filters.country.map(normalizeString)),
+  )
   const params = new URLSearchParams()
-  if (uniqueCategoria.length > 0) params.set(FILTER_KEYS.category, uniqueCategoria.join(','))
-  if (uniqueCiudad.length > 0) params.set(FILTER_KEYS.city, uniqueCiudad.join(','))
-  if (filters.busqueda.trim() !== '') params.set(FILTER_KEYS.search, normalizeString(filters.busqueda.trim()))
+  if (uniqueCategory.length > 0)
+    params.set(FILTER_KEYS.category, uniqueCategory.join(','))
+  if (uniqueCity.length > 0) params.set(FILTER_KEYS.city, uniqueCity.join(','))
+  if (uniqueCountry.length > 0)
+    params.set(FILTER_KEYS.country, uniqueCountry.join(','))
+  if (filters.search.trim() !== '')
+    params.set(FILTER_KEYS.search, normalizeString(filters.search.trim()))
   const url = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`
   window.history.replaceState(null, '', url)
 }

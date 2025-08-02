@@ -11,6 +11,7 @@ export interface BaseArtist {
 
 export interface RawCatalogArtist extends BaseArtist {
   city: string
+  country: string
   bio: string
   email: string
   avatar: string
@@ -30,7 +31,3 @@ export interface CatalogArtist extends RawCatalogArtist {
 }
 
 export type ApprovedArtist = BaseArtist
-
-export interface SelectedFilters {
-  [key: string]: string[]
-}
