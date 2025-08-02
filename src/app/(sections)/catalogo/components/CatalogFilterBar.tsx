@@ -8,6 +8,7 @@ import { CatalogFiltersBarLoader } from './CatalogSkeletonLoaders'
 import { urlHasFilters } from '../lib/urlFilters'
 import { CatalogSelectionFilterKey } from '../types/filters'
 import { getFiltersData } from '../lib/filterUtils'
+import { FILTER_KEYS } from '../lib/filterConstants'
 
 interface CatalogFilterBarProps {
   catalogData: CatalogArtist[]
@@ -67,24 +68,11 @@ export const CatalogFilterBar = ({ catalogData }: CatalogFilterBarProps) => {
     [setFilters, isReady],
   )
 
-  // Mapeo de filtro visual a propiedad de modelo
-  const FILTER_MODEL_KEYS = {
-    city: 'city',
-    category: 'work_area',
-    country: 'country',
-  } as const
-
   if (!isReady) return <CatalogFiltersBarLoader />
 
-  const cityFilterData = getFiltersData(catalogData, FILTER_MODEL_KEYS.city)
-  const categoryFilterData = getFiltersData(
-    catalogData,
-    FILTER_MODEL_KEYS.category,
-  )
-  const countryFilterData = getFiltersData(
-    catalogData,
-    FILTER_MODEL_KEYS.country,
-  )
+  const cityFilterData = getFiltersData(catalogData, FILTER_KEYS.city)
+  const categoryFilterData = getFiltersData(catalogData, FILTER_KEYS.category)
+  const countryFilterData = getFiltersData(catalogData, FILTER_KEYS.country)
 
   return (
     <div className='flex shrink-0 flex-wrap justify-center gap-4'>

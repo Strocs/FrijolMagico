@@ -1,11 +1,11 @@
 import siteData from '@/data/site.json'
 
-export type WorkArea = (typeof siteData.selected_artists.categories)[number]
+export type Categories = (typeof siteData.selected_artists.categories)[number]
 
 export interface BaseArtist {
   id: string
   name: string
-  work_area: WorkArea
+  category: Categories
   rrss: string
 }
 

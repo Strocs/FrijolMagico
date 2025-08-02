@@ -17,7 +17,8 @@ export const FILTER_KEYS = {
 export const CATALOG_SHEET_HEADERS = {
   id: 'id',
   name: 'name',
-  work_area: 'work_area',
+  category: 'category',
+  country: 'country',
   rrss: 'rrss',
   avatar: 'avatar',
   bio: 'bio',

@@ -54,10 +54,10 @@ export const filterCatalog = (
     // Filter by work area (disciplina/categoria)
     const matchesWorkArea =
       !filters.category?.length ||
-      (item.work_area &&
+      (item.category &&
         filters.category
           .map(normalizeString)
-          .includes(normalizeString(item.work_area)))
+          .includes(normalizeString(item.category)))
 
     const matchesCountry =
       !filters.country?.length ||

@@ -121,7 +121,7 @@ export const CatalogPanel = ({
                   </h3>
                   <p className='text-sm text-gray-600'>{selectedArtist.city}</p>
                   <span className='bg-fm-green/10 text-fm-green mt-1 inline-block rounded-sm px-2 py-1 text-xs'>
-                    {selectedArtist.work_area}
+                    {selectedArtist.category}
                   </span>
                 </div>
               </section>
