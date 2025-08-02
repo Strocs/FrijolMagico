@@ -9,7 +9,7 @@
         "clsx": "^2.1.1",
         "google-spreadsheet": "^4.1.5",
         "lucide-react": "^0.511.0",
-        "next": "^15.3.2",
+        "next": "^15.4.5",
         "next-sitemap": "^4.2.3",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
