@@ -19,6 +19,7 @@ export const CatalogFiltersBarLoader = () => {
     <div className='flex flex-wrap justify-center gap-4'>
       <div className='bg-fm-black/10 flex h-8 w-28 animate-pulse rounded-xl px-3 py-1.5'></div>
       <div className='bg-fm-black/10 flex h-8 w-28 animate-pulse rounded-xl px-3 py-1.5'></div>
+      <div className='bg-fm-black/10 flex h-8 w-28 animate-pulse rounded-xl px-3 py-1.5'></div>
     </div>
   )
 }
