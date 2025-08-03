@@ -58,7 +58,7 @@ The website serves as a digital meeting point for this community, providing info
 
 - **Frontend Framework**: Next.js 15 (App Router)
 - **UI Components**: React 19 and TypeScript
-- **Styling**: Tailwind CSS with custom variants and `class-variance-authority`
+- **Styling**: Tailwind CSS with custom variants and `tailwind-variants`
 - **Content Management**: Google Sheets as headless CMS (via `google-spreadsheet`)
 - **State Management**: Zustand
 - **Animation**: GSAP and ScrollTrigger (via `@gsap/react`)
