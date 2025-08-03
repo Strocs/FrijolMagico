@@ -219,4 +219,4 @@ The application uses a flexible data management system:
 
 ---
 
-Built with ❤️ by [Strocs](https://github.com/Strocs)
+Built with love by [Strocs](https://github.com/Strocs)
