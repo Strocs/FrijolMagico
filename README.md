@@ -26,7 +26,7 @@ The website serves as a digital meeting point for this community, providing info
 1. **Clone the repository**
 
    ```bash
-   git clone [repository-url]
+   git clone https://github.com/frijolmagico/frijolmagico.git
    cd frijolmagico
    ```
 
