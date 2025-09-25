@@ -1,3 +1,3 @@
-export interface ErrorObject {
+export type ErrorObject = {
   message: string
-}
+} | null
