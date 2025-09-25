@@ -15,7 +15,7 @@ export const ScheduleItemButton = ({
   return (
     <Element
       className={cn(
-        'hover:text-accent-yellow w-full py-1.5 whitespace-nowrap transition duration-300',
+        'hover:text-2025-yellow w-full py-1.5 whitespace-nowrap transition duration-300',
         className,
       )}>
       {children}
