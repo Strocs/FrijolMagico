@@ -2,11 +2,12 @@ export interface AppSchedule {
   title: string
   description: string
   activityType: string
-  startingTime: string // ISO 8601 format
+  startingTime: string
   duration: number // in minutes
   speaker: string
-  speakerSocialLink?: string
-  infoLink?: string
+  speakerSocialLink: string | null
+  infoLink: string | null
+  inscriptionLink: string | null
 }
 
 export interface RawSchedule {
@@ -20,4 +21,7 @@ export interface RawSchedule {
   Información?: string
 }
 
-export type ScheduleHeaders = Record<keyof AppSchedule, keyof RawSchedule>
+export type ScheduleHeaders = Record<
+  keyof Omit<AppSchedule, 'inscriptionLink'>,
+  keyof RawSchedule
+>
