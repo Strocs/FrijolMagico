@@ -5,9 +5,9 @@ import { ErrorSection } from '@/components/ErrorSection'
 import { normalizeString } from '@/utils/utils'
 import { ApprovedArtistsPresentation } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsPresentation'
 import { ApprovedArtistsCategoriesNav } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsCategoriesNav'
-import { Header } from '@/components/Header'
 import { getApprovedArtistsData } from './lib/getApprovedArtistsData'
 import { SectionHomeButton } from '@/components/SectionsHomeButton'
+import { FestivalHeader } from '../components/FestivalHeader'
 
 type CategoryParams = {
   categories: keyof typeof siteData.selected_artists.seo.category
@@ -29,21 +29,9 @@ export default async function ApprovedArtistsPage({
 
   return (
     <>
-      <Header
+      <FestivalHeader
         title={siteData.selected_artists.title}
         subTitle={siteData.selected_artists.subtitle}
-        fontFamily={{
-          titleClass: 'font-superfortress',
-          subTitleClass: 'font-superfortress',
-        }}
-        textColor={{
-          titleClass: 'text-2025-white',
-        }}
-        fontSize={{
-          titleClass: 'text-4xl sm:text-6xl',
-          subTitleClass: 'text-3xl',
-        }}
-        doodleColor='text-2025-white'
       />
       <main className={`relative container mx-auto h-full pt-8`}>
         <ViewTransition name='transition-logo'>
