@@ -70,7 +70,7 @@ export const ApprovedArtistsCard = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleActionLeave}
         ref={cardWrapperRef}
-        href={paths.festival[2025].ilustracion}
+        href={paths.festival[2025].base}
         className='relative block size-full will-change-transform'>
         <NewBadget
           color='text-2025-orange'
