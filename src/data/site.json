@@ -16,10 +16,10 @@
   },
   "top_bar": {
     "active": true,
-    "text": "Próximamente: Festival de ilustración **Frijol Mágico 2025** 🌱",
+    "text": "**4 y 5 de Octubre**: Festival de ilustración **Frijol Mágico 2025** 🌱 - _Casa Editorial Universidad de La Serena_",
     "button": {
       "active": true,
-      "text": "Conoce a lxs participantes! 👈"
+      "text": "Revisa la programación! 👈"
     }
   },
   "OG_IMAGE": "/OG.png",
@@ -37,13 +37,13 @@
         "title": "### **Paso 1:** Lee las **Bases**",
         "description": "Encontrarás aquí todas las bases y requisitos para postularse al festival.",
         "link": "https://docs.google.com/document/d/1vHaQMwL9SP3ERegOGeM_vnRJbXeldMHL7nMK2wCKQMA/edit?usp=sharing"
-        },
-        {
-          "title": "### **Paso 2:** Llena el **Formulario**",
-          "description": "Llena el formulario con tus datos personales y de contacto.",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSdB76MflVtT0OmaLFdPV1BebkntFWz9EL3uh8iDxPw_1QHa3w/viewform"
-        }
-      ],
+      },
+      {
+        "title": "### **Paso 2:** Llena el **Formulario**",
+        "description": "Llena el formulario con tus datos personales y de contacto.",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSdB76MflVtT0OmaLFdPV1BebkntFWz9EL3uh8iDxPw_1QHa3w/viewform"
+      }
+    ],
     "seo": {
       "title": "Convocatoria Abierta Frijol Mágico 2025!",
       "description": "Te necesitamos para el próximo festival de Ilustración Frijol Mágico de La Serena y Coquimbo 🌱, lee las bases y postula!"
