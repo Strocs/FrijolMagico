@@ -4,7 +4,7 @@ import { APPROVED_ARTISTS_CONFIG } from '../constants/approvedArtistsConfig'
 import { ApprovedArtist } from '../types'
 
 export async function approvedArtistsRepository(): Promise<ApprovedArtist[]> {
-  if (process.env.VERCEL_ENV === 'development') {
+  if (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'development') {
     return getDataFromMock()
   }
   const data = await getDataFromCMS<ApprovedArtist>(APPROVED_ARTISTS_CONFIG)
