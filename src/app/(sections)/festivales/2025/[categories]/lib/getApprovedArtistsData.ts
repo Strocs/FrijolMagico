@@ -1,37 +1,24 @@
-import { DataResult, getDataByEnv } from '@/services/getDataByEnv'
-import { ApprovedArtist } from '@/types/artists'
-import { getMockApprovedArtistsData } from './mocks/getApprovedArtistsData.mock'
-import { APPROVED_ARTISTS_SHEET_HEADERS } from './approvedArtistsConstants'
+import { ApprovedArtist } from '../types'
+import { approvedArtistsRepository } from '../adapters/approvedArtistsRepository'
+import { ErrorObject } from '@/types/errors'
 
 // Initialize the Google Spreadsheet
-export async function getApprovedArtistsData(): Promise<
-  DataResult<ApprovedArtist>
-> {
+export async function getApprovedArtistsData(): Promise<{
+  data: ApprovedArtist[]
+  error: ErrorObject
+}> {
   try {
-    const approvedArtistId = process.env.APPROVED_ARTISTS_SHEET_ID
-
-    const { data, success } = await getDataByEnv<ApprovedArtist>({
-      mockFn: getMockApprovedArtistsData,
-      sheetId: approvedArtistId,
-      headers: APPROVED_ARTISTS_SHEET_HEADERS,
-    })
-
-    if (!success || !data) {
-      throw new Error(
-        'Data not found or an error occurred while fetching approved artists.',
-      )
-    }
+    const data = await approvedArtistsRepository()
 
     return {
       data,
-      success,
+      error: null,
     }
   } catch (error) {
     const err = error as Error
     console.error(err.message)
     return {
       data: [],
-      success: false,
       error: {
         message:
           'Error al obtener los artistas aprobados. Por favor intente nuevamente más tarde.',
@@ -39,4 +26,3 @@ export async function getApprovedArtistsData(): Promise<
     }
   }
 }
-

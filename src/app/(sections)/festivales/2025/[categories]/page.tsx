@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { unstable_ViewTransition as ViewTransition } from 'react'
 import siteData from '@/data/site.json'
 import { ErrorSection } from '@/components/ErrorSection'
-import { normalizeString } from '@/lib/utils'
+import { normalizeString } from '@/utils/utils'
 import { ApprovedArtistsPresentation } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsPresentation'
 import { ApprovedArtistsCategoriesNav } from '@/app/(sections)/festivales/2025/[categories]/components/ApprovedArtistsCategoriesNav'
 import { Header } from '@/components/Header'
@@ -18,7 +18,7 @@ export default async function ApprovedArtistsPage({
 }: {
   params: Promise<CategoryParams>
 }) {
-  const { data, success, error } = await getApprovedArtistsData()
+  const { data, error } = await getApprovedArtistsData()
 
   const groupedArtists = Object.groupBy(data || [], ({ category }) =>
     normalizeString(category),
@@ -49,7 +49,7 @@ export default async function ApprovedArtistsPage({
         <ViewTransition name='transition-logo'>
           <SectionHomeButton />
         </ViewTransition>
-        {!success && error ? (
+        {error ? (
           <ErrorSection error={error.message} />
         ) : (
           <>
