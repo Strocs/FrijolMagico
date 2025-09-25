@@ -16,7 +16,7 @@ export const ScheduleNav = ({ onSelectDay, selectedDay }: ScheduleNavProps) => {
           },
         )}
         onClick={() => onSelectDay(1)}>
-        Viernes 4
+        Viernes 3
       </button>
       <button
         className={cn(
@@ -27,7 +27,7 @@ export const ScheduleNav = ({ onSelectDay, selectedDay }: ScheduleNavProps) => {
           },
         )}
         onClick={() => onSelectDay(2)}>
-        Sábado 5
+        Sábado 4
       </button>
     </nav>
   )
