@@ -3,7 +3,7 @@ import siteData from '@/data/site.json'
 const SITE = siteData
 import { Spotify } from '@/components/icons/Spotify'
 import clsx from 'clsx'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 export const SpotifyCard = ({
   orientation = 'horizontal',

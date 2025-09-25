@@ -1,5 +1,5 @@
 import { Selector } from '@/types/media-queries'
-import { classVariantSelector } from '@/lib/classVariantSelector'
+import { classVariantSelector } from '@/utils/classVariantSelector'
 import clsx from 'clsx'
 
 interface Props {

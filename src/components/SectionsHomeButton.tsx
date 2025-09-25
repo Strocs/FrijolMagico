@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 export const SectionHomeButton = () => {
   const [visible, setVisible] = useState(true)
