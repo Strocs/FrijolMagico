@@ -4,7 +4,7 @@ import { getDataFromCatalogMock } from './mocks/catalogData.mock'
 import { CATALOG_CONFIG } from '../constants/catalogConfig'
 
 export async function catalogRepository(): Promise<RawCatalogArtist[]> {
-  if (process.env.VERCEL_ENV === 'development') {
+  if (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'development') {
     return getDataFromCatalogMock()
   }
 
