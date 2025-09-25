@@ -12,6 +12,7 @@ export const paths = {
     2025: {
       base: '/festivales/2025',
       apply: '/festivales/2025/aplicar',
+      schedule: '/festivales/2025/programacion',
       ilustracion: '/festivales/2025/ilustracion',
       manualidades: '/festivales/2025/manualidades',
       narrativagrafica: '/festivales/2025/narrativagrafica',
