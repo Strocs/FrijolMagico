@@ -12,6 +12,7 @@ export async function getCatalogData(): Promise<{
 
     const catalogData = addCollectiveRelationship(data)
 
+    console.log(catalogData[0])
     return {
       data: formatArtistData(catalogData),
       error: null,
@@ -33,7 +34,7 @@ export const addCollectiveRelationship = (
   artists: RawCatalogArtist[],
 ): CatalogArtist[] => {
   return artists.map((artist) => {
-    if (!artist.collective) return { ...artists, collective: null }
+    if (!artist.collective) return { ...artist, collective: null }
 
     const collectiveMembers = artists.filter((member) => {
       return member.collective === artist.collective && member.id !== artist.id
