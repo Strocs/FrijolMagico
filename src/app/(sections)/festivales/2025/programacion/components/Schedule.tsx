@@ -18,30 +18,26 @@ export const Schedule = ({ schedule }: ScheduleProps) => {
 
   const timeList = getTimeList(schedule)
 
-  return (
-    <section className='grid gap-24'>
-      {timeList.map((time, index) => {
-        const eventsbyTime = getEventByTime(time, schedule)
+  return timeList.map((time, index) => {
+    const eventsbyTime = getEventByTime(time, schedule)
 
-        return (
-          <div key={time + index} className='space-y-10'>
-            <hr className={cn(['border-2 border-dashed'])} />
-            <section className='flex h-fit gap-2 md:gap-10'>
-              <h3
-                className={cn([
-                  'font-fira -scale-100 text-end text-2xl leading-[1.5rem] font-black tracking-wider [writing-mode:vertical-lr] md:text-4xl',
-                ])}>
-                {time}
-              </h3>
-              <ul className='flex w-full flex-wrap gap-x-6 gap-y-10'>
-                {eventsbyTime.map((event) => (
-                  <ScheduleItem key={event.title} {...event} />
-                ))}
-              </ul>
-            </section>
-          </div>
-        )
-      })}
-    </section>
-  )
+    return (
+      <div key={time + index} className='space-y-10'>
+        <hr className={cn(['text-2025-white border-2 border-dashed'])} />
+        <section className='flex h-fit gap-2 md:gap-10'>
+          <h3
+            className={cn([
+              'font-superfortress text-2025-white -scale-100 text-center text-2xl leading-[1.5rem] font-bold tracking-wider [writing-mode:vertical-lr] md:text-4xl',
+            ])}>
+            {time}
+          </h3>
+          <ul className='flex w-full flex-wrap gap-x-6 gap-y-10'>
+            {eventsbyTime.map((event) => (
+              <ScheduleItem key={event.title} {...event} />
+            ))}
+          </ul>
+        </section>
+      </div>
+    )
+  })
 }
