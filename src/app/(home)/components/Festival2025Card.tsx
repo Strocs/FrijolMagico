@@ -10,7 +10,7 @@ import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 gsap.registerPlugin(useGSAP)
 
-export const ApprovedArtistsCard = () => {
+export const Festival2025Card = () => {
   const cardWrapperRef = useRef<HTMLAnchorElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
 
@@ -111,7 +111,8 @@ export const ApprovedArtistsCard = () => {
             </h2>
             <div>
               <p className='font-josefin text-sm leading-none uppercase'>
-                Ilustración <br /> Manualidades <br /> Narrativa Gráfica
+                Casa Editorial <br />
+                Universidad de <br /> La Serena
               </p>
               <DoodleLine
                 height='40px'

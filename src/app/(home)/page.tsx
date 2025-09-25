@@ -5,7 +5,7 @@ import { HeroCard } from './components/HeroCard'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { SpotifyCard } from './components/SpotifyCard'
 import { RRSSCard } from './components/RRSSCard'
-import { ApprovedArtistsCard } from './components/ApprovedArtistsCard'
+import { Festival2025Card } from './components/Festival2025Card'
 import { DoodleLine } from '@/components/DoodleLine'
 import { unstable_ViewTransition as ViewTransition } from 'react'
 
@@ -26,7 +26,7 @@ export default function Home() {
         <GridItem
           row={{ base: 2, sm: 2, lg: 2 }}
           col={{ base: 1, sm: 3, lg: 3 }}>
-          <ApprovedArtistsCard />
+          <Festival2025Card />
         </GridItem>
         <GridItem
           row={{ base: 2, sm: 2, lg: 2 }}
