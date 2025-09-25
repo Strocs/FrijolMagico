@@ -1,5 +1,7 @@
 import { Schedule } from './components/Schedule'
 import { getFestivalScheduleData } from './lib/getFestivalScheduleData'
+import { FestivalHeader } from '../components/FestivalHeader'
+import { ScheduleWrapper } from './components/ScheduleWrapper'
 
 const {
   data: { firstDay, secondDay },
@@ -12,8 +14,13 @@ export default function ProgramacionPage() {
   }
 
   return (
-    <div>
-      <Schedule schedule={firstDay} />
-    </div>
+    <>
+      <FestivalHeader
+        title={'# Programación'}
+        subTitle={'## Festival Frijol Mágico 2025'}
+        description='Revisa la programación completa del Festival Frijol Mágico 2025 y no te pierdas ningún detalle.'
+      />
+      <ScheduleWrapper firstDay={firstDay} secondDay={secondDay} />
+    </>
   )
 }
