@@ -30,6 +30,7 @@ export const ScheduleItem = ({
         {speakerSocialLink ? (
           <a
             target='_blank'
+            rel='noopener noreferrer'
             href={speakerSocialLink}
             className='mt-1 flex items-center gap-1 font-light hover:underline'>
             {speaker}
@@ -50,6 +51,8 @@ export const ScheduleItem = ({
         {!!infoLink && (
           <>
             <a
+              target='_blank'
+              rel='noopener noreferrer'
               href={infoLink}
               className='hover:text-2025-yellow w-full py-1.5 whitespace-nowrap transition duration-300'>
               Más info
@@ -59,6 +62,8 @@ export const ScheduleItem = ({
         )}
         {!!inscriptionLink && (
           <a
+            target='_blank'
+            rel='noopener noreferrer'
             className='hover:text-2025-yellow w-full py-1.5 whitespace-nowrap transition duration-300'
             href={inscriptionLink}>
             Inscríbete aquí
