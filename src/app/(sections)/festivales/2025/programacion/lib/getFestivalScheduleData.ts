@@ -13,8 +13,8 @@ export async function getFestivalScheduleData(): Promise<{
   try {
     const [firstDay, secondDay] = await ScheduleRepository()
 
-    const firstDayAppData = firstDay.map((item) => mapToAppSchedule(item))
-    const secondDayAppData = secondDay.map((item) => mapToAppSchedule(item))
+    const firstDayAppData = mapToAppSchedule(firstDay)
+    const secondDayAppData = mapToAppSchedule(secondDay)
 
     return {
       data: {
