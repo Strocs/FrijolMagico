@@ -1,7 +1,8 @@
-import { Schedule } from './components/Schedule'
+import { unstable_ViewTransition as ViewTransition } from 'react'
 import { getFestivalScheduleData } from './lib/getFestivalScheduleData'
 import { FestivalHeader } from '../components/FestivalHeader'
 import { ScheduleWrapper } from './components/ScheduleWrapper'
+import { SectionHomeButton } from '@/components/SectionsHomeButton'
 
 const {
   data: { firstDay, secondDay },
@@ -20,6 +21,9 @@ export default function ProgramacionPage() {
         subTitle={'## Festival Frijol Mágico 2025'}
         description='Revisa la programación completa del Festival Frijol Mágico 2025 y no te pierdas ningún detalle.'
       />
+      <ViewTransition name='transition-logo'>
+        <SectionHomeButton />
+      </ViewTransition>
       <ScheduleWrapper firstDay={firstDay} secondDay={secondDay} />
     </>
   )
