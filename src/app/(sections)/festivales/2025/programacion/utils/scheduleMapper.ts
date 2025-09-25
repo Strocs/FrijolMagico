@@ -1,6 +1,7 @@
 import { AppSchedule, RawSchedule, ScheduleHeaders } from '../types/schedule'
 import {
   FESTIVAL_SCHEDULE_SHEET_HEADERS,
+  WORKSHOP_FORM_SELECTION,
   WORKSHOP_INSCRIPTION_LINK,
 } from '../constants/festivalScheduleConstants'
 
@@ -26,7 +27,11 @@ export const mapToAppSchedule = (
         inscriptionLink:
           // This is business rule
           item[headers.activityType]?.toLowerCase().trim() === 'taller'
-            ? WORKSHOP_INSCRIPTION_LINK
+            ? WORKSHOP_INSCRIPTION_LINK +
+                '?entry.2092970081=' +
+                WORKSHOP_FORM_SELECTION[
+                  item[headers.speaker] as keyof typeof WORKSHOP_FORM_SELECTION
+                ] || ''
             : null,
       }
     })
