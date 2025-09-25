@@ -5,7 +5,7 @@ import '@/styles/globals.css'
 import { TopBarInfo } from '@/components/TopBarInfo'
 import { Background } from '@/components/Background'
 import localFont from 'next/font/local'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 const SITE = siteData
 

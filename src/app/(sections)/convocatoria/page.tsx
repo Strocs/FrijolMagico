@@ -7,10 +7,11 @@ import ReactMarkdown from 'react-markdown'
 import { paths } from '@/config/paths'
 import { unstable_ViewTransition as ViewTransition } from 'react'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
+import { Metadata } from 'next'
 
 const { apply } = siteData
 
-export const metadata = {
+export const metadata: Metadata = {
   title: apply.seo.title,
   description: apply.seo.description,
 }
