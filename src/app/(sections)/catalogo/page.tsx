@@ -13,16 +13,17 @@ import { CatalogSearchSection } from './components/CatalogSearchSection'
 import { CatalogFiltersInitializer } from './components/CatalogFiltersInitializer'
 import { getCatalogData } from './lib/getCatalogData'
 import { SectionHomeButton } from '@/components/SectionsHomeButton'
+import { Metadata } from 'next'
 
 const { catalog } = siteData
 
-export const metadata = {
+export const metadata: Metadata = {
   title: catalog.seo.title,
   description: catalog.seo.description,
 }
 
 export default async function CatalogPage() {
-  const { data, error, success } = await getCatalogData()
+  const { data, error } = await getCatalogData()
 
   return (
     <>
@@ -33,7 +34,7 @@ export default async function CatalogPage() {
       <main className='container mx-auto w-full px-4 py-8'>
         {/* Search and Filter Section */}
         <CatalogFiltersInitializer />
-        {!success && error ? (
+        {error ? (
           <ErrorSection error={error.message} />
         ) : (
           <>

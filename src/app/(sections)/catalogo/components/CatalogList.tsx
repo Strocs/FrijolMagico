@@ -1,12 +1,12 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import type { CatalogArtist } from '@/types/artists'
+import type { CatalogArtist } from '../types/catalog'
 import { CatalogArtistCard } from './CatalogArtistCard'
 import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
 import { Pagination } from '@/components/ui/Pagination'
 import { CatalogCardLoader } from './CatalogSkeletonLoaders'
-import { filterCatalog } from '../lib/filterUtils'
+import { filterCatalog } from '../utils/filterUtils'
 
 interface CatalogListProps {
   catalog: CatalogArtist[]

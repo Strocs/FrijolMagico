@@ -4,7 +4,7 @@ import {
   getFiltersFromURL,
   updateURLParams,
   urlHasFilters,
-} from '../lib/urlFilters'
+} from '../utils/urlFilters'
 
 interface CatalogFiltersState {
   filters: CatalogFilterValues

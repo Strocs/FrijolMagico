@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import type { CatalogArtist } from '@/types/artists'
+import type { CatalogArtist } from '../types/catalog'
 import { Instagram, Mail } from 'lucide-react'
 import { useCatalogPanelStore } from '../store/useCatalogPanelStore'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 export const CatalogArtistCard = ({
   id,

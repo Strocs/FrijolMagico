@@ -1,4 +1,4 @@
-import { FILTER_LABELS } from '../lib/filterConstants'
+import { FILTER_LABELS } from '../constants/filterConstants'
 
 export interface CatalogFilterValues {
   category: string[]

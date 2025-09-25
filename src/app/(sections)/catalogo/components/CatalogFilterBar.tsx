@@ -1,14 +1,14 @@
 'use client'
 import { CatalogFilter } from './CatalogFilter'
-import { normalizeString } from '@/lib/utils'
-import type { CatalogArtist } from '@/types/artists'
+import { normalizeString } from '@/utils/utils'
+import type { CatalogArtist } from '../types/catalog'
 import { useState, useCallback } from 'react'
 import { useCatalogFiltersStore } from '../store/useCatalogFiltersStore'
 import { CatalogFiltersBarLoader } from './CatalogSkeletonLoaders'
-import { urlHasFilters } from '../lib/urlFilters'
+import { urlHasFilters } from '../utils/urlFilters'
 import { CatalogSelectionFilterKey } from '../types/filters'
-import { getFiltersData } from '../lib/filterUtils'
-import { FILTER_KEYS } from '../lib/filterConstants'
+import { getFiltersData } from '../utils/filterUtils'
+import { FILTER_KEYS } from '../constants/filterConstants'
 
 interface CatalogFilterBarProps {
   catalogData: CatalogArtist[]

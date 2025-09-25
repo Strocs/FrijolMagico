@@ -1,4 +1,4 @@
-import { CatalogArtist } from '@/types/artists'
+import { CatalogArtist } from '../types/catalog'
 import { CatalogSearchBar } from './CatalogSearchBar'
 import { CatalogFilterBar } from './CatalogFilterBar'
 

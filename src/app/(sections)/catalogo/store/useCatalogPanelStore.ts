@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { CatalogArtist } from '@/types/artists'
+import type { CatalogArtist } from '../types/catalog'
 
 interface CatalogPanelState {
   selectedArtist: CatalogArtist | null

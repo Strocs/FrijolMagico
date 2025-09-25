@@ -1,37 +1,26 @@
-import { type DataResult, getDataByEnv } from '@/services/getDataByEnv'
-import type { CatalogArtist, RawCatalogArtist } from '@/types/artists'
-import { getMockCatalogData } from './mocks/getCatalogData.mock'
-import { formatUrlWithoutQuery } from '@/lib/utils'
-import { CATALOG_SHEET_HEADERS } from './filterConstants'
+import type { CatalogArtist, RawCatalogArtist } from '../types/catalog'
+import { formatUrlWithoutQuery } from '@/utils/utils'
+import { catalogRepository } from '../adapters/catalogRepository'
+import { ErrorObject } from '@/types/errors'
 
-export async function getCatalogData(): Promise<DataResult<CatalogArtist>> {
+export async function getCatalogData(): Promise<{
+  data: CatalogArtist[]
+  error: ErrorObject
+}> {
   try {
-    const catalogId = process.env.CATALOG_SHEET_ID
-
-    const { data, success } = await getDataByEnv<RawCatalogArtist>({
-      mockFn: getMockCatalogData,
-      sheetId: catalogId,
-      headers: CATALOG_SHEET_HEADERS,
-    })
-
-    if (!success || !data) {
-      throw new Error(
-        'Data not found or an error occurred while fetching catalog artists.',
-      )
-    }
+    const data = await catalogRepository()
 
     const catalogData = addCollectiveRelationship(data)
 
     return {
       data: formatArtistData(catalogData),
-      success,
+      error: null,
     }
   } catch (error) {
     const err = error as Error
     console.error(err.message)
     return {
       data: [],
-      success: false,
       error: {
         message:
           'Error al obtener los artistas del catálogo. Por favor intente nuevamente más tarde.',
@@ -44,7 +33,7 @@ export const addCollectiveRelationship = (
   artists: RawCatalogArtist[],
 ): CatalogArtist[] => {
   return artists.map((artist) => {
-    if (!artist.collective) return { ...artist, collective: null }
+    if (!artist.collective) return { ...artists, collective: null }
 
     const collectiveMembers = artists.filter((member) => {
       return member.collective === artist.collective && member.id !== artist.id
@@ -60,7 +49,7 @@ export const addCollectiveRelationship = (
         })),
       },
     }
-  })
+  }) as CatalogArtist[]
 }
 
 export const formatArtistData = (

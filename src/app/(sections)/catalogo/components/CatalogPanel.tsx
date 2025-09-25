@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react'
 import { Instagram, Mail, X } from 'lucide-react'
 import { useCatalogPanelStore } from '../store/useCatalogPanelStore'
-import { getInstagramUserTag } from '@/lib/utils'
-import { cn } from '@/lib/utils'
+import { getInstagramUserTag } from '@/utils/utils'
+import { cn } from '@/utils/utils'
 import Image from 'next/image'
-import { CatalogArtist } from '@/types/artists'
+import { CatalogArtist } from '../types/catalog'
 import Markdown from 'react-markdown'
 
 export const CatalogPanel = ({
