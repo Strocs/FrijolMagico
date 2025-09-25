@@ -4,7 +4,7 @@ import { RawSchedule } from '../types/schedule'
 import { getDataFromMock } from './mocks/scheduleData.mock'
 
 export async function ScheduleRepository(): Promise<RawSchedule[][]> {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.VERCEL_ENV === 'development') {
     return getDataFromMock()
   }
 
