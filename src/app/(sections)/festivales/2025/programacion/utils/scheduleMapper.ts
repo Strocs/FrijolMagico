@@ -3,6 +3,7 @@ import {
   FESTIVAL_SCHEDULE_SHEET_HEADERS,
   WORKSHOP_INSCRIPTION_LINK,
 } from '../constants/festivalScheduleConstants'
+import { isWorkshop } from '../constants/rules'
 
 export const mapToAppSchedule = (
   rawList: RawSchedule[],
@@ -22,7 +23,9 @@ export const mapToAppSchedule = (
       infoLink: !!item[headers.infoLink]
         ? String(item[headers.infoLink])
         : null,
-      inscriptionLink: WORKSHOP_INSCRIPTION_LINK,
+      inscriptionLink: isWorkshop(String(item[headers.activityType]))
+        ? WORKSHOP_INSCRIPTION_LINK
+        : null,
     }
   })
 

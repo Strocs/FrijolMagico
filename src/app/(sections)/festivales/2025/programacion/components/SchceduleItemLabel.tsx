@@ -1,12 +1,12 @@
 import { cn } from '@/utils/utils'
+import { isWorkshop } from '../constants/rules'
 
 interface ScheduleItemLabelProps {
   text: string
 }
 
 export const ScheduleItemLabel = ({ text }: ScheduleItemLabelProps) => {
-  const labelColor =
-    text.toLowerCase().trim() === 'taller' ? 'bg-2025-purple' : 'bg-fm-black'
+  const labelColor = isWorkshop(text) ? 'bg-2025-purple' : 'bg-fm-black'
   return (
     <span
       className={cn(
