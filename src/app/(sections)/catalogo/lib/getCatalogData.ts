@@ -12,7 +12,6 @@ export async function getCatalogData(): Promise<{
 
     const catalogData = addCollectiveRelationship(data)
 
-    console.log(catalogData[0])
     return {
       data: formatArtistData(catalogData),
       error: null,
