@@ -1,7 +1,7 @@
 import { cn } from '@/utils/utils'
 import { type AppSchedule as ScheduleItemProps } from '../types/schedule'
 import { ScheduleItemLabel } from './SchceduleItemLabel'
-import { ExternalLink } from 'lucide-react'
+import { ScheduleSpeakerName } from './ScheduleSpeakerName'
 
 export const ScheduleItem = ({
   title,
@@ -19,26 +19,18 @@ export const ScheduleItem = ({
       className={cn([
         'hover:text-2025-white text-fm-black before:bg-2025-white after:bg-fm-black',
         'group relative grid h-fit min-h-44 w-full max-w-[340px] gap-4 px-4 pt-8 leading-4 shadow-lg duration-300',
-        "before:absolute before:-z-20 before:h-full before:w-full before:content-['']",
-        "after:absolute after:bottom-0 after:-z-10 after:h-7 after:w-full after:duration-300 after:content-[''] hover:after:h-full",
+        "before:absolute before:-z-20 before:h-full before:w-full before:rounded-xl before:content-['']",
+        "after:absolute after:bottom-0 after:-z-10 after:h-7 after:w-full after:rounded-b-xl after:duration-300 after:content-[''] hover:after:h-full hover:after:rounded-t-xl",
       ])}>
-      <ScheduleItemLabel>{activityType}</ScheduleItemLabel>
+      <ScheduleItemLabel text={activityType} />
       <header>
         <h2 className='group-hover:text-2025-yellow text-fm-black font-bold tracking-wide uppercase duration-300'>
           {title}
         </h2>
-        {speakerSocialLink ? (
-          <a
-            target='_blank'
-            rel='noopener noreferrer'
-            href={speakerSocialLink}
-            className='mt-1 flex items-center gap-1 font-light hover:underline'>
-            {speaker}
-            <ExternalLink size={14} strokeWidth={1.2} />
-          </a>
-        ) : (
-          <p className='mt-1 flex items-center gap-1 font-light'>{speaker}</p>
-        )}
+        <ScheduleSpeakerName
+          speaker={speaker}
+          speakerSocialLink={speakerSocialLink}
+        />
       </header>
       <section className='grid gap-4'>
         <div className='flex items-end justify-between gap-4 self-end'>
