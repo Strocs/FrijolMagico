@@ -11,14 +11,14 @@ export interface AppSchedule {
 }
 
 export interface RawSchedule {
-  Horario: string
-  'Tipo de actividad': string
-  'Nombre de la actividad': string
-  Descripción: string
-  Encargado: string
-  'Duración (min)': string
-  RRSS: string
-  Información: string
+  Horario?: string
+  'Tipo de actividad'?: string
+  'Nombre de la actividad'?: string
+  Descripción?: string
+  Encargado?: string
+  'Duración (min)'?: string
+  RRSS?: string
+  Información?: string
 }
 
 export type ScheduleHeaders = Record<
