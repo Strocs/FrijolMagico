@@ -4,8 +4,8 @@ export interface AppSchedule {
   activityType: string
   startingTime: string
   duration: number // in minutes
-  speaker: string
-  speakerSocialLink: string | null
+  speaker: string | string[]
+  speakerSocialLink: string | string[] | null
   infoLink: string | null
   inscriptionLink: string | null
 }
@@ -18,7 +18,7 @@ export interface RawSchedule {
   Encargado: string
   'Duración (min)': string
   RRSS: string
-  Información?: string
+  Información: string
 }
 
 export type ScheduleHeaders = Record<
