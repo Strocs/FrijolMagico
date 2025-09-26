@@ -10,7 +10,7 @@ export const ScheduleSpeakerName = ({
   speaker,
   speakerSocialLink,
 }: ScheduleSpeakerNameProps) => {
-  if (!speaker) return null
+  if (!speaker || speaker === '') return null
 
   const isSpeakerList = Array.isArray(speaker)
   const isSpeakerSocialLinkList = Array.isArray(speakerSocialLink)
