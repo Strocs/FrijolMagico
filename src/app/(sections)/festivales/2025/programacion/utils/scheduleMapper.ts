@@ -16,9 +16,9 @@ export const mapToAppSchedule = (
       activityType: String(item[headers.activityType] ?? ''),
       title: String(item[headers.title] ?? ''),
       description: String(item[headers.description] ?? ''),
-      speaker: parseSpeaker(String(item[headers.speaker])),
+      speaker: parseSpeaker(item[headers.speaker]),
       speakerSocialLink: parseSpeakerSocialLink(
-        String(item[headers.speakerSocialLink]),
+        item[headers.speakerSocialLink],
       ),
       infoLink: !!item[headers.infoLink]
         ? String(item[headers.infoLink])
@@ -35,7 +35,7 @@ export const mapToAppSchedule = (
 const parseSpeaker = (
   speaker: RawSchedule['Encargado'],
 ): AppSchedule['speaker'] => {
-  if (!speaker || speaker.trim() === '') return ''
+  if (typeof speaker === 'undefined' || !speaker.trim()) return ''
 
   const speakersList = speaker.split(',').map((s) => s.trim())
 
