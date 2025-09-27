@@ -1,4 +1,4 @@
-import { getDataFromCMS } from '@/lib/getDataFromCMS'
+import { getDataFromCMS } from '@/infra/getDataFromCMS'
 import { RawCatalogArtist } from '../types/catalog'
 import { getDataFromCatalogMock } from './mocks/catalogData.mock'
 import { CATALOG_CONFIG } from '../constants/catalogConfig'
