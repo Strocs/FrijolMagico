@@ -1,5 +1,5 @@
 import { SCHEDULE_CONFIG } from '../constants/scheduleConfig'
-import { getDataFromCMS } from '@/services/getDataFromCMS'
+import { getDataFromCMS } from '@/infra/getDataFromCMS'
 import { RawSchedule } from '../types/schedule'
 import { getDataFromMock } from './mocks/scheduleData.mock'
 

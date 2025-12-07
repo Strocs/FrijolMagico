@@ -1,4 +1,4 @@
-import { CMSConfig } from '@/lib/getDataFromCMS'
+import { CMSConfig } from '@/infra/getDataFromCMS'
 
 export const SCHEDULE_CONFIG: CMSConfig = {
   sheetIndex: [1, 2],

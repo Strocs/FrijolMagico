@@ -3,7 +3,7 @@ import { ApprovedArtist } from '../../types'
 import {
   getRandomName,
   getRandomInstagram,
-} from '@/lib/__mocks__/mockDataUtils'
+} from '@/infra/__mocks__/mockDataUtils'
 
 const quantitys: number[] = [40, 10, 10]
 

@@ -1,4 +1,4 @@
-import { getDataFromCMS } from '@/lib/getDataFromCMS'
+import { getDataFromCMS } from '@/infra/getDataFromCMS'
 import { getDataFromMock } from './mocks/approvedArtistsData.mock'
 import { APPROVED_ARTISTS_CONFIG } from '../constants/approvedArtistsConfig'
 import { ApprovedArtist } from '../types'

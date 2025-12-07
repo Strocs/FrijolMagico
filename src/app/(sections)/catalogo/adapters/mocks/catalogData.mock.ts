@@ -2,7 +2,7 @@ import { Categories } from '@/types/artists'
 import {
   getRandomName,
   getRandomInstagram,
-} from '@/lib/__mocks__/mockDataUtils'
+} from '@/infra/__mocks__/mockDataUtils'
 import { RawCatalogArtist } from '../../types/catalog'
 
 const quantitys: number[] = [30, 10, 10]

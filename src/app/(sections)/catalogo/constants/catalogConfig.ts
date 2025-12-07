@@ -1,4 +1,4 @@
-import { CMSConfig } from '@/lib/getDataFromCMS'
+import { CMSConfig } from '@/infra/getDataFromCMS'
 
 export const CATALOG_CONFIG: CMSConfig = {
   sheetIndex: 0,
