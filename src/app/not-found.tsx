@@ -1,7 +1,7 @@
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 
 export default function NotFound() {
   return (

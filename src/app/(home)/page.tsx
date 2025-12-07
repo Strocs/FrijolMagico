@@ -7,7 +7,7 @@ import { SpotifyCard } from './components/SpotifyCard'
 import { RRSSCard } from './components/RRSSCard'
 import { Festival2025Card } from './components/Festival2025Card'
 import { DoodleLine } from '@/components/DoodleLine'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 
 export default function Home() {
   return (

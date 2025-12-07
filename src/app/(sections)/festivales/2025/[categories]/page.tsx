@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import siteData from '@/data/site.json'
 import { ErrorSection } from '@/components/ErrorSection'
 import { normalizeString } from '@/utils/utils'

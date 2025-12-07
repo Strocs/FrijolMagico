@@ -1,4 +1,4 @@
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import { getFestivalScheduleData } from './lib/getFestivalScheduleData'
 import { FestivalHeader } from '../components/FestivalHeader'
 import { ScheduleWrapper } from './components/ScheduleWrapper'

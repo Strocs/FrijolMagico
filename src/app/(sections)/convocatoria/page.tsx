@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import { paths } from '@/config/paths'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import { LogoHomeLink } from '@/components/LogoHomeLink'
 import { Metadata } from 'next'
 

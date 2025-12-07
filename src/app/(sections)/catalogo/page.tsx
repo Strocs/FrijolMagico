@@ -3,7 +3,7 @@ import { Header } from '@/components/Header'
 import { CatalogList } from './components/CatalogList'
 import { ErrorSection } from '@/components/ErrorSection'
 import siteData from '@/data/site.json'
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import { Suspense } from 'react'
 import {
   CatalogCardLoader,

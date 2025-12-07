@@ -1,4 +1,4 @@
-import { unstable_ViewTransition as ViewTransition } from 'react'
+import { ViewTransition } from 'react'
 import { Grid } from '@/components/Grid'
 import { FestivalHeader } from './components/FestivalHeader'
 import { GridItem } from '@/components/GridItem'
