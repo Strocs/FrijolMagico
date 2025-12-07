@@ -8,7 +8,7 @@ const adjectives = [
   'colorido',
   'mágico',
   'artístico',
-  'expresivo'
+  'expresivo',
 ]
 
 const names = [
@@ -31,7 +31,7 @@ const names = [
   'Cristóbal',
   'Alejandro',
   'Camila',
-  'Martín'
+  'Martín',
 ]
 
 const lastNames = [
@@ -54,7 +54,7 @@ const lastNames = [
   'Muñoz',
   'Sánchez',
   'Paz',
-  'Alejandra'
+  'Alejandra',
 ]
 
 export function getRandomName() {
@@ -64,7 +64,8 @@ export function getRandomName() {
 }
 
 export function getRandomInstagram() {
-  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)]
+  const randomAdjective =
+    adjectives[Math.floor(Math.random() * adjectives.length)]
   const randomName = names[Math.floor(Math.random() * names.length)]
   return `https://instagram.com/${randomAdjective}_${randomName.toLowerCase()}`
 }

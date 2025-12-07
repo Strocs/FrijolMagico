@@ -67,12 +67,12 @@ export function Pagination({
       if (startPage > 2) {
         pageNumbers.push(
           <Button
-          key='ellipsis-start'
-          variant='ghost'
-          size='sm'
-          className='cursor-default'
-          disabled
-          aria-hidden='true'>
+            key='ellipsis-start'
+            variant='ghost'
+            size='sm'
+            className='cursor-default'
+            disabled
+            aria-hidden='true'>
             <MoreHorizontal className='h-4 w-4' />
           </Button>,
         )
@@ -99,12 +99,12 @@ export function Pagination({
       if (endPage < totalPages - 1) {
         pageNumbers.push(
           <Button
-          key='ellipsis-end'
-          variant='ghost'
-          size='sm'
-          className='cursor-default'
-          disabled
-          aria-hidden='true'>
+            key='ellipsis-end'
+            variant='ghost'
+            size='sm'
+            className='cursor-default'
+            disabled
+            aria-hidden='true'>
             <MoreHorizontal className='h-4 w-4' />
           </Button>,
         )

@@ -39,7 +39,6 @@ The website serves as a digital meeting point for this community, providing info
    ```
 
 3. **Set up environment variables**
-
    - Create a `.env.local` file in the root directory
    - Add the required environment variables (see Environment Variables section)
 
